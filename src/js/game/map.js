@@ -1,11 +1,11 @@
-import { globalConfig } from "../core/config";
-import { Vector } from "../core/vector";
-import { BasicSerializableObject, types } from "../savegame/serialization";
-import { BaseItem } from "./base_item";
-import { Entity } from "./entity";
-import { MapChunkAggregate } from "./map_chunk_aggregate";
-import { MapChunkView } from "./map_chunk_view";
-import { GameRoot } from "./root";
+import {globalConfig} from "../core/config";
+import {Vector} from "../core/vector";
+import {BasicSerializableObject, types} from "../savegame/serialization";
+import {BaseItem} from "./base_item";
+import {Entity} from "./entity";
+import {MapChunkAggregate} from "./map_chunk_aggregate";
+import {MapChunkView} from "./map_chunk_view";
+import {GameRoot} from "./root";
 
 export class BaseMap extends BasicSerializableObject {
     static getId() {

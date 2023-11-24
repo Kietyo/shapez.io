@@ -1,7 +1,7 @@
-import { GameRoot } from "../root";
-import { globalConfig } from "../../core/config";
-import { Vector, mixVector } from "../../core/vector";
-import { lerp } from "../../core/utils";
+import {GameRoot} from "../root";
+import {globalConfig} from "../../core/config";
+import {mixVector, Vector} from "../../core/vector";
+import {lerp} from "../../core/utils";
 
 /* dev:start */
 import trailerPoints from "./trailer_points";

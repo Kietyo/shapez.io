@@ -1,8 +1,8 @@
-import { types } from "../../savegame/serialization";
-import { BaseItem } from "../base_item";
-import { Component } from "../component";
-import { Entity } from "../entity";
-import { typeItemSingleton } from "../item_resolver";
+import {types} from "../../savegame/serialization";
+import {BaseItem} from "../base_item";
+import {Component} from "../component";
+import {Entity} from "../entity";
+import {typeItemSingleton} from "../item_resolver";
 
 const chainBufferSize = 6;
 

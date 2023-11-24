@@ -1,5 +1,5 @@
-import { SingletonFactory } from "./singleton_factory";
-import { Factory } from "./factory";
+import {SingletonFactory} from "./singleton_factory";
+import {Factory} from "./factory";
 
 /**
  * @typedef {import("../game/time/base_game_speed").BaseGameSpeed} BaseGameSpeed

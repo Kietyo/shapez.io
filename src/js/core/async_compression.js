@@ -1,8 +1,8 @@
 // @ts-ignore
 import CompressionWorker from "../webworkers/compression.worker";
 
-import { createLogger } from "./logging";
-import { round2Digits } from "./utils";
+import {createLogger} from "./logging";
+import {round2Digits} from "./utils";
 
 const logger = createLogger("async_compression");
 

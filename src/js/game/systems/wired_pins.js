@@ -1,13 +1,13 @@
-import { globalConfig } from "../../core/config";
-import { DrawParameters } from "../../core/draw_parameters";
-import { drawRotatedSprite } from "../../core/draw_utils";
-import { Loader } from "../../core/loader";
-import { STOP_PROPAGATION } from "../../core/signal";
-import { enumDirectionToAngle, Vector } from "../../core/vector";
-import { enumPinSlotType, WiredPinsComponent } from "../components/wired_pins";
-import { Entity } from "../entity";
-import { GameSystemWithFilter } from "../game_system_with_filter";
-import { MapChunkView } from "../map_chunk_view";
+import {globalConfig} from "../../core/config";
+import {DrawParameters} from "../../core/draw_parameters";
+import {drawRotatedSprite} from "../../core/draw_utils";
+import {Loader} from "../../core/loader";
+import {STOP_PROPAGATION} from "../../core/signal";
+import {enumDirectionToAngle, Vector} from "../../core/vector";
+import {enumPinSlotType, WiredPinsComponent} from "../components/wired_pins";
+import {Entity} from "../entity";
+import {GameSystemWithFilter} from "../game_system_with_filter";
+import {MapChunkView} from "../map_chunk_view";
 
 /** @type {Object<ItemType, number>} */
 const enumTypeToSize = {

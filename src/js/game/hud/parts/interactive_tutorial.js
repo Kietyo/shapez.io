@@ -1,24 +1,24 @@
-import { BaseHUDPart } from "../base_hud_part";
-import { clamp, makeDiv, smoothPulse } from "../../../core/utils";
-import { GameRoot } from "../../root";
-import { MinerComponent } from "../../components/miner";
-import { DynamicDomAttach } from "../dynamic_dom_attach";
-import { TrackedState } from "../../../core/tracked_state";
-import { cachebust } from "../../../core/cachebust";
-import { T } from "../../../translations";
-import { enumItemProcessorTypes, ItemProcessorComponent } from "../../components/item_processor";
-import { ShapeItem } from "../../items/shape_item";
-import { WireComponent } from "../../components/wire";
-import { LeverComponent } from "../../components/lever";
-import { DrawParameters } from "../../../core/draw_parameters";
-import { globalConfig } from "../../../core/config";
-import { Vector } from "../../../core/vector";
-import { MetaMinerBuilding } from "../../buildings/miner";
-import { gMetaBuildingRegistry } from "../../../core/global_registries";
-import { MetaBeltBuilding } from "../../buildings/belt";
-import { MetaTrashBuilding } from "../../buildings/trash";
-import { SOUNDS } from "../../../platform/sound";
-import { THEME } from "../../theme";
+import {BaseHUDPart} from "../base_hud_part";
+import {clamp, makeDiv, smoothPulse} from "../../../core/utils";
+import {GameRoot} from "../../root";
+import {MinerComponent} from "../../components/miner";
+import {DynamicDomAttach} from "../dynamic_dom_attach";
+import {TrackedState} from "../../../core/tracked_state";
+import {cachebust} from "../../../core/cachebust";
+import {T} from "../../../translations";
+import {enumItemProcessorTypes, ItemProcessorComponent} from "../../components/item_processor";
+import {ShapeItem} from "../../items/shape_item";
+import {WireComponent} from "../../components/wire";
+import {LeverComponent} from "../../components/lever";
+import {DrawParameters} from "../../../core/draw_parameters";
+import {globalConfig} from "../../../core/config";
+import {Vector} from "../../../core/vector";
+import {MetaMinerBuilding} from "../../buildings/miner";
+import {gMetaBuildingRegistry} from "../../../core/global_registries";
+import {MetaBeltBuilding} from "../../buildings/belt";
+import {MetaTrashBuilding} from "../../buildings/trash";
+import {SOUNDS} from "../../../platform/sound";
+import {THEME} from "../../theme";
 
 // @todo: Make dictionary
 const tutorialsByLevel = [

@@ -1,20 +1,19 @@
-import { globalConfig } from "../../../core/config";
-import { gMetaBuildingRegistry } from "../../../core/global_registries";
-import { Signal, STOP_PROPAGATION } from "../../../core/signal";
-import { TrackedState } from "../../../core/tracked_state";
-import { Vector } from "../../../core/vector";
-import { enumMouseButton } from "../../camera";
-import { StaticMapEntityComponent } from "../../components/static_map_entity";
-import { Entity } from "../../entity";
-import { KEYMAPPINGS } from "../../key_action_mapper";
-import { defaultBuildingVariant, MetaBuilding } from "../../meta_building";
-import { BaseHUDPart } from "../base_hud_part";
-import { SOUNDS } from "../../../platform/sound";
-import { MetaMinerBuilding, enumMinerVariants } from "../../buildings/miner";
-import { enumHubGoalRewards } from "../../tutorial_goals";
-import { getBuildingDataFromCode, getCodeFromBuildingData } from "../../building_codes";
-import { MetaHubBuilding } from "../../buildings/hub";
-import { safeModulo } from "../../../core/utils";
+import {gMetaBuildingRegistry} from "../../../core/global_registries";
+import {Signal, STOP_PROPAGATION} from "../../../core/signal";
+import {TrackedState} from "../../../core/tracked_state";
+import {Vector} from "../../../core/vector";
+import {enumMouseButton} from "../../camera";
+import {StaticMapEntityComponent} from "../../components/static_map_entity";
+import {Entity} from "../../entity";
+import {KEYMAPPINGS} from "../../key_action_mapper";
+import {defaultBuildingVariant, MetaBuilding} from "../../meta_building";
+import {BaseHUDPart} from "../base_hud_part";
+import {SOUNDS} from "../../../platform/sound";
+import {enumMinerVariants, MetaMinerBuilding} from "../../buildings/miner";
+import {enumHubGoalRewards} from "../../tutorial_goals";
+import {getBuildingDataFromCode, getCodeFromBuildingData} from "../../building_codes";
+import {MetaHubBuilding} from "../../buildings/hub";
+import {safeModulo} from "../../../core/utils";
 
 /**
  * Contains all logic for the building placer - this doesn't include the rendering

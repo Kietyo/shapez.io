@@ -1,11 +1,11 @@
-import { globalConfig } from "../../core/config";
-import { Loader } from "../../core/loader";
-import { BaseItem } from "../base_item";
-import { enumColors } from "../colors";
-import { GameSystem } from "../game_system";
-import { isTrueItem } from "../items/boolean_item";
-import { ColorItem, COLOR_ITEM_SINGLETONS } from "../items/color_item";
-import { MapChunkView } from "../map_chunk_view";
+import {globalConfig} from "../../core/config";
+import {Loader} from "../../core/loader";
+import {BaseItem} from "../base_item";
+import {enumColors} from "../colors";
+import {GameSystem} from "../game_system";
+import {isTrueItem} from "../items/boolean_item";
+import {COLOR_ITEM_SINGLETONS, ColorItem} from "../items/color_item";
+import {MapChunkView} from "../map_chunk_view";
 
 /** @type {{
  * [x: string]: (item: BaseItem) => BaseItem

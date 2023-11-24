@@ -1,9 +1,9 @@
-import { globalConfig } from "../../core/config";
-import { DrawParameters } from "../../core/draw_parameters";
-import { GameSystem } from "../game_system";
-import { MapChunkView } from "../map_chunk_view";
-import { THEME } from "../theme";
-import { drawSpriteClipped } from "../../core/draw_utils";
+import {globalConfig} from "../../core/config";
+import {DrawParameters} from "../../core/draw_parameters";
+import {GameSystem} from "../game_system";
+import {MapChunkView} from "../map_chunk_view";
+import {THEME} from "../theme";
+import {drawSpriteClipped} from "../../core/draw_utils";
 
 export class MapResourcesSystem extends GameSystem {
     /**

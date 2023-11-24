@@ -1,7 +1,7 @@
-import { globalConfig } from "../core/config";
-import { compressX64 } from "../core/lzstring";
-import { computeCrc } from "../core/sensitive_utils.encrypt";
-import { compressObject } from "../savegame/savegame_compressor";
+import {globalConfig} from "../core/config";
+import {compressX64} from "../core/lzstring";
+import {computeCrc} from "../core/sensitive_utils.encrypt";
+import {compressObject} from "../savegame/savegame_compressor";
 
 function accessNestedPropertyReverse(obj, keys) {
     let result = obj;

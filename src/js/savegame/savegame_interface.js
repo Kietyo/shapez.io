@@ -1,4 +1,4 @@
-import { createLogger } from "../core/logging";
+import {createLogger} from "../core/logging";
 
 const Ajv = require("ajv");
 const ajv = new Ajv({

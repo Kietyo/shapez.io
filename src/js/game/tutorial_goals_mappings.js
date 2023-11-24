@@ -1,21 +1,21 @@
-import { T } from "../translations";
-import { enumBalancerVariants, MetaBalancerBuilding } from "./buildings/balancer";
-import { MetaConstantSignalBuilding } from "./buildings/constant_signal";
-import { enumCutterVariants, MetaCutterBuilding } from "./buildings/cutter";
-import { MetaDisplayBuilding } from "./buildings/display";
-import { MetaFilterBuilding } from "./buildings/filter";
-import { MetaLogicGateBuilding } from "./buildings/logic_gate";
-import { enumMinerVariants, MetaMinerBuilding } from "./buildings/miner";
-import { MetaMixerBuilding } from "./buildings/mixer";
-import { enumPainterVariants, MetaPainterBuilding } from "./buildings/painter";
-import { MetaReaderBuilding } from "./buildings/reader";
-import { enumRotaterVariants, MetaRotaterBuilding } from "./buildings/rotater";
-import { MetaStackerBuilding } from "./buildings/stacker";
-import { MetaStorageBuilding } from "./buildings/storage";
-import { enumUndergroundBeltVariants, MetaUndergroundBeltBuilding } from "./buildings/underground_belt";
-import { defaultBuildingVariant, MetaBuilding } from "./meta_building";
+import {T} from "../translations";
+import {enumBalancerVariants, MetaBalancerBuilding} from "./buildings/balancer";
+import {MetaConstantSignalBuilding} from "./buildings/constant_signal";
+import {enumCutterVariants, MetaCutterBuilding} from "./buildings/cutter";
+import {MetaDisplayBuilding} from "./buildings/display";
+import {MetaFilterBuilding} from "./buildings/filter";
+import {MetaLogicGateBuilding} from "./buildings/logic_gate";
+import {enumMinerVariants, MetaMinerBuilding} from "./buildings/miner";
+import {MetaMixerBuilding} from "./buildings/mixer";
+import {enumPainterVariants, MetaPainterBuilding} from "./buildings/painter";
+import {MetaReaderBuilding} from "./buildings/reader";
+import {enumRotaterVariants, MetaRotaterBuilding} from "./buildings/rotater";
+import {MetaStackerBuilding} from "./buildings/stacker";
+import {MetaStorageBuilding} from "./buildings/storage";
+import {enumUndergroundBeltVariants, MetaUndergroundBeltBuilding} from "./buildings/underground_belt";
+import {defaultBuildingVariant, MetaBuilding} from "./meta_building";
 /** @typedef {Array<[typeof MetaBuilding, string]>} TutorialGoalReward */
-import { enumHubGoalRewards } from "./tutorial_goals";
+import {enumHubGoalRewards} from "./tutorial_goals";
 
 /**
  * Helper method for proper types

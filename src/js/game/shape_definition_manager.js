@@ -1,10 +1,10 @@
-import { createLogger } from "../core/logging";
-import { BasicSerializableObject } from "../savegame/serialization";
-import { enumColors } from "./colors";
-import { ShapeItem } from "./items/shape_item";
-import { GameRoot } from "./root";
-import { enumSubShape, ShapeDefinition } from "./shape_definition";
-import { ACHIEVEMENTS } from "../platform/achievement_provider";
+import {createLogger} from "../core/logging";
+import {BasicSerializableObject} from "../savegame/serialization";
+import {enumColors} from "./colors";
+import {ShapeItem} from "./items/shape_item";
+import {GameRoot} from "./root";
+import {enumSubShape, ShapeDefinition} from "./shape_definition";
+import {ACHIEVEMENTS} from "../platform/achievement_provider";
 
 const logger = createLogger("shape_definition_manager");
 

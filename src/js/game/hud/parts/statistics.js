@@ -1,11 +1,11 @@
-import { InputReceiver } from "../../../core/input_receiver";
-import { makeButton, makeDiv, removeAllChildren } from "../../../core/utils";
-import { KeyActionMapper, KEYMAPPINGS } from "../../key_action_mapper";
-import { enumAnalyticsDataSource } from "../../production_analytics";
-import { BaseHUDPart } from "../base_hud_part";
-import { DynamicDomAttach } from "../dynamic_dom_attach";
-import { enumDisplayMode, HUDShapeStatisticsHandle, statisticsUnitsSeconds } from "./statistics_handle";
-import { T } from "../../../translations";
+import {InputReceiver} from "../../../core/input_receiver";
+import {makeButton, makeDiv, removeAllChildren} from "../../../core/utils";
+import {KeyActionMapper, KEYMAPPINGS} from "../../key_action_mapper";
+import {enumAnalyticsDataSource} from "../../production_analytics";
+import {BaseHUDPart} from "../base_hud_part";
+import {DynamicDomAttach} from "../dynamic_dom_attach";
+import {enumDisplayMode, HUDShapeStatisticsHandle, statisticsUnitsSeconds} from "./statistics_handle";
+import {T} from "../../../translations";
 
 /**
  * Capitalizes the first letter

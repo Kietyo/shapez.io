@@ -1,7 +1,7 @@
-import { GameState } from "../core/game_state";
-import { getRandomHint } from "../game/hints";
-import { HUDModalDialogs } from "../game/hud/parts/modal_dialogs";
-import { T } from "../translations";
+import {GameState} from "../core/game_state";
+import {getRandomHint} from "../game/hints";
+import {HUDModalDialogs} from "../game/hud/parts/modal_dialogs";
+import {T} from "../translations";
 
 export class LoginState extends GameState {
     constructor() {

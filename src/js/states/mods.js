@@ -1,8 +1,8 @@
-import { openStandaloneLink, THIRDPARTY_URLS } from "../core/config";
-import { WEB_STEAM_SSO_AUTHENTICATED } from "../core/steam_sso";
-import { TextualGameState } from "../core/textual_game_state";
-import { MODS } from "../mods/modloader";
-import { T } from "../translations";
+import {openStandaloneLink, THIRDPARTY_URLS} from "../core/config";
+import {WEB_STEAM_SSO_AUTHENTICATED} from "../core/steam_sso";
+import {TextualGameState} from "../core/textual_game_state";
+import {MODS} from "../mods/modloader";
+import {T} from "../translations";
 
 export class ModsState extends TextualGameState {
     constructor() {

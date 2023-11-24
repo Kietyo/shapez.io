@@ -1,6 +1,6 @@
-import { BaseItem } from "../game/base_item";
-import { ClickDetector } from "./click_detector";
-import { Signal } from "./signal";
+import {BaseItem} from "../game/base_item";
+import {ClickDetector} from "./click_detector";
+import {Signal} from "./signal";
 
 /*
  * ***************************************************

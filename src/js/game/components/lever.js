@@ -1,5 +1,5 @@
-import { Component } from "../component";
-import { types } from "../../savegame/serialization";
+import {Component} from "../component";
+import {types} from "../../savegame/serialization";
 
 export class LeverComponent extends Component {
     static getId() {

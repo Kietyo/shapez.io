@@ -1,10 +1,10 @@
-import { enumDirection, Vector } from "../../core/vector";
-import { enumPinSlotType, WiredPinsComponent } from "../components/wired_pins";
-import { Entity } from "../entity";
-import { defaultBuildingVariant, MetaBuilding } from "../meta_building";
-import { GameRoot } from "../root";
-import { DisplayComponent } from "../components/display";
-import { enumHubGoalRewards } from "../tutorial_goals";
+import {enumDirection, Vector} from "../../core/vector";
+import {enumPinSlotType, WiredPinsComponent} from "../components/wired_pins";
+import {Entity} from "../entity";
+import {defaultBuildingVariant, MetaBuilding} from "../meta_building";
+import {GameRoot} from "../root";
+import {DisplayComponent} from "../components/display";
+import {enumHubGoalRewards} from "../tutorial_goals";
 
 export class MetaDisplayBuilding extends MetaBuilding {
     constructor() {

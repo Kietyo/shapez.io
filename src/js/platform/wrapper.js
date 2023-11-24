@@ -1,8 +1,7 @@
 /* typehints:start */
-import { Application } from "../application";
+import {Application} from "../application";
 /* typehints:end */
-
-import { IS_MOBILE } from "../core/config";
+import {IS_MOBILE} from "../core/config";
 
 export class PlatformWrapperInterface {
     constructor(app) {

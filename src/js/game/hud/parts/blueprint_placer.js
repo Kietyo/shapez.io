@@ -1,15 +1,15 @@
-import { DrawParameters } from "../../../core/draw_parameters";
-import { STOP_PROPAGATION } from "../../../core/signal";
-import { TrackedState } from "../../../core/tracked_state";
-import { makeDiv } from "../../../core/utils";
-import { Vector } from "../../../core/vector";
-import { SOUNDS } from "../../../platform/sound";
-import { T } from "../../../translations";
-import { Blueprint } from "../../blueprint";
-import { enumMouseButton } from "../../camera";
-import { KEYMAPPINGS } from "../../key_action_mapper";
-import { BaseHUDPart } from "../base_hud_part";
-import { DynamicDomAttach } from "../dynamic_dom_attach";
+import {DrawParameters} from "../../../core/draw_parameters";
+import {STOP_PROPAGATION} from "../../../core/signal";
+import {TrackedState} from "../../../core/tracked_state";
+import {makeDiv} from "../../../core/utils";
+import {Vector} from "../../../core/vector";
+import {SOUNDS} from "../../../platform/sound";
+import {T} from "../../../translations";
+import {Blueprint} from "../../blueprint";
+import {enumMouseButton} from "../../camera";
+import {KEYMAPPINGS} from "../../key_action_mapper";
+import {BaseHUDPart} from "../base_hud_part";
+import {DynamicDomAttach} from "../dynamic_dom_attach";
 
 export class HUDBlueprintPlacer extends BaseHUDPart {
     createElements(parent) {

@@ -1,9 +1,9 @@
-import { globalConfig } from "../../core/config";
-import { DrawParameters } from "../../core/draw_parameters";
-import { Loader } from "../../core/loader";
-import { Rectangle } from "../../core/rectangle";
-import { FULL_CLIP_RECT } from "../../core/sprites";
-import { StaleAreaDetector } from "../../core/stale_area_detector";
+import {globalConfig} from "../../core/config";
+import {DrawParameters} from "../../core/draw_parameters";
+import {Loader} from "../../core/loader";
+import {Rectangle} from "../../core/rectangle";
+import {FULL_CLIP_RECT} from "../../core/sprites";
+import {StaleAreaDetector} from "../../core/stale_area_detector";
 import {
     enumDirection,
     enumDirectionToAngle,
@@ -11,14 +11,14 @@ import {
     enumInvertedDirections,
     Vector,
 } from "../../core/vector";
-import { BeltComponent } from "../components/belt";
-import { BeltUnderlaysComponent, enumClippedBeltUnderlayType } from "../components/belt_underlays";
-import { ItemAcceptorComponent } from "../components/item_acceptor";
-import { ItemEjectorComponent } from "../components/item_ejector";
-import { Entity } from "../entity";
-import { GameSystem } from "../game_system";
-import { MapChunkView } from "../map_chunk_view";
-import { BELT_ANIM_COUNT } from "./belt";
+import {BeltComponent} from "../components/belt";
+import {BeltUnderlaysComponent, enumClippedBeltUnderlayType} from "../components/belt_underlays";
+import {ItemAcceptorComponent} from "../components/item_acceptor";
+import {ItemEjectorComponent} from "../components/item_ejector";
+import {Entity} from "../entity";
+import {GameSystem} from "../game_system";
+import {MapChunkView} from "../map_chunk_view";
+import {BELT_ANIM_COUNT} from "./belt";
 
 /**
  * Mapping from underlay type to clip rect

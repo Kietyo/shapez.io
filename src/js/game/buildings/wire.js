@@ -1,12 +1,12 @@
-import { Loader } from "../../core/loader";
-import { generateMatrixRotations } from "../../core/utils";
-import { enumDirection, Vector } from "../../core/vector";
-import { SOUNDS } from "../../platform/sound";
-import { enumWireType, enumWireVariant, WireComponent } from "../components/wire";
-import { Entity } from "../entity";
-import { defaultBuildingVariant, MetaBuilding } from "../meta_building";
-import { GameRoot } from "../root";
-import { enumHubGoalRewards } from "../tutorial_goals";
+import {Loader} from "../../core/loader";
+import {generateMatrixRotations} from "../../core/utils";
+import {enumDirection, Vector} from "../../core/vector";
+import {SOUNDS} from "../../platform/sound";
+import {enumWireType, enumWireVariant, WireComponent} from "../components/wire";
+import {Entity} from "../entity";
+import {defaultBuildingVariant, MetaBuilding} from "../meta_building";
+import {GameRoot} from "../root";
+import {enumHubGoalRewards} from "../tutorial_goals";
 
 export const arrayWireRotationVariantToType = [
     enumWireType.forward,

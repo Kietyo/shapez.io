@@ -1,7 +1,7 @@
-import { globalConfig } from "../../../core/config";
-import { DrawParameters } from "../../../core/draw_parameters";
-import { Rectangle } from "../../../core/rectangle";
-import { BaseHUDPart } from "../base_hud_part";
+import {globalConfig} from "../../../core/config";
+import {DrawParameters} from "../../../core/draw_parameters";
+import {Rectangle} from "../../../core/rectangle";
+import {BaseHUDPart} from "../base_hud_part";
 
 /**
  * @typedef {{
@@ -44,7 +44,7 @@ export class HUDChangesDebugger extends BaseHUDPart {
             if (change.hideAt <= now) {
                 this.changes.splice(i, 1);
                 i -= 1;
-                continue;
+
             }
         }
     }

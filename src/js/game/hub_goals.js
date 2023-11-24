@@ -1,13 +1,13 @@
-import { globalConfig } from "../core/config";
-import { RandomNumberGenerator } from "../core/rng";
-import { clamp } from "../core/utils";
-import { BasicSerializableObject, types } from "../savegame/serialization";
-import { enumColors } from "./colors";
-import { enumItemProcessorTypes } from "./components/item_processor";
-import { enumAnalyticsDataSource } from "./production_analytics";
-import { GameRoot } from "./root";
-import { enumSubShape, ShapeDefinition } from "./shape_definition";
-import { enumHubGoalRewards } from "./tutorial_goals";
+import {globalConfig} from "../core/config";
+import {RandomNumberGenerator} from "../core/rng";
+import {clamp} from "../core/utils";
+import {BasicSerializableObject, types} from "../savegame/serialization";
+import {enumColors} from "./colors";
+import {enumItemProcessorTypes} from "./components/item_processor";
+import {enumAnalyticsDataSource} from "./production_analytics";
+import {GameRoot} from "./root";
+import {enumSubShape, ShapeDefinition} from "./shape_definition";
+import {enumHubGoalRewards} from "./tutorial_goals";
 
 export const MOD_ITEM_PROCESSOR_SPEEDS = {};
 
@@ -153,7 +153,7 @@ export class HubGoals extends BasicSerializableObject {
         assert(amount >= 0, "Amount < 0 for " + key);
         assert(Number.isInteger(amount), "Invalid amount: " + amount);
         this.storedShapes[key] = (this.storedShapes[key] || 0) - amount;
-        return;
+
     }
 
     /**

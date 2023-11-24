@@ -1,15 +1,14 @@
 /* typehints:start */
-import { Application } from "../application";
-import { StateManager } from "./state_manager";
+import {Application} from "../application";
+import {StateManager} from "./state_manager";
 /* typehints:end */
-
-import { globalConfig } from "./config";
-import { ClickDetector } from "./click_detector";
-import { logSection, createLogger } from "./logging";
-import { InputReceiver } from "./input_receiver";
-import { waitNextFrame } from "./utils";
-import { RequestChannel } from "./request_channel";
-import { MUSIC } from "../platform/sound";
+import {globalConfig} from "./config";
+import {ClickDetector} from "./click_detector";
+import {createLogger, logSection} from "./logging";
+import {InputReceiver} from "./input_receiver";
+import {waitNextFrame} from "./utils";
+import {RequestChannel} from "./request_channel";
+import {MUSIC} from "../platform/sound";
 
 const logger = createLogger("game_state");
 

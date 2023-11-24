@@ -1,12 +1,11 @@
 /* typehints:start */
-import { Component } from "./component";
-import { Entity } from "./entity";
+import {Component} from "./component";
+import {Entity} from "./entity";
 /* typehints:end */
-
-import { GameRoot } from "./root";
-import { GameSystem } from "./game_system";
-import { arrayDelete, arrayDeleteValue } from "../core/utils";
-import { globalConfig } from "../core/config";
+import {GameRoot} from "./root";
+import {GameSystem} from "./game_system";
+import {arrayDelete, arrayDeleteValue} from "../core/utils";
+import {globalConfig} from "../core/config";
 
 export class GameSystemWithFilter extends GameSystem {
     /**

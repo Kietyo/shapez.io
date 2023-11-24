@@ -1,10 +1,10 @@
-import { DrawParameters } from "../../core/draw_parameters";
-import { Loader } from "../../core/loader";
-import { formatBigNumber, lerp } from "../../core/utils";
-import { StorageComponent } from "../components/storage";
-import { GameSystemWithFilter } from "../game_system_with_filter";
-import { BOOL_FALSE_SINGLETON, BOOL_TRUE_SINGLETON } from "../items/boolean_item";
-import { MapChunkView } from "../map_chunk_view";
+import {DrawParameters} from "../../core/draw_parameters";
+import {Loader} from "../../core/loader";
+import {formatBigNumber, lerp} from "../../core/utils";
+import {StorageComponent} from "../components/storage";
+import {GameSystemWithFilter} from "../game_system_with_filter";
+import {BOOL_FALSE_SINGLETON, BOOL_TRUE_SINGLETON} from "../items/boolean_item";
+import {MapChunkView} from "../map_chunk_view";
 
 export class StorageSystem extends GameSystemWithFilter {
     constructor(root) {

@@ -1,25 +1,25 @@
-import { globalConfig } from "../../core/config";
-import { DrawParameters } from "../../core/draw_parameters";
-import { Signal } from "../../core/signal";
-import { MOD_SIGNALS } from "../../mods/mod_signals";
-import { KEYMAPPINGS } from "../key_action_mapper";
-import { MetaBuilding } from "../meta_building";
-import { GameRoot } from "../root";
-import { ShapeDefinition } from "../shape_definition";
-import { HUDBetaOverlay } from "./parts/beta_overlay";
-import { HUDBlueprintPlacer } from "./parts/blueprint_placer";
-import { HUDBuildingsToolbar } from "./parts/buildings_toolbar";
-import { HUDBuildingPlacer } from "./parts/building_placer";
-import { HUDColorBlindHelper } from "./parts/color_blind_helper";
-import { HUDChangesDebugger } from "./parts/debug_changes";
-import { HUDDebugInfo } from "./parts/debug_info";
-import { HUDEntityDebugger } from "./parts/entity_debugger";
-import { HUDModalDialogs } from "./parts/modal_dialogs";
-import { enumNotificationType } from "./parts/notifications";
-import { HUDSettingsMenu } from "./parts/settings_menu";
-import { HUDShapeTooltip } from "./parts/shape_tooltip";
-import { HUDVignetteOverlay } from "./parts/vignette_overlay";
-import { TrailerMaker } from "./trailer_maker";
+import {globalConfig} from "../../core/config";
+import {DrawParameters} from "../../core/draw_parameters";
+import {Signal} from "../../core/signal";
+import {MOD_SIGNALS} from "../../mods/mod_signals";
+import {KEYMAPPINGS} from "../key_action_mapper";
+import {MetaBuilding} from "../meta_building";
+import {GameRoot} from "../root";
+import {ShapeDefinition} from "../shape_definition";
+import {HUDBetaOverlay} from "./parts/beta_overlay";
+import {HUDBlueprintPlacer} from "./parts/blueprint_placer";
+import {HUDBuildingsToolbar} from "./parts/buildings_toolbar";
+import {HUDBuildingPlacer} from "./parts/building_placer";
+import {HUDColorBlindHelper} from "./parts/color_blind_helper";
+import {HUDChangesDebugger} from "./parts/debug_changes";
+import {HUDDebugInfo} from "./parts/debug_info";
+import {HUDEntityDebugger} from "./parts/entity_debugger";
+import {HUDModalDialogs} from "./parts/modal_dialogs";
+import {enumNotificationType} from "./parts/notifications";
+import {HUDSettingsMenu} from "./parts/settings_menu";
+import {HUDShapeTooltip} from "./parts/shape_tooltip";
+import {HUDVignetteOverlay} from "./parts/vignette_overlay";
+import {TrailerMaker} from "./trailer_maker";
 
 export class GameHUD {
     /**

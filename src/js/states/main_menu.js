@@ -1,11 +1,10 @@
-import { cachebust } from "../core/cachebust";
-import { globalConfig, openStandaloneLink, THIRDPARTY_URLS } from "../core/config";
-import { GameState } from "../core/game_state";
-import { DialogWithForm } from "../core/modal_dialog_elements";
-import { FormElementInput } from "../core/modal_dialog_forms";
-import { ReadWriteProxy } from "../core/read_write_proxy";
-import { STOP_PROPAGATION } from "../core/signal";
-import { WEB_STEAM_SSO_AUTHENTICATED } from "../core/steam_sso";
+import {cachebust} from "../core/cachebust";
+import {globalConfig, openStandaloneLink, THIRDPARTY_URLS} from "../core/config";
+import {GameState} from "../core/game_state";
+import {DialogWithForm} from "../core/modal_dialog_elements";
+import {FormElementInput} from "../core/modal_dialog_forms";
+import {ReadWriteProxy} from "../core/read_write_proxy";
+import {WEB_STEAM_SSO_AUTHENTICATED} from "../core/steam_sso";
 import {
     formatSecondsToTimeAgo,
     generateFileDownload,
@@ -17,12 +16,12 @@ import {
     startFileChoose,
     waitNextFrame,
 } from "../core/utils";
-import { HUDModalDialogs } from "../game/hud/parts/modal_dialogs";
-import { MODS } from "../mods/modloader";
-import { PlatformWrapperImplBrowser } from "../platform/browser/wrapper";
-import { PlatformWrapperImplElectron } from "../platform/electron/wrapper";
-import { Savegame } from "../savegame/savegame";
-import { T } from "../translations";
+import {HUDModalDialogs} from "../game/hud/parts/modal_dialogs";
+import {MODS} from "../mods/modloader";
+import {PlatformWrapperImplBrowser} from "../platform/browser/wrapper";
+import {PlatformWrapperImplElectron} from "../platform/electron/wrapper";
+import {Savegame} from "../savegame/savegame";
+import {T} from "../translations";
 
 const trim = require("trim");
 

@@ -1,11 +1,11 @@
-import { globalConfig } from "../../core/config";
-import { Loader } from "../../core/loader";
-import { round1DigitLocalized, smoothPulse } from "../../core/utils";
-import { enumItemProcessorRequirements, enumItemProcessorTypes } from "../components/item_processor";
-import { Entity } from "../entity";
-import { GameSystem } from "../game_system";
-import { isTruthyItem } from "../items/boolean_item";
-import { MapChunkView } from "../map_chunk_view";
+import {globalConfig} from "../../core/config";
+import {Loader} from "../../core/loader";
+import {round1DigitLocalized, smoothPulse} from "../../core/utils";
+import {enumItemProcessorRequirements, enumItemProcessorTypes} from "../components/item_processor";
+import {Entity} from "../entity";
+import {GameSystem} from "../game_system";
+import {isTruthyItem} from "../items/boolean_item";
+import {MapChunkView} from "../map_chunk_view";
 
 export class ItemProcessorOverlaysSystem extends GameSystem {
     constructor(root) {

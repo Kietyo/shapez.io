@@ -1,6 +1,6 @@
-import { makeDiv } from "../../../core/utils";
-import { T } from "../../../translations";
-import { BaseHUDPart } from "../base_hud_part";
+import {makeDiv} from "../../../core/utils";
+import {T} from "../../../translations";
+import {BaseHUDPart} from "../base_hud_part";
 
 /** @enum {string} */
 export const enumNotificationType = {

@@ -49,7 +49,7 @@ function match(originalObj, translatedObj, path = "/", ignorePlaceholderMismatch
                     translatedPlaceholders
                 );
                 translatedObj[key] = originalObj[key];
-                continue;
+
             }
         } else {
             console.warn(" | Unknown type: ", typeof valueOriginal);

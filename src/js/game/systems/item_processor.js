@@ -1,16 +1,16 @@
-import { globalConfig } from "../../core/config";
-import { BaseItem } from "../base_item";
-import { enumColorMixingResults, enumColors } from "../colors";
+import {globalConfig} from "../../core/config";
+import {BaseItem} from "../base_item";
+import {enumColorMixingResults, enumColors} from "../colors";
 import {
     enumItemProcessorRequirements,
     enumItemProcessorTypes,
     ItemProcessorComponent,
 } from "../components/item_processor";
-import { Entity } from "../entity";
-import { GameSystemWithFilter } from "../game_system_with_filter";
-import { isTruthyItem } from "../items/boolean_item";
-import { ColorItem, COLOR_ITEM_SINGLETONS } from "../items/color_item";
-import { ShapeItem } from "../items/shape_item";
+import {Entity} from "../entity";
+import {GameSystemWithFilter} from "../game_system_with_filter";
+import {isTruthyItem} from "../items/boolean_item";
+import {COLOR_ITEM_SINGLETONS, ColorItem} from "../items/color_item";
+import {ShapeItem} from "../items/shape_item";
 
 /**
  * We need to allow queuing charges, otherwise the throughput will stall

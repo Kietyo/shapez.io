@@ -1,6 +1,6 @@
-import { TextualGameState } from "../core/textual_game_state";
-import { T } from "../translations";
-import { CHANGELOG } from "../changelog";
+import {TextualGameState} from "../core/textual_game_state";
+import {T} from "../translations";
+import {CHANGELOG} from "../changelog";
 
 export class ChangelogState extends TextualGameState {
     constructor() {

@@ -1,25 +1,25 @@
-import { ClickDetector } from "../../../core/click_detector";
-import { globalConfig } from "../../../core/config";
-import { DrawParameters } from "../../../core/draw_parameters";
-import { drawRotatedSprite } from "../../../core/draw_utils";
-import { Loader } from "../../../core/loader";
-import { clamp, makeDiv, removeAllChildren } from "../../../core/utils";
+import {ClickDetector} from "../../../core/click_detector";
+import {globalConfig} from "../../../core/config";
+import {DrawParameters} from "../../../core/draw_parameters";
+import {drawRotatedSprite} from "../../../core/draw_utils";
+import {Loader} from "../../../core/loader";
+import {clamp, makeDiv, removeAllChildren} from "../../../core/utils";
 import {
+    enumDirection,
     enumDirectionToAngle,
     enumDirectionToVector,
     enumInvertedDirections,
     Vector,
-    enumDirection,
 } from "../../../core/vector";
-import { T } from "../../../translations";
-import { KEYMAPPINGS } from "../../key_action_mapper";
-import { defaultBuildingVariant } from "../../meta_building";
-import { THEME } from "../../theme";
-import { DynamicDomAttach } from "../dynamic_dom_attach";
-import { HUDBuildingPlacerLogic } from "./building_placer_logic";
-import { makeOffscreenBuffer } from "../../../core/buffer_utils";
-import { layers } from "../../root";
-import { getCodeFromBuildingData } from "../../building_codes";
+import {T} from "../../../translations";
+import {KEYMAPPINGS} from "../../key_action_mapper";
+import {defaultBuildingVariant} from "../../meta_building";
+import {THEME} from "../../theme";
+import {DynamicDomAttach} from "../dynamic_dom_attach";
+import {HUDBuildingPlacerLogic} from "./building_placer_logic";
+import {makeOffscreenBuffer} from "../../../core/buffer_utils";
+import {layers} from "../../root";
+import {getCodeFromBuildingData} from "../../building_codes";
 
 export class HUDBuildingPlacer extends HUDBuildingPlacerLogic {
     /**

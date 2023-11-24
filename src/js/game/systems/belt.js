@@ -1,20 +1,19 @@
-import { globalConfig } from "../../core/config";
-import { DrawParameters } from "../../core/draw_parameters";
-import { gMetaBuildingRegistry } from "../../core/global_registries";
-import { Loader } from "../../core/loader";
-import { createLogger } from "../../core/logging";
-import { AtlasSprite } from "../../core/sprites";
-import { fastArrayDeleteValue } from "../../core/utils";
-import { enumDirection, enumDirectionToVector, enumInvertedDirections, Vector } from "../../core/vector";
-import { BeltPath } from "../belt_path";
-import { arrayBeltVariantToRotation, MetaBeltBuilding } from "../buildings/belt";
-import { getCodeFromBuildingData } from "../building_codes";
-import { BeltComponent } from "../components/belt";
-import { Entity } from "../entity";
-import { GameSystem } from "../game_system";
-import { GameSystemWithFilter } from "../game_system_with_filter";
-import { MapChunkView } from "../map_chunk_view";
-import { defaultBuildingVariant } from "../meta_building";
+import {globalConfig} from "../../core/config";
+import {DrawParameters} from "../../core/draw_parameters";
+import {gMetaBuildingRegistry} from "../../core/global_registries";
+import {Loader} from "../../core/loader";
+import {createLogger} from "../../core/logging";
+import {AtlasSprite} from "../../core/sprites";
+import {fastArrayDeleteValue} from "../../core/utils";
+import {enumDirection, enumDirectionToVector, enumInvertedDirections, Vector} from "../../core/vector";
+import {BeltPath} from "../belt_path";
+import {arrayBeltVariantToRotation, MetaBeltBuilding} from "../buildings/belt";
+import {getCodeFromBuildingData} from "../building_codes";
+import {BeltComponent} from "../components/belt";
+import {Entity} from "../entity";
+import {GameSystem} from "../game_system";
+import {MapChunkView} from "../map_chunk_view";
+import {defaultBuildingVariant} from "../meta_building";
 
 export const BELT_ANIM_COUNT = 14;
 

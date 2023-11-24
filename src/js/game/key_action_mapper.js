@@ -1,12 +1,10 @@
 /* typehints:start */
-import { GameRoot } from "./root";
-import { InputReceiver } from "../core/input_receiver";
-import { Application } from "../application";
+import {GameRoot} from "./root";
+import {InputReceiver} from "../core/input_receiver";
+import {Application} from "../application";
 /* typehints:end */
-
-import { Signal, STOP_PROPAGATION } from "../core/signal";
-import { IS_MOBILE } from "../core/config";
-import { T } from "../translations";
+import {Signal, STOP_PROPAGATION} from "../core/signal";
+import {T} from "../translations";
 
 export function keyToKeyCode(str) {
     return str.toUpperCase().charCodeAt(0);

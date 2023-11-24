@@ -1,10 +1,10 @@
-import { globalConfig } from "../../core/config";
-import { DrawParameters } from "../../core/draw_parameters";
-import { Loader } from "../../core/loader";
-import { types } from "../../savegame/serialization";
-import { BaseItem } from "../base_item";
-import { enumColors } from "../colors";
-import { THEME } from "../theme";
+import {globalConfig} from "../../core/config";
+import {DrawParameters} from "../../core/draw_parameters";
+import {Loader} from "../../core/loader";
+import {types} from "../../savegame/serialization";
+import {BaseItem} from "../base_item";
+import {enumColors} from "../colors";
+import {THEME} from "../theme";
 
 export class ColorItem extends BaseItem {
     static getId() {

@@ -1,9 +1,9 @@
 /* dev:start */
-import { makeDiv, removeAllChildren } from "../../../core/utils";
-import { Vector } from "../../../core/vector";
-import { Entity } from "../../entity";
-import { BaseHUDPart } from "../base_hud_part";
-import { DynamicDomAttach } from "../dynamic_dom_attach";
+import {makeDiv, removeAllChildren} from "../../../core/utils";
+import {Vector} from "../../../core/vector";
+import {Entity} from "../../entity";
+import {BaseHUDPart} from "../base_hud_part";
+import {DynamicDomAttach} from "../dynamic_dom_attach";
 
 /**
  * Allows to inspect entities by pressing F8 while hovering them

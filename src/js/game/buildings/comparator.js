@@ -1,10 +1,10 @@
-import { enumDirection, Vector } from "../../core/vector";
-import { enumLogicGateType, LogicGateComponent } from "../components/logic_gate";
-import { enumPinSlotType, WiredPinsComponent } from "../components/wired_pins";
-import { Entity } from "../entity";
-import { defaultBuildingVariant, MetaBuilding } from "../meta_building";
-import { GameRoot } from "../root";
-import { enumHubGoalRewards } from "../tutorial_goals";
+import {enumDirection, Vector} from "../../core/vector";
+import {enumLogicGateType, LogicGateComponent} from "../components/logic_gate";
+import {enumPinSlotType, WiredPinsComponent} from "../components/wired_pins";
+import {Entity} from "../entity";
+import {defaultBuildingVariant, MetaBuilding} from "../meta_building";
+import {GameRoot} from "../root";
+import {enumHubGoalRewards} from "../tutorial_goals";
 
 export class MetaComparatorBuilding extends MetaBuilding {
     constructor() {

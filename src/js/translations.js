@@ -1,6 +1,6 @@
-import { globalConfig } from "./core/config";
-import { createLogger } from "./core/logging";
-import { LANGUAGES } from "./languages";
+import {globalConfig} from "./core/config";
+import {createLogger} from "./core/logging";
+import {LANGUAGES} from "./languages";
 
 const logger = createLogger("translations");
 

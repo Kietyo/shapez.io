@@ -1,5 +1,5 @@
-import { randomChoice } from "../core/utils";
-import { T } from "../translations";
+import {randomChoice} from "../core/utils";
+import {T} from "../translations";
 
 const hintsShown = [];
 

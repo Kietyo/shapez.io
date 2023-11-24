@@ -1,7 +1,6 @@
-import { enumDirection, Vector } from "../../core/vector";
-import { types } from "../../savegame/serialization";
-import { BeltPath } from "../belt_path";
-import { Component } from "../component";
+import {enumDirection, Vector} from "../../core/vector";
+import {BeltPath} from "../belt_path";
+import {Component} from "../component";
 
 export const curvedBeltLength = /* Math.PI / 4 */ 0.78;
 

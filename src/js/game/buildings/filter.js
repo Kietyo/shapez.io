@@ -1,14 +1,14 @@
-import { formatItemsPerSecond } from "../../core/utils";
-import { enumDirection, Vector } from "../../core/vector";
-import { T } from "../../translations";
-import { FilterComponent } from "../components/filter";
-import { ItemAcceptorComponent } from "../components/item_acceptor";
-import { ItemEjectorComponent } from "../components/item_ejector";
-import { enumPinSlotType, WiredPinsComponent } from "../components/wired_pins";
-import { Entity } from "../entity";
-import { defaultBuildingVariant, MetaBuilding } from "../meta_building";
-import { GameRoot } from "../root";
-import { enumHubGoalRewards } from "../tutorial_goals";
+import {formatItemsPerSecond} from "../../core/utils";
+import {enumDirection, Vector} from "../../core/vector";
+import {T} from "../../translations";
+import {FilterComponent} from "../components/filter";
+import {ItemAcceptorComponent} from "../components/item_acceptor";
+import {ItemEjectorComponent} from "../components/item_ejector";
+import {enumPinSlotType, WiredPinsComponent} from "../components/wired_pins";
+import {Entity} from "../entity";
+import {defaultBuildingVariant, MetaBuilding} from "../meta_building";
+import {GameRoot} from "../root";
+import {enumHubGoalRewards} from "../tutorial_goals";
 
 export class MetaFilterBuilding extends MetaBuilding {
     constructor() {

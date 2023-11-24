@@ -1,10 +1,10 @@
-import { InputReceiver } from "../../../core/input_receiver";
-import { makeDiv, removeAllChildren } from "../../../core/utils";
-import { T } from "../../../translations";
-import { KeyActionMapper, KEYMAPPINGS } from "../../key_action_mapper";
-import { ShapeDefinition } from "../../shape_definition";
-import { BaseHUDPart } from "../base_hud_part";
-import { DynamicDomAttach } from "../dynamic_dom_attach";
+import {InputReceiver} from "../../../core/input_receiver";
+import {makeDiv, removeAllChildren} from "../../../core/utils";
+import {T} from "../../../translations";
+import {KeyActionMapper, KEYMAPPINGS} from "../../key_action_mapper";
+import {ShapeDefinition} from "../../shape_definition";
+import {BaseHUDPart} from "../base_hud_part";
+import {DynamicDomAttach} from "../dynamic_dom_attach";
 
 const copy = require("clipboard-copy");
 

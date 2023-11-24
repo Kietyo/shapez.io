@@ -1,7 +1,7 @@
-import { globalConfig } from "../../core/config";
-import { BaseItem } from "../base_item";
-import { Component } from "../component";
-import { typeItemSingleton } from "../item_resolver";
+import {globalConfig} from "../../core/config";
+import {BaseItem} from "../base_item";
+import {Component} from "../component";
+import {typeItemSingleton} from "../item_resolver";
 
 export class GoalAcceptorComponent extends Component {
     static getId() {

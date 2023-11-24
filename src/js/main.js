@@ -3,15 +3,15 @@ import "./core/assert";
 
 import "./mods/modloader";
 
-import { createLogger, logSection } from "./core/logging";
-import { Application } from "./application";
-import { IS_DEBUG } from "./core/config";
-import { initComponentRegistry } from "./game/component_registry";
-import { initDrawUtils } from "./core/draw_utils";
-import { initItemRegistry } from "./game/item_registry";
-import { initMetaBuildingRegistry } from "./game/meta_building_registry";
-import { initGameModeRegistry } from "./game/game_mode_registry";
-import { initGameSpeedRegistry } from "./game/game_speed_registry";
+import {createLogger, logSection} from "./core/logging";
+import {Application} from "./application";
+import {IS_DEBUG} from "./core/config";
+import {initComponentRegistry} from "./game/component_registry";
+import {initDrawUtils} from "./core/draw_utils";
+import {initItemRegistry} from "./game/item_registry";
+import {initMetaBuildingRegistry} from "./game/meta_building_registry";
+import {initGameModeRegistry} from "./game/game_mode_registry";
+import {initGameSpeedRegistry} from "./game/game_speed_registry";
 
 const logger = createLogger("main");
 

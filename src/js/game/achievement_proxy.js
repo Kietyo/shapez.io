@@ -1,12 +1,11 @@
 /* typehints:start */
-import { Entity } from "./entity";
-import { GameRoot } from "./root";
+import {Entity} from "./entity";
+import {GameRoot} from "./root";
 /* typehints:end */
-
-import { globalConfig } from "../core/config";
-import { createLogger } from "../core/logging";
-import { ACHIEVEMENTS } from "../platform/achievement_provider";
-import { getBuildingDataFromCode } from "./building_codes";
+import {globalConfig} from "../core/config";
+import {createLogger} from "../core/logging";
+import {ACHIEVEMENTS} from "../platform/achievement_provider";
+import {getBuildingDataFromCode} from "./building_codes";
 
 const logger = createLogger("achievement_proxy");
 

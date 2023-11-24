@@ -1,10 +1,10 @@
-import { createLogger } from "../core/logging";
-import { Signal } from "../core/signal";
-import { fastArrayDelete, fastArrayDeleteValueIfContained } from "./utils";
-import { Vector } from "./vector";
-import { IS_MOBILE, SUPPORT_TOUCH } from "./config";
-import { SOUNDS } from "../platform/sound";
-import { GLOBAL_APP } from "./globals";
+import {createLogger} from "../core/logging";
+import {Signal} from "../core/signal";
+import {fastArrayDelete, fastArrayDeleteValueIfContained} from "./utils";
+import {Vector} from "./vector";
+import {IS_MOBILE, SUPPORT_TOUCH} from "./config";
+import {SOUNDS} from "../platform/sound";
+import {GLOBAL_APP} from "./globals";
 
 const logger = createLogger("click_detector");
 

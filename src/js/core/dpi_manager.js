@@ -1,5 +1,5 @@
-import { globalConfig } from "../core/config";
-import { round1Digit, round2Digits } from "./utils";
+import {globalConfig} from "../core/config";
+import {round1Digit, round2Digits} from "./utils";
 
 /**
  * Returns the current dpi

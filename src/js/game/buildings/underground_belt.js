@@ -1,15 +1,15 @@
-import { Loader } from "../../core/loader";
-import { enumDirection, Vector, enumAngleToDirection, enumDirectionToVector } from "../../core/vector";
-import { ItemAcceptorComponent } from "../components/item_acceptor";
-import { ItemEjectorComponent } from "../components/item_ejector";
-import { enumUndergroundBeltMode, UndergroundBeltComponent } from "../components/underground_belt";
-import { Entity } from "../entity";
-import { MetaBuilding, defaultBuildingVariant } from "../meta_building";
-import { GameRoot } from "../root";
-import { globalConfig } from "../../core/config";
-import { enumHubGoalRewards } from "../tutorial_goals";
-import { formatItemsPerSecond, generateMatrixRotations } from "../../core/utils";
-import { T } from "../../translations";
+import {Loader} from "../../core/loader";
+import {enumAngleToDirection, enumDirection, enumDirectionToVector, Vector} from "../../core/vector";
+import {ItemAcceptorComponent} from "../components/item_acceptor";
+import {ItemEjectorComponent} from "../components/item_ejector";
+import {enumUndergroundBeltMode, UndergroundBeltComponent} from "../components/underground_belt";
+import {Entity} from "../entity";
+import {defaultBuildingVariant, MetaBuilding} from "../meta_building";
+import {GameRoot} from "../root";
+import {globalConfig} from "../../core/config";
+import {enumHubGoalRewards} from "../tutorial_goals";
+import {formatItemsPerSecond, generateMatrixRotations} from "../../core/utils";
+import {T} from "../../translations";
 
 /** @enum {string} */
 export const arrayUndergroundRotationVariantToMode = [

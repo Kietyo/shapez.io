@@ -1,28 +1,24 @@
-import { createLogger } from "../core/logging";
+import {createLogger} from "../core/logging";
 import {
     BaseDataType,
     TypeArray,
     TypeBoolean,
     TypeClass,
     TypeClassData,
-    TypeClassFromMetaclass,
-    TypeClassId,
     TypeEntity,
     TypeEntityWeakref,
     TypeEnum,
-    TypeFixedClass,
     TypeInteger,
     TypeKeyValueMap,
-    TypeMetaClass,
     TypeNullable,
     TypeNumber,
     TypePair,
     TypePositiveInteger,
+    TypePositiveIntegerOrString,
     TypePositiveNumber,
     TypeString,
     TypeStructuredObject,
     TypeVector,
-    TypePositiveIntegerOrString,
 } from "./serialization_data_types";
 
 const logger = createLogger("serialization");

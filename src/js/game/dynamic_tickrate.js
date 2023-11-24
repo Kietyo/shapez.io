@@ -1,6 +1,6 @@
-import { GameRoot } from "./root";
-import { createLogger } from "../core/logging";
-import { globalConfig } from "../core/config";
+import {GameRoot} from "./root";
+import {createLogger} from "../core/logging";
+import {globalConfig} from "../core/config";
 
 const logger = createLogger("dynamic_tickrate");
 

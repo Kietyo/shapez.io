@@ -1,34 +1,33 @@
 /* eslint-disable no-unused-vars */
-import { Signal } from "../core/signal";
-import { RandomNumberGenerator } from "../core/rng";
-import { createLogger } from "../core/logging";
+import {Signal} from "../core/signal";
+import {createLogger} from "../core/logging";
 
 // Type hints
 /* typehints:start */
-import { GameTime } from "./time/game_time";
-import { EntityManager } from "./entity_manager";
-import { GameSystemManager } from "./game_system_manager";
-import { AchievementProxy } from "./achievement_proxy";
-import { GameHUD } from "./hud/hud";
-import { MapView } from "./map_view";
-import { Camera } from "./camera";
-import { InGameState } from "../states/ingame";
-import { AutomaticSave } from "./automatic_save";
-import { Application } from "../application";
-import { SoundProxy } from "./sound_proxy";
-import { Savegame } from "../savegame/savegame";
-import { GameLogic } from "./logic";
-import { ShapeDefinitionManager } from "./shape_definition_manager";
-import { HubGoals } from "./hub_goals";
-import { BufferMaintainer } from "../core/buffer_maintainer";
-import { ProductionAnalytics } from "./production_analytics";
-import { Entity } from "./entity";
-import { ShapeDefinition } from "./shape_definition";
-import { BaseItem } from "./base_item";
-import { DynamicTickrate } from "./dynamic_tickrate";
-import { KeyActionMapper } from "./key_action_mapper";
-import { Vector } from "../core/vector";
-import { GameMode } from "./game_mode";
+import {GameTime} from "./time/game_time";
+import {EntityManager} from "./entity_manager";
+import {GameSystemManager} from "./game_system_manager";
+import {AchievementProxy} from "./achievement_proxy";
+import {GameHUD} from "./hud/hud";
+import {MapView} from "./map_view";
+import {Camera} from "./camera";
+import {InGameState} from "../states/ingame";
+import {AutomaticSave} from "./automatic_save";
+import {Application} from "../application";
+import {SoundProxy} from "./sound_proxy";
+import {Savegame} from "../savegame/savegame";
+import {GameLogic} from "./logic";
+import {ShapeDefinitionManager} from "./shape_definition_manager";
+import {HubGoals} from "./hub_goals";
+import {BufferMaintainer} from "../core/buffer_maintainer";
+import {ProductionAnalytics} from "./production_analytics";
+import {Entity} from "./entity";
+import {ShapeDefinition} from "./shape_definition";
+import {BaseItem} from "./base_item";
+import {DynamicTickrate} from "./dynamic_tickrate";
+import {KeyActionMapper} from "./key_action_mapper";
+import {Vector} from "../core/vector";
+import {GameMode} from "./game_mode";
 /* typehints:end */
 
 const logger = createLogger("game/root");

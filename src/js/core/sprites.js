@@ -1,6 +1,6 @@
-import { DrawParameters } from "./draw_parameters";
-import { Rectangle } from "./rectangle";
-import { round3Digits } from "./utils";
+import {DrawParameters} from "./draw_parameters";
+import {Rectangle} from "./rectangle";
+import {round3Digits} from "./utils";
 
 export const ORIGINAL_SPRITE_SCALE = "0.75";
 export const FULL_CLIP_RECT = new Rectangle(0, 0, 1, 1);

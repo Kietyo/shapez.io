@@ -1,17 +1,16 @@
 /* typehints:start */
-import { DrawParameters } from "../core/draw_parameters";
-import { Component } from "./component";
+import {DrawParameters} from "../core/draw_parameters";
+import {Component} from "./component";
 /* typehints:end */
-
-import { GameRoot } from "./root";
-import { globalConfig } from "../core/config";
-import { enumDirectionToVector, enumDirectionToAngle } from "../core/vector";
-import { BasicSerializableObject, types } from "../savegame/serialization";
-import { EntityComponentStorage } from "./entity_components";
-import { Loader } from "../core/loader";
-import { drawRotatedSprite } from "../core/draw_utils";
-import { gComponentRegistry } from "../core/global_registries";
-import { getBuildingDataFromCode } from "./building_codes";
+import {GameRoot} from "./root";
+import {globalConfig} from "../core/config";
+import {enumDirectionToAngle, enumDirectionToVector} from "../core/vector";
+import {BasicSerializableObject, types} from "../savegame/serialization";
+import {EntityComponentStorage} from "./entity_components";
+import {Loader} from "../core/loader";
+import {drawRotatedSprite} from "../core/draw_utils";
+import {gComponentRegistry} from "../core/global_registries";
+import {getBuildingDataFromCode} from "./building_codes";
 
 export class Entity extends BasicSerializableObject {
     /**

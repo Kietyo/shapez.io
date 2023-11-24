@@ -1,16 +1,16 @@
-import { GameState } from "../core/game_state";
-import { logSection, createLogger } from "../core/logging";
-import { waitNextFrame } from "../core/utils";
-import { globalConfig } from "../core/config";
-import { GameLoadingOverlay } from "../game/game_loading_overlay";
-import { KeyActionMapper } from "../game/key_action_mapper";
-import { Savegame } from "../savegame/savegame";
-import { GameCore } from "../game/core";
-import { MUSIC } from "../platform/sound";
-import { enumGameModeIds } from "../game/game_mode";
-import { MOD_SIGNALS } from "../mods/mod_signals";
-import { HUDModalDialogs } from "../game/hud/parts/modal_dialogs";
-import { T } from "../translations";
+import {GameState} from "../core/game_state";
+import {createLogger, logSection} from "../core/logging";
+import {waitNextFrame} from "../core/utils";
+import {globalConfig} from "../core/config";
+import {GameLoadingOverlay} from "../game/game_loading_overlay";
+import {KeyActionMapper} from "../game/key_action_mapper";
+import {Savegame} from "../savegame/savegame";
+import {GameCore} from "../game/core";
+import {MUSIC} from "../platform/sound";
+import {enumGameModeIds} from "../game/game_mode";
+import {MOD_SIGNALS} from "../mods/mod_signals";
+import {HUDModalDialogs} from "../game/hud/parts/modal_dialogs";
+import {T} from "../translations";
 
 const logger = createLogger("state/ingame");
 

@@ -1,8 +1,9 @@
-import { ExplainedResult } from "../core/explained_result";
-import { createLogger } from "../core/logging";
-import { ReadWriteProxy } from "../core/read_write_proxy";
-import { globalConfig } from "../core/config";
-import { Savegame } from "./savegame";
+import {ExplainedResult} from "../core/explained_result";
+import {createLogger} from "../core/logging";
+import {ReadWriteProxy} from "../core/read_write_proxy";
+import {globalConfig} from "../core/config";
+import {Savegame} from "./savegame";
+
 const logger = createLogger("savegame_manager");
 
 const Rusha = require("rusha");

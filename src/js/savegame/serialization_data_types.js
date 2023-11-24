@@ -1,10 +1,10 @@
 /* typehints:start */
-import { GameRoot } from "../game/root";
-import { BasicSerializableObject } from "./serialization";
+import {GameRoot} from "../game/root";
+import {BasicSerializableObject} from "./serialization";
 /* typehints:end */
+import {Vector} from "../core/vector";
+import {round4Digits} from "../core/utils";
 
-import { Vector } from "../core/vector";
-import { round4Digits } from "../core/utils";
 export const globalJsonSchemaDefs = {};
 
 /**

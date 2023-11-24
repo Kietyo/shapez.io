@@ -1,4 +1,4 @@
-import { BasicSerializableObject } from "../savegame/serialization";
+import {BasicSerializableObject} from "../savegame/serialization";
 
 export class Component extends BasicSerializableObject {
     /**

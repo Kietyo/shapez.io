@@ -1,12 +1,12 @@
-import { makeOffscreenBuffer } from "../../../core/buffer_utils";
-import { globalConfig } from "../../../core/config";
-import { DrawParameters } from "../../../core/draw_parameters";
-import { Loader } from "../../../core/loader";
-import { lerp } from "../../../core/utils";
-import { SOUNDS } from "../../../platform/sound";
-import { KEYMAPPINGS } from "../../key_action_mapper";
-import { enumHubGoalRewards } from "../../tutorial_goals";
-import { BaseHUDPart } from "../base_hud_part";
+import {makeOffscreenBuffer} from "../../../core/buffer_utils";
+import {globalConfig} from "../../../core/config";
+import {DrawParameters} from "../../../core/draw_parameters";
+import {Loader} from "../../../core/loader";
+import {lerp} from "../../../core/utils";
+import {SOUNDS} from "../../../platform/sound";
+import {KEYMAPPINGS} from "../../key_action_mapper";
+import {enumHubGoalRewards} from "../../tutorial_goals";
+import {BaseHUDPart} from "../base_hud_part";
 
 const copy = require("clipboard-copy");
 const wiresBackgroundDpi = 4;

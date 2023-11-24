@@ -1,12 +1,12 @@
-import { BaseHUDPart } from "../base_hud_part";
-import { makeDiv } from "../../../core/utils";
-import { TrackedState } from "../../../core/tracked_state";
-import { enumColors } from "../../colors";
-import { ColorItem } from "../../items/color_item";
-import { DrawParameters } from "../../../core/draw_parameters";
-import { THEME } from "../../theme";
-import { globalConfig } from "../../../core/config";
-import { T } from "../../../translations";
+import {BaseHUDPart} from "../base_hud_part";
+import {makeDiv} from "../../../core/utils";
+import {TrackedState} from "../../../core/tracked_state";
+import {enumColors} from "../../colors";
+import {ColorItem} from "../../items/color_item";
+import {DrawParameters} from "../../../core/draw_parameters";
+import {THEME} from "../../theme";
+import {globalConfig} from "../../../core/config";
+import {T} from "../../../translations";
 
 export class HUDColorBlindHelper extends BaseHUDPart {
     createElements(parent) {

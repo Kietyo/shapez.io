@@ -1,6 +1,6 @@
-import { globalConfig } from "./config";
-import { fastArrayDelete } from "./utils";
-import { createLogger } from "./logging";
+import {globalConfig} from "./config";
+import {fastArrayDelete} from "./utils";
+import {createLogger} from "./logging";
 
 const logger = createLogger("buffer_utils");
 

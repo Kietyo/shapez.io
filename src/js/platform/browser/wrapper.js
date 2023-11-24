@@ -1,13 +1,13 @@
-import { globalConfig, IS_MOBILE } from "../../core/config";
-import { createLogger } from "../../core/logging";
-import { queryParamOptions } from "../../core/query_parameters";
-import { WEB_STEAM_SSO_AUTHENTICATED } from "../../core/steam_sso";
-import { clamp } from "../../core/utils";
-import { SteamAchievementProvider } from "../electron/steam_achievement_provider";
-import { PlatformWrapperInterface } from "../wrapper";
-import { NoAchievementProvider } from "./no_achievement_provider";
-import { StorageImplBrowser } from "./storage";
-import { StorageImplBrowserIndexedDB } from "./storage_indexed_db";
+import {globalConfig, IS_MOBILE} from "../../core/config";
+import {createLogger} from "../../core/logging";
+import {queryParamOptions} from "../../core/query_parameters";
+import {WEB_STEAM_SSO_AUTHENTICATED} from "../../core/steam_sso";
+import {clamp} from "../../core/utils";
+import {SteamAchievementProvider} from "../electron/steam_achievement_provider";
+import {PlatformWrapperInterface} from "../wrapper";
+import {NoAchievementProvider} from "./no_achievement_provider";
+import {StorageImplBrowser} from "./storage";
+import {StorageImplBrowserIndexedDB} from "./storage_indexed_db";
 
 const logger = createLogger("platform/browser");
 

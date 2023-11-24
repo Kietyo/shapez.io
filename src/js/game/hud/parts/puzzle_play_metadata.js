@@ -1,10 +1,9 @@
 /* typehints:start */
-import { PuzzlePlayGameMode } from "../../modes/puzzle_play";
+import {PuzzlePlayGameMode} from "../../modes/puzzle_play";
 /* typehints:end */
-
-import { formatBigNumberFull, formatSeconds, makeDiv } from "../../../core/utils";
-import { T } from "../../../translations";
-import { BaseHUDPart } from "../base_hud_part";
+import {formatBigNumberFull, formatSeconds, makeDiv} from "../../../core/utils";
+import {T} from "../../../translations";
+import {BaseHUDPart} from "../base_hud_part";
 
 const copy = require("clipboard-copy");
 

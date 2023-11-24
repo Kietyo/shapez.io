@@ -1,9 +1,9 @@
-import { BaseHUDPart } from "../base_hud_part";
-import { makeDiv, round3Digits, round2Digits } from "../../../core/utils";
-import { DynamicDomAttach } from "../dynamic_dom_attach";
-import { KEYMAPPINGS } from "../../key_action_mapper";
-import { Vector } from "../../../core/vector";
-import { TrackedState } from "../../../core/tracked_state";
+import {BaseHUDPart} from "../base_hud_part";
+import {makeDiv, round2Digits, round3Digits} from "../../../core/utils";
+import {DynamicDomAttach} from "../dynamic_dom_attach";
+import {KEYMAPPINGS} from "../../key_action_mapper";
+import {Vector} from "../../../core/vector";
+import {TrackedState} from "../../../core/tracked_state";
 
 /** @enum {string} */
 const enumDebugOverlayMode = { disabled: "disabled", regular: "regular", detailed: "detailed" };

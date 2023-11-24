@@ -1,19 +1,19 @@
-import { THIRDPARTY_URLS } from "../../../core/config";
-import { DialogWithForm } from "../../../core/modal_dialog_elements";
-import { FormElementInput, FormElementItemChooser } from "../../../core/modal_dialog_forms";
-import { STOP_PROPAGATION } from "../../../core/signal";
-import { fillInLinkIntoTranslation } from "../../../core/utils";
-import { Vector } from "../../../core/vector";
-import { T } from "../../../translations";
-import { BaseItem } from "../../base_item";
-import { enumMouseButton } from "../../camera";
-import { Entity } from "../../entity";
-import { BOOL_FALSE_SINGLETON, BOOL_TRUE_SINGLETON } from "../../items/boolean_item";
-import { COLOR_ITEM_SINGLETONS } from "../../items/color_item";
-import { BaseHUDPart } from "../base_hud_part";
+import {THIRDPARTY_URLS} from "../../../core/config";
+import {DialogWithForm} from "../../../core/modal_dialog_elements";
+import {FormElementInput, FormElementItemChooser} from "../../../core/modal_dialog_forms";
+import {STOP_PROPAGATION} from "../../../core/signal";
+import {fillInLinkIntoTranslation} from "../../../core/utils";
+import {Vector} from "../../../core/vector";
+import {T} from "../../../translations";
+import {BaseItem} from "../../base_item";
+import {enumMouseButton} from "../../camera";
+import {Entity} from "../../entity";
+import {BOOL_FALSE_SINGLETON, BOOL_TRUE_SINGLETON} from "../../items/boolean_item";
+import {COLOR_ITEM_SINGLETONS} from "../../items/color_item";
+import {BaseHUDPart} from "../base_hud_part";
 import trim from "trim";
-import { enumColors } from "../../colors";
-import { ShapeDefinition } from "../../shape_definition";
+import {enumColors} from "../../colors";
+import {ShapeDefinition} from "../../shape_definition";
 
 /** @type {{
  * [x: string]: (entity: Entity) => BaseItem

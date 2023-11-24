@@ -1,11 +1,10 @@
 /* typehints:start */
-import { Application } from "../application";
-import { InputReceiver } from "./input_receiver";
+import {Application} from "../application";
+import {InputReceiver} from "./input_receiver";
 /* typehints:end */
-
-import { Signal, STOP_PROPAGATION } from "./signal";
-import { createLogger } from "./logging";
-import { arrayDeleteValue, fastArrayDeleteValue } from "./utils";
+import {Signal, STOP_PROPAGATION} from "./signal";
+import {createLogger} from "./logging";
+import {arrayDeleteValue, fastArrayDeleteValue} from "./utils";
 
 const logger = createLogger("input_distributor");
 

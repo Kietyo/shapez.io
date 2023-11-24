@@ -1,8 +1,8 @@
-import { ExplainedResult } from "../core/explained_result";
-import { gComponentRegistry } from "../core/global_registries";
-import { createLogger } from "../core/logging";
-import { MOD_SIGNALS } from "../mods/mod_signals";
-import { SerializerInternal } from "./serializer_internal";
+import {ExplainedResult} from "../core/explained_result";
+import {gComponentRegistry} from "../core/global_registries";
+import {createLogger} from "../core/logging";
+import {MOD_SIGNALS} from "../mods/mod_signals";
+import {SerializerInternal} from "./serializer_internal";
 
 /**
  * @typedef {import("../game/component").Component} Component

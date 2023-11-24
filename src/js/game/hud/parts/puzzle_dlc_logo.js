@@ -1,5 +1,5 @@
-import { makeDiv } from "../../../core/utils";
-import { BaseHUDPart } from "../base_hud_part";
+import {makeDiv} from "../../../core/utils";
+import {BaseHUDPart} from "../base_hud_part";
 
 export class HUDPuzzleDLCLogo extends BaseHUDPart {
     createElements(parent) {

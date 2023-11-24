@@ -1,7 +1,6 @@
-import { enumDirection, enumInvertedDirections, Vector } from "../../core/vector";
-import { types } from "../../savegame/serialization";
-import { BaseItem } from "../base_item";
-import { Component } from "../component";
+import {enumDirection, enumInvertedDirections, Vector} from "../../core/vector";
+import {BaseItem} from "../base_item";
+import {Component} from "../component";
 
 /**
  * @typedef {{

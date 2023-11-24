@@ -1,9 +1,9 @@
-import { globalConfig } from "../../core/config";
-import { BaseItem } from "../base_item";
-import { FilterComponent } from "../components/filter";
-import { Entity } from "../entity";
-import { GameSystemWithFilter } from "../game_system_with_filter";
-import { BOOL_TRUE_SINGLETON } from "../items/boolean_item";
+import {globalConfig} from "../../core/config";
+import {BaseItem} from "../base_item";
+import {FilterComponent} from "../components/filter";
+import {Entity} from "../entity";
+import {GameSystemWithFilter} from "../game_system_with_filter";
+import {BOOL_TRUE_SINGLETON} from "../items/boolean_item";
 
 const MAX_ITEMS_IN_QUEUE = 2;
 

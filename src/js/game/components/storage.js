@@ -1,9 +1,9 @@
-import { types } from "../../savegame/serialization";
-import { BaseItem } from "../base_item";
-import { Component } from "../component";
-import { typeItemSingleton } from "../item_resolver";
-import { ColorItem } from "../items/color_item";
-import { ShapeItem } from "../items/shape_item";
+import {types} from "../../savegame/serialization";
+import {BaseItem} from "../base_item";
+import {Component} from "../component";
+import {typeItemSingleton} from "../item_resolver";
+import {ColorItem} from "../items/color_item";
+import {ShapeItem} from "../items/shape_item";
 
 /** @type {{
  * [x: string]: (item: BaseItem) => Boolean

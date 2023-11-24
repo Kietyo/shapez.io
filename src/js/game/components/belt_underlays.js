@@ -1,5 +1,5 @@
-import { enumDirection, Vector } from "../../core/vector";
-import { Component } from "../component";
+import {enumDirection, Vector} from "../../core/vector";
+import {Component} from "../component";
 
 /**
  * Store which type an underlay is, this is cached so we can easily

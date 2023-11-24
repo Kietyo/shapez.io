@@ -1,11 +1,10 @@
 /* typehints:start */
-import { BaseHUDPart } from "../game/hud/base_hud_part";
-import { GameRoot } from "../game/root";
-import { GameState } from "../core/game_state";
-import { InGameState } from "../states/ingame";
+import {BaseHUDPart} from "../game/hud/base_hud_part";
+import {GameRoot} from "../game/root";
+import {GameState} from "../core/game_state";
+import {InGameState} from "../states/ingame";
 /* typehints:end */
-
-import { Signal } from "../core/signal";
+import {Signal} from "../core/signal";
 
 // Single file to avoid circular deps
 

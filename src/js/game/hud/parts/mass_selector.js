@@ -1,22 +1,22 @@
-import { globalConfig } from "../../../core/config";
-import { DrawParameters } from "../../../core/draw_parameters";
-import { createLogger } from "../../../core/logging";
-import { STOP_PROPAGATION } from "../../../core/signal";
-import { formatBigNumberFull } from "../../../core/utils";
-import { Vector } from "../../../core/vector";
-import { ACHIEVEMENTS } from "../../../platform/achievement_provider";
-import { T } from "../../../translations";
-import { Blueprint } from "../../blueprint";
-import { enumMouseButton } from "../../camera";
-import { Entity } from "../../entity";
-import { KEYMAPPINGS } from "../../key_action_mapper";
-import { THEME } from "../../theme";
-import { enumHubGoalRewards } from "../../tutorial_goals";
-import { BaseHUDPart } from "../base_hud_part";
+import {globalConfig} from "../../../core/config";
+import {DrawParameters} from "../../../core/draw_parameters";
+import {createLogger} from "../../../core/logging";
+import {STOP_PROPAGATION} from "../../../core/signal";
+import {formatBigNumberFull} from "../../../core/utils";
+import {Vector} from "../../../core/vector";
+import {ACHIEVEMENTS} from "../../../platform/achievement_provider";
+import {T} from "../../../translations";
+import {Blueprint} from "../../blueprint";
+import {enumMouseButton} from "../../camera";
+import {Entity} from "../../entity";
+import {KEYMAPPINGS} from "../../key_action_mapper";
+import {THEME} from "../../theme";
+import {enumHubGoalRewards} from "../../tutorial_goals";
+import {BaseHUDPart} from "../base_hud_part";
 
 /* typehints:start */
 // @ts-ignore
-import { Component } from "../../component";
+import {Component} from "../../component";
 /* typehints:end */
 
 const logger = createLogger("hud/mass_selector");

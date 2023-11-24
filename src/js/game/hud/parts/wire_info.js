@@ -1,9 +1,9 @@
-import { globalConfig } from "../../../core/config";
-import { MapChunkView } from "../../map_chunk_view";
-import { WireNetwork } from "../../systems/wire";
-import { THEME } from "../../theme";
-import { BaseHUDPart } from "../base_hud_part";
-import { Loader } from "../../../core/loader";
+import {globalConfig} from "../../../core/config";
+import {MapChunkView} from "../../map_chunk_view";
+import {WireNetwork} from "../../systems/wire";
+import {THEME} from "../../theme";
+import {BaseHUDPart} from "../base_hud_part";
+import {Loader} from "../../../core/loader";
 
 export class HUDWireInfo extends BaseHUDPart {
     initialize() {

@@ -1,16 +1,15 @@
 /* typehints:start */
-import { Application } from "../application";
+import {Application} from "../application";
 /* typehints:end */
-
-import { initSpriteCache } from "../game/meta_building_registry";
-import { MUSIC, SOUNDS } from "../platform/sound";
-import { T } from "../translations";
-import { AtlasDefinition, atlasFiles } from "./atlas_definitions";
-import { cachebust } from "./cachebust";
-import { Loader } from "./loader";
-import { createLogger } from "./logging";
-import { Signal } from "./signal";
-import { clamp, getLogoSprite, timeoutPromise } from "./utils";
+import {initSpriteCache} from "../game/meta_building_registry";
+import {MUSIC, SOUNDS} from "../platform/sound";
+import {T} from "../translations";
+import {AtlasDefinition, atlasFiles} from "./atlas_definitions";
+import {cachebust} from "./cachebust";
+import {Loader} from "./loader";
+import {createLogger} from "./logging";
+import {Signal} from "./signal";
+import {clamp, getLogoSprite, timeoutPromise} from "./utils";
 
 const logger = createLogger("background_loader");
 

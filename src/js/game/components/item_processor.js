@@ -1,6 +1,6 @@
-import { types } from "../../savegame/serialization";
-import { BaseItem } from "../base_item";
-import { Component } from "../component";
+import {types} from "../../savegame/serialization";
+import {BaseItem} from "../base_item";
+import {Component} from "../component";
 
 /** @enum {string} */
 export const enumItemProcessorTypes = {

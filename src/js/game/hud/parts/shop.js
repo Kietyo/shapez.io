@@ -1,11 +1,11 @@
-import { ClickDetector } from "../../../core/click_detector";
-import { InputReceiver } from "../../../core/input_receiver";
-import { formatBigNumber, getRomanNumber, makeDiv } from "../../../core/utils";
-import { SOUNDS } from "../../../platform/sound";
-import { T } from "../../../translations";
-import { KeyActionMapper, KEYMAPPINGS } from "../../key_action_mapper";
-import { BaseHUDPart } from "../base_hud_part";
-import { DynamicDomAttach } from "../dynamic_dom_attach";
+import {ClickDetector} from "../../../core/click_detector";
+import {InputReceiver} from "../../../core/input_receiver";
+import {formatBigNumber, getRomanNumber, makeDiv} from "../../../core/utils";
+import {SOUNDS} from "../../../platform/sound";
+import {T} from "../../../translations";
+import {KeyActionMapper, KEYMAPPINGS} from "../../key_action_mapper";
+import {BaseHUDPart} from "../base_hud_part";
+import {DynamicDomAttach} from "../dynamic_dom_attach";
 
 export class HUDShop extends BaseHUDPart {
     createElements(parent) {

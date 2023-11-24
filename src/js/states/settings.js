@@ -1,8 +1,8 @@
-import { THIRDPARTY_URLS } from "../core/config";
-import { TextualGameState } from "../core/textual_game_state";
-import { formatSecondsToTimeAgo } from "../core/utils";
-import { enumCategories } from "../profile/application_settings";
-import { T } from "../translations";
+import {THIRDPARTY_URLS} from "../core/config";
+import {TextualGameState} from "../core/textual_game_state";
+import {formatSecondsToTimeAgo} from "../core/utils";
+import {enumCategories} from "../profile/application_settings";
+import {T} from "../translations";
 
 export class SettingsState extends TextualGameState {
     constructor() {

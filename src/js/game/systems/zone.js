@@ -1,15 +1,14 @@
 /* typehints:start */
-import { DrawParameters } from "../../core/draw_parameters";
-import { MapChunkView } from "../map_chunk_view";
-import { GameRoot } from "../root";
+import {DrawParameters} from "../../core/draw_parameters";
+import {MapChunkView} from "../map_chunk_view";
+import {GameRoot} from "../root";
 /* typehints:end */
-
-import { globalConfig } from "../../core/config";
-import { STOP_PROPAGATION } from "../../core/signal";
-import { GameSystem } from "../game_system";
-import { THEME } from "../theme";
-import { Entity } from "../entity";
-import { Vector } from "../../core/vector";
+import {globalConfig} from "../../core/config";
+import {STOP_PROPAGATION} from "../../core/signal";
+import {GameSystem} from "../game_system";
+import {THEME} from "../theme";
+import {Entity} from "../entity";
+import {Vector} from "../../core/vector";
 
 export class ZoneSystem extends GameSystem {
     /** @param {GameRoot} root */

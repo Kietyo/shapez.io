@@ -1,14 +1,14 @@
-import { Vector, enumDirection } from "../../core/vector";
-import { LogicGateComponent, enumLogicGateType } from "../components/logic_gate";
-import { WiredPinsComponent, enumPinSlotType } from "../components/wired_pins";
-import { Entity } from "../entity";
-import { defaultBuildingVariant, MetaBuilding } from "../meta_building";
-import { GameRoot } from "../root";
-import { enumHubGoalRewards } from "../tutorial_goals";
-import { MetaCutterBuilding } from "./cutter";
-import { MetaPainterBuilding } from "./painter";
-import { MetaRotaterBuilding } from "./rotater";
-import { MetaStackerBuilding } from "./stacker";
+import {enumDirection, Vector} from "../../core/vector";
+import {enumLogicGateType, LogicGateComponent} from "../components/logic_gate";
+import {enumPinSlotType, WiredPinsComponent} from "../components/wired_pins";
+import {Entity} from "../entity";
+import {defaultBuildingVariant, MetaBuilding} from "../meta_building";
+import {GameRoot} from "../root";
+import {enumHubGoalRewards} from "../tutorial_goals";
+import {MetaCutterBuilding} from "./cutter";
+import {MetaPainterBuilding} from "./painter";
+import {MetaRotaterBuilding} from "./rotater";
+import {MetaStackerBuilding} from "./stacker";
 
 /** @enum {string} */
 export const enumVirtualProcessorVariants = {

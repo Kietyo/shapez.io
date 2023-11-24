@@ -1,7 +1,7 @@
-import { globalConfig, openStandaloneLink } from "../../../core/config";
-import { makeDiv } from "../../../core/utils";
-import { T } from "../../../translations";
-import { BaseHUDPart } from "../base_hud_part";
+import {globalConfig, openStandaloneLink} from "../../../core/config";
+import {makeDiv} from "../../../core/utils";
+import {T} from "../../../translations";
+import {BaseHUDPart} from "../base_hud_part";
 
 export class HUDWatermark extends BaseHUDPart {
     createElements(parent) {

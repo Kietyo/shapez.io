@@ -1,6 +1,6 @@
-import { globalConfig } from "../core/config";
-import { createLogger } from "../core/logging";
-import { GameRoot } from "./root";
+import {globalConfig} from "../core/config";
+import {createLogger} from "../core/logging";
+import {GameRoot} from "./root";
 
 // How important it is that a savegame is created
 /**

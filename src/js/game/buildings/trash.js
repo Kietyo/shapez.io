@@ -1,12 +1,12 @@
-import { generateMatrixRotations } from "../../core/utils";
-import { enumDirection, Vector } from "../../core/vector";
-import { ACHIEVEMENTS } from "../../platform/achievement_provider";
-import { ItemAcceptorComponent } from "../components/item_acceptor";
-import { enumItemProcessorTypes, ItemProcessorComponent } from "../components/item_processor";
-import { Entity } from "../entity";
-import { defaultBuildingVariant, MetaBuilding } from "../meta_building";
-import { GameRoot } from "../root";
-import { enumHubGoalRewards } from "../tutorial_goals";
+import {generateMatrixRotations} from "../../core/utils";
+import {enumDirection, Vector} from "../../core/vector";
+import {ACHIEVEMENTS} from "../../platform/achievement_provider";
+import {ItemAcceptorComponent} from "../components/item_acceptor";
+import {enumItemProcessorTypes, ItemProcessorComponent} from "../components/item_processor";
+import {Entity} from "../entity";
+import {defaultBuildingVariant, MetaBuilding} from "../meta_building";
+import {GameRoot} from "../root";
+import {enumHubGoalRewards} from "../tutorial_goals";
 
 const overlayMatrix = generateMatrixRotations([1, 1, 0, 1, 1, 1, 0, 1, 1]);
 

@@ -1,4 +1,4 @@
-import { BaseGameSpeed } from "./base_game_speed";
+import {BaseGameSpeed} from "./base_game_speed";
 
 export class PausedGameSpeed extends BaseGameSpeed {
     static getId() {

@@ -1,12 +1,12 @@
-import { enumDirection, Vector } from "../../core/vector";
-import { ItemEjectorComponent } from "../components/item_ejector";
-import { MinerComponent } from "../components/miner";
-import { Entity } from "../entity";
-import { MetaBuilding, defaultBuildingVariant } from "../meta_building";
-import { GameRoot } from "../root";
-import { enumHubGoalRewards } from "../tutorial_goals";
-import { T } from "../../translations";
-import { formatItemsPerSecond, generateMatrixRotations } from "../../core/utils";
+import {enumDirection, Vector} from "../../core/vector";
+import {ItemEjectorComponent} from "../components/item_ejector";
+import {MinerComponent} from "../components/miner";
+import {Entity} from "../entity";
+import {defaultBuildingVariant, MetaBuilding} from "../meta_building";
+import {GameRoot} from "../root";
+import {enumHubGoalRewards} from "../tutorial_goals";
+import {T} from "../../translations";
+import {formatItemsPerSecond, generateMatrixRotations} from "../../core/utils";
 
 /** @enum {string} */
 export const enumMinerVariants = { chainable: "chainable" };

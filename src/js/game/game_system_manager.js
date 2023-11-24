@@ -1,33 +1,32 @@
 /* typehints:start */
-import { GameSystem } from "./game_system";
-import { GameRoot } from "./root";
+import {GameSystem} from "./game_system";
+import {GameRoot} from "./root";
 /* typehints:end */
-
-import { createLogger } from "../core/logging";
-import { BeltSystem } from "./systems/belt";
-import { ItemEjectorSystem } from "./systems/item_ejector";
-import { MapResourcesSystem } from "./systems/map_resources";
-import { MinerSystem } from "./systems/miner";
-import { ItemProcessorSystem } from "./systems/item_processor";
-import { UndergroundBeltSystem } from "./systems/underground_belt";
-import { HubSystem } from "./systems/hub";
-import { StaticMapEntitySystem } from "./systems/static_map_entity";
-import { ItemAcceptorSystem } from "./systems/item_acceptor";
-import { StorageSystem } from "./systems/storage";
-import { WiredPinsSystem } from "./systems/wired_pins";
-import { BeltUnderlaysSystem } from "./systems/belt_underlays";
-import { WireSystem } from "./systems/wire";
-import { ConstantSignalSystem } from "./systems/constant_signal";
-import { LogicGateSystem } from "./systems/logic_gate";
-import { LeverSystem } from "./systems/lever";
-import { DisplaySystem } from "./systems/display";
-import { ItemProcessorOverlaysSystem } from "./systems/item_processor_overlays";
-import { BeltReaderSystem } from "./systems/belt_reader";
-import { FilterSystem } from "./systems/filter";
-import { ItemProducerSystem } from "./systems/item_producer";
-import { ConstantProducerSystem } from "./systems/constant_producer";
-import { GoalAcceptorSystem } from "./systems/goal_acceptor";
-import { ZoneSystem } from "./systems/zone";
+import {createLogger} from "../core/logging";
+import {BeltSystem} from "./systems/belt";
+import {ItemEjectorSystem} from "./systems/item_ejector";
+import {MapResourcesSystem} from "./systems/map_resources";
+import {MinerSystem} from "./systems/miner";
+import {ItemProcessorSystem} from "./systems/item_processor";
+import {UndergroundBeltSystem} from "./systems/underground_belt";
+import {HubSystem} from "./systems/hub";
+import {StaticMapEntitySystem} from "./systems/static_map_entity";
+import {ItemAcceptorSystem} from "./systems/item_acceptor";
+import {StorageSystem} from "./systems/storage";
+import {WiredPinsSystem} from "./systems/wired_pins";
+import {BeltUnderlaysSystem} from "./systems/belt_underlays";
+import {WireSystem} from "./systems/wire";
+import {ConstantSignalSystem} from "./systems/constant_signal";
+import {LogicGateSystem} from "./systems/logic_gate";
+import {LeverSystem} from "./systems/lever";
+import {DisplaySystem} from "./systems/display";
+import {ItemProcessorOverlaysSystem} from "./systems/item_processor_overlays";
+import {BeltReaderSystem} from "./systems/belt_reader";
+import {FilterSystem} from "./systems/filter";
+import {ItemProducerSystem} from "./systems/item_producer";
+import {ConstantProducerSystem} from "./systems/constant_producer";
+import {GoalAcceptorSystem} from "./systems/goal_acceptor";
+import {ZoneSystem} from "./systems/zone";
 
 const logger = createLogger("game_system_manager");
 

@@ -1,11 +1,11 @@
-import { globalConfig } from "../../core/config";
-import { gMetaBuildingRegistry } from "../../core/global_registries";
-import { Loader } from "../../core/loader";
-import { createLogger } from "../../core/logging";
-import { Rectangle } from "../../core/rectangle";
-import { AtlasSprite } from "../../core/sprites";
-import { StaleAreaDetector } from "../../core/stale_area_detector";
-import { fastArrayDeleteValueIfContained } from "../../core/utils";
+import {globalConfig} from "../../core/config";
+import {gMetaBuildingRegistry} from "../../core/global_registries";
+import {Loader} from "../../core/loader";
+import {createLogger} from "../../core/logging";
+import {Rectangle} from "../../core/rectangle";
+import {AtlasSprite} from "../../core/sprites";
+import {StaleAreaDetector} from "../../core/stale_area_detector";
+import {fastArrayDeleteValueIfContained} from "../../core/utils";
 import {
     arrayAllDirections,
     enumDirection,
@@ -13,18 +13,17 @@ import {
     enumInvertedDirections,
     Vector,
 } from "../../core/vector";
-import { ACHIEVEMENTS } from "../../platform/achievement_provider";
-import { BaseItem } from "../base_item";
-import { arrayWireRotationVariantToType, MetaWireBuilding } from "../buildings/wire";
-import { getCodeFromBuildingData } from "../building_codes";
-import { enumWireType, enumWireVariant, WireComponent } from "../components/wire";
-import { enumPinSlotType, WiredPinsComponent } from "../components/wired_pins";
-import { WireTunnelComponent } from "../components/wire_tunnel";
-import { Entity } from "../entity";
-import { GameSystem } from "../game_system";
-import { GameSystemWithFilter } from "../game_system_with_filter";
-import { isTruthyItem } from "../items/boolean_item";
-import { MapChunkView } from "../map_chunk_view";
+import {ACHIEVEMENTS} from "../../platform/achievement_provider";
+import {BaseItem} from "../base_item";
+import {arrayWireRotationVariantToType, MetaWireBuilding} from "../buildings/wire";
+import {getCodeFromBuildingData} from "../building_codes";
+import {enumWireType, enumWireVariant, WireComponent} from "../components/wire";
+import {enumPinSlotType, WiredPinsComponent} from "../components/wired_pins";
+import {WireTunnelComponent} from "../components/wire_tunnel";
+import {Entity} from "../entity";
+import {GameSystem} from "../game_system";
+import {isTruthyItem} from "../items/boolean_item";
+import {MapChunkView} from "../map_chunk_view";
 
 const logger = createLogger("wires");
 

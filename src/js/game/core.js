@@ -1,44 +1,39 @@
 /* typehints:start */
-import { Application } from "../application";
+import {Application} from "../application";
 /* typehints:end */
-import { BufferMaintainer } from "../core/buffer_maintainer";
-import {
-    disableImageSmoothing,
-    enableImageSmoothing,
-    getBufferStats,
-    registerCanvas,
-} from "../core/buffer_utils";
-import { globalConfig } from "../core/config";
-import { getDeviceDPI, resizeHighDPICanvas } from "../core/dpi_manager";
-import { DrawParameters } from "../core/draw_parameters";
-import { gMetaBuildingRegistry } from "../core/global_registries";
-import { createLogger } from "../core/logging";
-import { Rectangle } from "../core/rectangle";
-import { ORIGINAL_SPRITE_SCALE } from "../core/sprites";
-import { lerp, randomInt, round2Digits } from "../core/utils";
-import { Vector } from "../core/vector";
-import { Savegame } from "../savegame/savegame";
-import { SavegameSerializer } from "../savegame/savegame_serializer";
-import { AutomaticSave } from "./automatic_save";
-import { MetaHubBuilding } from "./buildings/hub";
-import { Camera } from "./camera";
-import { DynamicTickrate } from "./dynamic_tickrate";
-import { EntityManager } from "./entity_manager";
-import { GameSystemManager } from "./game_system_manager";
-import { HubGoals } from "./hub_goals";
-import { GameHUD } from "./hud/hud";
-import { KeyActionMapper } from "./key_action_mapper";
-import { GameLogic } from "./logic";
-import { MapView } from "./map_view";
-import { defaultBuildingVariant } from "./meta_building";
-import { GameMode } from "./game_mode";
-import { ProductionAnalytics } from "./production_analytics";
-import { GameRoot } from "./root";
-import { ShapeDefinitionManager } from "./shape_definition_manager";
-import { AchievementProxy } from "./achievement_proxy";
-import { SoundProxy } from "./sound_proxy";
-import { GameTime } from "./time/game_time";
-import { MOD_SIGNALS } from "../mods/mod_signals";
+import {BufferMaintainer} from "../core/buffer_maintainer";
+import {disableImageSmoothing, enableImageSmoothing, getBufferStats, registerCanvas,} from "../core/buffer_utils";
+import {globalConfig} from "../core/config";
+import {getDeviceDPI, resizeHighDPICanvas} from "../core/dpi_manager";
+import {DrawParameters} from "../core/draw_parameters";
+import {gMetaBuildingRegistry} from "../core/global_registries";
+import {createLogger} from "../core/logging";
+import {Rectangle} from "../core/rectangle";
+import {ORIGINAL_SPRITE_SCALE} from "../core/sprites";
+import {lerp, randomInt, round2Digits} from "../core/utils";
+import {Vector} from "../core/vector";
+import {Savegame} from "../savegame/savegame";
+import {SavegameSerializer} from "../savegame/savegame_serializer";
+import {AutomaticSave} from "./automatic_save";
+import {MetaHubBuilding} from "./buildings/hub";
+import {Camera} from "./camera";
+import {DynamicTickrate} from "./dynamic_tickrate";
+import {EntityManager} from "./entity_manager";
+import {GameSystemManager} from "./game_system_manager";
+import {HubGoals} from "./hub_goals";
+import {GameHUD} from "./hud/hud";
+import {KeyActionMapper} from "./key_action_mapper";
+import {GameLogic} from "./logic";
+import {MapView} from "./map_view";
+import {defaultBuildingVariant} from "./meta_building";
+import {GameMode} from "./game_mode";
+import {ProductionAnalytics} from "./production_analytics";
+import {GameRoot} from "./root";
+import {ShapeDefinitionManager} from "./shape_definition_manager";
+import {AchievementProxy} from "./achievement_proxy";
+import {SoundProxy} from "./sound_proxy";
+import {GameTime} from "./time/game_time";
+import {MOD_SIGNALS} from "../mods/mod_signals";
 
 const logger = createLogger("ingame/core");
 

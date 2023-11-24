@@ -1,16 +1,16 @@
-import { globalConfig } from "../../core/config";
-import { DrawParameters } from "../../core/draw_parameters";
-import { createLogger } from "../../core/logging";
-import { Rectangle } from "../../core/rectangle";
-import { StaleAreaDetector } from "../../core/stale_area_detector";
-import { enumDirection, enumDirectionToVector } from "../../core/vector";
-import { BaseItem } from "../base_item";
-import { BeltComponent } from "../components/belt";
-import { ItemAcceptorComponent } from "../components/item_acceptor";
-import { ItemEjectorComponent } from "../components/item_ejector";
-import { Entity } from "../entity";
-import { GameSystemWithFilter } from "../game_system_with_filter";
-import { MapChunkView } from "../map_chunk_view";
+import {globalConfig} from "../../core/config";
+import {DrawParameters} from "../../core/draw_parameters";
+import {createLogger} from "../../core/logging";
+import {Rectangle} from "../../core/rectangle";
+import {StaleAreaDetector} from "../../core/stale_area_detector";
+import {enumDirection, enumDirectionToVector} from "../../core/vector";
+import {BaseItem} from "../base_item";
+import {BeltComponent} from "../components/belt";
+import {ItemAcceptorComponent} from "../components/item_acceptor";
+import {ItemEjectorComponent} from "../components/item_ejector";
+import {Entity} from "../entity";
+import {GameSystemWithFilter} from "../game_system_with_filter";
+import {MapChunkView} from "../map_chunk_view";
 
 const logger = createLogger("systems/ejector");
 
@@ -206,7 +206,7 @@ export class ItemEjectorSystem extends GameSystemWithFilter {
                             targetAcceptorComp.onItemAccepted(destSlot.index, destSlot.slot.direction, item);
                         }
                         sourceSlot.item = null;
-                        continue;
+
                     }
                 }
             }

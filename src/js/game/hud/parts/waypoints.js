@@ -1,30 +1,23 @@
-import { makeOffscreenBuffer } from "../../../core/buffer_utils";
-import { globalConfig, THIRDPARTY_URLS } from "../../../core/config";
-import { DrawParameters } from "../../../core/draw_parameters";
-import { gMetaBuildingRegistry } from "../../../core/global_registries";
-import { Loader } from "../../../core/loader";
-import { DialogWithForm } from "../../../core/modal_dialog_elements";
-import { FormElementInput } from "../../../core/modal_dialog_forms";
-import { Rectangle } from "../../../core/rectangle";
-import { STOP_PROPAGATION } from "../../../core/signal";
-import {
-    arrayDeleteValue,
-    fillInLinkIntoTranslation,
-    lerp,
-    makeDiv,
-    removeAllChildren,
-} from "../../../core/utils";
-import { Vector } from "../../../core/vector";
-import { ACHIEVEMENTS } from "../../../platform/achievement_provider";
-import { T } from "../../../translations";
-import { BaseItem } from "../../base_item";
-import { MetaHubBuilding } from "../../buildings/hub";
-import { enumMouseButton } from "../../camera";
-import { KEYMAPPINGS } from "../../key_action_mapper";
-import { ShapeDefinition } from "../../shape_definition";
-import { BaseHUDPart } from "../base_hud_part";
-import { DynamicDomAttach } from "../dynamic_dom_attach";
-import { enumNotificationType } from "./notifications";
+import {makeOffscreenBuffer} from "../../../core/buffer_utils";
+import {globalConfig, THIRDPARTY_URLS} from "../../../core/config";
+import {DrawParameters} from "../../../core/draw_parameters";
+import {gMetaBuildingRegistry} from "../../../core/global_registries";
+import {Loader} from "../../../core/loader";
+import {DialogWithForm} from "../../../core/modal_dialog_elements";
+import {FormElementInput} from "../../../core/modal_dialog_forms";
+import {Rectangle} from "../../../core/rectangle";
+import {STOP_PROPAGATION} from "../../../core/signal";
+import {arrayDeleteValue, fillInLinkIntoTranslation, lerp, makeDiv, removeAllChildren,} from "../../../core/utils";
+import {Vector} from "../../../core/vector";
+import {ACHIEVEMENTS} from "../../../platform/achievement_provider";
+import {T} from "../../../translations";
+import {MetaHubBuilding} from "../../buildings/hub";
+import {enumMouseButton} from "../../camera";
+import {KEYMAPPINGS} from "../../key_action_mapper";
+import {ShapeDefinition} from "../../shape_definition";
+import {BaseHUDPart} from "../base_hud_part";
+import {DynamicDomAttach} from "../dynamic_dom_attach";
+import {enumNotificationType} from "./notifications";
 
 /** @typedef {{
  *   label: string | null,

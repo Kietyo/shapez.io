@@ -1,10 +1,10 @@
-import { arrayDeleteValue, newEmptyMap, fastArrayDeleteValue } from "../core/utils";
-import { Component } from "./component";
-import { GameRoot } from "./root";
-import { Entity } from "./entity";
-import { BasicSerializableObject, types } from "../savegame/serialization";
-import { createLogger } from "../core/logging";
-import { globalConfig } from "../core/config";
+import {arrayDeleteValue, fastArrayDeleteValue, newEmptyMap} from "../core/utils";
+import {Component} from "./component";
+import {GameRoot} from "./root";
+import {Entity} from "./entity";
+import {BasicSerializableObject, types} from "../savegame/serialization";
+import {createLogger} from "../core/logging";
+import {globalConfig} from "../core/config";
 
 const logger = createLogger("entity_manager");
 

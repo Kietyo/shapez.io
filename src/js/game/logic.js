@@ -1,16 +1,16 @@
-import { globalConfig } from "../core/config";
-import { createLogger } from "../core/logging";
-import { STOP_PROPAGATION } from "../core/signal";
-import { round2Digits } from "../core/utils";
-import { enumDirection, enumDirectionToVector, enumInvertedDirections, Vector } from "../core/vector";
-import { getBuildingDataFromCode } from "./building_codes";
-import { Component } from "./component";
-import { enumWireVariant } from "./components/wire";
-import { Entity } from "./entity";
-import { CHUNK_OVERLAY_RES } from "./map_chunk_view";
-import { MetaBuilding } from "./meta_building";
-import { GameRoot } from "./root";
-import { WireNetwork } from "./systems/wire";
+import {globalConfig} from "../core/config";
+import {createLogger} from "../core/logging";
+import {STOP_PROPAGATION} from "../core/signal";
+import {round2Digits} from "../core/utils";
+import {enumDirection, enumDirectionToVector, enumInvertedDirections, Vector} from "../core/vector";
+import {getBuildingDataFromCode} from "./building_codes";
+import {Component} from "./component";
+import {enumWireVariant} from "./components/wire";
+import {Entity} from "./entity";
+import {CHUNK_OVERLAY_RES} from "./map_chunk_view";
+import {MetaBuilding} from "./meta_building";
+import {GameRoot} from "./root";
+import {WireNetwork} from "./systems/wire";
 
 const logger = createLogger("ingame/logic");
 

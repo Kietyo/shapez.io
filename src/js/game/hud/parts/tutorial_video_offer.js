@@ -1,6 +1,6 @@
-import { THIRDPARTY_URLS } from "../../../core/config";
-import { T } from "../../../translations";
-import { BaseHUDPart } from "../base_hud_part";
+import {THIRDPARTY_URLS} from "../../../core/config";
+import {T} from "../../../translations";
+import {BaseHUDPart} from "../base_hud_part";
 
 /**
  * Offers to open the tutorial video after completing a level

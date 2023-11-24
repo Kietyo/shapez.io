@@ -1,21 +1,20 @@
 /* typehints:start */
-import { GameRoot } from "../game/root";
-import { PuzzleGameMode } from "../game/modes/puzzle";
+import {GameRoot} from "../game/root";
+import {PuzzleGameMode} from "../game/modes/puzzle";
 /* typehints:end */
-import { StaticMapEntityComponent } from "../game/components/static_map_entity";
-import { ShapeItem } from "../game/items/shape_item";
-import { Vector } from "../core/vector";
-import { MetaConstantProducerBuilding } from "../game/buildings/constant_producer";
-import { defaultBuildingVariant, MetaBuilding } from "../game/meta_building";
-import { gMetaBuildingRegistry } from "../core/global_registries";
-import { MetaGoalAcceptorBuilding } from "../game/buildings/goal_acceptor";
-import { createLogger } from "../core/logging";
-import { BaseItem } from "../game/base_item";
+import {StaticMapEntityComponent} from "../game/components/static_map_entity";
+import {Vector} from "../core/vector";
+import {MetaConstantProducerBuilding} from "../game/buildings/constant_producer";
+import {defaultBuildingVariant} from "../game/meta_building";
+import {gMetaBuildingRegistry} from "../core/global_registries";
+import {MetaGoalAcceptorBuilding} from "../game/buildings/goal_acceptor";
+import {createLogger} from "../core/logging";
+import {BaseItem} from "../game/base_item";
 import trim from "trim";
-import { enumColors } from "../game/colors";
-import { COLOR_ITEM_SINGLETONS } from "../game/items/color_item";
-import { ShapeDefinition } from "../game/shape_definition";
-import { MetaBlockBuilding } from "../game/buildings/block";
+import {enumColors} from "../game/colors";
+import {COLOR_ITEM_SINGLETONS} from "../game/items/color_item";
+import {ShapeDefinition} from "../game/shape_definition";
+import {MetaBlockBuilding} from "../game/buildings/block";
 
 const logger = createLogger("puzzle-serializer");
 

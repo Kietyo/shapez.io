@@ -1,9 +1,9 @@
-import { enumDirection, Vector } from "../../core/vector";
-import { ItemEjectorComponent } from "../components/item_ejector";
-import { ItemProducerComponent } from "../components/item_producer";
-import { enumPinSlotType, WiredPinsComponent } from "../components/wired_pins";
-import { Entity } from "../entity";
-import { defaultBuildingVariant, MetaBuilding } from "../meta_building";
+import {enumDirection, Vector} from "../../core/vector";
+import {ItemEjectorComponent} from "../components/item_ejector";
+import {ItemProducerComponent} from "../components/item_producer";
+import {enumPinSlotType, WiredPinsComponent} from "../components/wired_pins";
+import {Entity} from "../entity";
+import {defaultBuildingVariant, MetaBuilding} from "../meta_building";
 
 export class MetaItemProducerBuilding extends MetaBuilding {
     constructor() {

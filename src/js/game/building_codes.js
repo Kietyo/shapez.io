@@ -1,10 +1,9 @@
 /* typehints:start */
-import { MetaBuilding } from "./meta_building";
-import { AtlasSprite } from "../core/sprites";
-import { Vector } from "../core/vector";
+import {MetaBuilding} from "./meta_building";
+import {AtlasSprite} from "../core/sprites";
+import {Vector} from "../core/vector";
 /* typehints:end */
-
-import { gMetaBuildingRegistry } from "../core/global_registries";
+import {gMetaBuildingRegistry} from "../core/global_registries";
 
 /**
  * @typedef {{

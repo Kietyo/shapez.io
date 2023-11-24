@@ -1,4 +1,4 @@
-import { MetaBuilding } from "../game/meta_building";
+import {MetaBuilding} from "../game/meta_building";
 
 export class ModMetaBuilding extends MetaBuilding {
     /**

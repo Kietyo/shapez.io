@@ -1,9 +1,9 @@
-import { globalConfig } from "../core/config";
-import { DrawParameters } from "../core/draw_parameters";
-import { drawSpriteClipped } from "../core/draw_utils";
-import { safeModulo } from "../core/utils";
-import { CHUNK_OVERLAY_RES } from "./map_chunk_view";
-import { GameRoot } from "./root";
+import {globalConfig} from "../core/config";
+import {DrawParameters} from "../core/draw_parameters";
+import {drawSpriteClipped} from "../core/draw_utils";
+import {safeModulo} from "../core/utils";
+import {CHUNK_OVERLAY_RES} from "./map_chunk_view";
+import {GameRoot} from "./root";
 
 export class MapChunkAggregate {
     /**

@@ -1,6 +1,6 @@
-import { globalConfig } from "../core/config";
-import { DrawParameters } from "../core/draw_parameters";
-import { BasicSerializableObject } from "../savegame/serialization";
+import {globalConfig} from "../core/config";
+import {DrawParameters} from "../core/draw_parameters";
+import {BasicSerializableObject} from "../savegame/serialization";
 
 /**
  * Class for items on belts etc. Not an entity for performance reasons

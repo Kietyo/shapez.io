@@ -1,10 +1,8 @@
 /* typehints:start */
-import { GameRoot } from "../root";
-import { DrawParameters } from "../../core/draw_parameters";
+import {GameRoot} from "../root";
+import {DrawParameters} from "../../core/draw_parameters";
 /* typehints:end */
-
-import { ClickDetector } from "../../core/click_detector";
-import { KeyActionMapper } from "../key_action_mapper";
+import {ClickDetector} from "../../core/click_detector";
 
 export class BaseHUDPart {
     /**

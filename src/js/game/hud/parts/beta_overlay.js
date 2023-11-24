@@ -1,5 +1,5 @@
-import { BaseHUDPart } from "../base_hud_part";
-import { makeDiv } from "../../../core/utils";
+import {BaseHUDPart} from "../base_hud_part";
+import {makeDiv} from "../../../core/utils";
 
 export class HUDBetaOverlay extends BaseHUDPart {
     createElements(parent) {

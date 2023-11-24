@@ -1,8 +1,8 @@
-import { Loader } from "../../core/loader";
-import { LeverComponent } from "../components/lever";
-import { GameSystemWithFilter } from "../game_system_with_filter";
-import { BOOL_FALSE_SINGLETON, BOOL_TRUE_SINGLETON } from "../items/boolean_item";
-import { MapChunkView } from "../map_chunk_view";
+import {Loader} from "../../core/loader";
+import {LeverComponent} from "../components/lever";
+import {GameSystemWithFilter} from "../game_system_with_filter";
+import {BOOL_FALSE_SINGLETON, BOOL_TRUE_SINGLETON} from "../items/boolean_item";
+import {MapChunkView} from "../map_chunk_view";
 
 export class LeverSystem extends GameSystemWithFilter {
     constructor(root) {

@@ -1,8 +1,7 @@
 /* typehints:start */
-import { Entity } from "../entity";
+import {Entity} from "../entity";
 /* typehints:end */
-
-import { defaultBuildingVariant, MetaBuilding } from "../meta_building";
+import {defaultBuildingVariant, MetaBuilding} from "../meta_building";
 
 export class MetaBlockBuilding extends MetaBuilding {
     constructor() {

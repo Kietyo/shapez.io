@@ -3,9 +3,9 @@
  * @typedef {import("./draw_parameters").DrawParameters} DrawParameters
  */
 
-import { globalConfig } from "./config";
-import { createLogger } from "./logging";
-import { Rectangle } from "./rectangle";
+import {globalConfig} from "./config";
+import {createLogger} from "./logging";
+import {Rectangle} from "./rectangle";
 
 const logger = createLogger("draw_utils");
 

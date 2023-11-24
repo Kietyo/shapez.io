@@ -1,7 +1,7 @@
-import { GameSystemWithFilter } from "../game_system_with_filter";
-import { BeltReaderComponent } from "../components/belt_reader";
-import { globalConfig } from "../../core/config";
-import { BOOL_TRUE_SINGLETON, BOOL_FALSE_SINGLETON } from "../items/boolean_item";
+import {GameSystemWithFilter} from "../game_system_with_filter";
+import {BeltReaderComponent} from "../components/belt_reader";
+import {globalConfig} from "../../core/config";
+import {BOOL_FALSE_SINGLETON, BOOL_TRUE_SINGLETON} from "../items/boolean_item";
 
 export class BeltReaderSystem extends GameSystemWithFilter {
     constructor(root) {

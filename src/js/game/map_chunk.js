@@ -1,15 +1,15 @@
-import { globalConfig } from "../core/config";
-import { createLogger } from "../core/logging";
-import { RandomNumberGenerator } from "../core/rng";
-import { clamp, fastArrayDeleteValueIfContained, make2DUndefinedArray } from "../core/utils";
-import { Vector } from "../core/vector";
-import { BaseItem } from "./base_item";
-import { enumColors } from "./colors";
-import { Entity } from "./entity";
-import { COLOR_ITEM_SINGLETONS } from "./items/color_item";
-import { GameRoot } from "./root";
-import { enumSubShape } from "./shape_definition";
-import { Rectangle } from "../core/rectangle";
+import {globalConfig} from "../core/config";
+import {createLogger} from "../core/logging";
+import {RandomNumberGenerator} from "../core/rng";
+import {clamp, fastArrayDeleteValueIfContained, make2DUndefinedArray} from "../core/utils";
+import {Vector} from "../core/vector";
+import {BaseItem} from "./base_item";
+import {enumColors} from "./colors";
+import {Entity} from "./entity";
+import {COLOR_ITEM_SINGLETONS} from "./items/color_item";
+import {GameRoot} from "./root";
+import {enumSubShape} from "./shape_definition";
+import {Rectangle} from "../core/rectangle";
 
 const logger = createLogger("map_chunk");
 

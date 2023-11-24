@@ -1,6 +1,5 @@
-import { HUDModalDialogs } from "../game/hud/parts/modal_dialogs";
-import { GameState } from "./game_state";
-import { T } from "../translations";
+import {HUDModalDialogs} from "../game/hud/parts/modal_dialogs";
+import {GameState} from "./game_state";
 
 /**
  * Baseclass for all game states which are structured similary: A header with back button + some

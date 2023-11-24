@@ -1,16 +1,16 @@
-import { globalConfig } from "../core/config";
-import { smoothenDpi } from "../core/dpi_manager";
-import { DrawParameters } from "../core/draw_parameters";
-import { createLogger } from "../core/logging";
-import { Rectangle } from "../core/rectangle";
-import { ORIGINAL_SPRITE_SCALE } from "../core/sprites";
-import { clamp, epsilonCompare, round4Digits } from "../core/utils";
-import { enumDirection, enumDirectionToVector, enumInvertedDirections, Vector } from "../core/vector";
-import { BasicSerializableObject, types } from "../savegame/serialization";
-import { BaseItem } from "./base_item";
-import { Entity } from "./entity";
-import { typeItemSingleton } from "./item_resolver";
-import { GameRoot } from "./root";
+import {globalConfig} from "../core/config";
+import {smoothenDpi} from "../core/dpi_manager";
+import {DrawParameters} from "../core/draw_parameters";
+import {createLogger} from "../core/logging";
+import {Rectangle} from "../core/rectangle";
+import {ORIGINAL_SPRITE_SCALE} from "../core/sprites";
+import {clamp, epsilonCompare, round4Digits} from "../core/utils";
+import {enumDirection, enumDirectionToVector, enumInvertedDirections, Vector} from "../core/vector";
+import {BasicSerializableObject, types} from "../savegame/serialization";
+import {BaseItem} from "./base_item";
+import {Entity} from "./entity";
+import {typeItemSingleton} from "./item_resolver";
+import {GameRoot} from "./root";
 
 const logger = createLogger("belt_path");
 
@@ -994,7 +994,7 @@ export class BeltPath extends BasicSerializableObject {
                         this.items.splice(i, 1);
                         i -= 1;
                         itemOffset += item[0 /* nextDistance */];
-                        continue;
+
                     } else {
                         // This item can be kept, thus its the first we know
                         break;

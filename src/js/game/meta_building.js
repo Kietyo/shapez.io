@@ -1,11 +1,11 @@
-import { Loader } from "../core/loader";
-import { AtlasSprite } from "../core/sprites";
-import { Vector } from "../core/vector";
-import { SOUNDS } from "../platform/sound";
-import { StaticMapEntityComponent } from "./components/static_map_entity";
-import { Entity } from "./entity";
-import { GameRoot } from "./root";
-import { getCodeFromBuildingData } from "./building_codes";
+import {Loader} from "../core/loader";
+import {AtlasSprite} from "../core/sprites";
+import {Vector} from "../core/vector";
+import {SOUNDS} from "../platform/sound";
+import {StaticMapEntityComponent} from "./components/static_map_entity";
+import {Entity} from "./entity";
+import {GameRoot} from "./root";
+import {getCodeFromBuildingData} from "./building_codes";
 
 export const defaultBuildingVariant = "default";
 

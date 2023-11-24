@@ -1,13 +1,12 @@
 /* typehints:start */
-import { PuzzlePlayGameMode } from "../../modes/puzzle_play";
+import {PuzzlePlayGameMode} from "../../modes/puzzle_play";
 /* typehints:end */
-
-import { InputReceiver } from "../../../core/input_receiver";
-import { makeDiv } from "../../../core/utils";
-import { SOUNDS } from "../../../platform/sound";
-import { T } from "../../../translations";
-import { BaseHUDPart } from "../base_hud_part";
-import { DynamicDomAttach } from "../dynamic_dom_attach";
+import {InputReceiver} from "../../../core/input_receiver";
+import {makeDiv} from "../../../core/utils";
+import {SOUNDS} from "../../../platform/sound";
+import {T} from "../../../translations";
+import {BaseHUDPart} from "../base_hud_part";
+import {DynamicDomAttach} from "../dynamic_dom_attach";
 
 export class HUDPuzzleCompleteNotification extends BaseHUDPart {
     initialize() {

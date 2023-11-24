@@ -1,5 +1,5 @@
-import { cachebust } from "../core/cachebust";
-import { GameState } from "../core/game_state";
+import {cachebust} from "../core/cachebust";
+import {GameState} from "../core/game_state";
 
 export class MobileWarningState extends GameState {
     constructor() {

@@ -1,14 +1,13 @@
 /* typehints:start */
-import { Application } from "../application";
-import { Entity } from "../game/entity";
-import { GameRoot } from "../game/root";
-import { THEMES } from "../game/theme";
+import {Application} from "../application";
+import {Entity} from "../game/entity";
+import {GameRoot} from "../game/root";
+import {THEMES} from "../game/theme";
 /* typehints:end */
-
-import { enumAnalyticsDataSource } from "../game/production_analytics";
-import { ShapeDefinition } from "../game/shape_definition";
-import { ShapeItem } from "../game/items/shape_item";
-import { globalConfig } from "../core/config";
+import {enumAnalyticsDataSource} from "../game/production_analytics";
+import {ShapeDefinition} from "../game/shape_definition";
+import {ShapeItem} from "../game/items/shape_item";
+import {globalConfig} from "../core/config";
 
 export const ACHIEVEMENTS = {
     belt500Tiles: "belt500Tiles",

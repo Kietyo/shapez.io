@@ -1,9 +1,7 @@
 /* typehints:start */
-import { GameRoot } from "./root";
+import {GameRoot} from "./root";
 /* typehints:end */
-
-import { Vector } from "../core/vector";
-import { SOUNDS } from "../platform/sound";
+import {SOUNDS} from "../platform/sound";
 
 const avgSoundDurationSeconds = 0.1;
 const maxOngoingSounds = 2;

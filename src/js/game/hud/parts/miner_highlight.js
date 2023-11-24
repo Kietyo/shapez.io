@@ -1,10 +1,10 @@
-import { globalConfig } from "../../../core/config";
-import { formatItemsPerSecond, round2Digits } from "../../../core/utils";
-import { Vector } from "../../../core/vector";
-import { T } from "../../../translations";
-import { Entity } from "../../entity";
-import { THEME } from "../../theme";
-import { BaseHUDPart } from "../base_hud_part";
+import {globalConfig} from "../../../core/config";
+import {formatItemsPerSecond, round2Digits} from "../../../core/utils";
+import {Vector} from "../../../core/vector";
+import {T} from "../../../translations";
+import {Entity} from "../../entity";
+import {THEME} from "../../theme";
+import {BaseHUDPart} from "../base_hud_part";
 
 export class HUDMinerHighlight extends BaseHUDPart {
     initialize() {}

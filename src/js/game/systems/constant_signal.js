@@ -1,5 +1,5 @@
-import { ConstantSignalComponent } from "../components/constant_signal";
-import { GameSystemWithFilter } from "../game_system_with_filter";
+import {ConstantSignalComponent} from "../components/constant_signal";
+import {GameSystemWithFilter} from "../game_system_with_filter";
 
 export class ConstantSignalSystem extends GameSystemWithFilter {
     constructor(root) {

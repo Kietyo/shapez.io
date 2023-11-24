@@ -1,9 +1,9 @@
 /* typehints:start */
-import { Application } from "../application";
+import {Application} from "../application";
 /* typehints:end */
-import { ExplainedResult } from "./explained_result";
-import { ReadWriteProxy } from "./read_write_proxy";
-import { WEB_STEAM_SSO_AUTHENTICATED } from "./steam_sso";
+import {ExplainedResult} from "./explained_result";
+import {ReadWriteProxy} from "./read_write_proxy";
+import {WEB_STEAM_SSO_AUTHENTICATED} from "./steam_sso";
 
 export class RestrictionManager extends ReadWriteProxy {
     /**

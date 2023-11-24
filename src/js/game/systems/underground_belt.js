@@ -1,9 +1,8 @@
-import { globalConfig } from "../../core/config";
-import { Loader } from "../../core/loader";
-import { createLogger } from "../../core/logging";
-import { Rectangle } from "../../core/rectangle";
-import { StaleAreaDetector } from "../../core/stale_area_detector";
-import { fastArrayDelete } from "../../core/utils";
+import {globalConfig} from "../../core/config";
+import {createLogger} from "../../core/logging";
+import {Rectangle} from "../../core/rectangle";
+import {StaleAreaDetector} from "../../core/stale_area_detector";
+import {fastArrayDelete} from "../../core/utils";
 import {
     enumAngleToDirection,
     enumDirection,
@@ -11,9 +10,9 @@ import {
     enumDirectionToVector,
     enumInvertedDirections,
 } from "../../core/vector";
-import { enumUndergroundBeltMode, UndergroundBeltComponent } from "../components/underground_belt";
-import { Entity } from "../entity";
-import { GameSystemWithFilter } from "../game_system_with_filter";
+import {enumUndergroundBeltMode, UndergroundBeltComponent} from "../components/underground_belt";
+import {Entity} from "../entity";
+import {GameSystemWithFilter} from "../game_system_with_filter";
 
 const logger = createLogger("tunnels");
 

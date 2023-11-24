@@ -1,13 +1,13 @@
-import { Loader } from "../../core/loader";
-import { formatItemsPerSecond, generateMatrixRotations } from "../../core/utils";
-import { enumAngleToDirection, enumDirection, Vector } from "../../core/vector";
-import { SOUNDS } from "../../platform/sound";
-import { T } from "../../translations";
-import { BeltComponent } from "../components/belt";
-import { Entity } from "../entity";
-import { defaultBuildingVariant, MetaBuilding } from "../meta_building";
-import { GameRoot } from "../root";
-import { THEME } from "../theme";
+import {Loader} from "../../core/loader";
+import {formatItemsPerSecond, generateMatrixRotations} from "../../core/utils";
+import {enumAngleToDirection, enumDirection, Vector} from "../../core/vector";
+import {SOUNDS} from "../../platform/sound";
+import {T} from "../../translations";
+import {BeltComponent} from "../components/belt";
+import {Entity} from "../entity";
+import {defaultBuildingVariant, MetaBuilding} from "../meta_building";
+import {GameRoot} from "../root";
+import {THEME} from "../theme";
 
 export const arrayBeltVariantToRotation = [enumDirection.top, enumDirection.left, enumDirection.right];
 

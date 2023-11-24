@@ -1,10 +1,9 @@
 /* typehints:start */
-import { Application } from "../../application";
-import { GameRoot } from "../../game/root";
+import {Application} from "../../application";
+import {GameRoot} from "../../game/root";
 /* typehints:end */
-
-import { createLogger } from "../../core/logging";
-import { ACHIEVEMENTS, AchievementCollection, AchievementProviderInterface } from "../achievement_provider";
+import {createLogger} from "../../core/logging";
+import {AchievementCollection, AchievementProviderInterface, ACHIEVEMENTS} from "../achievement_provider";
 
 const logger = createLogger("achievements/steam");
 

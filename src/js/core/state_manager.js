@@ -1,11 +1,10 @@
 /* typehints:start*/
-import { Application } from "../application";
+import {Application} from "../application";
 /* typehints:end*/
-
-import { GameState } from "./game_state";
-import { createLogger } from "./logging";
-import { waitNextFrame, removeAllChildren } from "./utils";
-import { MOD_SIGNALS } from "../mods/mod_signals";
+import {GameState} from "./game_state";
+import {createLogger} from "./logging";
+import {removeAllChildren, waitNextFrame} from "./utils";
+import {MOD_SIGNALS} from "../mods/mod_signals";
 
 const logger = createLogger("state_manager");
 

@@ -1,15 +1,15 @@
-import { globalConfig } from "../../core/config";
-import { smoothenDpi } from "../../core/dpi_manager";
-import { DrawParameters } from "../../core/draw_parameters";
-import { drawSpriteClipped } from "../../core/draw_utils";
-import { Loader } from "../../core/loader";
-import { Rectangle } from "../../core/rectangle";
-import { ORIGINAL_SPRITE_SCALE } from "../../core/sprites";
-import { formatBigNumber } from "../../core/utils";
-import { T } from "../../translations";
-import { HubComponent } from "../components/hub";
-import { Entity } from "../entity";
-import { GameSystemWithFilter } from "../game_system_with_filter";
+import {globalConfig} from "../../core/config";
+import {smoothenDpi} from "../../core/dpi_manager";
+import {DrawParameters} from "../../core/draw_parameters";
+import {drawSpriteClipped} from "../../core/draw_utils";
+import {Loader} from "../../core/loader";
+import {Rectangle} from "../../core/rectangle";
+import {ORIGINAL_SPRITE_SCALE} from "../../core/sprites";
+import {formatBigNumber} from "../../core/utils";
+import {T} from "../../translations";
+import {HubComponent} from "../components/hub";
+import {Entity} from "../entity";
+import {GameSystemWithFilter} from "../game_system_with_filter";
 
 const HUB_SIZE_TILES = 4;
 const HUB_SIZE_PIXELS = HUB_SIZE_TILES * globalConfig.tileSize;

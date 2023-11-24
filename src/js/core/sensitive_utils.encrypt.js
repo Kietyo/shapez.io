@@ -1,6 +1,5 @@
-import { createHash } from "rusha";
+import {createHash} from "rusha";
 import crc32 from "crc/crc32";
-import { decompressX64 } from "./lzstring";
 
 export function sha1(str) {
     return createHash().update(str).digest("hex");

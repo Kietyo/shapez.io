@@ -1,11 +1,11 @@
-import { BaseHUDPart } from "../base_hud_part";
-import { makeDiv } from "../../../core/utils";
-import { SOUNDS } from "../../../platform/sound";
-import { enumNotificationType } from "./notifications";
-import { T } from "../../../translations";
-import { KEYMAPPINGS } from "../../key_action_mapper";
-import { DynamicDomAttach } from "../dynamic_dom_attach";
-import { TrackedState } from "../../../core/tracked_state";
+import {BaseHUDPart} from "../base_hud_part";
+import {makeDiv} from "../../../core/utils";
+import {SOUNDS} from "../../../platform/sound";
+import {enumNotificationType} from "./notifications";
+import {T} from "../../../translations";
+import {KEYMAPPINGS} from "../../key_action_mapper";
+import {DynamicDomAttach} from "../dynamic_dom_attach";
+import {TrackedState} from "../../../core/tracked_state";
 
 export class HUDGameMenu extends BaseHUDPart {
     createElements(parent) {

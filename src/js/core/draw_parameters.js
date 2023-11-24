@@ -1,5 +1,3 @@
-import { globalConfig } from "./config";
-
 /**
  * @typedef {import("../game/root").GameRoot} GameRoot
  * @typedef {import("./rectangle").Rectangle} Rectangle

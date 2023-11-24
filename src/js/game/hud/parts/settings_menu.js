@@ -1,11 +1,11 @@
-import { BaseHUDPart } from "../base_hud_part";
-import { makeDiv, formatBigNumberFull } from "../../../core/utils";
-import { DynamicDomAttach } from "../dynamic_dom_attach";
-import { InputReceiver } from "../../../core/input_receiver";
-import { KeyActionMapper, KEYMAPPINGS } from "../../key_action_mapper";
-import { T } from "../../../translations";
-import { StaticMapEntityComponent } from "../../components/static_map_entity";
-import { BeltComponent } from "../../components/belt";
+import {BaseHUDPart} from "../base_hud_part";
+import {formatBigNumberFull, makeDiv} from "../../../core/utils";
+import {DynamicDomAttach} from "../dynamic_dom_attach";
+import {InputReceiver} from "../../../core/input_receiver";
+import {KeyActionMapper, KEYMAPPINGS} from "../../key_action_mapper";
+import {T} from "../../../translations";
+import {StaticMapEntityComponent} from "../../components/static_map_entity";
+import {BeltComponent} from "../../components/belt";
 
 export class HUDSettingsMenu extends BaseHUDPart {
     createElements(parent) {

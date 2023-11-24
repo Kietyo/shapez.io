@@ -1,6 +1,6 @@
-import { T } from "../translations";
-import { rando } from "@nastyox/rando.js";
-import { WEB_STEAM_SSO_AUTHENTICATED } from "./steam_sso";
+import {T} from "../translations";
+import {rando} from "@nastyox/rando.js";
+import {WEB_STEAM_SSO_AUTHENTICATED} from "./steam_sso";
 
 const bigNumberSuffixTranslationKeys = ["thousands", "millions", "billions", "trillions"];
 

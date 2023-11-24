@@ -1,6 +1,7 @@
 /* typehints:start */
-import { GameRoot } from "./root";
-import { DrawParameters } from "../core/draw_parameters";
+import {GameRoot} from "./root";
+import {DrawParameters} from "../core/draw_parameters";
+
 /* typehints:end */
 
 /**

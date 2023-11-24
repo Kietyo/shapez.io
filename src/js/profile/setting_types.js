@@ -1,10 +1,9 @@
 /* typehints:start */
-import { Application } from "../application";
+import {Application} from "../application";
 /* typehints:end */
-
-import { createLogger } from "../core/logging";
-import { WEB_STEAM_SSO_AUTHENTICATED } from "../core/steam_sso";
-import { T } from "../translations";
+import {createLogger} from "../core/logging";
+import {WEB_STEAM_SSO_AUTHENTICATED} from "../core/steam_sso";
+import {T} from "../translations";
 
 const logger = createLogger("setting_types");
 

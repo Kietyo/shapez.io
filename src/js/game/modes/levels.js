@@ -1,8 +1,8 @@
 /* typehints:start */
-import { Application } from "../../application";
+import {Application} from "../../application";
 /* typehints:end */
-import { WEB_STEAM_SSO_AUTHENTICATED } from "../../core/steam_sso";
-import { enumHubGoalRewards } from "../tutorial_goals";
+import {WEB_STEAM_SSO_AUTHENTICATED} from "../../core/steam_sso";
+import {enumHubGoalRewards} from "../tutorial_goals";
 
 export const finalGameShape = "RuCw--Cw:----Ru--";
 const chinaShapes = G_WEGAME_VERSION || G_CHINA_VERSION;

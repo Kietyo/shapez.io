@@ -1,4 +1,4 @@
-import { FILE_NOT_FOUND, StorageInterface } from "../storage";
+import {FILE_NOT_FOUND, StorageInterface} from "../storage";
 
 export class StorageImplElectron extends StorageInterface {
     constructor(app) {

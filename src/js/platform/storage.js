@@ -1,5 +1,5 @@
 /* typehints:start */
-import { Application } from "../application";
+import {Application} from "../application";
 /* typehints:end */
 
 export const FILE_NOT_FOUND = "file_not_found";

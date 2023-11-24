@@ -1,12 +1,9 @@
 /* typehints:start */
-import { Application } from "../application";
-import { Vector } from "../core/vector";
-import { GameRoot } from "../game/root";
+import {Application} from "../application";
 /* typehints:end */
-
-import { newEmptyMap, clamp } from "../core/utils";
-import { createLogger } from "../core/logging";
-import { globalConfig } from "../core/config";
+import {clamp, newEmptyMap} from "../core/utils";
+import {createLogger} from "../core/logging";
+import {globalConfig} from "../core/config";
 
 const logger = createLogger("sound");
 

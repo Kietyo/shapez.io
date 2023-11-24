@@ -1,10 +1,10 @@
-import { globalConfig } from "../../core/config";
-import { DrawParameters } from "../../core/draw_parameters";
-import { fastArrayDelete } from "../../core/utils";
-import { enumDirectionToVector } from "../../core/vector";
-import { ItemAcceptorComponent } from "../components/item_acceptor";
-import { GameSystemWithFilter } from "../game_system_with_filter";
-import { MapChunkView } from "../map_chunk_view";
+import {globalConfig} from "../../core/config";
+import {DrawParameters} from "../../core/draw_parameters";
+import {fastArrayDelete} from "../../core/utils";
+import {enumDirectionToVector} from "../../core/vector";
+import {ItemAcceptorComponent} from "../components/item_acceptor";
+import {GameSystemWithFilter} from "../game_system_with_filter";
+import {MapChunkView} from "../map_chunk_view";
 
 export class ItemAcceptorSystem extends GameSystemWithFilter {
     constructor(root) {

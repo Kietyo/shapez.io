@@ -1,10 +1,10 @@
-import { freeCanvas, makeOffscreenBuffer } from "../../../core/buffer_utils";
-import { globalConfig } from "../../../core/config";
-import { Loader } from "../../../core/loader";
-import { Vector } from "../../../core/vector";
-import { MapChunkView } from "../../map_chunk_view";
-import { THEME } from "../../theme";
-import { BaseHUDPart } from "../base_hud_part";
+import {freeCanvas, makeOffscreenBuffer} from "../../../core/buffer_utils";
+import {globalConfig} from "../../../core/config";
+import {Loader} from "../../../core/loader";
+import {Vector} from "../../../core/vector";
+import {MapChunkView} from "../../map_chunk_view";
+import {THEME} from "../../theme";
+import {BaseHUDPart} from "../base_hud_part";
 
 /**
  * Helper class which allows peaking through to the wires layer

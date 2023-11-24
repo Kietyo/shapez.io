@@ -1,10 +1,10 @@
-import { InputReceiver } from "../../../core/input_receiver";
-import { TrackedState } from "../../../core/tracked_state";
-import { makeDiv } from "../../../core/utils";
-import { KeyActionMapper, KEYMAPPINGS } from "../../key_action_mapper";
-import { BaseHUDPart } from "../base_hud_part";
-import { DynamicDomAttach } from "../dynamic_dom_attach";
-import { T } from "../../../translations";
+import {InputReceiver} from "../../../core/input_receiver";
+import {TrackedState} from "../../../core/tracked_state";
+import {makeDiv} from "../../../core/utils";
+import {KeyActionMapper, KEYMAPPINGS} from "../../key_action_mapper";
+import {BaseHUDPart} from "../base_hud_part";
+import {DynamicDomAttach} from "../dynamic_dom_attach";
+import {T} from "../../../translations";
 
 const tutorialVideos = [3, 4, 5, 6, 7, 9, 10, 11];
 

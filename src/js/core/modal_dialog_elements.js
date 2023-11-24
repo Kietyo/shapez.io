@@ -1,17 +1,16 @@
 /* typehints:start */
-import { Application } from "../application";
+import {Application} from "../application";
 /* typehints:end */
-
-import { Signal, STOP_PROPAGATION } from "./signal";
-import { arrayDeleteValue, waitNextFrame } from "./utils";
-import { ClickDetector } from "./click_detector";
-import { SOUNDS } from "../platform/sound";
-import { InputReceiver } from "./input_receiver";
-import { FormElement } from "./modal_dialog_forms";
-import { globalConfig } from "./config";
-import { getStringForKeyCode } from "../game/key_action_mapper";
-import { createLogger } from "./logging";
-import { T } from "../translations";
+import {Signal, STOP_PROPAGATION} from "./signal";
+import {arrayDeleteValue, waitNextFrame} from "./utils";
+import {ClickDetector} from "./click_detector";
+import {SOUNDS} from "../platform/sound";
+import {InputReceiver} from "./input_receiver";
+import {FormElement} from "./modal_dialog_forms";
+import {globalConfig} from "./config";
+import {getStringForKeyCode} from "../game/key_action_mapper";
+import {createLogger} from "./logging";
+import {T} from "../translations";
 
 /*
  * ***************************************************

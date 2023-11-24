@@ -1,14 +1,14 @@
 /* typehints:start */
-import { Application } from "../application";
+import {Application} from "../application";
 /* typehints:end */
-import { globalConfig } from "../core/config";
-import { createLogger } from "../core/logging";
-import { StorageImplBrowserIndexedDB } from "../platform/browser/storage_indexed_db";
-import { StorageImplElectron } from "../platform/electron/storage";
-import { FILE_NOT_FOUND } from "../platform/storage";
-import { Mod } from "./mod";
-import { ModInterface } from "./mod_interface";
-import { MOD_SIGNALS } from "./mod_signals";
+import {globalConfig} from "../core/config";
+import {createLogger} from "../core/logging";
+import {StorageImplBrowserIndexedDB} from "../platform/browser/storage_indexed_db";
+import {StorageImplElectron} from "../platform/electron/storage";
+import {FILE_NOT_FOUND} from "../platform/storage";
+import {Mod} from "./mod";
+import {ModInterface} from "./mod_interface";
+import {MOD_SIGNALS} from "./mod_signals";
 
 import semverValidRange from "semver/ranges/valid";
 import semverSatisifies from "semver/functions/satisfies";

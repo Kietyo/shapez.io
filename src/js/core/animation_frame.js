@@ -1,9 +1,10 @@
-import { Signal } from "./signal";
+import {Signal} from "./signal";
 
 // @ts-ignore
 import BackgroundAnimationFrameEmitterWorker from "../webworkers/background_animation_frame_emittter.worker";
 
-import { createLogger } from "./logging";
+import {createLogger} from "./logging";
+
 const logger = createLogger("animation_frame");
 
 const maxDtMs = 1000;

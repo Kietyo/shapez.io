@@ -1,10 +1,10 @@
-import { globalConfig } from "../core/config";
-import { DrawParameters } from "../core/draw_parameters";
-import { getBuildingDataFromCode } from "./building_codes";
-import { Entity } from "./entity";
-import { MapChunk } from "./map_chunk";
-import { GameRoot } from "./root";
-import { THEME } from "./theme";
+import {globalConfig} from "../core/config";
+import {DrawParameters} from "../core/draw_parameters";
+import {getBuildingDataFromCode} from "./building_codes";
+import {Entity} from "./entity";
+import {MapChunk} from "./map_chunk";
+import {GameRoot} from "./root";
+import {THEME} from "./theme";
 
 export const CHUNK_OVERLAY_RES = 3;
 

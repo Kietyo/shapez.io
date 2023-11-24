@@ -1,7 +1,6 @@
-import { makeOffscreenBuffer } from "./buffer_utils";
-import { AtlasSprite, BaseSprite, RegularSprite, SpriteAtlasLink } from "./sprites";
-import { cachebust } from "./cachebust";
-import { createLogger } from "./logging";
+import {makeOffscreenBuffer} from "./buffer_utils";
+import {AtlasSprite, BaseSprite, RegularSprite, SpriteAtlasLink} from "./sprites";
+import {createLogger} from "./logging";
 
 /**
  * @typedef {import("../application").Application} Application

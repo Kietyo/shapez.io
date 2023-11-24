@@ -1,13 +1,12 @@
 /* typehints:start */
-import { GameRoot } from "./root";
+import {GameRoot} from "./root";
 /* typehints:end */
-
-import { Rectangle } from "../core/rectangle";
-import { gGameModeRegistry } from "../core/global_registries";
-import { types, BasicSerializableObject } from "../savegame/serialization";
-import { MetaBuilding } from "./meta_building";
-import { MetaItemProducerBuilding } from "./buildings/item_producer";
-import { BaseHUDPart } from "./hud/base_hud_part";
+import {Rectangle} from "../core/rectangle";
+import {gGameModeRegistry} from "../core/global_registries";
+import {BasicSerializableObject} from "../savegame/serialization";
+import {MetaBuilding} from "./meta_building";
+import {MetaItemProducerBuilding} from "./buildings/item_producer";
+import {BaseHUDPart} from "./hud/base_hud_part";
 
 /** @enum {string} */
 export const enumGameModeIds = {
@@ -81,12 +80,12 @@ export class GameMode extends BasicSerializableObject {
 
     /** @returns {undefined|Rectangle[]} */
     getBuildableZones() {
-        return;
+
     }
 
     /** @returns {Rectangle|undefined} */
     getCameraBounds() {
-        return;
+
     }
 
     /** @returns {boolean} */
@@ -164,7 +163,7 @@ export class GameMode extends BasicSerializableObject {
 
     /** @returns {number | undefined} */
     getFixedTickrate() {
-        return;
+
     }
 
     /** @returns {string} */

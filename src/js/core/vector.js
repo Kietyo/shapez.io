@@ -1,5 +1,5 @@
-import { globalConfig } from "./config";
-import { safeModulo } from "./utils";
+import {globalConfig} from "./config";
+import {safeModulo} from "./utils";
 
 const tileSize = globalConfig.tileSize;
 const halfTileSize = globalConfig.halfTileSize;

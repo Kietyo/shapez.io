@@ -1,9 +1,8 @@
 /* typehints:start */
-import { Application } from "../application";
-import { ModLoader } from "./modloader";
+import {Application} from "../application";
+import {ModLoader} from "./modloader";
 /* typehints:end */
-
-import { MOD_SIGNALS } from "./mod_signals";
+import {MOD_SIGNALS} from "./mod_signals";
 
 export class Mod {
     /**

@@ -1,7 +1,7 @@
-import { types } from "../../savegame/serialization";
-import { BaseItem } from "../base_item";
-import { Component } from "../component";
-import { typeItemSingleton } from "../item_resolver";
+import {types} from "../../savegame/serialization";
+import {BaseItem} from "../base_item";
+import {Component} from "../component";
+import {typeItemSingleton} from "../item_resolver";
 
 /**
  * @typedef {{

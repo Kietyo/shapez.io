@@ -1,9 +1,9 @@
-import { DrawParameters } from "../../core/draw_parameters";
-import { types } from "../../savegame/serialization";
-import { BaseItem } from "../base_item";
-import { ShapeDefinition } from "../shape_definition";
-import { THEME } from "../theme";
-import { globalConfig } from "../../core/config";
+import {DrawParameters} from "../../core/draw_parameters";
+import {types} from "../../savegame/serialization";
+import {BaseItem} from "../base_item";
+import {ShapeDefinition} from "../shape_definition";
+import {THEME} from "../theme";
+import {globalConfig} from "../../core/config";
 
 export class ShapeItem extends BaseItem {
     static getId() {

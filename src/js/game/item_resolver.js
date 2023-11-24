@@ -1,8 +1,8 @@
-import { types } from "../savegame/serialization";
-import { gItemRegistry } from "../core/global_registries";
-import { BooleanItem, BOOL_TRUE_SINGLETON, BOOL_FALSE_SINGLETON } from "./items/boolean_item";
-import { ShapeItem } from "./items/shape_item";
-import { ColorItem, COLOR_ITEM_SINGLETONS } from "./items/color_item";
+import {types} from "../savegame/serialization";
+import {gItemRegistry} from "../core/global_registries";
+import {BOOL_FALSE_SINGLETON, BOOL_TRUE_SINGLETON, BooleanItem} from "./items/boolean_item";
+import {ShapeItem} from "./items/shape_item";
+import {COLOR_ITEM_SINGLETONS, ColorItem} from "./items/color_item";
 
 export const MODS_ADDITIONAL_ITEMS = {};
 

@@ -1,9 +1,8 @@
 /* typehints:start */
-import { Application } from "../application";
+import {Application} from "../application";
 /* typehints:end */
-
-import { randomChoice } from "../core/utils";
-import { T } from "../translations";
+import {randomChoice} from "../core/utils";
+import {T} from "../translations";
 
 export class GameLoadingOverlay {
     /**

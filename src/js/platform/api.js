@@ -1,10 +1,10 @@
 /* typehints:start */
-import { Application } from "../application";
+import {Application} from "../application";
 /* typehints:end */
-import { createLogger } from "../core/logging";
-import { compressX64 } from "../core/lzstring";
-import { timeoutPromise } from "../core/utils";
-import { T } from "../translations";
+import {createLogger} from "../core/logging";
+import {compressX64} from "../core/lzstring";
+import {timeoutPromise} from "../core/utils";
+import {T} from "../translations";
 
 const logger = createLogger("puzzle-api");
 

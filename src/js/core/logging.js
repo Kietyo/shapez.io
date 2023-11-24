@@ -1,4 +1,5 @@
-import { globalConfig } from "../core/config";
+import {globalConfig} from "../core/config";
+
 const circularJson = require("circular-json");
 
 /*

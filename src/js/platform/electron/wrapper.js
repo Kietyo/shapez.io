@@ -1,9 +1,9 @@
-import { NoAchievementProvider } from "../browser/no_achievement_provider";
-import { PlatformWrapperImplBrowser } from "../browser/wrapper";
-import { createLogger } from "../../core/logging";
-import { StorageImplElectron } from "./storage";
-import { SteamAchievementProvider } from "./steam_achievement_provider";
-import { PlatformWrapperInterface } from "../wrapper";
+import {NoAchievementProvider} from "../browser/no_achievement_provider";
+import {PlatformWrapperImplBrowser} from "../browser/wrapper";
+import {createLogger} from "../../core/logging";
+import {StorageImplElectron} from "./storage";
+import {SteamAchievementProvider} from "./steam_achievement_provider";
+import {PlatformWrapperInterface} from "../wrapper";
 
 const logger = createLogger("electron-wrapper");
 

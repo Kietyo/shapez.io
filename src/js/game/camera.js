@@ -1,13 +1,13 @@
-import { clickDetectorGlobals } from "../core/click_detector";
-import { globalConfig, SUPPORT_TOUCH } from "../core/config";
-import { createLogger } from "../core/logging";
-import { Rectangle } from "../core/rectangle";
-import { Signal, STOP_PROPAGATION } from "../core/signal";
-import { clamp } from "../core/utils";
-import { mixVector, Vector } from "../core/vector";
-import { BasicSerializableObject, types } from "../savegame/serialization";
-import { KEYMAPPINGS } from "./key_action_mapper";
-import { GameRoot } from "./root";
+import {clickDetectorGlobals} from "../core/click_detector";
+import {globalConfig, SUPPORT_TOUCH} from "../core/config";
+import {createLogger} from "../core/logging";
+import {Rectangle} from "../core/rectangle";
+import {Signal, STOP_PROPAGATION} from "../core/signal";
+import {clamp} from "../core/utils";
+import {mixVector, Vector} from "../core/vector";
+import {BasicSerializableObject, types} from "../savegame/serialization";
+import {KEYMAPPINGS} from "./key_action_mapper";
+import {GameRoot} from "./root";
 
 const logger = createLogger("camera");
 

@@ -1,6 +1,6 @@
-import { globalConfig } from "./config";
-import { epsilonCompare, round2Digits } from "./utils";
-import { Vector } from "./vector";
+import {globalConfig} from "./config";
+import {epsilonCompare, round2Digits} from "./utils";
+import {Vector} from "./vector";
 
 export class Rectangle {
     constructor(x = 0, y = 0, w = 0, h = 0) {

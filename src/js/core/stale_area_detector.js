@@ -1,8 +1,8 @@
-import { Component } from "../game/component";
-import { Entity } from "../game/entity";
-import { globalConfig } from "./config";
-import { createLogger } from "./logging";
-import { Rectangle } from "./rectangle";
+import {Component} from "../game/component";
+import {Entity} from "../game/entity";
+import {globalConfig} from "./config";
+import {createLogger} from "./logging";
+import {Rectangle} from "./rectangle";
 
 const logger = createLogger("stale_areas");
 

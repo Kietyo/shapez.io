@@ -1,9 +1,9 @@
-import { GameRoot } from "./root";
-import { ShapeDefinition } from "./shape_definition";
-import { globalConfig } from "../core/config";
-import { BaseItem } from "./base_item";
-import { ShapeItem } from "./items/shape_item";
-import { BasicSerializableObject } from "../savegame/serialization";
+import {GameRoot} from "./root";
+import {ShapeDefinition} from "./shape_definition";
+import {globalConfig} from "../core/config";
+import {BaseItem} from "./base_item";
+import {ShapeItem} from "./items/shape_item";
+import {BasicSerializableObject} from "../savegame/serialization";
 
 /** @enum {string} */
 export const enumAnalyticsDataSource = {

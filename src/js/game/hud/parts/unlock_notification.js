@@ -1,15 +1,15 @@
-import { globalConfig } from "../../../core/config";
-import { gMetaBuildingRegistry } from "../../../core/global_registries";
-import { InputReceiver } from "../../../core/input_receiver";
-import { makeDiv } from "../../../core/utils";
-import { SOUNDS } from "../../../platform/sound";
-import { T } from "../../../translations";
-import { defaultBuildingVariant } from "../../meta_building";
-import { enumHubGoalRewards } from "../../tutorial_goals";
-import { enumHubGoalRewardsToContentUnlocked } from "../../tutorial_goals_mappings";
-import { BaseHUDPart } from "../base_hud_part";
-import { DynamicDomAttach } from "../dynamic_dom_attach";
-import { enumNotificationType } from "./notifications";
+import {globalConfig} from "../../../core/config";
+import {gMetaBuildingRegistry} from "../../../core/global_registries";
+import {InputReceiver} from "../../../core/input_receiver";
+import {makeDiv} from "../../../core/utils";
+import {SOUNDS} from "../../../platform/sound";
+import {T} from "../../../translations";
+import {defaultBuildingVariant} from "../../meta_building";
+import {enumHubGoalRewards} from "../../tutorial_goals";
+import {enumHubGoalRewardsToContentUnlocked} from "../../tutorial_goals_mappings";
+import {BaseHUDPart} from "../base_hud_part";
+import {DynamicDomAttach} from "../dynamic_dom_attach";
+import {enumNotificationType} from "./notifications";
 
 export class HUDUnlockNotification extends BaseHUDPart {
     initialize() {
