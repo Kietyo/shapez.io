@@ -92,22 +92,6 @@ export class Rectangle {
     getCenter() {
         return new Vector(this.x + this.w / 2, this.y + this.h / 2);
     }
-
-    /**
-     * Sets the right side of the rect without moving it
-     * @param {number} right
-     */
-    setRight(right) {
-        this.w = right - this.x;
-    }
-
-    /**
-     * Sets the bottom side of the rect without moving it
-     * @param {number} bottom
-     */
-    setBottom(bottom) {
-        this.h = bottom - this.y;
-    }
     /**
      * Moves the rectangle by the given parameters
      * @param {number} x

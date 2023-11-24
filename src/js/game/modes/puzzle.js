@@ -10,10 +10,6 @@ import { HUDPuzzleDLCLogo } from "../hud/parts/puzzle_dlc_logo";
 import { HUDMassSelector } from "../hud/parts/mass_selector";
 
 export class PuzzleGameMode extends GameMode {
-    static getType() {
-        return enumGameModeTypes.puzzle;
-    }
-
     /** @returns {object} */
     static getSchema() {
         return {

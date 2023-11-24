@@ -49,14 +49,6 @@ class FluidItem extends shapez.BaseItem {
     getAsCopyableKey() {
         return this.fluidType;
     }
-
-    /**
-     * @param {BaseItem} other
-     */
-    equalsImpl(other) {
-        return this.fluidType === /** @type {FluidItem} */ (other).fluidType;
-    }
-
     /**
      * @param {enumFluidType} fluidType
      */
@@ -64,23 +56,6 @@ class FluidItem extends shapez.BaseItem {
         super();
         this.fluidType = fluidType;
     }
-
-    getBackgroundColorAsResource() {
-        return fluidColors[this.fluidType];
-    }
-
-    /**
-     * Draws the item to a canvas
-     * @param {CanvasRenderingContext2D} context
-     * @param {number} size
-     */
-    drawFullSizeOnCanvas(context, size) {
-        if (!this.cachedSprite) {
-            this.cachedSprite = shapez.Loader.getSprite(`sprites/fluids/${this.fluidType}.png`);
-        }
-        this.cachedSprite.drawCentered(context, size / 2, size / 2, size);
-    }
-
     /**
      * @param {number} x
      * @param {number} y

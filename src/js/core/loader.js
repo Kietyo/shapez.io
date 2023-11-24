@@ -58,21 +58,6 @@ class LoaderImpl {
         assert(sprite instanceof AtlasSprite || sprite === this.spriteNotFoundSprite, "Not an atlas sprite");
         return /** @type {AtlasSprite} */ (sprite);
     }
-
-    /**
-     * Returns a regular sprite from the cache
-     * @param {string} key
-     * @returns {RegularSprite}
-     */
-    getRegularSprite(key) {
-        const sprite = this.getSpriteInternal(key);
-        assert(
-            sprite instanceof RegularSprite || sprite === this.spriteNotFoundSprite,
-            "Not a regular sprite"
-        );
-        return /** @type {RegularSprite} */ (sprite);
-    }
-
     /**
      *
      * @param {string} key

@@ -138,49 +138,6 @@ export class FormElementInput extends FormElement {
         this.element.select();
     }
 }
-
-export class FormElementCheckbox extends FormElement {
-    constructor({ id, label, defaultValue = true }) {
-        super(id, label);
-        this.defaultValue = defaultValue;
-        this.value = this.defaultValue;
-
-        this.element = null;
-    }
-
-    getHtml() {
-        return `
-            <div class="formElement checkBoxFormElem">
-            ${this.label ? `<label>${this.label}</label>` : ""}
-                <div class="checkbox ${this.defaultValue ? "checked" : ""}" data-formId='${this.id}'>
-                    <span class="knob"></span >
-                </div >
-            </div>
-        `;
-    }
-
-    bindEvents(parent, clickTrackers) {
-        this.element = this.getFormElement(parent);
-        const detector = new ClickDetector(this.element, {
-            consumeEvents: false,
-            preventDefault: false,
-        });
-        clickTrackers.push(detector);
-        detector.click.add(this.toggle, this);
-    }
-
-    getValue() {
-        return this.value;
-    }
-
-    toggle() {
-        this.value = !this.value;
-        this.element.classList.toggle("checked", this.value);
-    }
-
-    focus(parent) {}
-}
-
 export class FormElementItemChooser extends FormElement {
     /**
      *

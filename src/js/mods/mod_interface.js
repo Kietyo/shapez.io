@@ -114,52 +114,6 @@ export class ModInterface {
 
         Loader.sprites.set(spriteId, sprite);
     }
-
-    /**
-     *
-     * @param {string} imageBase64
-     * @param {string} jsonTextData
-     */
-    registerAtlas(imageBase64, jsonTextData) {
-        const atlasData = JSON.parse(jsonTextData);
-        const img = new Image();
-        img.src = imageBase64;
-
-        const sourceData = atlasData.frames;
-        for (const spriteName in sourceData) {
-            const { frame, sourceSize, spriteSourceSize } = sourceData[spriteName];
-
-            let sprite = /** @type {AtlasSprite} */ (Loader.sprites.get(spriteName));
-
-            if (!sprite) {
-                sprite = new AtlasSprite(spriteName);
-                Loader.sprites.set(spriteName, sprite);
-            }
-
-            sprite.frozen = true;
-
-            const link = new SpriteAtlasLink({
-                packedX: frame.x,
-                packedY: frame.y,
-                packedW: frame.w,
-                packedH: frame.h,
-                packOffsetX: spriteSourceSize.x,
-                packOffsetY: spriteSourceSize.y,
-                atlas: img,
-                w: sourceSize.w,
-                h: sourceSize.h,
-            });
-
-            if (atlasData.meta && atlasData.meta.scale) {
-                sprite.linksByResolution[atlasData.meta.scale] = link;
-            } else {
-                sprite.linksByResolution["0.25"] = link;
-                sprite.linksByResolution["0.5"] = link;
-                sprite.linksByResolution["0.75"] = link;
-            }
-        }
-    }
-
     /**
      *
      * @param {object} param0
@@ -411,15 +365,6 @@ export class ModInterface {
             },
         });
     }
-
-    /**
-     * Registers a new state class, should be a GameState derived class
-     * @param {typeof import("../core/game_state").GameState} stateClass
-     */
-    registerGameState(stateClass) {
-        this.modLoader.app.stateMgr.register(stateClass);
-    }
-
     /**
      * @param {object} param0
      * @param {"regular"|"wires"} param0.toolbar
@@ -454,26 +399,6 @@ export class ModInterface {
             return override.call(this, oldMethod.bind(this), arguments);
         };
     }
-
-    /**
-     * Runs before a method on a given class
-     * @template {constructable} C  the class
-     * @template {C["prototype"]} P  the prototype of said class
-     * @template {keyof P} M  the name of the method we are overriding
-     * @template {extendsPrams<P[M]>} O the method that will run before the old one
-     * @param {C} classHandle
-     * @param {M} methodName
-     * @param {bindThis<O, InstanceType<C>>} executeBefore
-     */
-    runBeforeMethod(classHandle, methodName, executeBefore) {
-        const oldHandle = classHandle.prototype[methodName];
-        classHandle.prototype[methodName] = function () {
-            //@ts-ignore Same as above
-            executeBefore.apply(this, arguments);
-            return oldHandle.apply(this, arguments);
-        };
-    }
-
     /**
      * Runs after a method on a given class
      * @template {constructable} C  the class

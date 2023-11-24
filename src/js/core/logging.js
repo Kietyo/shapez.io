@@ -126,15 +126,6 @@ function preparePayload(key, value) {
     }
     return value;
 }
-
-/**
- * Stringifies an object containing circular references and errors
- * @param {any} payload
- */
-export function stringifyObjectContainingErrors(payload) {
-    return circularJson.stringify(payload, preparePayload);
-}
-
 export function globalDebug(context, ...args) {
     if (G_IS_DEV) {
         logInternal(context, console.log, prepareArgsForLogging(args));
