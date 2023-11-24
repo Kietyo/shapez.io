@@ -1,4 +1,3 @@
-import {CHANGELOG} from "../changelog";
 import {cachebust} from "../core/cachebust";
 import {globalConfig} from "../core/config";
 import {GameState} from "../core/game_state";
@@ -217,12 +216,6 @@ export class PreloadState extends GameState {
                         let changelogEntries = [];
                         logger.log("Last seen version:", version);
 
-                        for (let i = 0; i < CHANGELOG.length; ++i) {
-                            if (CHANGELOG[i].version === version) {
-                                break;
-                            }
-                            changelogEntries.push(CHANGELOG[i]);
-                        }
                         if (changelogEntries.length === 0) {
                             return;
                         }

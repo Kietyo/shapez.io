@@ -205,9 +205,6 @@ module.exports = ({
                     use: [
                         // "thread-loader",
                         {
-                            loader: path.resolve(__dirname, "mod.js"),
-                        },
-                        {
                             loader: "babel-loader?cacheDirectory",
                             options: {
                                 configFile: require.resolve(
