@@ -364,8 +364,6 @@ export class MainMenuState extends GameState {
             return;
         }
 
-        this.app.gameAnalytics.note("startimport");
-
         // Create a 'fake' file-input to accept savegames
         startFileChoose(".bin").then(file => {
             if (file) {
@@ -496,11 +494,6 @@ export class MainMenuState extends GameState {
 
         this.renderMainMenu();
         this.renderSavegames();
-        this.fetchPlayerCount();
-
-        this.refreshInterval = setInterval(() => this.fetchPlayerCount(), 10000);
-
-        this.app.gameAnalytics.noteMinor("menu.enter");
     }
 
     renderMainMenu() {
@@ -546,25 +539,6 @@ export class MainMenuState extends GameState {
         );
 
         buttonContainer.appendChild(outerDiv);
-    }
-
-    fetchPlayerCount() {
-        const element = this.htmlElement.querySelector(".onlinePlayerCount");
-        if (!element) {
-            return;
-        }
-        fetch("https://analytics.shapez.io/v1/player-count", {
-            cache: "no-cache",
-        })
-            .then(res => res.json())
-            .then(
-                count => {
-                    element.innerText = T.demoBanners.playerCount.replace("<playerCount>", String(count));
-                },
-                ex => {
-                    console.warn("Failed to get player count:", ex);
-                }
-            );
     }
 
     onPuzzleModeButtonClicked(force = false) {
@@ -900,7 +874,6 @@ export class MainMenuState extends GameState {
             openStandaloneLink(this.app, "shapez_slotlimit");
         });
 
-        this.app.gameAnalytics.note("slotlimit");
     }
 
     onSettingsButtonClicked() {
@@ -918,13 +891,11 @@ export class MainMenuState extends GameState {
             this.app.savegameMgr.getSavegamesMetaData().length > 0 &&
             !this.app.restrictionMgr.getHasUnlimitedSavegames()
         ) {
-            this.app.gameAnalytics.noteMinor("menu.slotlimit");
             this.showSavegameSlotLimit();
             return;
         }
 
         this.app.adProvider.showVideoAd().then(() => {
-            this.app.gameAnalytics.noteMinor("menu.play");
             const savegame = this.app.savegameMgr.createNewSavegame();
 
             this.moveToState("InGameState", {
@@ -946,7 +917,6 @@ export class MainMenuState extends GameState {
     }
 
     onModsClicked() {
-        this.app.gameAnalytics.noteMinor("menu.mods");
         this.moveToState("ModsState", {
             backToStateId: "MainMenuState",
         });
@@ -968,7 +938,6 @@ export class MainMenuState extends GameState {
             return;
         }
 
-        this.app.gameAnalytics.noteMinor("menu.continue");
         savegame
             .readAsync()
             .then(() => this.app.adProvider.showVideoAd())
