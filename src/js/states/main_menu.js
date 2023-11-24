@@ -159,35 +159,6 @@ export class MainMenuState extends GameState {
                             : ""
                     }
 
-                ${
-                    showPuzzleDLC
-                        ? `
-
-                        ${
-                            ownsPuzzleDLC
-                                ? `
-                            <div class="puzzleContainer owned">
-                                <button class="styledButton puzzleDlcPlayButton">${T.mainMenu.play}</button>
-                            </div>`
-                                : ""
-                        }
-
-                        ${
-                            !ownsPuzzleDLC
-                                ? `
-                            <div class="puzzleContainer notOwned">
-                                <p>${T.mainMenu.puzzleDlcText}</p>
-                                <button class="styledButton puzzleDlcGetButton">${T.mainMenu.puzzleDlcViewNow}</button>
-                            </div>`
-                                : ""
-                        }
-
-
-
-                `
-                        : ""
-                }
-
 
                 ${
                     ""
@@ -354,11 +325,6 @@ export class MainMenuState extends GameState {
             );
         }
 
-        if (G_IS_DEV && globalConfig.debug.testPuzzleMode) {
-            this.onPuzzleModeButtonClicked(true);
-            return;
-        }
-
         if (G_IS_DEV && globalConfig.debug.fastGameEnter) {
             const games = this.app.savegameMgr.getSavegamesMetaData();
             if (games.length > 0 && globalConfig.debug.resumeGameOnFastEnter) {
@@ -394,9 +360,6 @@ export class MainMenuState extends GameState {
             ".githubLink": () => {
                 this.app.platformWrapper.openExternalLink(THIRDPARTY_URLS.github);
             },
-            ".puzzleDlcPlayButton": this.onPuzzleModeButtonClicked,
-            ".puzzleDlcGetButton": this.onPuzzleWishlistButtonClicked,
-            ".wegameDisclaimer > .rating": this.onWegameRatingClicked,
         };
 
         for (const key in clickHandling) {
@@ -448,27 +411,6 @@ export class MainMenuState extends GameState {
             .setAttribute("data-savegames", String(this.savedGames.length));
 
         buttonContainer.appendChild(outerDiv);
-    }
-
-    onPuzzleModeButtonClicked(force = false) {
-        const hasUnlockedBlueprints = this.app.savegameMgr.getSavegamesMetaData().some(s => s.level >= 12);
-        if (!force && !hasUnlockedBlueprints) {
-            const { ok } = this.dialogs.showWarning(
-                T.dialogs.puzzlePlayRegularRecommendation.title,
-                T.dialogs.puzzlePlayRegularRecommendation.desc,
-                ["cancel:good", "ok:bad:timeout"]
-            );
-            ok.add(() => this.onPuzzleModeButtonClicked(true));
-            return;
-        }
-
-        this.moveToState("LoginState", {
-            nextStateId: "PuzzleMenuState",
-        });
-    }
-
-    onPuzzleWishlistButtonClicked() {
-        this.app.platformWrapper.openExternalLink(THIRDPARTY_URLS.puzzleDlcStorePage);
     }
 
     onShapez2Clicked() {

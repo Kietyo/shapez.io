@@ -52,10 +52,6 @@ export class PlatformWrapperImplElectron extends PlatformWrapperImplBrowser {
         window.location.reload(true);
     }
 
-    initializeAdProvider() {
-        return Promise.resolve();
-    }
-
     initializeAchievementProvider() {
         return this.app.achievementProvider.initialize().catch(err => {
             logger.error("Failed to initialize achievement provider, disabling:", err);

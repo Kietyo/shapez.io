@@ -64,7 +64,6 @@ export class PlatformWrapperImplBrowser extends PlatformWrapperInterface {
         logger.log("Embed provider:", this.embedProvider.id);
 
         return this.detectStorageImplementation()
-            .then(() => this.initializeAdProvider())
             .then(() => this.initializeAchievementProvider())
             .then(() => super.initialize());
     }

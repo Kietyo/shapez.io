@@ -42,13 +42,6 @@ export class PlatformWrapperInterface {
     }
 
     /**
-     * Should initialize the apps ad provider in case supported
-     *  @returns {Promise<void>}
-     */
-    initializeAdProvider() {
-        return Promise.resolve();
-    }
-    /**
      * Attempt to open an external url
      * @param {string} url
      * @param {boolean=} force Whether to always open the url even if not allowed

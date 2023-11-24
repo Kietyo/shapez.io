@@ -24,7 +24,6 @@ import {MainMenuState} from "./states/main_menu";
 import {PreloadState} from "./states/preload";
 import {SettingsState} from "./states/settings";
 import {RestrictionManager} from "./core/restriction_manager";
-import {PuzzleMenuState} from "./states/puzzle_menu";
 import {ClientAPI} from "./platform/api";
 import {LoginState} from "./states/login";
 
@@ -164,7 +163,6 @@ export class Application {
             SettingsState,
             KeybindingsState,
             AboutState,
-            PuzzleMenuState,
             LoginState,
         ];
 
