@@ -125,9 +125,6 @@ export class MainMenuState extends GameState {
                                         ? T.mainMenu.playFullVersionStandalone
                                         : T.mainMenu.playFullVersionV2
                                 }</span>
-                                <a class="ssoSignIn" target="_blank" href="${
-                                    this.app.clientApi.getEndpoint() + "/v1/noauth/steam-sso"
-                                }">Sign in</a>
                             </div>`
                             : ""
                     }

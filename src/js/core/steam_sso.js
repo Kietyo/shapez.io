@@ -41,7 +41,6 @@ export async function authorizeViaSSOToken(app, dialogs) {
         return Promise.resolve();
     }
 
-    const apiUrl = app.clientApi.getEndpoint();
     console.warn("Authorizing via token:", token);
 
     const verify = async () => {
