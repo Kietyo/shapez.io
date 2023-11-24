@@ -14,13 +14,6 @@ export const enumGameModeIds = {
     puzzlePlay: "puzzlePlayMode",
     regular: "regularMode",
 };
-
-/** @enum {string} */
-export const enumGameModeTypes = {
-    default: "defaultModeType",
-    puzzle: "puzzleModeType",
-};
-
 export class GameMode extends BasicSerializableObject {
     /** @returns {string} */
     static getId() {
