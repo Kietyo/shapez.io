@@ -375,56 +375,6 @@ export class TypeVector extends BaseDataType {
         return "vector";
     }
 }
-
-export class TypeTileVector extends BaseDataType {
-    serialize(value) {
-        assert(value instanceof Vector, "Type vector got non vector for serialize: " + value);
-        assert(Number.isInteger(value.x) && value.x > 0, "Invalid tile x:" + value.x);
-        assert(Number.isInteger(value.y) && value.y > 0, "Invalid tile x:" + value.y);
-        return { x: value.x, y: value.y };
-    }
-
-    getAsJsonSchemaUncached() {
-        return schemaObject({
-            x: {
-                type: "integer",
-                minimum: 0,
-                maximum: 256,
-            },
-            y: {
-                type: "integer",
-                minimum: 0,
-                maximum: 256,
-            },
-        });
-    }
-
-    /**
-     * @see BaseDataType.deserialize
-     * @param {any} value
-     * @param {GameRoot} root
-     * @param {object} targetObject
-     * @param {string|number} targetKey
-     * @returns {string|void} String error code or null on success
-     */
-    deserialize(value, targetObject, targetKey, root) {
-        targetObject[targetKey] = new Vector(value.x, value.y);
-    }
-
-    verifySerializedValue(value) {
-        if (!Number.isInteger(value.x) || !Number.isInteger(value.y)) {
-            return "Not a valid tile vector, missing x/y or bad data type";
-        }
-        if (value.x < 0 || value.y < 0) {
-            return "Invalid tile vector, x or y < 0";
-        }
-    }
-
-    getCacheKey() {
-        return "tilevector";
-    }
-}
-
 export class TypeNumber extends BaseDataType {
     serialize(value) {
         assert(Number.isFinite(value), "Type number got non number for serialize: " + value);

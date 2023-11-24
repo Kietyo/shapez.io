@@ -47,13 +47,6 @@ export const types = {
     nullable(wrapped) {
         return new TypeNullable(wrapped);
     },
-
-    /**
-     * @param {FactoryTemplate<*>|SingletonFactoryTemplate<*>} registry
-     */
-    classId(registry) {
-        return new TypeClassId(registry);
-    },
     /**
      * @param {BaseDataType} valueType
      * @param {boolean=} includeEmptyValues
@@ -83,14 +76,6 @@ export const types = {
     objData(registry) {
         return new TypeClassData(registry);
     },
-
-    /**
-     * @param {typeof BasicSerializableObject} cls
-     */
-    knownType(cls) {
-        return new TypeFixedClass(cls);
-    },
-
     /**
      * @param {BaseDataType} innerType
      */
@@ -104,14 +89,6 @@ export const types = {
     fixedSizeArray(innerType) {
         return new TypeArray(innerType, true);
     },
-
-    /**
-     * @param {SingletonFactoryTemplate<*>} innerType
-     */
-    classRef(registry) {
-        return new TypeMetaClass(registry);
-    },
-
     /**
      * @param {Object.<string, BaseDataType>} descriptor
      */
@@ -125,14 +102,6 @@ export const types = {
      */
     pair(a, b) {
         return new TypePair(a, b);
-    },
-
-    /**
-     * @param {typeof BasicSerializableObject} classHandle
-     * @param {SingletonFactoryTemplate<*>} registry
-     */
-    classWithMetaclass(classHandle, registry) {
-        return new TypeClassFromMetaclass(classHandle, registry);
     },
 };
 
@@ -331,23 +300,4 @@ export function verifySchema(schema, data) {
             return "verify: " + errorStatus;
         }
     }
-}
-
-/**
- * Extends a schema by adding the properties from the new schema to the existing base schema
- * @param {Schema} base
- * @param {Schema} newOne
- * @returns {Schema}
- */
-export function extendSchema(base, newOne) {
-    /** @type {Schema} */
-    const result = Object.assign({}, base);
-    for (const key in newOne) {
-        if (result.hasOwnProperty(key)) {
-            logger.error("Extend schema got duplicate key:", key);
-            continue;
-        }
-        result[key] = newOne[key];
-    }
-    return result;
 }

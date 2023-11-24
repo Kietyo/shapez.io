@@ -27,11 +27,6 @@ export const MODS_ADDITIONAL_SUB_SHAPE_DRAWERS = {};
  * }} ShapeLayerItem
  */
 
-export const TOP_RIGHT = 0;
-export const BOTTOM_RIGHT = 1;
-export const BOTTOM_LEFT = 2;
-export const TOP_LEFT = 3;
-
 /**
  * Order is Q1 (tr), Q2(br), Q3(bl), Q4(tl)
  * @typedef {[ShapeLayerItem?, ShapeLayerItem?, ShapeLayerItem?, ShapeLayerItem?]} ShapeLayer
@@ -65,23 +60,6 @@ export const enumShortcodeToSubShape = {};
 for (const key in enumSubShapeToShortcode) {
     enumShortcodeToSubShape[enumSubShapeToShortcode[key]] = key;
 }
-
-/**
- * Converts the given parameters to a valid shape definition
- * @param {*} layers
- * @returns {Array<ShapeLayer>}
- */
-export function createSimpleShape(layers) {
-    layers.forEach(layer => {
-        layer.forEach(item => {
-            if (item) {
-                item.color = item.color || enumColors.uncolored;
-            }
-        });
-    });
-    return layers;
-}
-
 /**
  * Cache which shapes are valid short keys and which not
  * @type {Map<string, boolean>}
