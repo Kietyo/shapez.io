@@ -22,16 +22,6 @@ export class GamedistributionAdProvider extends AdProviderInterface {
          * @type {Function}
          */
         this.videoAdResolveFunction = null;
-
-        /**
-         * The current timer which will timeout the resolve
-         */
-        this.videoAdResolveTimer = null;
-
-        /**
-         * When we showed the last video ad
-         */
-        this.lastVideoAdShowTime = -1e20;
     }
 
     getHasAds() {

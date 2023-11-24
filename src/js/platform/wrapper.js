@@ -49,9 +49,6 @@ export class PlatformWrapperInterface {
     initializeAdProvider() {
         return Promise.resolve();
     }
-    getScreenScale() {
-        return Math.min(window.innerWidth, window.innerHeight) / 1024.0;
-    }
     /**
      * Attempt to open an external url
      * @param {string} url

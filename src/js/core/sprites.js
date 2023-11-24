@@ -65,11 +65,6 @@ export class AtlasSprite extends BaseSprite {
 
         this.frozen = false;
     }
-
-    getRawTexture() {
-        return this.linksByResolution[ORIGINAL_SPRITE_SCALE].atlas;
-    }
-
     /**
      * Draws the sprite onto a regular context using no contexts
      * @see {BaseSprite.draw}
@@ -363,11 +358,6 @@ export class RegularSprite extends BaseSprite {
         this.h = h;
         this.sprite = sprite;
     }
-
-    getRawTexture() {
-        return this.sprite;
-    }
-
     /**
      * Draws the sprite, do *not* use this for sprites which are rendered! Only for drawing
      * images into buffers
