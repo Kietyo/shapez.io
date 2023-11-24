@@ -4,9 +4,6 @@ import { Application } from "../../application";
 
 import { AdProviderInterface } from "../ad_provider";
 import { createLogger } from "../../core/logging";
-
-const minimumTimeBetweenVideoAdsMs = G_IS_DEV ? 1 : 5 * 60 * 1000;
-
 const logger = createLogger("gamedistribution");
 
 export class GamedistributionAdProvider extends AdProviderInterface {

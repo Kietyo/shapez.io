@@ -28,15 +28,7 @@ class MetaDemoModBuilding extends shapez.ModMetaBuilding {
         ];
     }
 
-    getSilhouetteColor() {
-        return "red";
-    }
 
-    setupEntityComponents(entity) {
-        // Here you can add components, for example an ItemProcessorComponent.
-        // To get an idea what you can do with the builtin components, have a look
-        // at the builtin buildings in <src/js/game/buildings/>
-    }
 }
 
 class Mod extends shapez.Mod {

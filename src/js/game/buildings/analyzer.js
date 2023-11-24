@@ -48,10 +48,6 @@ export class MetaAnalyzerBuilding extends MetaBuilding {
         return false;
     }
 
-    getSpecialOverlayRenderMatrix(rotation, rotationVariant, variant) {
-        return overlayMatrix[rotation];
-    }
-
     /**
      * Creates the entity at the given location
      * @param {Entity} entity

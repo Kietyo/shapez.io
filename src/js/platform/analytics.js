@@ -17,10 +17,6 @@ export class AnalyticsInterface {
         abstract;
         return Promise.reject();
     }
-    /**
-     * Tracks when a new state is entered
-     * @param {string} stateId
-     */
-    trackStateEnter(stateId) {}
+
 // LEGACY 1.5.3
 }

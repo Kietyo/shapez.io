@@ -7,7 +7,6 @@ app.commandLine.appendSwitch("in-process-gpu");
 const path = require("path");
 const url = require("url");
 const fs = require("fs");
-const wegame = require("./wegame");
 const asyncLock = require("async-lock");
 
 const isDev = process.argv.indexOf("--dev") >= 0;
