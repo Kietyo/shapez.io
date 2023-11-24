@@ -297,19 +297,16 @@ gulp.task(
     gulp.series(
         "utils.cleanBuildOutputFolder",
         "bundle.standalone-steam.from-windows",
-        "bundle.standalone-steam-china.from-windows"
     )
 );
 gulp.task(
     "bundle.steam-demo.from-darwin",
-    gulp.series("utils.cleanBuildOutputFolder", "bundle.standalone-steam-demo.from-darwin")
+    gulp.series("utils.cleanBuildOutputFolder")
 );
 gulp.task(
     "bundle.steam-demo.from-windows",
     gulp.series(
-        "utils.cleanBuildOutputFolder",
-        "bundle.standalone-steam-demo.from-windows",
-        "bundle.standalone-steam-china-demo.from-windows"
+        "utils.cleanBuildOutputFolder"
     )
 );
 
