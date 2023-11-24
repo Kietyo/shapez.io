@@ -1,4 +1,4 @@
-import {globalConfig} from "../core/config";
+import {globalConfig} from "./config";
 import {round1Digit, round2Digits} from "./utils";
 
 /**

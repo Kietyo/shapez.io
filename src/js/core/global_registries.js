@@ -13,7 +13,7 @@ import {Factory} from "./factory";
 
 /** @type {SingletonFactoryTemplate<MetaBuilding>} */
 export let gMetaBuildingRegistry = new SingletonFactory();
-/** @type {FactoryTemplate<Component>} */
+/** @type {Factory} */
 export let gComponentRegistry = new Factory("component");
 
 /** @type {FactoryTemplate<GameMode>} */

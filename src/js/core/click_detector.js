@@ -1,5 +1,5 @@
-import {createLogger} from "../core/logging";
-import {Signal} from "../core/signal";
+import {createLogger} from "./logging";
+import {Signal} from "./signal";
 import {fastArrayDelete, fastArrayDeleteValueIfContained} from "./utils";
 import {Vector} from "./vector";
 import {IS_MOBILE, SUPPORT_TOUCH} from "./config";

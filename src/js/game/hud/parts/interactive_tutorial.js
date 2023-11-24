@@ -19,6 +19,7 @@ import {MetaBeltBuilding} from "../../buildings/belt";
 import {MetaTrashBuilding} from "../../buildings/trash";
 import {SOUNDS} from "../../../platform/sound";
 import {THEME} from "../../theme";
+import {translateAndDraw} from "./building_placer";
 
 // @todo: Make dictionary
 const tutorialsByLevel = [
@@ -358,26 +359,10 @@ export class HUDInteractiveTutorial extends BaseHUDPart {
                     }
 
                     for (let i = 0; i < arrows.length; i++) {
-                        const { pos, rotation } = arrows[i];
-                        const worldPos = pos.toWorldSpaceCenterOfTile();
+                        const { tile, rotation } = arrows[i];
+                        const worldPos = tile.toWorldSpaceCenterOfTile();
                         const angle = Math.radians(rotation);
-
-                        parameters.context.translate(worldPos.x, worldPos.y);
-                        parameters.context.rotate(angle);
-                        parameters.context.drawImage(
-                            arrowSprite,
-                            -6,
-                            -globalConfig.halfTileSize -
-                                clamp((this.root.time.realtimeNow() * 1.5) % 1.0, 0, 1) *
-                                    1 *
-                                    globalConfig.tileSize +
-                                globalConfig.halfTileSize -
-                                6,
-                            12,
-                            12
-                        );
-                        parameters.context.rotate(-angle);
-                        parameters.context.translate(-worldPos.x, -worldPos.y);
+                        translateAndDraw.call(this, tile, rotation, parameters, arrowSprite);
                     }
 
                     parameters.context.fillStyle = THEME.map.tutorialDragText;

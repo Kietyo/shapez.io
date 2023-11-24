@@ -21,6 +21,27 @@ import {makeOffscreenBuffer} from "../../../core/buffer_utils";
 import {layers} from "../../root";
 import {getCodeFromBuildingData} from "../../building_codes";
 
+export function translateAndDraw(tile, rotation, parameters, arrowSprite) {
+    const worldPos = tile.toWorldSpaceCenterOfTile();
+    const angle = Math.radians(rotation);
+
+    parameters.context.translate(worldPos.x, worldPos.y);
+    parameters.context.rotate(angle);
+    parameters.context.drawImage(
+        arrowSprite,
+        -6,
+        -globalConfig.halfTileSize -
+        clamp((this.root.time.realtimeNow() * 1.5) % 1.0, 0, 1) *
+        1 * globalConfig.tileSize +
+        globalConfig.halfTileSize -
+        6,
+        12,
+        12
+    );
+    parameters.context.rotate(-angle);
+    parameters.context.translate(-worldPos.x, -worldPos.y);
+}
+
 export class HUDBuildingPlacer extends HUDBuildingPlacerLogic {
     /**
      * @param {HTMLElement} parent
@@ -497,23 +518,7 @@ export class HUDBuildingPlacer extends HUDBuildingPlacerLogic {
         const path = this.computeDirectionLockPath();
         for (let i = 0; i < path.length - 1; i += 1) {
             const { rotation, tile } = path[i];
-            const worldPos = tile.toWorldSpaceCenterOfTile();
-            const angle = Math.radians(rotation);
-
-            parameters.context.translate(worldPos.x, worldPos.y);
-            parameters.context.rotate(angle);
-            parameters.context.drawImage(
-                arrowSprite,
-                -6,
-                -globalConfig.halfTileSize -
-                    clamp((this.root.time.realtimeNow() * 1.5) % 1.0, 0, 1) * 1 * globalConfig.tileSize +
-                    globalConfig.halfTileSize -
-                    6,
-                12,
-                12
-            );
-            parameters.context.rotate(-angle);
-            parameters.context.translate(-worldPos.x, -worldPos.y);
+            translateAndDraw.call(this, tile, rotation, parameters, arrowSprite);
         }
     }
 

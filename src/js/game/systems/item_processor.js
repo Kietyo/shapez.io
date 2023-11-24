@@ -370,7 +370,10 @@ export class ItemProcessorSystem extends GameSystemWithFilter {
         const inputDefinition = inputItem.definition;
 
         const cutDefinitions = this.root.shapeDefinitionMgr.shapeActionCutHalf(inputDefinition);
+        this.pushFromEjector(payload, cutDefinitions);
+    }
 
+    pushFromEjector(payload, cutDefinitions) {
         const ejectorComp = payload.entity.components.ItemEjector;
         for (let i = 0; i < cutDefinitions.length; ++i) {
             const definition = cutDefinitions[i];
@@ -396,21 +399,7 @@ export class ItemProcessorSystem extends GameSystemWithFilter {
         const inputDefinition = inputItem.definition;
 
         const cutDefinitions = this.root.shapeDefinitionMgr.shapeActionCutQuad(inputDefinition);
-
-        const ejectorComp = payload.entity.components.ItemEjector;
-        for (let i = 0; i < cutDefinitions.length; ++i) {
-            const definition = cutDefinitions[i];
-
-            if (definition.isEntirelyEmpty()) {
-                ejectorComp.slots[i].lastItem = null;
-                continue;
-            }
-
-            payload.outItems.push({
-                item: this.root.shapeDefinitionMgr.getShapeItemFromDefinition(definition),
-                requiredSlot: i,
-            });
-        }
+        this.pushFromEjector(payload, cutDefinitions);
     }
 
     /**

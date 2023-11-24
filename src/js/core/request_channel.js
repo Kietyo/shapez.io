@@ -1,5 +1,5 @@
-import {createLogger} from "../core/logging";
-import {fastArrayDeleteValueIfContained} from "../core/utils";
+import {createLogger} from "./logging";
+import {fastArrayDeleteValueIfContained} from "./utils";
 
 const logger = createLogger("request_channel");
 
