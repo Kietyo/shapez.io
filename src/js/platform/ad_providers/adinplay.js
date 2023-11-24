@@ -48,11 +48,7 @@ export class AdinplayAdProvider extends AdProviderInterface {
     }
 
     getCanShowVideoAd() {
-        return (
-            this.getHasAds() &&
-            !this.videoAdResolveFunction &&
-            performance.now() - this.lastVideoAdShowTime > minimumTimeBetweenVideoAdsMs
-        );
+        return false;
     }
 
     initialize() {
@@ -138,54 +134,5 @@ export class AdinplayAdProvider extends AdProviderInterface {
         document.head.appendChild(aipScript);
 
         return Promise.resolve();
-    }
-
-    showVideoAd() {
-        assert(this.getHasAds(), "Called showVideoAd but ads are not supported!");
-        assert(!this.videoAdResolveFunction, "Video ad still running, can not show again!");
-        this.lastVideoAdShowTime = performance.now();
-        document.body.appendChild(this.adContainerMainElement);
-        this.adContainerMainElement.classList.add("visible");
-        this.adContainerMainElement.classList.remove("waitingForFinish");
-
-        try {
-            // @ts-ignore
-            window.aiptag.cmd.player.push(function () {
-                console.log("🎬 ADINPLAY AD: Start pre roll");
-                window.adPlayer.startPreRoll();
-            });
-        } catch (ex) {
-            logger.warn("🎬 Failed to play video ad:", ex);
-            document.body.removeChild(this.adContainerMainElement);
-            this.adContainerMainElement.classList.remove("visible");
-            return Promise.resolve();
-        }
-
-        return new Promise(resolve => {
-            // So, wait for the remove call but also remove after N seconds
-            this.videoAdResolveFunction = () => {
-                this.videoAdResolveFunction = null;
-                clearTimeout(this.videoAdResolveTimer);
-                this.videoAdResolveTimer = null;
-
-                // When the ad closed, also set the time
-                this.lastVideoAdShowTime = performance.now();
-                resolve();
-            };
-
-            this.videoAdResolveTimer = setTimeout(() => {
-                logger.warn(this, "Automatically closing ad after not receiving callback");
-                if (this.videoAdResolveFunction) {
-                    this.videoAdResolveFunction();
-                }
-            }, 120 * 1000);
-        })
-            .catch(err => {
-                logger.error("Error while resolving video ad:", err);
-            })
-            .then(() => {
-                document.body.removeChild(this.adContainerMainElement);
-                this.adContainerMainElement.classList.remove("visible");
-            });
     }
 }

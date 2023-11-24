@@ -12,48 +12,10 @@ import { GameAnalyticsInterface } from "../game_analytics";
 import { FILE_NOT_FOUND } from "../storage";
 import { WEB_STEAM_SSO_AUTHENTICATED } from "../../core/steam_sso";
 
-const logger = createLogger("game_analytics");
-
-const analyticsUrl = G_IS_DEV ? "http://localhost:8001" : "https://analytics.shapez.io";
-
-// Be sure to increment the ID whenever it changes
-const analyticsLocalFile = G_IS_STEAM_DEMO ? "shapez_token_steamdemo.bin" : "shapez_token_123.bin";
-
-const CURRENT_ABT = "abt_bsl2";
-const CURRENT_ABT_COUNT = 1;
-
 export class ShapezGameAnalytics extends GameAnalyticsInterface {
     constructor(app) {
         super(app);
         this.abtVariant = "0";
-    }
-
-    get environment() {
-        if (G_IS_DEV) {
-            return "dev";
-        }
-
-        if (G_IS_STEAM_DEMO) {
-            return "steam-demo";
-        }
-
-        if (G_IS_STANDALONE) {
-            return "steam";
-        }
-
-        if (WEB_STEAM_SSO_AUTHENTICATED) {
-            return "prod-full";
-        }
-
-        if (G_IS_RELEASE) {
-            return "prod";
-        }
-
-        if (window.location.host.indexOf("alpha") >= 0) {
-            return "alpha";
-        } else {
-            return "beta";
-        }
     }
 
     initialize() {}

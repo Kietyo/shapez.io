@@ -9,18 +9,6 @@ export class CrazygamesAdProvider extends AdProviderInterface {
         return true;
     }
 
-    getCanShowVideoAd() {
-        return this.getHasAds() && this.sdkInstance;
-    }
-
-    get sdkInstance() {
-        try {
-            return window.CrazyGames.CrazySDK.getInstance();
-        } catch (ex) {
-            return null;
-        }
-    }
-
     initialize() {
         if (!this.getHasAds()) {
             return Promise.resolve();
@@ -40,7 +28,6 @@ export class CrazygamesAdProvider extends AdProviderInterface {
             })
                 .then(() => {
                     logger.log("🎬  Crazygames SDK loaded, now initializing");
-                    this.sdkInstance.init();
                 })
                 .catch(ex => {
                     console.warn("Failed to init crazygames SDK:", ex);
@@ -48,52 +35,4 @@ export class CrazygamesAdProvider extends AdProviderInterface {
         );
     }
 
-    showVideoAd() {
-        const instance = this.sdkInstance;
-        if (!instance) {
-            return Promise.resolve();
-        }
-
-        logger.log("Set sound volume to 0");
-        this.app.sound.setMusicVolume(0);
-        this.app.sound.setSoundVolume(0);
-
-        return timeoutPromise(
-            new Promise(resolve => {
-                console.log("🎬 crazygames: Start ad");
-                document.body.classList.add("externalAdOpen");
-
-                const finish = () => {
-                    instance.removeEventListener("adError", finish);
-                    instance.removeEventListener("adFinished", finish);
-                    resolve();
-                };
-
-                instance.addEventListener("adError", finish);
-                instance.addEventListener("adFinished", finish);
-
-                instance.requestAd();
-            }),
-            60000
-        )
-            .catch(ex => {
-                console.warn("Error while resolving video ad:", ex);
-            })
-            .then(() => {
-                document.body.classList.remove("externalAdOpen");
-
-                logger.log("Restored sound volume");
-
-                this.app.sound.setMusicVolume(this.app.settings.getSetting("musicVolume"));
-                this.app.sound.setSoundVolume(this.app.settings.getSetting("soundVolume"));
-            });
-    }
-    setPlayStatus(playing) {
-        console.log("crazygames::playing:", playing);
-        if (playing) {
-            this.sdkInstance.gameplayStart();
-        } else {
-            this.sdkInstance.gameplayStop();
-        }
-    }
 }

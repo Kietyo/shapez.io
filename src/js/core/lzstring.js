@@ -90,7 +90,7 @@ export function compressX64(input) {
 //decompress from an output of compressToEncodedURIComponent
 export function decompressX64(input) {
     if (input == null) return "";
-    if (input == "") return null;
+    if (input === "") return null;
     input = input.replace(/ /g, "+");
     return _decompress(input.length, 32, function (index) {
         return getBaseValue(keyStrUriSafe, input.charAt(index));
