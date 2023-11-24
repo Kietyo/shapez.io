@@ -690,10 +690,6 @@ export function getLogoSprite() {
         return "logo_demo.png";
     }
 
-    if (G_CHINA_VERSION) {
-        return "logo_cn.png";
-    }
-
     if (G_IS_STANDALONE || WEB_STEAM_SSO_AUTHENTICATED) {
         return "logo.png";
     }

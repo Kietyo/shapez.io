@@ -138,10 +138,6 @@ export class PreloadState extends GameState {
 
             .then(() => this.setStatus("Initializing language", 25))
             .then(() => {
-                if (G_CHINA_VERSION) {
-                    return this.app.settings.updateLanguage("zh-CN");
-                }
-
                 if (this.app.settings.getLanguage() === "auto-detect") {
                     const language = autoDetectLanguageId();
                     logger.log("Setting language to", language);
@@ -199,10 +195,6 @@ export class PreloadState extends GameState {
             .then(() => this.setStatus("Checking changelog", 95))
             .then(() => {
                 if (G_IS_DEV && globalConfig.debug.disableUpgradeNotification) {
-                    return;
-                }
-
-                if (G_CHINA_VERSION) {
                     return;
                 }
 
@@ -269,9 +261,6 @@ export class PreloadState extends GameState {
     }
 
     update() {
-        if (G_CHINA_VERSION) {
-            return;
-        }
         const now = performance.now();
         if (now - this.lastHintShown > this.nextHintDuration) {
             this.lastHintShown = now;
@@ -303,9 +292,6 @@ export class PreloadState extends GameState {
     setStatus(text, progress) {
         logger.log("✅ " + text);
 
-        if (G_CHINA_VERSION) {
-            return Promise.resolve();
-        }
         this.currentStatus = text;
         this.statusText.innerText = text;
         this.progressElement.style.width = 80 + (progress / 100) * 20 + "%";

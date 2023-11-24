@@ -38,12 +38,10 @@ export class SettingsState extends TextualGameState {
             }
 
 
-            <div class="other ${G_CHINA_VERSION || ""}">
+            <div class="other ${""}">
 
             ${
-                G_CHINA_VERSION
-                    ? ""
-                    : `
+                `
                 <button class="styledButton about">${T.about.title}</button>
                 <button class="styledButton privacy">Privacy Policy</button>
 
@@ -120,14 +118,14 @@ export class SettingsState extends TextualGameState {
     onEnter(payload) {
         this.renderBuildText();
 
-        if (!G_CHINA_VERSION) {
+
             this.trackClicks(this.htmlElement.querySelector(".about"), this.onAboutClicked, {
                 preventDefault: false,
             });
             this.trackClicks(this.htmlElement.querySelector(".privacy"), this.onPrivacyClicked, {
                 preventDefault: false,
             });
-        }
+
 
         const keybindingsButton = this.htmlElement.querySelector(".editKeybindings");
 

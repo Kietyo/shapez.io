@@ -64,8 +64,6 @@ const preparementShape = "CpRpCp--:SwSwSwSw";
 // Tiers need % of the previous tier as requirement too
 const tierGrowth = 2.5;
 
-const chinaShapes = G_CHINA_VERSION;
-
 const upgradesCache = {};
 
 /**
@@ -150,9 +148,7 @@ function generateUpgrades(limitedVersion = false, difficulty = 1) {
             {
                 required: [
                     {
-                        shape: chinaShapes
-                            ? "CyCyCyCy:CyCyCyCy:RyRyRyRy:RuRuRuRu"
-                            : "CbRbRbCb:CwCwCwCw:WbWbWbWb",
+                        shape: "CbRbRbCb:CwCwCwCw:WbWbWbWb",
                         amount: 50000,
                     },
                 ],
@@ -211,7 +207,7 @@ function generateUpgrades(limitedVersion = false, difficulty = 1) {
             {
                 required: [
                     {
-                        shape: chinaShapes ? "CuCuCuCu:CwCwCwCw:Sb--Sr--" : "RpRpRpRp:CwCwCwCw",
+                        shape: "RpRpRpRp:CwCwCwCw",
                         amount: 6500,
                     },
                 ],

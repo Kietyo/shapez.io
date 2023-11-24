@@ -38,7 +38,7 @@ export class MainMenuState extends GameState {
     }
 
     getInnerHTML() {
-        const showLanguageIcon = !G_CHINA_VERSION;
+        const showLanguageIcon = true;
         const showExitAppButton = G_IS_STANDALONE;
         const showPuzzleDLC =
             (G_IS_STANDALONE || WEB_STEAM_SSO_AUTHENTICATED) &&
@@ -50,9 +50,7 @@ export class MainMenuState extends GameState {
         let showExternalLinks = true;
 
         if (G_IS_STANDALONE) {
-            if (G_CHINA_VERSION) {
-                showExternalLinks = false;
-            }
+
         } else {
             const wrapper = /** @type {PlatformWrapperImplBrowser} */ (this.app.platformWrapper);
             if (!wrapper.embedProvider.externalLinks) {
@@ -61,12 +59,8 @@ export class MainMenuState extends GameState {
         }
 
         let showDiscordLink = showExternalLinks;
-        if (G_CHINA_VERSION) {
-            showDiscordLink = true;
-        }
-
         const showDemoAdvertisement =
-            (showExternalLinks || G_CHINA_VERSION) &&
+            (showExternalLinks) &&
             this.app.restrictionMgr.getIsStandaloneMarketingActive();
 
         const ownsPuzzleDLC =
