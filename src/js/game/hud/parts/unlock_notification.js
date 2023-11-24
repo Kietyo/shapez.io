@@ -38,8 +38,6 @@ export class HUDUnlockNotification extends BaseHUDPart {
         const dialog = makeDiv(this.element, null, ["dialog"]);
 
         this.elemTitle = makeDiv(dialog, null, ["title"]);
-        this.elemSubTitle = makeDiv(dialog, null, ["subTitle"], T.ingame.levelCompleteNotification.completed);
-
         this.elemContents = makeDiv(dialog, null, ["contents"]);
 
         this.btnClose = document.createElement("button");

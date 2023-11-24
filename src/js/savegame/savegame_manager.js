@@ -11,13 +11,6 @@ const Rusha = require("rusha");
  * @typedef {import("./savegame_typedefs").SavegamesData} SavegamesData
  * @typedef {import("./savegame_typedefs").SavegameMetadata} SavegameMetadata
  */
-
-/** @enum {string} */
-export const enumLocalSavegameStatus = {
-    offline: "offline",
-    synced: "synced",
-};
-
 export class SavegameManager extends ReadWriteProxy {
     constructor(app) {
         super(app, "savegames.bin");

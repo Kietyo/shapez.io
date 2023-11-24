@@ -72,15 +72,6 @@ export class RandomNumberGenerator {
     constructor(seed) {
         this.internalRng = makeNewRng(seed || Math.random());
     }
-
-    /**
-     * Re-seeds the generator
-     * @param {number|string} seed
-     */
-    reseed(seed) {
-        this.internalRng = makeNewRng(seed || Math.random());
-    }
-
     /**
      * @returns {number} between 0 and 1
      */
@@ -117,13 +108,5 @@ export class RandomNumberGenerator {
     nextRange(min, max) {
         assert(max > min, "rng: max <= min");
         return this.next() * (max - min) + min;
-    }
-
-    /**
-     * Updates the seed
-     * @param {number} seed
-     */
-    setSeed(seed) {
-        this.internalRng = makeNewRng(seed);
     }
 }

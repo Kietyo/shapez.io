@@ -74,20 +74,4 @@ export class BaseSavegameInterface {
     }
 
     ///// INTERFACE (Override when the schema changes) /////
-
-    /**
-     * Returns the time of last update
-     * @returns {number}
-     */
-    readLastUpdate() {
-        return this.data.lastUpdate;
-    }
-
-    /**
-     * Returns the ingame time in seconds
-     * @returns {number}
-     */
-    readIngameTimeSeconds() {
-        return this.data.dump.time.timeSeconds;
-    }
 }

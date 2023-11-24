@@ -66,10 +66,6 @@ export class GameRoot {
         /** @type {boolean} */
         this.gameIsFresh = true;
 
-        // Stores whether the logic is already initialized
-        /** @type {boolean} */
-        this.logicInitialized = false;
-
         // Stores whether the game is already initialized, that is, all systems etc have been created
         /** @type {boolean} */
         this.gameInitialized = false;

@@ -28,11 +28,6 @@ export class TrackedState {
             }
         }
     }
-
-    setSilent(value) {
-        this.lastSeenValue = value;
-    }
-
     get() {
         return this.lastSeenValue;
     }

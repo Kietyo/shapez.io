@@ -304,7 +304,6 @@ export class InGameState extends GameState {
      */
     stage5FirstUpdate() {
         if (this.switchStage(GAME_LOADING_STATES.s5_firstUpdate)) {
-            this.core.root.logicInitialized = true;
             this.core.updateLogic();
             this.stage6PostLoadHook();
         }
