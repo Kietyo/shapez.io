@@ -159,23 +159,6 @@ export class Camera extends BasicSerializableObject {
         return finalLevel;
     }
     /**
-     * Returns if the user is currently interacting with the camera
-     * @returns {boolean} true if the user interacts
-     */
-    isCurrentlyInteracting() {
-        if (this.currentlyPinching) {
-            return true;
-        }
-        if (this.currentlyMoving) {
-            // Only interacting if moved at least once
-            return this.didMoveSinceTouchStart;
-        }
-        if (this.touchPostMoveVelocity.lengthSquare() > 1) {
-            return true;
-        }
-        return false;
-    }
-    /**
      * Returns effective viewport width
      */
     getViewportWidth() {

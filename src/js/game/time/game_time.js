@@ -54,14 +54,6 @@ export class GameTime extends BasicSerializableObject {
     updateRealtimeNow() {
         this.realtimeSeconds = performance.now() / 1000.0 + this.realtimeAdjust;
     }
-
-    /**
-     * Returns the ingame time in milliseconds
-     */
-    getTimeMs() {
-        return this.timeSeconds * 1000.0;
-    }
-
     /**
      * Returns how many seconds we are in the grace period
      * @returns {number}
@@ -69,15 +61,6 @@ export class GameTime extends BasicSerializableObject {
     getRemainingGracePeriodSeconds() {
         return 0;
     }
-
-    /**
-     * Returns if we are currently in the grace period
-     * @returns {boolean}
-     */
-    getIsWithinGracePeriod() {
-        return this.getRemainingGracePeriodSeconds() > 0;
-    }
-
     /**
      * Internal method to generate new logic time budget
      * @param {number} deltaMs
@@ -176,15 +159,6 @@ export class GameTime extends BasicSerializableObject {
     getSpeed() {
         return this.speed;
     }
-
-    setSpeed(speed) {
-        assert(speed instanceof BaseGameSpeed, "Not a valid game speed");
-        if (this.speed.getId() === speed.getId()) {
-            logger.warn("Same speed set than current one:", speed.constructor.getId());
-        }
-        this.speed = speed;
-    }
-
     deserialize(data) {
         const errorCode = super.deserialize(data);
         if (errorCode) {

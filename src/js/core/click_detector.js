@@ -95,9 +95,6 @@ export class ClickDetector {
         this.touchmoveSimple = new Signal();
         this.touchendSimple = new Signal();
 
-        // Store time of touch start
-        this.clickStartTime = null;
-
         // A click can be cancelled if another detector registers a click
         this.cancelled = false;
 
@@ -298,7 +295,6 @@ export class ClickDetector {
             this.element.classList.remove(this.applyCssClass);
         }
         this.clickDownPosition = null;
-        this.clickStartTime = null;
         this.cancelled = true;
         fastArrayDeleteValueIfContained(ongoingClickDetectors, this);
     }
@@ -337,7 +333,6 @@ export class ClickDetector {
 
         // Store where the touch started
         this.clickDownPosition = position;
-        this.clickStartTime = performance.now();
         this.touchstartSimple.dispatch(this.clickDownPosition.x, this.clickDownPosition.y);
 
         // If we are not currently within a click, register it
@@ -420,7 +415,6 @@ export class ClickDetector {
         }
 
         this.clickDownPosition = null;
-        this.clickStartTime = null;
 
         if (this.applyCssClass) {
             this.element.classList.remove(this.applyCssClass);

@@ -17,7 +17,6 @@ export class GameSystemWithFilter extends GameSystem {
      */
     constructor(root, requiredComponents) {
         super(root);
-        this.requiredComponents = requiredComponents;
         this.requiredComponentIds = requiredComponents.map(component => component.getId());
 
         /**
@@ -126,7 +125,6 @@ export class GameSystemWithFilter extends GameSystem {
      */
     internalPopEntityIfMatching(entity) {
         if (this.root.bulkOperationRunning) {
-            // We do this in refreshCaches afterwards
             return;
         }
         const index = this.allEntities.indexOf(entity);

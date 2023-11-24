@@ -223,10 +223,4 @@ export class GameSystemManager {
         }
     }
 
-    refreshCaches() {
-        for (let i = 0; i < this.systemUpdateOrder.length; ++i) {
-            const system = this.systems[this.systemUpdateOrder[i]];
-            system.refreshCaches();
-        }
-    }
 }
