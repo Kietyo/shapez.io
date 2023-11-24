@@ -73,21 +73,6 @@ declare interface FactoryTemplate<T> {
     getNumEntries(): number;
 }
 
-declare interface SingletonFactoryTemplate<T> {
-    entries: Array<T>;
-    idToEntry: any;
-
-    getId(): string;
-    getAllIds(): Array<string>;
-    register(classHandle: Class<T>): void;
-    hasId(id: string): boolean;
-    findById(id: string): T;
-    findByClass(classHandle: Class<T>): T;
-    getEntries(): Array<T>;
-    getNumEntries(): number;
-}
-
-
 declare class TypedTrackedState<T> {
     constructor(callbackMethod?: (value: T) => void, callbackScope?: any);
 
