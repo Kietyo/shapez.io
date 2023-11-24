@@ -14,11 +14,6 @@ export class FilterComponent extends Component {
     static getId() {
         return "Filter";
     }
-
-    duplicateWithoutContents() {
-        return new FilterComponent();
-    }
-
     static getSchema() {
         return {
             pendingItemsToLeaveThrough: types.array(

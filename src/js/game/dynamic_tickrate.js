@@ -59,31 +59,6 @@ export class DynamicTickrate {
         this.deltaMs = 1000.0 / this.currentTickRate;
         this.deltaSeconds = 1.0 / this.currentTickRate;
     }
-
-    /**
-     * Increases the tick rate marginally
-     */
-    increaseTickRate() {
-        if (G_IS_DEV && globalConfig.debug.renderForTrailer) {
-            return;
-        }
-
-        const desiredFps = this.root.app.settings.getDesiredFps();
-        this.setTickRate(Math.round(Math.min(desiredFps, this.currentTickRate * 1.2)));
-    }
-
-    /**
-     * Decreases the tick rate marginally
-     */
-    decreaseTickRate() {
-        if (G_IS_DEV && globalConfig.debug.renderForTrailer) {
-            return;
-        }
-
-        const desiredFps = this.root.app.settings.getDesiredFps();
-        this.setTickRate(Math.round(Math.max(desiredFps / 2, this.currentTickRate * 0.8)));
-    }
-
     /**
      * Call whenever a tick began
      */
@@ -104,14 +79,6 @@ export class DynamicTickrate {
             average /= this.capturedTicks.length;
 
             this.averageTickDuration = average;
-
-            // Disabled for now: Dynamically adjusting tick rate
-            // if (this.averageFps > desiredFps * 0.9) {
-            //     // if (average < maxTickDuration) {
-            //     this.increaseTickRate();
-            // } else if (this.averageFps < desiredFps * 0.7) {
-            //     this.decreaseTickRate();
-            // }
 
             this.capturedTicks = [];
         }

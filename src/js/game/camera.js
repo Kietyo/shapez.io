@@ -140,14 +140,6 @@ export class Camera extends BasicSerializableObject {
         this.desiredZoom = zoom;
     }
     /**
-     * Sets the camera pan, every frame the camera will move by this amount
-     * @param {Vector} pan
-     */
-    setPan(pan) {
-        this.desiredPan = pan.copy();
-    }
-
-    /**
      * Finds a good initial zoom level
      */
     findInitialZoom() {
@@ -166,25 +158,6 @@ export class Camera extends BasicSerializableObject {
         );
         return finalLevel;
     }
-
-    /**
-     * Clears all animations
-     */
-    clearAnimations() {
-        this.touchPostMoveVelocity.x = 0;
-        this.touchPostMoveVelocity.y = 0;
-        this.desiredCenter = null;
-        this.desiredPan.x = 0;
-        this.desiredPan.y = 0;
-        this.currentPan.x = 0;
-        this.currentPan.y = 0;
-        this.currentlyPinching = false;
-        this.currentlyMoving = false;
-        this.lastMovingPosition = null;
-        this.didMoveSinceTouchStart = false;
-        this.desiredZoom = null;
-    }
-
     /**
      * Returns if the user is currently interacting with the camera
      * @returns {boolean} true if the user interacts
@@ -202,26 +175,6 @@ export class Camera extends BasicSerializableObject {
         }
         return false;
     }
-
-    /**
-     * Returns if in the next frame the viewport will change
-     * @returns {boolean} true if it willchange
-     */
-    viewportWillChange() {
-        return this.desiredCenter !== null || this.desiredZoom !== null || this.isCurrentlyInteracting();
-    }
-
-    /**
-     * Cancels all interactions, that is user interaction and non user interaction
-     */
-    cancelAllInteractions() {
-        this.touchPostMoveVelocity = new Vector(0, 0);
-        this.desiredCenter = null;
-        this.currentlyMoving = false;
-        this.currentlyPinching = false;
-        this.desiredZoom = null;
-    }
-
     /**
      * Returns effective viewport width
      */
@@ -386,24 +339,7 @@ export class Camera extends BasicSerializableObject {
     getMinimumZoom() {
         return this.root.gameMode.getMinimumZoom();
     }
-
-    /**
-     * Returns if we can further zoom in
-     * @returns {boolean}
-     */
-    canZoomIn() {
-        return this.zoomLevel <= this.getMaximumZoom() - 0.01;
-    }
-
-    /**
-     * Returns if we can further zoom out
-     * @returns {boolean}
-     */
-    canZoomOut() {
-        return this.zoomLevel >= this.getMinimumZoom() + 0.01;
-    }
-
-    // EVENTS
+// EVENTS
 
     /**
      * Checks if the mouse event is too close after a touch event and thus

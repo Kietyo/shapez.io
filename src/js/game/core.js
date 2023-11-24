@@ -60,13 +60,6 @@ export class GameCore {
         /** @type {GameRoot} */
         this.root = null;
 
-        /**
-         * Set to true at the beginning of a logic update and cleared when its finished.
-         * This is to prevent doing a recursive logic update which can lead to unexpected
-         * behaviour.
-         */
-        this.duringLogicUpdate = false;
-
         // Cached
         this.boundInternalTick = this.updateLogic.bind(this);
 
@@ -327,8 +320,6 @@ export class GameCore {
             return true;
         }
 
-        this.duringLogicUpdate = true;
-
         // Update entities, this removes destroyed entities
         root.entityMgr.update();
 
@@ -343,7 +334,6 @@ export class GameCore {
         root.systemMgr.update();
         // root.particleMgr.update();
 
-        this.duringLogicUpdate = false;
         root.dynamicTickrate.endTick();
         return true;
     }

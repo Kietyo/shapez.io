@@ -46,12 +46,7 @@ export class EntityManager extends BasicSerializableObject {
             nextUid: types.uint,
         };
     }
-
-    getStatsText() {
-        return this.entities.length + " entities [" + this.destroyList.length + " to kill]";
-    }
-
-    // Main update
+// Main update
     update() {
         this.processDestroyList();
     }

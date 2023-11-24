@@ -71,14 +71,6 @@ export class DynamicDomAttach {
             this.attached = false;
         }
     }
-
-    /**
-     * Returns whether the element is currently attached
-     */
-    isAttached() {
-        return this.attached;
-    }
-
     /**
      * Actually sets the 'hovered' class
      * @param {boolean} isHovered

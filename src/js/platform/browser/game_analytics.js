@@ -55,26 +55,4 @@ export class ShapezGameAnalytics extends GameAnalyticsInterface {
 
         return false;
     }
-
-    /**
-     * Generates a game dump
-     * @param {GameRoot} root
-     */
-    generateGameDump(root) {
-        const shapeIds = Object.keys(root.hubGoals.storedShapes).filter(key =>
-            this.isInterestingShape(root, key)
-        );
-        let shapes = {};
-        for (let i = 0; i < shapeIds.length; ++i) {
-            shapes[shapeIds[i]] = root.hubGoals.storedShapes[shapeIds[i]];
-        }
-        return {
-            shapes,
-            upgrades: root.hubGoals.upgradeLevels,
-            belts: root.entityMgr.getAllWithComponent(BeltComponent).length,
-            buildings:
-                root.entityMgr.getAllWithComponent(StaticMapEntityComponent).length -
-                root.entityMgr.getAllWithComponent(BeltComponent).length,
-        };
-    }
 }

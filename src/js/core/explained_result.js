@@ -27,14 +27,4 @@ export class ExplainedResult {
     static bad(reason, additionalProps) {
         return new ExplainedResult(false, reason, additionalProps);
     }
-
-    static requireAll(...args) {
-        for (let i = 0; i < args.length; ++i) {
-            const subResult = args[i].call();
-            if (!subResult.isGood()) {
-                return subResult;
-            }
-        }
-        return this.good();
-    }
 }

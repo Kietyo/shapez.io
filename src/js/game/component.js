@@ -38,14 +38,6 @@ export class Component extends BasicSerializableObject {
     constructor(...args) {
         super();
     }
-
-    /**
-     * Returns a string representing the components data, only in dev builds
-     * @returns {string}
-     */
-    getDebugString() {
-        return null;
-    }
     /* dev:end */
 }
 

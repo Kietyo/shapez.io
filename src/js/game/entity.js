@@ -143,7 +143,7 @@ export class Entity extends BasicSerializableObject {
     }
 
     /**
-     * Draws the entity, to override use @see Entity.drawImpl
+     * Draws the entity.
      * @param {DrawParameters} parameters
      */
     drawDebugOverlays(parameters) {
@@ -214,19 +214,9 @@ export class Entity extends BasicSerializableObject {
 
             context.globalAlpha = 1;
         }
-        // this.drawImpl(parameters);
     }
 
     ///// Helper interfaces
 
     ///// Interface to override by subclasses
-
-    /**
-     * override, should draw the entity
-     * @param {DrawParameters} parameters
-     * @abstract
-     */
-    drawImpl(parameters) {
-        abstract;
-    }
 }

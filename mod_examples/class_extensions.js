@@ -14,15 +14,6 @@ const BeltExtension = ({ $super, $old }) => ({
         // Access the old method
         return !$old.getShowWiresLayerPreview();
     },
-
-    getIsReplaceable(variant, rotationVariant) {
-        // Instead of super, use $super
-        return $super.getIsReplaceable.call(this, variant, rotationVariant);
-    },
-
-    getIsRemoveable() {
-        return false;
-    },
 });
 
 class Mod extends shapez.Mod {

@@ -77,13 +77,6 @@ export class GameMode extends BasicSerializableObject {
         // @ts-ignore
         return this.constructor.getId();
     }
-
-    /** @returns {string} */
-    getType() {
-        // @ts-ignore
-        return this.constructor.getType();
-    }
-
     /**
      * @param {typeof MetaBuilding} building - Class name of building
      * @returns {boolean}
