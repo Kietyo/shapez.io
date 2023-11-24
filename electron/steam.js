@@ -51,9 +51,6 @@ function listen() {
 
     console.log("Adding listeners");
 
-    ipcMain.handle("steam:get-achievement-names", getAchievementNames);
-    ipcMain.handle("steam:activate-achievement", activateAchievement);
-
     function bufferToHex(buffer) {
         return Array.from(new Uint8Array(buffer))
             .map(b => b.toString(16).padStart(2, "0"))
@@ -83,27 +80,6 @@ function listen() {
 
 function isInitialized(event) {
     return Promise.resolve(initialized);
-}
-
-function getAchievementNames(event) {
-    return new Promise((resolve, reject) => {
-        try {
-            const achievements = greenworks.getAchievementNames();
-            resolve(achievements);
-        } catch (err) {
-            reject(err);
-        }
-    });
-}
-
-function activateAchievement(event, id) {
-    return new Promise((resolve, reject) => {
-        greenworks.activateAchievement(
-            id,
-            () => resolve(),
-            err => reject(err)
-        );
-    });
 }
 
 module.exports = {

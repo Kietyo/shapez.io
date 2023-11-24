@@ -4,7 +4,6 @@ import {createLogger} from "../../../core/logging";
 import {STOP_PROPAGATION} from "../../../core/signal";
 import {formatBigNumberFull} from "../../../core/utils";
 import {Vector} from "../../../core/vector";
-import {ACHIEVEMENTS} from "../../../platform/achievement_provider";
 import {T} from "../../../translations";
 import {Blueprint} from "../../blueprint";
 import {enumMouseButton} from "../../camera";
@@ -122,7 +121,6 @@ export class HUDMassSelector extends BaseHUDPart {
                 }
             }
 
-            this.root.signals.achievementCheck.dispatch(ACHIEVEMENTS.destroy1000, count);
         });
 
         // Clear uids later

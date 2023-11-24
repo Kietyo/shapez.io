@@ -10,7 +10,6 @@ import {StateManager} from "./core/state_manager";
 import {TrackedState} from "./core/tracked_state";
 import {getPlatformName, waitNextFrame} from "./core/utils";
 import {Vector} from "./core/vector";
-import {NoAchievementProvider} from "./platform/browser/no_achievement_provider";
 import {SoundImplBrowser} from "./platform/browser/sound";
 import {PlatformWrapperImplBrowser} from "./platform/browser/wrapper";
 import {PlatformWrapperImplElectron} from "./platform/electron/wrapper";
@@ -26,7 +25,6 @@ import {SettingsState} from "./states/settings";
 import {RestrictionManager} from "./core/restriction_manager";
 
 /**
- * @typedef {import("./platform/achievement_provider").AchievementProviderInterface} AchievementProviderInterface
  * @typedef {import("./platform/sound").SoundInterface} SoundInterface
  * @typedef {import("./platform/storage").StorageInterface} StorageInterface
  */
@@ -82,9 +80,6 @@ export class Application {
 
         /** @type {PlatformWrapperInterface} */
         this.platformWrapper = null;
-
-        /** @type {AchievementProviderInterface} */
-        this.achievementProvider = null;
 
         this.initPlatformDependentInstances();
 
@@ -145,7 +140,6 @@ export class Application {
 
         // Start with empty ad provider
         this.sound = new SoundImplBrowser(this);
-        this.achievementProvider = new NoAchievementProvider(this);
     }
 
     /**
