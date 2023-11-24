@@ -40,7 +40,6 @@ export class HUDBaseToolbar extends BaseHUDPart {
          * selected: boolean,
          * element: HTMLElement,
          * index: number
-         * puzzleLocked: boolean;
          * }>} */
         this.buildingHandles = {};
     }
@@ -123,23 +122,12 @@ export class HUDBaseToolbar extends BaseHUDPart {
                 clickSound: null,
             });
 
-            //lock icon for puzzle editor
-            if (this.root.gameMode.getIsEditor() && !this.inRequiredBuildings(metaBuilding)) {
-                const puzzleLock = makeDiv(itemContainer, null, ["puzzle-lock"]);
-
-                itemContainer.classList.toggle("editor", true);
-                this.trackClicks(puzzleLock, () => this.toggleBuildingLock(metaBuilding), {
-                    clickSound: null,
-                });
-            }
-
             this.buildingHandles[metaBuilding.id] = {
                 metaBuilding: metaBuilding,
                 element: itemContainer,
                 unlocked: false,
                 selected: false,
                 index: i,
-                puzzleLocked: false,
             };
         }
 
@@ -167,7 +155,7 @@ export class HUDBaseToolbar extends BaseHUDPart {
             let recomputeSecondaryToolbarVisibility = false;
             for (const buildingId in this.buildingHandles) {
                 const handle = this.buildingHandles[buildingId];
-                const newStatus = !handle.puzzleLocked && handle.metaBuilding.getIsUnlocked(this.root);
+                const newStatus = handle.metaBuilding.getIsUnlocked(this.root);
                 if (handle.unlocked !== newStatus) {
                     handle.unlocked = newStatus;
                     handle.element.classList.toggle("unlocked", newStatus);
@@ -257,12 +245,6 @@ export class HUDBaseToolbar extends BaseHUDPart {
         }
 
         const handle = this.buildingHandles[metaBuilding.getId()];
-        if (handle.puzzleLocked) {
-            handle.puzzleLocked = false;
-            handle.element.classList.toggle("unlocked", false);
-            this.root.soundProxy.playUiClick();
-            return;
-        }
 
         // Allow clicking an item again to deselect it
         for (const buildingId in this.buildingHandles) {
@@ -293,8 +275,6 @@ export class HUDBaseToolbar extends BaseHUDPart {
         }
 
         const handle = this.buildingHandles[metaBuilding.getId()];
-        handle.puzzleLocked = !handle.puzzleLocked;
-        handle.element.classList.toggle("unlocked", !handle.puzzleLocked);
         this.root.soundProxy.playUiClick();
 
         const entityManager = this.root.entityMgr;

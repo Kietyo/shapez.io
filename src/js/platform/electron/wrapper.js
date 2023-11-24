@@ -8,7 +8,6 @@ const logger = createLogger("electron-wrapper");
 export class PlatformWrapperImplElectron extends PlatformWrapperImplBrowser {
     initialize() {
         this.dlcs = {
-            puzzle: false,
         };
 
         this.steamOverlayCanvasFix = document.createElement("canvas");
@@ -55,7 +54,6 @@ export class PlatformWrapperImplElectron extends PlatformWrapperImplBrowser {
         return ipcRenderer.invoke("steam:check-app-ownership", 1625400).then(
             res => {
                 logger.log("Got DLC ownership:", res);
-                this.dlcs.puzzle = Boolean(res);
             },
             err => {
                 logger.error("Failed to get DLC ownership:", err);

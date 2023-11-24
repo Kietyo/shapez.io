@@ -9,8 +9,6 @@ import {MapChunk} from "../map_chunk";
 export class GoalAcceptorSystem extends GameSystemWithFilter {
     constructor(root) {
         super(root, [GoalAcceptorComponent]);
-
-        this.puzzleCompleted = false;
     }
 
     update() {
@@ -36,15 +34,6 @@ export class GoalAcceptorSystem extends GameSystemWithFilter {
             }
         }
 
-        if (
-            !this.puzzleCompleted &&
-            this.root.gameInitialized &&
-            allAccepted &&
-            !this.root.gameMode.getIsEditor()
-        ) {
-            this.root.signals.puzzleComplete.dispatch();
-            this.puzzleCompleted = true;
-        }
     }
 
     /**

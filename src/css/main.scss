@@ -91,7 +91,6 @@ ingame_HUD_Statistics,
 ingame_HUD_ShapeViewer,
 ingame_HUD_StandaloneAdvantages,
 ingame_HUD_UnlockNotification,
-ingame_HUD_PuzzleCompleteNotification,
 ingame_HUD_SettingsMenu,
 ingame_HUD_ModalDialogs;
 
@@ -106,7 +105,7 @@ $zindex: 100;
 }
 
 body.uiHidden {
-    > div:not(.ingameDialog):not(#ingame_HUD_SettingsMenu):not(#ingame_HUD_ModalDialogs):not(#ingame_HUD_UnlockNotification):not(#ingame_HUD_PuzzleCompleteNotification) {
+    > div:not(.ingameDialog):not(#ingame_HUD_SettingsMenu):not(#ingame_HUD_ModalDialogs):not(#ingame_HUD_UnlockNotification) {
         display: none !important;
     }
 }

@@ -37,10 +37,6 @@ if (G_IS_STANDALONE) {
     MUSIC.menu = "menu";
 }
 
-if (G_IS_STANDALONE) {
-    MUSIC.puzzle = "puzzle-full";
-}
-
 export class SoundInstanceInterface {
     constructor(key, url) {
         this.key = key;

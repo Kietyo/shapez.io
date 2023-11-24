@@ -91,9 +91,6 @@ export class GameLogic {
             const toolbar = this.root.hud.parts.buildingsToolbar;
             const id = entity.components.StaticMapEntity.getMetaBuilding().getId();
 
-            if (toolbar.buildingHandles[id].puzzleLocked) {
-                return false;
-            }
         }
 
         if (this.root.signals.prePlacementCheck.dispatch(entity, offset) === STOP_PROPAGATION) {
