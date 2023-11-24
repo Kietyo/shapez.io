@@ -197,14 +197,6 @@ export class Savegame extends ReadWriteProxy {
         return true;
     }
     /**
-     * Returns the statistics of the savegame
-     * @returns {SavegameStats}
-     */
-    getStatistics() {
-        return this.currentData.stats;
-    }
-
-    /**
      * Returns the *real* last update of the savegame, not the one of the metadata
      * which could also be the servers one
      */
@@ -226,20 +218,6 @@ export class Savegame extends ReadWriteProxy {
     getCurrentDump() {
         return this.currentData.dump;
     }
-
-    /**
-     * Returns a reader to access the data
-     * @returns {BaseSavegameInterface}
-     */
-    getDumpReader() {
-        if (!this.currentData.dump) {
-            logger.warn("Getting reader on null-savegame dump");
-        }
-
-        const cls = /** @type {typeof Savegame} */ (this.constructor).getReaderClass();
-        return new cls(this.currentData);
-    }
-
     /**
      * Returns a reader to access external data
      * @returns {BaseSavegameInterface}
@@ -250,15 +228,6 @@ export class Savegame extends ReadWriteProxy {
     }
 
     ///////// Public Interface ///////////
-
-    /**
-     * Updates the last update field so we can send the savegame to the server,
-     * WITHOUT Saving!
-     */
-    setLastUpdate(time) {
-        this.currentData.lastUpdate = time;
-    }
-
     /**
      *
      * @param {GameRoot} root

@@ -50,11 +50,6 @@ export class ModLoader {
 
         this.signals = MOD_SIGNALS;
     }
-
-    linkApp(app) {
-        this.app = app;
-    }
-
     anyModsActive() {
         return this.mods.length > 0;
     }

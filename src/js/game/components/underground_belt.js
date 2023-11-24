@@ -52,9 +52,6 @@ export class UndergroundBeltComponent extends Component {
     }
 
     clear() {
-        /** @type {Array<{ item: BaseItem, progress: number }>} */
-        this.consumptionAnimations = [];
-
         /**
          * Used on both receiver and sender.
          * Reciever: Used to store the next item to transfer, and to block input while doing this

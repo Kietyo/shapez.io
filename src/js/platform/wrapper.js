@@ -49,34 +49,9 @@ export class PlatformWrapperInterface {
     initializeAdProvider() {
         return Promise.resolve();
     }
-
-    /**
-     * Should return the minimum supported zoom level
-     * @returns {number}
-     */
-    getMinimumZoom() {
-        return 0.1 * this.getScreenScale();
-    }
-
-    /**
-     * Should return the maximum supported zoom level
-     * @returns {number}
-     */
-    getMaximumZoom() {
-        return 3.5 * this.getScreenScale();
-    }
-
     getScreenScale() {
         return Math.min(window.innerWidth, window.innerHeight) / 1024.0;
     }
-
-    /**
-     * Should return if this platform supports ads at all
-     */
-    getSupportsAds() {
-        return false;
-    }
-
     /**
      * Attempt to open an external url
      * @param {string} url
@@ -110,14 +85,6 @@ export class PlatformWrapperInterface {
     setFullscreen(flag) {
         abstract;
     }
-
-    /**
-     * Returns whether this platform supports quitting the app
-     */
-    getSupportsAppExit() {
-        return false;
-    }
-
     /**
      * Attempts to quit the app
      * @abstract

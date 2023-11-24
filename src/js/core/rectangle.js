@@ -20,30 +20,6 @@ export class Rectangle {
     static fromTRBL(top, right, bottom, left) {
         return new Rectangle(left, top, right - left, bottom - top);
     }
-
-    /**
-     * Constructs a new square rectangle
-     * @param {number} x
-     * @param {number} y
-     * @param {number} size
-     */
-    static fromSquare(x, y, size) {
-        return new Rectangle(x, y, size, size);
-    }
-
-    /**
-     *
-     * @param {Vector} p1
-     * @param {Vector} p2
-     */
-    static fromTwoPoints(p1, p2) {
-        const left = Math.min(p1.x, p2.x);
-        const top = Math.min(p1.y, p2.y);
-        const right = Math.max(p1.x, p2.x);
-        const bottom = Math.max(p1.y, p2.y);
-        return new Rectangle(left, top, right - left, bottom - top);
-    }
-
     /**
      *
      * @param {number} width
@@ -52,16 +28,6 @@ export class Rectangle {
     static centered(width, height) {
         return new Rectangle(-Math.ceil(width / 2), -Math.ceil(height / 2), width, height);
     }
-
-    /**
-     * Returns if a intersects b
-     * @param {Rectangle} a
-     * @param {Rectangle} b
-     */
-    static intersects(a, b) {
-        return a.left <= b.right && b.left <= a.right && a.top <= b.bottom && b.top <= a.bottom;
-    }
-
     /**
      * Copies this instance
      * @returns {Rectangle}

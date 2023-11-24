@@ -247,13 +247,6 @@ function gulptasksStandalone($, gulp) {
 
                         version: "16.0.7",
                         type: "distribution",
-                        optionsForFile: f => {
-                            return {
-                                entitlements: path.join(__dirname, "entitlements.plist"),
-                                hardenedRuntime: true,
-                                signatureFlags: ["runtime"],
-                            };
-                        },
                     }).then(() => {
                         execSync(`codesign --verify --verbose ${path.join(appFile, "shapez.app")}`, {
                             cwd: appFile,

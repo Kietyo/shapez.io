@@ -28,9 +28,6 @@ export class MapView extends BaseMap {
             regular: null,
             placing: null,
         };
-
-        /** @type {CanvasRenderingContext2D} */
-        this.cachedBackgroundContext = null;
         this.internalInitializeCachedBackgroundCanvases();
         this.root.signals.aboutToDestruct.add(this.cleanup, this);
 

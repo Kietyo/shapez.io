@@ -4,8 +4,6 @@ import { fastArrayDeleteValueIfContained } from "../core/utils";
 const logger = createLogger("request_channel");
 
 // Thrown when a request is aborted
-export const PROMISE_ABORTED = "promise-aborted";
-
 export class RequestChannel {
     constructor() {
         /** @type {Array<Promise>} */
@@ -31,7 +29,6 @@ export class RequestChannel {
                         resolve.call(this, result);
                     } else {
                         logger.warn("Not resolving because promise got cancelled");
-                        // reject.call(this, PROMISE_ABORTED);
                     }
                 },
                 err => {
@@ -43,7 +40,6 @@ export class RequestChannel {
                         reject.call(this, err);
                     } else {
                         logger.warn("Not rejecting because promise got cancelled");
-                        // reject.call(this, PROMISE_ABORTED);
                     }
                 }
             );

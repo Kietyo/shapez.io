@@ -32,8 +32,6 @@ export class HUDPuzzleCompleteNotification extends BaseHUDPart {
 
         this.elemTitle = makeDiv(dialog, null, ["title"], T.ingame.puzzleCompletion.title);
         this.elemContents = makeDiv(dialog, null, ["contents"]);
-        this.elemActions = makeDiv(dialog, null, ["actions"]);
-
         const stepLike = makeDiv(this.elemContents, null, ["step", "stepLike"]);
         makeDiv(stepLike, null, ["title"], T.ingame.puzzleCompletion.titleLike);
 

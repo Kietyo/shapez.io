@@ -16,8 +16,6 @@ const logger = createLogger("platform/browser");
 
 export class PlatformWrapperImplBrowser extends PlatformWrapperInterface {
     initialize() {
-        this.recaptchaTokenCallback = null;
-
         this.embedProvider = {
             id: "shapezio-website",
             adProvider: NoAdProvider,

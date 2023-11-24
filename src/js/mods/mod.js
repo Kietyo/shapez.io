@@ -16,7 +16,6 @@ export class Mod {
      */
     constructor({ app, modLoader, meta, settings, saveSettings }) {
         this.app = app;
-        this.modLoader = modLoader;
         this.metadata = meta;
 
         this.signals = MOD_SIGNALS;
