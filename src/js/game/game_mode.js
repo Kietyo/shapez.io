@@ -88,12 +88,6 @@ export class GameMode extends BasicSerializableObject {
     hasResources() {
         return true;
     }
-
-    /** @returns {boolean} */
-    hasAchievements() {
-        return false;
-    }
-
     /** @returns {number} */
     getMinimumZoom() {
         return 0.06;
