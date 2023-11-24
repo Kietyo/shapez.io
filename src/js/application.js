@@ -29,7 +29,6 @@ import {RestrictionManager} from "./core/restriction_manager";
 import {PuzzleMenuState} from "./states/puzzle_menu";
 import {ClientAPI} from "./platform/api";
 import {LoginState} from "./states/login";
-import {WegameSplashState} from "./states/wegame_splash";
 import {MODS} from "./mods/modloader";
 import {MOD_SIGNALS} from "./mods/mod_signals";
 import {ModsState} from "./states/mods";
@@ -136,12 +135,8 @@ export class Application {
 
         Loader.linkAppAfterBoot(this);
 
-        if (G_WEGAME_VERSION) {
-            this.stateMgr.moveToState("WegameSplashState");
-        }
-
         // Check for mobile
-        else if (IS_MOBILE) {
+        if (IS_MOBILE) {
             this.stateMgr.moveToState("MobileWarningState");
         } else {
             this.stateMgr.moveToState("PreloadState");
@@ -180,7 +175,6 @@ export class Application {
     registerStates() {
         /** @type {Array<typeof GameState>} */
         const states = [
-            WegameSplashState,
             PreloadState,
             MobileWarningState,
             MainMenuState,
