@@ -110,16 +110,6 @@ export class Vector {
         this.y -= other.y;
         return this;
     }
-
-    /**
-     * Multiplies with a vector and return a new vector
-     * @param {Vector} other
-     * @returns {Vector}
-     */
-    mul(other) {
-        return new Vector(this.x * other.x, this.y * other.y);
-    }
-
     /**
      * Adds two scalars and return a new vector
      * @param {number} x
@@ -129,16 +119,6 @@ export class Vector {
     addScalars(x, y) {
         return new Vector(this.x + x, this.y + y);
     }
-
-    /**
-     * Substracts a scalar and return a new vector
-     * @param {number} f
-     * @returns {Vector}
-     */
-    subScalar(f) {
-        return new Vector(this.x - f, this.y - f);
-    }
-
     /**
      * Substracts two scalars and return a new vector
      * @param {number} x
@@ -173,17 +153,6 @@ export class Vector {
     divideScalar(f) {
         return new Vector(this.x / f, this.y / f);
     }
-
-    /**
-     * Divides both components by the given scalars and return a new vector
-     * @param {number} a
-     * @param {number} b
-     * @returns {Vector}
-     */
-    divideScalars(a, b) {
-        return new Vector(this.x / a, this.y / b);
-    }
-
     /**
      * Divides both components by a scalar
      * @param {number} f
@@ -203,17 +172,6 @@ export class Vector {
     multiplyScalar(f) {
         return new Vector(this.x * f, this.y * f);
     }
-
-    /**
-     * Multiplies both components with two scalars and returns a new vector
-     * @param {number} a
-     * @param {number} b
-     * @returns {Vector}
-     */
-    multiplyScalars(a, b) {
-        return new Vector(this.x * a, this.y * b);
-    }
-
     /**
      * For both components, compute the maximum of each component and the given scalar, and return a new vector.
      * For example:
@@ -635,27 +593,6 @@ export class Vector {
     serializeTileToInt() {
         return this.x + this.y * 256;
     }
-
-    /**
-     *
-     * @param {number} i
-     * @returns {Vector}
-     */
-    static deserializeTileFromInt(i) {
-        const x = i % 256;
-        const y = Math.floor(i / 256);
-        return new Vector(x, y);
-    }
-
-    /**
-     * Deserializes a vector from a string
-     * @param {string} s
-     * @returns {Vector}
-     */
-    static deserializeTile(s) {
-        return new Vector(s.charCodeAt(0) - 33, s.charCodeAt(1) - 33);
-    }
-
     /**
      * Deserializes a vector from a serialized json object
      * @param {object} obj
