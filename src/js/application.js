@@ -11,7 +11,6 @@ import { TrackedState } from "./core/tracked_state";
 import { getPlatformName, waitNextFrame } from "./core/utils";
 import { Vector } from "./core/vector";
 import { NoAchievementProvider } from "./platform/browser/no_achievement_provider";
-import { AnalyticsInterface } from "./platform/analytics";
 import { SoundImplBrowser } from "./platform/browser/sound";
 import { PlatformWrapperImplBrowser } from "./platform/browser/wrapper";
 import { PlatformWrapperImplElectron } from "./platform/electron/wrapper";
@@ -26,7 +25,6 @@ import { MainMenuState } from "./states/main_menu";
 import { MobileWarningState } from "./states/mobile_warning";
 import { PreloadState } from "./states/preload";
 import { SettingsState } from "./states/settings";
-import { ShapezGameAnalytics } from "./platform/browser/game_analytics";
 import { RestrictionManager } from "./core/restriction_manager";
 import { PuzzleMenuState } from "./states/puzzle_menu";
 import { ClientAPI } from "./platform/api";
@@ -105,12 +103,6 @@ export class Application {
         /** @type {AchievementProviderInterface} */
         this.achievementProvider = null;
 
-        /** @type {AnalyticsInterface} */
-        this.analytics = null;
-
-        /** @type {ShapezGameAnalytics} */
-        this.gameAnalytics = null;
-
         this.initPlatformDependentInstances();
 
         // Track if the window is focused (only relevant for browser)
@@ -179,7 +171,6 @@ export class Application {
 
         // Start with empty ad provider
         this.sound = new SoundImplBrowser(this);
-        this.gameAnalytics = new ShapezGameAnalytics(this);
         this.achievementProvider = new NoAchievementProvider(this);
     }
 
