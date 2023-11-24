@@ -26,14 +26,6 @@ const logger = createLogger("belt");
 export class BeltSystem extends GameSystem {
     constructor(root) {
         super(root);
-        /**
-         * @type {Object.<enumDirection, Array<AtlasSprite>>}
-         */
-        this.beltSprites = {
-            [enumDirection.top]: Loader.getSprite("sprites/belt/built/forward_0.png"),
-            [enumDirection.left]: Loader.getSprite("sprites/belt/built/left_0.png"),
-            [enumDirection.right]: Loader.getSprite("sprites/belt/built/right_0.png"),
-        };
 
         /**
          * @type {Object.<enumDirection, Array<AtlasSprite>>}

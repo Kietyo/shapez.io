@@ -12,7 +12,6 @@ import { GameRoot } from "./root";
 const logger = createLogger("camera");
 
 export const USER_INTERACT_MOVE = "move";
-export const USER_INTERACT_ZOOM = "zoom";
 export const USER_INTERACT_TOUCHEND = "touchend";
 
 const velocitySmoothing = 0.5;
@@ -124,14 +123,6 @@ export class Camera extends BasicSerializableObject {
     }
 
     // Simple getters & setters
-
-    addScreenShake(amount) {
-        const currentShakeAmount = this.currentShake.length();
-        const scale = 1 / (1 + 3 * currentShakeAmount);
-        this.currentShake.x = this.currentShake.x + 2 * (Math.random() - 0.5) * scale * amount;
-        this.currentShake.y = this.currentShake.y + 2 * (Math.random() - 0.5) * scale * amount;
-    }
-
     /**
      * Sets a point in world space to focus on
      * @param {Vector} center
@@ -148,14 +139,6 @@ export class Camera extends BasicSerializableObject {
     setDesiredZoom(zoom) {
         this.desiredZoom = zoom;
     }
-
-    /**
-     * Returns if this camera is currently moving by a non-user interaction
-     */
-    isCurrentlyMovingToDesiredCenter() {
-        return this.desiredCenter !== null;
-    }
-
     /**
      * Sets the camera pan, every frame the camera will move by this amount
      * @param {Vector} pan

@@ -143,54 +143,6 @@ export class PlatformWrapperImplBrowser extends PlatformWrapperInterface {
         window.location.reload(true);
     }
 
-    /**
-     * Detects if there is an adblocker installed
-     * @returns {Promise<boolean>}
-     */
-    detectAdblock() {
-        return Promise.race([
-            new Promise(resolve => {
-                // If the request wasn't blocked within a very short period of time, this means
-                // the adblocker is not active and the request was actually made -> ignore it then
-                setTimeout(() => resolve(false), 30);
-            }),
-            new Promise(resolve => {
-                fetch("https://googleads.g.doubleclick.net/pagead/id", {
-                    method: "HEAD",
-                    mode: "no-cors",
-                })
-                    .then(res => {
-                        resolve(false);
-                    })
-                    .catch(err => {
-                        resolve(true);
-                    });
-            }),
-        ]);
-    }
-
-    initializeAdProvider() {
-        if (G_IS_DEV && !globalConfig.debug.testAds) {
-            logger.log("Ads disabled in local environment");
-            return Promise.resolve();
-        }
-
-        // First, detect adblocker
-        return this.detectAdblock().then(hasAdblocker => {
-            if (hasAdblocker) {
-                logger.log("Adblock detected");
-                return;
-            }
-
-            const adProvider = this.embedProvider.adProvider;
-            this.app.adProvider = new adProvider(this.app);
-            return this.app.adProvider.initialize().catch(err => {
-                logger.error("Failed to initialize ad provider, disabling ads:", err);
-                this.app.adProvider = new NoAdProvider(this.app);
-            });
-        });
-    }
-
     initializeAchievementProvider() {
         if (G_IS_DEV && globalConfig.debug.testAchievements) {
             this.app.achievementProvider = new SteamAchievementProvider(this.app);

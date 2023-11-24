@@ -82,10 +82,7 @@ export class Application {
         } catch (ex) {
             alert("Failed to load mods (launch with --dev for more info): \n\n" + ex);
         }
-
-        this.unloaded = false;
-
-        // Global stuff
+// Global stuff
         this.settings = new ApplicationSettings(this);
         this.ticker = new AnimationFrame();
         this.stateMgr = new StateManager(this);
@@ -356,14 +353,6 @@ export class Application {
             }
         }
     }
-
-    /**
-     * Deinitializes the application
-     */
-    deinitialize() {
-        return this.sound.deinitialize();
-    }
-
     /**
      * Background frame update callback
      * @param {number} dt

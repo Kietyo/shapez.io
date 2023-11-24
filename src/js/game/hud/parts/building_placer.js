@@ -57,9 +57,6 @@ export class HUDBuildingPlacer extends HUDBuildingPlacerLogic {
 
         this.domAttach = new DynamicDomAttach(this.root, this.element, { trackHover: true });
         this.variantsAttach = new DynamicDomAttach(this.root, this.variantsElement, {});
-
-        this.currentInterpolatedCornerTile = new Vector();
-
         this.lockIndicatorSprites = {};
         [...layers, "error"].forEach(layer => {
             this.lockIndicatorSprites[layer] = this.makeLockIndicatorSprite(layer);

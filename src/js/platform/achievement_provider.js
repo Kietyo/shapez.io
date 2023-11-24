@@ -109,13 +109,6 @@ export class AchievementProviderInterface {
         abstract;
         return Promise.reject();
     }
-
-    /** @returns {boolean} */
-    hasLoaded() {
-        abstract;
-        return false;
-    }
-
     /**
      * Call to activate an achievement with the provider
      * @param {string} key - Maps to an Achievement

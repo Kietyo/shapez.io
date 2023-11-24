@@ -120,25 +120,6 @@ export class Blueprint {
             this.rotateCw();
         }
     }
-
-    /**
-     * Checks if the blueprint can be placed at the given tile
-     * @param {GameRoot} root
-     * @param {Vector} tile
-     */
-    canPlace(root, tile) {
-        let anyPlaceable = false;
-
-        for (let i = 0; i < this.entities.length; ++i) {
-            const entity = this.entities[i];
-            if (root.logic.checkCanPlaceEntity(entity, { offset: tile })) {
-                anyPlaceable = true;
-            }
-        }
-
-        return anyPlaceable;
-    }
-
     /**
      * @param {GameRoot} root
      */

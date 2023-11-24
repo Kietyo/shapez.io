@@ -17,25 +17,10 @@ export class AnalyticsInterface {
         abstract;
         return Promise.reject();
     }
-
-    /**
-     * Sets the player name for analytics
-     * @param {string} userName
-     */
-    setUserContext(userName) {}
-
     /**
      * Tracks when a new state is entered
      * @param {string} stateId
      */
     trackStateEnter(stateId) {}
-
-    /**
-     * Tracks a new user decision
-     * @param {string} name
-     */
-    trackDecision(name) {}
-
-    // LEGACY 1.5.3
-    trackUiClick() {}
+// LEGACY 1.5.3
 }

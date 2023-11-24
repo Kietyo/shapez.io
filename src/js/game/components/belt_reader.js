@@ -2,13 +2,6 @@ import { Component } from "../component";
 import { BaseItem } from "../base_item";
 import { typeItemSingleton } from "../item_resolver";
 import { types } from "../../savegame/serialization";
-
-/** @enum {string} */
-export const enumBeltReaderType = {
-    wired: "wired",
-    wireless: "wireless",
-};
-
 export class BeltReaderComponent extends Component {
     static getId() {
         return "BeltReader";

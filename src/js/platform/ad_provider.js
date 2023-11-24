@@ -25,18 +25,6 @@ export class AdProviderInterface {
         abstract;
         return false;
     }
-
-    /**
-     * Returns if it would be possible to show a video ad *now*. This can be false if for
-     * example the last video ad is
-     * @returns {boolean}
-     * @abstract
-     */
-    getCanShowVideoAd() {
-        abstract;
-        return false;
-    }
-
     /**
      * Shows an video ad
      * @returns {Promise<void>}

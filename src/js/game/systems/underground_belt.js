@@ -21,15 +21,6 @@ export class UndergroundBeltSystem extends GameSystemWithFilter {
     constructor(root) {
         super(root, [UndergroundBeltComponent]);
 
-        this.beltSprites = {
-            [enumUndergroundBeltMode.sender]: Loader.getSprite(
-                "sprites/buildings/underground_belt_entry.png"
-            ),
-            [enumUndergroundBeltMode.receiver]: Loader.getSprite(
-                "sprites/buildings/underground_belt_exit.png"
-            ),
-        };
-
         this.staleAreaWatcher = new StaleAreaDetector({
             root: this.root,
             name: "underground-belt",

@@ -48,8 +48,4 @@ export class BaseGameSpeed extends BasicSerializableObject {
     }
 
     // Internals
-    /** @returns {BaseGameSpeed} */
-    newSpeed(instance) {
-        return new instance(this.root);
-    }
 }

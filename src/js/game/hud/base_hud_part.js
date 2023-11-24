@@ -122,47 +122,4 @@ export class BaseHUDPart {
             detector._src = "hud-" + this.constructor.name;
         }
     }
-
-    /**
-     * Closes this element when its background is clicked
-     * @param {HTMLElement} element
-     * @param {function} closeMethod
-     */
-    closeOnBackgroundClick(element, closeMethod = null) {
-        const bgClickDetector = new ClickDetector(element, {
-            preventDefault: true,
-            targetOnly: true,
-            applyCssClass: null,
-            consumeEvents: true,
-            clickSound: null,
-        });
-
-        // If the state defines a close method, use that as fallback
-        // @ts-ignore
-        bgClickDetector.touchend.add(closeMethod || this.close, this);
-        this.registerClickDetector(bgClickDetector);
-    }
-
-    /**
-     * Forwards the game speed keybindings so you can toggle pause / Fastforward
-     * in the building tooltip and such
-     * @param {KeyActionMapper} sourceMapper
-     */
-    forwardGameSpeedKeybindings(sourceMapper) {
-        sourceMapper.forward(this.root.keyMapper, ["gamespeed_pause", "gamespeed_fastforward"]);
-    }
-
-    /**
-     * Forwards the map movement keybindings so you can move the map with the
-     * arrow keys
-     * @param {KeyActionMapper} sourceMapper
-     */
-    forwardMapMovementKeybindings(sourceMapper) {
-        sourceMapper.forward(this.root.keyMapper, [
-            "mapMoveUp",
-            "mapMoveRight",
-            "mapMoveDown",
-            "mapMoveLeft",
-        ]);
-    }
 }

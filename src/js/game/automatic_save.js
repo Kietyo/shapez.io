@@ -23,11 +23,6 @@ export class AutomaticSave {
 
         this.lastSaveAttempt = -1000;
     }
-
-    setSaveImportance(importance) {
-        this.saveImportance = Math.max(this.saveImportance, importance);
-    }
-
     doSave() {
         if (G_IS_DEV && globalConfig.debug.disableSavegameWrite) {
             return;
