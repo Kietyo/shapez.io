@@ -308,7 +308,7 @@ export class HUDBaseToolbar extends BaseHUDPart {
         entityManager.processDestroyList();
 
         const currentMetaBuilding = this.root.hud.parts.buildingPlacer.currentMetaBuilding;
-        if (currentMetaBuilding.get() == metaBuilding) {
+        if (currentMetaBuilding.get() === metaBuilding) {
             currentMetaBuilding.set(null);
         }
     }

@@ -29,10 +29,6 @@ export class DynamicTickrate {
             this.setTickRate(fixedRate);
         } else {
             this.setTickRate(this.root.app.settings.getDesiredFps());
-
-            if (G_IS_DEV && globalConfig.debug.renderForTrailer) {
-                this.setTickRate(300);
-            }
         }
     }
 
