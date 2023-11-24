@@ -377,34 +377,11 @@ export class Keybinding {
     addToTop(receiver, scope = null) {
         this.signal.addToTop(receiver, scope);
     }
-
-    /**
-     * @param {Element} elem
-     * @returns {HTMLElement} the created element, or null if the keybindings are not shown
-     *  */
-    appendLabelToElement(elem) {
-        if (IS_MOBILE) {
-            return null;
-        }
-        const spacer = document.createElement("code");
-        spacer.classList.add("keybinding");
-        spacer.innerHTML = getStringForKeyCode(this.keyCode);
-        elem.appendChild(spacer);
-        return spacer;
-    }
-
     /**
      * Returns the key code as a nice string
      */
     getKeyCodeString() {
         return getStringForKeyCode(this.keyCode);
-    }
-
-    /**
-     * Remvoes all signal receivers
-     */
-    clearSignalReceivers() {
-        this.signal.removeAll();
     }
 }
 
@@ -446,22 +423,6 @@ export class KeyActionMapper {
         inputReciever.pageBlur.add(this.onPageBlur, this);
         inputReciever.destroyed.add(this.cleanup, this);
     }
-
-    /**
-     * Returns all keybindings starting with the given id
-     * @param {string} pattern
-     * @returns {Array<Keybinding>}
-     */
-    getKeybindingsStartingWith(pattern) {
-        let result = [];
-        for (const key in this.keybindings) {
-            if (key.startsWith(pattern)) {
-                result.push(this.keybindings[key]);
-            }
-        }
-        return result;
-    }
-
     /**
      * Forwards the given events to the other mapper (used in tooltips)
      * @param {KeyActionMapper} receiver

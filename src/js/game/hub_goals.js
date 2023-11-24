@@ -274,14 +274,6 @@ export class HubGoals extends BasicSerializableObject {
 
         this.root.signals.storyGoalCompleted.dispatch(this.level - 1, reward);
     }
-
-    /**
-     * Returns whether we are playing in free-play
-     */
-    isFreePlay() {
-        return this.level >= this.root.gameMode.getLevelDefinitions().length;
-    }
-
     /**
      * Returns whether a given upgrade can be unlocked
      * @param {string} upgradeId

@@ -61,14 +61,6 @@ declare interface Device {
     serial: string;
 }
 
-declare interface MobileAccessibility {
-    usePreferredTextZoom(boolean);
-}
-declare interface Navigator {
-    app: any;
-    device: any;
-    splashscreen: any;
-}
 
 // FontFace
 declare interface Document {
@@ -80,9 +72,7 @@ declare interface WebpackContext {
     keys(): Array<string>;
 }
 
-declare interface NodeRequire {
-    context(src: string, flag: boolean, regexp: RegExp): WebpackContext;
-}
+
 
 declare interface Object {
     entries(obj: object): Array<[string, any]>;
@@ -128,19 +118,11 @@ declare interface SingletonFactoryTemplate<T> {
     getNumEntries(): number;
 }
 
-declare interface SignalTemplate0 {
-    add(receiver: () => string | void, scope: null | any);
-    dispatch(): string | void;
-    remove(receiver: () => string | void);
-    removeAll();
-}
 
 declare class TypedTrackedState<T> {
     constructor(callbackMethod?: (value: T) => void, callbackScope?: any);
 
     set(value: T, changeHandler?: (value: T) => void, changeScope?: any): void;
-
-    setSilent(value: any): void;
     get(): T;
 }
 

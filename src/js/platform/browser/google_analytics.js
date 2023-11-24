@@ -5,9 +5,7 @@ const logger = createLogger("ga");
 
 export class GoogleAnalyticsImpl extends AnalyticsInterface {
     initialize() {
-        this.lastUiClickTracked = -1000;
-
-        // Analytics is already loaded in the html
+// Analytics is already loaded in the html
         return Promise.resolve();
     }
 }

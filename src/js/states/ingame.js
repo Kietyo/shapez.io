@@ -114,11 +114,6 @@ export class InGameState extends GameState {
     getHasFadeIn() {
         return false;
     }
-
-    getPauseOnFocusLost() {
-        return false;
-    }
-
     getHasUnloadConfirmation() {
         return true;
     }
