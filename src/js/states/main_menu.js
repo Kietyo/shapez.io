@@ -38,28 +38,18 @@ export class MainMenuState extends GameState {
     }
 
     getInnerHTML() {
-        const showLanguageIcon = true;
         const showExitAppButton = G_IS_STANDALONE;
         const showPuzzleDLC =
-            (G_IS_STANDALONE || WEB_STEAM_SSO_AUTHENTICATED) &&
-            !G_GOG_VERSION;
+            (G_IS_STANDALONE || WEB_STEAM_SSO_AUTHENTICATED);
         const hasMods = MODS.anyModsActive();
-        const hasSteamBridge = !G_GOG_VERSION;
-
-        let showExternalLinks = true;
 
         if (G_IS_STANDALONE) {
 
         } else {
             const wrapper = /** @type {PlatformWrapperImplBrowser} */ (this.app.platformWrapper);
-            if (!wrapper.embedProvider.externalLinks) {
-                showExternalLinks = false;
-            }
         }
 
-        let showDiscordLink = showExternalLinks;
         const showDemoAdvertisement =
-            (showExternalLinks) &&
             this.app.restrictionMgr.getIsStandaloneMarketingActive();
 
         const ownsPuzzleDLC =
@@ -67,7 +57,7 @@ export class MainMenuState extends GameState {
             (G_IS_STANDALONE &&
                 /** @type { PlatformWrapperImplElectron}*/ (this.app.platformWrapper).dlcs.puzzle);
 
-        const showShapez2 = showExternalLinks && MODS.mods.length === 0;
+        const showShapez2 = MODS.mods.length === 0;
 
         const bannerHtml = `
             <h3>${T.demoBanners.titleV2}</h3>
@@ -106,9 +96,7 @@ export class MainMenuState extends GameState {
         return `
             <div class="topButtons">
                 ${
-                    showLanguageIcon
-                        ? `<button aria-label="Choose Language" class="languageChoose" data-languageicon="${this.app.settings.getLanguage()}"></button>`
-                        : ""
+                    `<button aria-label="Choose Language" class="languageChoose" data-languageicon="${this.app.settings.getLanguage()}"></button>`
                 }
 
                 <button class="settingsButton" aria-label="Settings"></button>
@@ -133,7 +121,7 @@ export class MainMenuState extends GameState {
                     <div class="buttons"></div>
                     <div class="savegamesMount"></div>
                     ${
-                        hasSteamBridge && (G_IS_STANDALONE || !WEB_STEAM_SSO_AUTHENTICATED)
+                        (G_IS_STANDALONE || !WEB_STEAM_SSO_AUTHENTICATED)
                             ? `<div class="steamSso">
                                 <span class="description">${
                                     G_IS_STANDALONE
@@ -147,7 +135,7 @@ export class MainMenuState extends GameState {
                             : ""
                     }
                     ${
-                        hasSteamBridge && WEB_STEAM_SSO_AUTHENTICATED
+                        WEB_STEAM_SSO_AUTHENTICATED
                             ? `
                             <div class="steamSso">
                                 <span class="description">${T.mainMenu.playingFullVersion}</span>
@@ -244,19 +232,17 @@ export class MainMenuState extends GameState {
             ${
                 `
 
-                <div class="footer ${showExternalLinks ? "" : "noLinks"} ">
+                <div class="footer ${""} ">
 
                     <div class="socialLinks">
                     ${
-                        showExternalLinks
-                            ? `<a class="patreonLink boxLink" target="_blank">
+                            `<a class="patreonLink boxLink" target="_blank">
                                     <span class="thirdpartyLogo patreonLogo"></span>
                                     <span class="label">Patreon</span>
                                 </a>`
-                            : ""
                     }
                     ${
-                        showExternalLinks && (!G_IS_STANDALONE)
+                        (!G_IS_STANDALONE)
                             ? `<a class="steamLinkSocial boxLink" target="_blank">
                                     <span class="thirdpartyLogo steamLogo"></span>
                                     <span class="label">steam</span>
@@ -264,43 +250,29 @@ export class MainMenuState extends GameState {
                             : ""
                     }
                     ${
-                        showExternalLinks
-                            ? `
+                        `
                         <a class="githubLink boxLink" target="_blank">
                             <span class="thirdpartyLogo githubLogo"></span>
                             <span class="label">GitHub</span>
                         </a>`
-                            : ""
                     }
 
 
                     ${
-                        showDiscordLink
-                            ? `<a class="discordLink boxLink" target="_blank">
+                        `<a class="discordLink boxLink" target="_blank">
                                     <span class="thirdpartyLogo  discordLogo"></span>
                                     <span class="label">Discord</span>
                                 </a>`
-                            : ""
                     }
 
                     ${
-                        showExternalLinks
-                            ? `<a class="redditLink boxLink" target="_blank">
+                            `<a class="redditLink boxLink" target="_blank">
                                     <span class="thirdpartyLogo redditLogo"></span>
                                     <span class="label">Reddit</span>
                                 </a>`
-                            : ""
                     }
 
                     ${
-                        /*
-                        showExternalLinks
-                            ? `<a class="twitterLink boxLink" target="_blank">
-                                    <span class="thirdpartyLogo twitterLogo"></span>
-                                    <span class="label">Twitter</span>
-                                </a>`
-                            : ""
-                            */
                         ""
                     }
 
@@ -308,9 +280,9 @@ export class MainMenuState extends GameState {
                     </div>
 
                     <div class="footerGrow">
-                        ${showExternalLinks ? `<a class="changelog">${T.changelog.title}</a>` : ""}
+                        ${`<a class="changelog">${T.changelog.title}</a>`}
 
-                        ${showExternalLinks ? `<a class="helpTranslate">${T.mainMenu.helpTranslate}</a>` : ""}
+                        ${`<a class="helpTranslate">${T.mainMenu.helpTranslate}</a>`}
 
                     </div>
                         <div class="author"><a class="producerLink" href="https://tobspr.io" target="_blank" title="tobspr Games" rel="follow">
