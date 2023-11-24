@@ -40,39 +40,10 @@ declare interface CanvasRenderingContext2D {
     webkitImageSmoothingEnabled: boolean;
 }
 
-// Just for compatibility with the shared code
-declare interface Logger {
-    log(...args);
-    warn(...args);
-    info(...args);
-    error(...args);
-}
-
-// Cordova
-declare interface Device {
-    uuid: string;
-    platform: string;
-    available: boolean;
-    version: string;
-    cordova: string;
-    model: string;
-    manufacturer: string;
-    isVirtual: boolean;
-    serial: string;
-}
-
-
 // FontFace
 declare interface Document {
     fonts: any;
 }
-
-// Webpack
-declare interface WebpackContext {
-    keys(): Array<string>;
-}
-
-
 
 declare interface Object {
     entries(obj: object): Array<[string, any]>;
