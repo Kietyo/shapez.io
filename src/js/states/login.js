@@ -65,11 +65,6 @@ export class LoginState extends GameState {
     finishLoading() {
         this.moveToState(this.payload.nextStateId);
     }
-
-    getDefaultPreviousState() {
-        return "MainMenuState";
-    }
-
     update() {
         const now = performance.now();
         if (now - this.lastHintShown > this.nextHintDuration) {

@@ -92,17 +92,6 @@ export class InputDistributor {
     isRecieverAttached(reciever) {
         return this.recieverStack.indexOf(reciever) >= 0;
     }
-
-    /**
-     * @param {InputReceiver} reciever
-     */
-    isRecieverOnTop(reciever) {
-        return (
-            this.isRecieverAttached(reciever) &&
-            this.recieverStack[this.recieverStack.length - 1] === reciever
-        );
-    }
-
     /**
      * @param {InputReceiver} reciever
      */

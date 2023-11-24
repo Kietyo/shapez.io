@@ -113,16 +113,6 @@ export class GameHUD {
         }
         /* dev:end*/
     }
-
-    /**
-     * Attempts to close all overlays
-     */
-    closeAllOverlays() {
-        for (const key in this.parts) {
-            this.parts[key].close();
-        }
-    }
-
     /**
      * Returns true if the game logic should be paused
      */

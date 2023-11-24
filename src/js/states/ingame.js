@@ -30,12 +30,6 @@ export const GAME_LOADING_STATES = {
     destroyed: "destroyed",
     initFailed: "initFailed",
 };
-
-export const gameCreationAction = {
-    new: "new-game",
-    resume: "resume-game",
-};
-
 // Typehints
 export class GameCreationPayload {
     constructor() {

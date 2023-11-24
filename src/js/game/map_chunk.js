@@ -52,17 +52,6 @@ export class MapChunk {
 
         /** @type {Array<Entity>} */
         this.containedEntities = [];
-
-        /**
-         * World space rectangle, can be used for culling
-         */
-        this.worldSpaceRectangle = new Rectangle(
-            this.tileX * globalConfig.tileSize,
-            this.tileY * globalConfig.tileSize,
-            globalConfig.mapChunkWorldSize,
-            globalConfig.mapChunkWorldSize
-        );
-
         /**
          * Tile space rectangle, can be used for culling
          */
@@ -424,22 +413,6 @@ export class MapChunk {
         }
         return result;
     }
-
-    /**
-     * Returns the chunks contents from the given local coordinates
-     * @param {number} localX
-     * @param {number} localY
-     * @returns {Entity=}
-     */
-    getTileContentFromLocalCoords(localX, localY) {
-        assert(localX >= 0, "Local X is < 0");
-        assert(localY >= 0, "Local Y is < 0");
-        assert(localX < globalConfig.mapChunkSize, "Local X is >= chunk size");
-        assert(localY < globalConfig.mapChunkSize, "Local Y is >= chunk size");
-
-        return this.contents[localX][localY] || null;
-    }
-
     /**
      * Sets the chunks contents
      * @param {number} tileX

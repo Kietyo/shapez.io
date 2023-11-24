@@ -565,12 +565,6 @@ export class MainMenuState extends GameState {
     onShapez2Clicked() {
         this.app.platformWrapper.openExternalLink("https://tobspr.io/shapez-2?utm_medium=shapez");
     }
-
-    onBackButtonClicked() {
-        this.renderMainMenu();
-        this.renderSavegames();
-    }
-
     onSteamLinkClicked() {
         openStandaloneLink(this.app, "shapez_mainmenu");
         return false;

@@ -117,19 +117,6 @@ export class BaseMap extends BasicSerializableObject {
         const chunkY = Math.floor(tileY / globalConfig.mapChunkSize);
         return this.getChunk(chunkX, chunkY, false);
     }
-
-    /**
-     * Checks if a given tile is within the map bounds
-     * @param {Vector} tile
-     * @returns {boolean}
-     */
-    isValidTile(tile) {
-        if (G_IS_DEV) {
-            assert(tile instanceof Vector, "tile is not a vector");
-        }
-        return Number.isInteger(tile.x) && Number.isInteger(tile.y);
-    }
-
     /**
      * Returns the tile content of a given tile
      * @param {Vector} tile
@@ -179,54 +166,6 @@ export class BaseMap extends BasicSerializableObject {
         }
         return chunk.getLayersContentsMultipleFromWorldCoords(x, y);
     }
-
-    /**
-     * Checks if the tile is used
-     * @param {Vector} tile
-     * @param {Layer} layer
-     * @returns {boolean}
-     */
-    isTileUsed(tile, layer) {
-        if (G_IS_DEV) {
-            this.internalCheckTile(tile);
-        }
-        const chunk = this.getChunkAtTileOrNull(tile.x, tile.y);
-        return chunk && chunk.getLayerContentFromWorldCoords(tile.x, tile.y, layer) != null;
-    }
-
-    /**
-     * Checks if the tile is used
-     * @param {number} x
-     * @param {number} y
-     * @param {Layer} layer
-     * @returns {boolean}
-     */
-    isTileUsedXY(x, y, layer) {
-        const chunk = this.getChunkAtTileOrNull(x, y);
-        return chunk && chunk.getLayerContentFromWorldCoords(x, y, layer) != null;
-    }
-
-    /**
-     * Sets the tiles content
-     * @param {Vector} tile
-     * @param {Entity} entity
-     */
-    setTileContent(tile, entity) {
-        if (G_IS_DEV) {
-            this.internalCheckTile(tile);
-        }
-
-        this.getOrCreateChunkAtTile(tile.x, tile.y).setLayerContentFromWorldCords(
-            tile.x,
-            tile.y,
-            entity,
-            entity.layer
-        );
-
-        const staticComponent = entity.components.StaticMapEntity;
-        assert(staticComponent, "Can only place static map entities in tiles");
-    }
-
     /**
      * Places an entity with the StaticMapEntity component
      * @param {Entity} entity
