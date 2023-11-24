@@ -179,23 +179,6 @@ export class SoundInterface {
         // @ts-ignore
         return Promise.all(...promises);
     }
-
-    /**
-     * Returns the music volume
-     * @returns {number}
-     */
-    getMusicVolume() {
-        return this.musicVolume;
-    }
-
-    /**
-     * Returns the sound volume
-     * @returns {number}
-     */
-    getSoundVolume() {
-        return this.soundVolume;
-    }
-
     /**
      * Sets the music volume
      * @param {number} volume

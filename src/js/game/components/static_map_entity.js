@@ -139,16 +139,6 @@ export class StaticMapEntityComponent extends Component {
                 assert(false, "Invalid rotation");
         }
     }
-
-    /**
-     * Transforms the given vector/rotation from local space to world space
-     * @param {Vector} vector
-     * @returns {Vector}
-     */
-    applyRotationToVector(vector) {
-        return vector.rotateFastMultipleOf90(this.rotation);
-    }
-
     /**
      * Transforms the given vector/rotation from world space to local space
      * @param {Vector} vector

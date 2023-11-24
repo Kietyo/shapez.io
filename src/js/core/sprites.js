@@ -9,16 +9,6 @@ const EXTRUDE = 0.1;
 
 export class BaseSprite {
     /**
-     * Returns the raw handle
-     * @returns {HTMLImageElement|HTMLCanvasElement}
-     * @abstract
-     */
-    getRawTexture() {
-        abstract;
-        return null;
-    }
-
-    /**
      * Draws the sprite
      * @param {CanvasRenderingContext2D} context
      * @param {number} x
@@ -297,18 +287,6 @@ export class AtlasSprite extends BaseSprite {
             destH + 2 * EXTRUDE
         );
     }
-
-    /**
-     * Renders into an html element
-     * @param {HTMLElement} element
-     * @param {number} w
-     * @param {number} h
-     */
-    renderToHTMLElement(element, w = 1, h = 1) {
-        element.style.position = "relative";
-        element.innerHTML = this.getAsHTML(w, h);
-    }
-
     /**
      * Returns the html to render as icon
      * @param {number} w

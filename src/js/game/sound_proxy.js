@@ -51,27 +51,6 @@ export class SoundProxy {
     playUiError() {
         this.playUi(SOUNDS.uiError);
     }
-
-    /**
-     * Plays a 3D sound whose volume is scaled based on where it was emitted
-     * @param {string} id Sound ID
-     * @param {Vector} pos World space position
-     */
-    play3D(id, pos) {
-        assert(typeof id === "string", "Not a valid sound id: " + id);
-        assert(pos instanceof Vector, "Invalid sound position");
-        this.internalUpdateOngoingSounds();
-
-        if (this.playing3DSounds.length > maxOngoingSounds) {
-            // Too many ongoing sounds
-            return false;
-        }
-
-        this.root.app.sound.play3DSound(id, pos, this.root);
-        this.playing3DSounds.push(this.root.time.realtimeNow());
-        return true;
-    }
-
     /**
      * Updates the list of ongoing sounds
      */

@@ -72,23 +72,6 @@ export class TextualGameState extends GameState {
             },
         });
     }
-
-    /**
-     * Removes all click detectors, except the one on the back button. Useful when regenerating
-     * content.
-     */
-    clearClickDetectorsExceptHeader() {
-        for (let i = 0; i < this.clickDetectors.length; ++i) {
-            const detector = this.clickDetectors[i];
-            if (detector.element === this.headerElement) {
-                continue;
-            }
-            detector.cleanup();
-            this.clickDetectors.splice(i, 1);
-            i -= 1;
-        }
-    }
-
     /**
      * Overrides the GameState implementation to provide our own html
      */
@@ -136,8 +119,6 @@ export class TextualGameState extends GameState {
         if (this.getStateHeaderTitle()) {
             this.htmlElement.classList.add("hasTitle");
         }
-
-        this.containerElement = this.htmlElement.querySelector(".widthKeeper .container");
         this.headerElement = this.htmlElement.querySelector(".headerBar > h1");
 
         if (this.headerElement) {

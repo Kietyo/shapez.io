@@ -86,11 +86,6 @@ export class HUDStandaloneAdvantages extends BaseHUDPart {
     shouldPauseRendering() {
         return this.visible;
     }
-
-    hasBlockingOverlayOpen() {
-        return this.visible;
-    }
-
     initialize() {
         this.domAttach = new DynamicDomAttach(this.root, this.background, {
             attachClass: "visible",

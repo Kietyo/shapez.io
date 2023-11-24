@@ -173,7 +173,6 @@ export class HUDStatistics extends BaseHUDPart {
         if (this.visible) {
             if (this.root.time.now() - this.lastFullRerender > 1) {
                 this.lastFullRerender = this.root.time.now();
-                this.lastPartialRerender = this.root.time.now();
                 this.rerenderFull();
             }
             this.rerenderPartial();
