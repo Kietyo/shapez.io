@@ -103,10 +103,6 @@ export class SteamAchievementProvider extends AchievementProviderInterface {
             return Promise.resolve();
         }
 
-        if (G_WEGAME_VERSION) {
-            return Promise.resolve();
-        }
-
         return ipcRenderer.invoke("steam:is-initialized").then(initialized => {
             this.initialized = initialized;
 
@@ -124,10 +120,6 @@ export class SteamAchievementProvider extends AchievementProviderInterface {
      */
     activate(key) {
         let promise;
-
-        if (G_WEGAME_VERSION) {
-            return Promise.resolve();
-        }
 
         if (!this.initialized) {
             promise = Promise.resolve();

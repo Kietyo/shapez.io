@@ -38,21 +38,19 @@ export class MainMenuState extends GameState {
     }
 
     getInnerHTML() {
-        const showLanguageIcon = !G_CHINA_VERSION && !G_WEGAME_VERSION;
+        const showLanguageIcon = !G_CHINA_VERSION;
         const showExitAppButton = G_IS_STANDALONE;
         const showPuzzleDLC =
-            !G_WEGAME_VERSION &&
             (G_IS_STANDALONE || WEB_STEAM_SSO_AUTHENTICATED) &&
             !G_IS_STEAM_DEMO &&
             !G_GOG_VERSION;
-        const showWegameFooter = G_WEGAME_VERSION;
         const hasMods = MODS.anyModsActive();
         const hasSteamBridge = !G_GOG_VERSION && !G_IS_STEAM_DEMO;
 
         let showExternalLinks = true;
 
         if (G_IS_STANDALONE) {
-            if (G_WEGAME_VERSION || G_CHINA_VERSION) {
+            if (G_CHINA_VERSION) {
                 showExternalLinks = false;
             }
         } else {
@@ -252,20 +250,7 @@ export class MainMenuState extends GameState {
             </div>
 
             ${
-                showWegameFooter
-                    ? `
-                <div class='footer wegameDisclaimer'>
-                        <div class="disclaimer">
-                            健康游戏忠告
-                            <br>
-                            抵制不良游戏,拒绝盗版游戏。注意自我保护,谨防受骗上当。<br>
-                            适度游戏益脑,沉迷游戏伤身。合理安排时间,享受健康生活。
-                        </div>
-
-                        <div class="rating"></div>
-                    </div>
-                    `
-                    : `
+                `
 
                 <div class="footer ${showExternalLinks ? "" : "noLinks"} ">
 
@@ -682,13 +667,11 @@ export class MainMenuState extends GameState {
                 downloadButton.setAttribute("aria-label", "Download");
                 elem.appendChild(downloadButton);
 
-                if (!G_WEGAME_VERSION) {
                     const renameButton = document.createElement("button");
                     renameButton.classList.add("styledButton", "renameGame");
                     renameButton.setAttribute("aria-label", "Rename Savegame");
                     name.appendChild(renameButton);
                     this.trackClicks(renameButton, () => this.requestRenameSavegame(games[i]));
-                }
 
                 const resumeButton = document.createElement("button");
                 resumeButton.classList.add("styledButton", "resumeGame");

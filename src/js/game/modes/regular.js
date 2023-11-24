@@ -64,7 +64,7 @@ const preparementShape = "CpRpCp--:SwSwSwSw";
 // Tiers need % of the previous tier as requirement too
 const tierGrowth = 2.5;
 
-const chinaShapes = G_WEGAME_VERSION || G_CHINA_VERSION;
+const chinaShapes = G_CHINA_VERSION;
 
 const upgradesCache = {};
 
@@ -356,9 +356,7 @@ export class RegularGameMode extends GameMode {
         }
 
         if (this.root.app.settings.getAllSettings().offerHints) {
-            if (!G_WEGAME_VERSION) {
                 this.additionalHudParts.tutorialHints = HUDPartTutorialHints;
-            }
             this.additionalHudParts.interactiveTutorial = HUDInteractiveTutorial;
         }
 

@@ -138,7 +138,7 @@ export class PreloadState extends GameState {
 
             .then(() => this.setStatus("Initializing language", 25))
             .then(() => {
-                if (G_CHINA_VERSION || G_WEGAME_VERSION) {
+                if (G_CHINA_VERSION) {
                     return this.app.settings.updateLanguage("zh-CN");
                 }
 
@@ -202,7 +202,7 @@ export class PreloadState extends GameState {
                     return;
                 }
 
-                if (G_CHINA_VERSION || G_WEGAME_VERSION) {
+                if (G_CHINA_VERSION) {
                     return;
                 }
 
@@ -269,7 +269,7 @@ export class PreloadState extends GameState {
     }
 
     update() {
-        if (G_CHINA_VERSION || G_WEGAME_VERSION) {
+        if (G_CHINA_VERSION) {
             return;
         }
         const now = performance.now();
@@ -303,7 +303,7 @@ export class PreloadState extends GameState {
     setStatus(text, progress) {
         logger.log("✅ " + text);
 
-        if (G_CHINA_VERSION || G_WEGAME_VERSION) {
+        if (G_CHINA_VERSION) {
             return Promise.resolve();
         }
         this.currentStatus = text;

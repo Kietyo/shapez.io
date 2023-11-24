@@ -31,19 +31,17 @@ export class SettingsState extends TextualGameState {
             }
 
             ${
-                G_WEGAME_VERSION
-                    ? ""
-                    : `
+                `
                 <button class="styledButton categoryButton manageMods">${T.mods.title}
                     <span class="newBadge">${T.settings.newBadge}</span>
                 </button>`
             }
 
 
-            <div class="other ${G_CHINA_VERSION || G_WEGAME_VERSION ? "noabout" : ""}">
+            <div class="other ${G_CHINA_VERSION || ""}">
 
             ${
-                G_CHINA_VERSION || G_WEGAME_VERSION
+                G_CHINA_VERSION
                     ? ""
                     : `
                 <button class="styledButton about">${T.about.title}</button>
@@ -52,7 +50,7 @@ export class SettingsState extends TextualGameState {
 `
             }
                 <div class="versionbar">
-                    ${G_WEGAME_VERSION ? "" : `<div class="buildVersion">${T.global.loading} ...</div>`}
+                    ${`<div class="buildVersion">${T.global.loading} ...</div>`}
                 </div>
             </div>
         </div>
@@ -122,7 +120,7 @@ export class SettingsState extends TextualGameState {
     onEnter(payload) {
         this.renderBuildText();
 
-        if (!G_CHINA_VERSION && !G_WEGAME_VERSION) {
+        if (!G_CHINA_VERSION) {
             this.trackClicks(this.htmlElement.querySelector(".about"), this.onAboutClicked, {
                 preventDefault: false,
             });

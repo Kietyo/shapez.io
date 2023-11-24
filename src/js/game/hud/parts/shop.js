@@ -123,7 +123,7 @@ export class HUDShop extends BaseHUDPart {
                 container.appendChild(pinButton);
 
                 let infoDetector;
-                if (!G_WEGAME_VERSION) {
+
                     const viewInfoButton = document.createElement("button");
                     viewInfoButton.classList.add("showInfo");
                     container.appendChild(viewInfoButton);
@@ -134,7 +134,7 @@ export class HUDShop extends BaseHUDPart {
                     infoDetector.click.add(() =>
                         this.root.hud.signals.viewShapeDetailsRequested.dispatch(shapeDef)
                     );
-                }
+
 
                 const currentGoalShape = this.root.hubGoals.currentGoal.definition.getHash();
                 if (shape === currentGoalShape) {
