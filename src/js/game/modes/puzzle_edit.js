@@ -15,7 +15,6 @@ import {MetaWireTunnelBuilding} from "../buildings/wire_tunnel";
 import {MetaConstantSignalBuilding} from "../buildings/constant_signal";
 import {MetaLogicGateBuilding} from "../buildings/logic_gate";
 import {MetaVirtualProcessorBuilding} from "../buildings/virtual_processor";
-import {MetaAnalyzerBuilding} from "../buildings/analyzer";
 import {MetaComparatorBuilding} from "../buildings/comparator";
 import {MetaTransistorBuilding} from "../buildings/transistor";
 import {HUDPuzzleEditorControls} from "../hud/parts/puzzle_editor_controls";
@@ -50,7 +49,6 @@ export class PuzzleEditGameMode extends PuzzleGameMode {
             MetaConstantSignalBuilding,
             MetaLogicGateBuilding,
             MetaVirtualProcessorBuilding,
-            MetaAnalyzerBuilding,
             MetaComparatorBuilding,
             MetaTransistorBuilding,
         ];

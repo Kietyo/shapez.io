@@ -6,7 +6,6 @@ import {MetaLeverBuilding} from "../../buildings/lever";
 import {MetaWireTunnelBuilding} from "../../buildings/wire_tunnel";
 import {MetaVirtualProcessorBuilding} from "../../buildings/virtual_processor";
 import {MetaTransistorBuilding} from "../../buildings/transistor";
-import {MetaAnalyzerBuilding} from "../../buildings/analyzer";
 import {MetaComparatorBuilding} from "../../buildings/comparator";
 import {MetaReaderBuilding} from "../../buildings/reader";
 import {MetaFilterBuilding} from "../../buildings/filter";
@@ -22,7 +21,6 @@ export class HUDWiresToolbar extends HUDBaseToolbar {
                 MetaConstantSignalBuilding,
                 MetaLogicGateBuilding,
                 MetaVirtualProcessorBuilding,
-                MetaAnalyzerBuilding,
                 MetaComparatorBuilding,
                 MetaTransistorBuilding,
             ],

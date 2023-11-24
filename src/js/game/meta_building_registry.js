@@ -1,7 +1,6 @@
 import {gMetaBuildingRegistry} from "../core/global_registries";
 import {createLogger} from "../core/logging";
 import {T} from "../translations";
-import {MetaAnalyzerBuilding} from "./buildings/analyzer";
 import {MetaBalancerBuilding} from "./buildings/balancer";
 import {MetaBeltBuilding} from "./buildings/belt";
 import {MetaBlockBuilding} from "./buildings/block";
@@ -77,7 +76,6 @@ export function initMetaBuildingRegistry() {
         MetaVirtualProcessorBuilding,
         MetaReaderBuilding,
         MetaTransistorBuilding,
-        MetaAnalyzerBuilding,
         MetaComparatorBuilding,
         MetaItemProducerBuilding,
         MetaConstantProducerBuilding,
