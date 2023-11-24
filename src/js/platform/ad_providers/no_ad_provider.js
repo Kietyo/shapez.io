@@ -4,8 +4,4 @@ export class NoAdProvider extends AdProviderInterface {
     getHasAds() {
         return false;
     }
-
-    getCanShowVideoAd() {
-        return false;
-    }
 }

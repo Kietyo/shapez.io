@@ -85,15 +85,6 @@ export class Rectangle {
     bottom() {
         return this.y + this.h;
     }
-
-    /**
-     * Returns Top, Right, Bottom, Left
-     * @returns {[number, number, number, number]}
-     */
-    trbl() {
-        return [this.y, this.right(), this.bottom(), this.x];
-    }
-
     /**
      * Returns the center of the rect
      * @returns {Vector}
@@ -117,43 +108,6 @@ export class Rectangle {
     setBottom(bottom) {
         this.h = bottom - this.y;
     }
-
-    /**
-     * Sets the top side of the rect without scaling it
-     * @param {number} top
-     */
-    setTop(top) {
-        const bottom = this.bottom();
-        this.y = top;
-        this.setBottom(bottom);
-    }
-
-    /**
-     * Sets the left side of the rect without scaling it
-     * @param {number} left
-     */
-    setLeft(left) {
-        const right = this.right();
-        this.x = left;
-        this.setRight(right);
-    }
-
-    /**
-     * Returns the top left point
-     * @returns {Vector}
-     */
-    topLeft() {
-        return new Vector(this.x, this.y);
-    }
-
-    /**
-     * Returns the bottom left point
-     * @returns {Vector}
-     */
-    bottomRight() {
-        return new Vector(this.right(), this.bottom());
-    }
-
     /**
      * Moves the rectangle by the given parameters
      * @param {number} x
@@ -163,16 +117,6 @@ export class Rectangle {
         this.x += x;
         this.y += y;
     }
-
-    /**
-     * Moves the rectangle by the given vector
-     * @param {Vector} vec
-     */
-    moveByVector(vec) {
-        this.x += vec.x;
-        this.y += vec.y;
-    }
-
     /**
      * Scales every parameter (w, h, x, y) by the given factor. Useful to transform from world to
      * tile space and vice versa
@@ -293,22 +237,6 @@ export class Rectangle {
 
         return Rectangle.fromTRBL(top, right, bottom, left);
     }
-
-    /**
-     * Good for caching stuff
-     */
-    toCompareableString() {
-        return (
-            round2Digits(this.x) +
-            "/" +
-            round2Digits(this.y) +
-            "/" +
-            round2Digits(this.w) +
-            "/" +
-            round2Digits(this.h)
-        );
-    }
-
     /**
      * Good for printing stuff
      */

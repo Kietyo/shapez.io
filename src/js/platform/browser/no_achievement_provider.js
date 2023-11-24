@@ -4,11 +4,6 @@ export class NoAchievementProvider extends AchievementProviderInterface {
     hasAchievements() {
         return false;
     }
-
-    hasLoaded() {
-        return false;
-    }
-
     initialize() {
         return Promise.resolve();
     }
