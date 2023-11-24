@@ -30,10 +30,3 @@ export let gGameSpeedRegistry = new Factory("gamespeed");
 export let gItemRegistry = new Factory("item");
 
 // Helpers
-
-/**
- * @param {Object.<string, Array<Class<MetaBuilding>>>} buildings
- */
-export function initBuildingsByCategory(buildings) {
-    gBuildingsByCategory = buildings;
-}

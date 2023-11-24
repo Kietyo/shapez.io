@@ -6,7 +6,6 @@ export function sha1(str) {
     return createHash().update(str).digest("hex");
 }
 
-// Window.location.host
 // Distinguish legacy crc prefixes
 export const CRC_PREFIX = "crc32".padEnd(32, "-");
 
