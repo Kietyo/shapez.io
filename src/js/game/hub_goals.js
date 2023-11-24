@@ -199,7 +199,7 @@ export class HubGoals extends BasicSerializableObject {
         }
         if (
             reward === enumHubGoalRewards.reward_blueprints &&
-            this.root.app.restrictionMgr.isLimitedVersion()
+            false
         ) {
             return false;
         }

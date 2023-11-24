@@ -19,7 +19,7 @@ export class HUDScreenshotExporter extends BaseHUDPart {
     }
 
     startExport() {
-        if (!this.root.app.restrictionMgr.getIsExportingScreenshotsPossible()) {
+        if (!true) {
             this.root.hud.parts.dialogs.showFeatureRestrictionInfo(T.demo.features.exportingBase);
             return;
         }

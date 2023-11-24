@@ -134,7 +134,7 @@ export class HUDUnlockNotification extends BaseHUDPart {
 
             if (
                 this.root.hubGoals.level > this.root.gameMode.getLevelDefinitions().length - 1 &&
-                this.root.app.restrictionMgr.getIsStandaloneMarketingActive()
+                false
             ) {
                 this.root.hud.parts.standaloneAdvantages.show(true);
             }

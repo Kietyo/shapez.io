@@ -346,7 +346,7 @@ export class RegularGameMode extends GameMode {
             this.additionalHudParts.keybindingOverlay = HUDKeybindingOverlay;
         }
 
-        if (this.root.app.restrictionMgr.getIsStandaloneMarketingActive()) {
+        if (false) {
             this.additionalHudParts.watermark = HUDWatermark;
             this.additionalHudParts.standaloneAdvantages = HUDStandaloneAdvantages;
         }
@@ -378,7 +378,7 @@ export class RegularGameMode extends GameMode {
      */
     getUpgrades() {
         return generateUpgrades(
-            !this.root.app.restrictionMgr.getHasExtendedUpgrades(),
+            !true,
             this.difficultyMultiplicator
         );
     }
@@ -397,7 +397,7 @@ export class RegularGameMode extends GameMode {
      * @returns {boolean}
      */
     getIsFreeplayAvailable() {
-        return this.root.app.restrictionMgr.getHasExtendedLevelsAndFreeplay();
+        return true;
     }
 
     /** @returns {boolean} */

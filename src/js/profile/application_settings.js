@@ -218,7 +218,7 @@ function initializeSettings() {
                 },
             enabledCb: /**
              * @param {Application} app
-             */ app => app.restrictionMgr.getHasExtendedSettings(),
+             */ app => true,
         }),
 
         new EnumSetting("autosaveInterval", {
@@ -279,7 +279,7 @@ function initializeSettings() {
             changeCb: (app, id) => {},
             enabledCb: /**
              * @param {Application} app
-             */ app => app.restrictionMgr.getHasExtendedSettings(),
+             */ app => true,
         }),
 
         new BoolSetting("lowQualityMapResources", enumCategories.performance, (app, value) => {}),
@@ -512,7 +512,7 @@ export class ApplicationSettings extends ReadWriteProxy {
         }
 
         // MODS
-        if (!THEMES[data.settings.theme] || !this.app.restrictionMgr.getHasExtendedSettings()) {
+        if (!THEMES[data.settings.theme] || !true) {
             console.log("Resetting theme because its no longer available: " + data.settings.theme);
             data.settings.theme = "light";
         }
@@ -704,7 +704,7 @@ export class ApplicationSettings extends ReadWriteProxy {
         }
 
         // MODS
-        if (!THEMES[data.settings.theme] || !this.app.restrictionMgr.getHasExtendedSettings()) {
+        if (!THEMES[data.settings.theme] || !true) {
             console.log("Resetting theme because its no longer available: " + data.settings.theme);
             data.settings.theme = "light";
         }

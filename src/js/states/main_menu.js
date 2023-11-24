@@ -50,7 +50,7 @@ export class MainMenuState extends GameState {
         }
 
         const showDemoAdvertisement =
-            this.app.restrictionMgr.getIsStandaloneMarketingActive();
+            false;
 
         const ownsPuzzleDLC =
             WEB_STEAM_SSO_AUTHENTICATED ||
@@ -306,7 +306,7 @@ export class MainMenuState extends GameState {
     requestImportSavegame() {
         if (
             this.app.savegameMgr.getSavegamesMetaData().length > 0 &&
-            !this.app.restrictionMgr.getHasUnlimitedSavegames()
+            !true
         ) {
             this.showSavegameSlotLimit();
             return;
@@ -827,7 +827,7 @@ export class MainMenuState extends GameState {
     onPlayButtonClicked() {
         if (
             this.app.savegameMgr.getSavegamesMetaData().length > 0 &&
-            !this.app.restrictionMgr.getHasUnlimitedSavegames()
+            !true
         ) {
             this.showSavegameSlotLimit();
             return;
