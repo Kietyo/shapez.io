@@ -28,12 +28,6 @@ export class GameMode extends BasicSerializableObject {
         abstract;
         return "unknownMode";
     }
-
-    /** @returns {string} */
-    static getType() {
-        abstract;
-        return "unknownType";
-    }
     /**
      * @param {GameRoot} root
      * @param {string} [id=Regular]
@@ -133,17 +127,6 @@ export class GameMode extends BasicSerializableObject {
     throughputDoesNotMatter() {
         return false;
     }
-
-    /**
-     * @param {number} w
-     * @param {number} h
-     * @abstract
-     */
-    adjustZone(w = 0, h = 0) {
-        abstract;
-        return;
-    }
-
     /** @returns {array} */
     getLevelDefinitions() {
         return [];

@@ -190,11 +190,7 @@ export class GameRoot {
             puzzleComplete: /** @type {TypedSignal<[]>} */ (new Signal()),
         };
 
-        // RNG's
-        /** @type {Object.<string, Object.<string, RandomNumberGenerator>>} */
-        this.rngs = {};
-
-        // Work queue
+// Work queue
         this.queue = {
             requireRedraw: false,
         };

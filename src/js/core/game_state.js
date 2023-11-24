@@ -194,15 +194,6 @@ export class GameState {
     getHasFadeOut() {
         return true;
     }
-
-    /**
-     * Returns if this state should get paused if it does not have focus
-     * @returns {boolean} true to pause the updating of the game
-     */
-    getPauseOnFocusLost() {
-        return true;
-    }
-
     /**
      * Should return the html code of the state.
      * @returns {string}
@@ -297,21 +288,6 @@ export class GameState {
         this.internalCleanUpClickDetectors();
         this.asyncChannel.cancelAll();
     }
-
-    /**
-     * Internal app pause callback
-     */
-    internalOnAppPauseCallback() {
-        this.onAppPause();
-    }
-
-    /**
-     * Internal app resume callback
-     */
-    internalOnAppResumeCallback() {
-        this.onAppResume();
-    }
-
     /**
      * Cleans up all click detectors
      */

@@ -19,40 +19,4 @@ export class ShapezGameAnalytics extends GameAnalyticsInterface {
     }
 
     initialize() {}
-
-    /**
-     * Returns true if the shape is interesting
-     * @param {GameRoot} root
-     * @param {string} key
-     */
-    isInterestingShape(root, key) {
-        if (key === root.gameMode.getBlueprintShapeKey()) {
-            return true;
-        }
-
-        // Check if its a story goal
-        const levels = root.gameMode.getLevelDefinitions();
-        for (let i = 0; i < levels.length; ++i) {
-            if (key === levels[i].shape) {
-                return true;
-            }
-        }
-
-        // Check if its required to unlock an upgrade
-        const upgrades = root.gameMode.getUpgrades();
-        for (const upgradeKey in upgrades) {
-            const upgradeTiers = upgrades[upgradeKey];
-            for (let i = 0; i < upgradeTiers.length; ++i) {
-                const tier = upgradeTiers[i];
-                const required = tier.required;
-                for (let k = 0; k < required.length; ++k) {
-                    if (required[k].shape === key) {
-                        return true;
-                    }
-                }
-            }
-        }
-
-        return false;
-    }
 }

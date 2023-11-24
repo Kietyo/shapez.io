@@ -33,11 +33,4 @@ export class GameSystem {
      */
     refreshCaches() {}
 
-    /**
-     * @see GameSystem.draw Wrapper arround the draw method
-     * @param {DrawParameters} parameters
-     */
-    startDraw(parameters) {
-        this.draw(parameters);
-    }
 }
