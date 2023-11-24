@@ -5,10 +5,6 @@ import {typeItemSingleton} from "../item_resolver";
 import {ColorItem} from "../items/color_item";
 import {ShapeItem} from "../items/shape_item";
 
-/** @type {{
- * [x: string]: (item: BaseItem) => Boolean
- * }} */
-export const MODS_ADDITIONAL_STORAGE_ITEM_RESOLVER = {};
 export class StorageComponent extends Component {
     static getId() {
         return "Storage";
@@ -63,10 +59,6 @@ export class StorageComponent extends Component {
         if (itemType !== this.storedItem.getItemType()) {
             // Check type matches
             return false;
-        }
-
-        if (MODS_ADDITIONAL_STORAGE_ITEM_RESOLVER[itemType]) {
-            return MODS_ADDITIONAL_STORAGE_ITEM_RESOLVER[itemType].apply(this, [item]);
         }
 
         if (itemType === "color") {

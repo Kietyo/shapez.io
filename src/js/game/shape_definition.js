@@ -16,11 +16,6 @@ import {THEME} from "./theme";
  */
 
 /**
- * @type {Object<string, (options: SubShapeDrawOptions) => void>}
- */
-export const MODS_ADDITIONAL_SUB_SHAPE_DRAWERS = {};
-
-/**
  * @typedef {{
  *   subShape: enumSubShape,
  *   color: enumColors,
@@ -362,13 +357,7 @@ export class ShapeDefinition extends BasicSerializableObject {
                 context.strokeStyle = THEME.items.outline;
                 context.lineWidth = THEME.items.outlineWidth;
 
-                if (MODS_ADDITIONAL_SUB_SHAPE_DRAWERS[subShape]) {
-                    MODS_ADDITIONAL_SUB_SHAPE_DRAWERS[subShape]({
-                        context,
-                        layerScale,
-                        quadrantSize,
-                    });
-                } else {
+
                     switch (subShape) {
                         case enumSubShape.rect: {
                             context.beginPath();
@@ -433,7 +422,6 @@ export class ShapeDefinition extends BasicSerializableObject {
                             throw new Error("Unkown sub shape: " + subShape);
                         }
                     }
-                }
 
                 context.rotate(-rotation);
                 context.translate(-centerQuadrantX, -centerQuadrantY);

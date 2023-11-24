@@ -30,11 +30,6 @@ import {ZoneSystem} from "./systems/zone";
 
 const logger = createLogger("game_system_manager");
 
-/**
- * @type {Object<string, Array<{ id: string; systemClass: new (any) => GameSystem}>>}
- */
-export const MODS_ADDITIONAL_SYSTEMS = {};
-
 export class GameSystemManager {
     /**
      *
@@ -129,10 +124,6 @@ export class GameSystemManager {
      */
     internalInitSystems() {
         const addBefore = id => {
-            const systems = MODS_ADDITIONAL_SYSTEMS[id];
-            if (systems) {
-                systems.forEach(({ id, systemClass }) => add(id, systemClass));
-            }
         };
 
         const add = (id, systemClass) => {
@@ -202,12 +193,6 @@ export class GameSystemManager {
         }
 
         addBefore("end");
-
-        for (const key in MODS_ADDITIONAL_SYSTEMS) {
-            if (!this.systems[key] && key !== "end") {
-                logger.error("Mod system not attached due to invalid 'before': ", key);
-            }
-        }
 
         logger.log("📦 There are", this.systemUpdateOrder.length, "game systems");
     }

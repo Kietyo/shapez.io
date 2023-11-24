@@ -138,11 +138,6 @@ export class SettingsState extends TextualGameState {
 
         this.htmlElement.querySelector(".category").classList.add("active");
         this.htmlElement.querySelector(".categoryButton").classList.add("active");
-
-        const modsButton = this.htmlElement.querySelector(".manageMods");
-        if (modsButton) {
-            this.trackClicks(modsButton, this.onModsClicked, { preventDefault: false });
-        }
     }
 
     setActiveCategory(category) {
@@ -209,7 +204,4 @@ export class SettingsState extends TextualGameState {
         this.moveToStateAddGoBack("KeybindingsState");
     }
 
-    onModsClicked() {
-        this.moveToStateAddGoBack("ModsState");
-    }
 }

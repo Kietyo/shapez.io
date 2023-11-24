@@ -28,9 +28,6 @@ import {RestrictionManager} from "./core/restriction_manager";
 import {PuzzleMenuState} from "./states/puzzle_menu";
 import {ClientAPI} from "./platform/api";
 import {LoginState} from "./states/login";
-import {MODS} from "./mods/modloader";
-import {MOD_SIGNALS} from "./mods/mod_signals";
-import {ModsState} from "./states/mods";
 
 /**
  * @typedef {import("./platform/achievement_provider").AchievementProviderInterface} AchievementProviderInterface
@@ -66,15 +63,8 @@ export class Application {
         assert(!GLOBAL_APP, "Tried to construct application twice");
         logger.log("Creating application, platform =", getPlatformName());
         setGlobalApp(this);
-        MODS.app = this;
 
-        // MODS
 
-        try {
-            await MODS.initMods();
-        } catch (ex) {
-            alert("Failed to load mods (launch with --dev for more info): \n\n" + ex);
-        }
 // Global stuff
         this.settings = new ApplicationSettings(this);
         this.ticker = new AnimationFrame();
@@ -144,8 +134,6 @@ export class Application {
         this.ticker.start();
 
         window.focus();
-
-        MOD_SIGNALS.appBooted.dispatch();
     }
 
     /**
@@ -180,7 +168,6 @@ export class Application {
             ChangelogState,
             PuzzleMenuState,
             LoginState,
-            ModsState,
         ];
 
         for (let i = 0; i < states.length; ++i) {

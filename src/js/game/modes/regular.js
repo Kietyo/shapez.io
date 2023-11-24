@@ -34,7 +34,6 @@ import {HUDPartTutorialHints} from "../hud/parts/tutorial_hints";
 import {HUDInteractiveTutorial} from "../hud/parts/interactive_tutorial";
 import {MetaBlockBuilding} from "../buildings/block";
 import {MetaItemProducerBuilding} from "../buildings/item_producer";
-import {MOD_SIGNALS} from "../../mods/mod_signals";
 import {finalGameShape, generateLevelsForVariant} from "./levels";
 import {WEB_STEAM_SSO_AUTHENTICATED} from "../../core/steam_sso";
 
@@ -268,8 +267,6 @@ function generateUpgrades(limitedVersion = false, difficulty = 1) {
         }
     }
 
-    MOD_SIGNALS.modifyUpgrades.dispatch(upgrades);
-
     // VALIDATE
     if (G_IS_DEV) {
         for (const upgradeId in upgrades) {
@@ -299,7 +296,6 @@ export function generateLevelDefinitions(app) {
         return levelDefinitionsCache;
     }
     const levelDefinitions = generateLevelsForVariant(app);
-    MOD_SIGNALS.modifyLevelDefinitions.dispatch(levelDefinitions);
     if (G_IS_DEV) {
         levelDefinitions.forEach(({ shape }) => {
             try {

@@ -6,6 +6,7 @@ const halfTileSize = globalConfig.halfTileSize;
 
 /**
  * @enum {string}
+ * KIMPL
  */
 export const enumDirection = {
     top: "top",

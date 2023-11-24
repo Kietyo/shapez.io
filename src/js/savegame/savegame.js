@@ -14,7 +14,6 @@ import {SavegameInterface_V1006} from "./schemas/1006";
 import {SavegameInterface_V1007} from "./schemas/1007";
 import {SavegameInterface_V1008} from "./schemas/1008";
 import {SavegameInterface_V1009} from "./schemas/1009";
-import {MODS} from "../mods/modloader";
 import {SavegameInterface_V1010} from "./schemas/1010";
 
 const logger = createLogger("savegame");
@@ -98,7 +97,6 @@ export class Savegame extends ReadWriteProxy {
                 usedInverseRotater: false,
             },
             lastUpdate: Date.now(),
-            mods: MODS.getModsListForSavegame(),
         };
     }
 
@@ -239,7 +237,6 @@ export class Savegame extends ReadWriteProxy {
         shadowData.dump = dump;
         shadowData.lastUpdate = new Date().getTime();
         shadowData.version = this.getCurrentVersion();
-        shadowData.mods = MODS.getModsListForSavegame();
 
         const reader = this.getDumpReaderForExternalData(shadowData);
 

@@ -15,11 +15,6 @@ import trim from "trim";
 import {enumColors} from "../../colors";
 import {ShapeDefinition} from "../../shape_definition";
 
-/** @type {{
- * [x: string]: (entity: Entity) => BaseItem
- * }} */
-export const MODS_ADDITIONAL_CONSTANT_SIGNAL_RESOLVER = {};
-
 export class HUDConstantSignalEdit extends BaseHUDPart {
     initialize() {
         this.root.camera.downPreHandler.add(this.downPreHandler, this);
@@ -195,9 +190,6 @@ export class HUDConstantSignalEdit extends BaseHUDPart {
         code = trim(code);
         const codeLower = code.toLowerCase();
 
-        if (MODS_ADDITIONAL_CONSTANT_SIGNAL_RESOLVER[codeLower]) {
-            return MODS_ADDITIONAL_CONSTANT_SIGNAL_RESOLVER[codeLower].apply(this, [entity]);
-        }
 
         if (enumColors[codeLower]) {
             return COLOR_ITEM_SINGLETONS[codeLower];

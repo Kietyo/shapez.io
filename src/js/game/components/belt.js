@@ -43,6 +43,7 @@ export class BeltComponent extends Component {
      *
      * @param {object} param0
      * @param {enumDirection=} param0.direction The direction of the belt
+     * KIMPL
      */
     constructor({ direction = enumDirection.top }) {
         super();

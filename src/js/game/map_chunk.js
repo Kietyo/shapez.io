@@ -13,11 +13,6 @@ import {Rectangle} from "../core/rectangle";
 
 const logger = createLogger("map_chunk");
 
-/**
- * @type {Object<string, (distanceToOriginInChunks: number) => number>}
- */
-export const MODS_ADDITIONAL_SHAPE_MAP_WEIGHTS = {};
-
 export class MapChunk {
     /**
      *
@@ -185,10 +180,6 @@ export class MapChunk {
             [enumSubShape.star]: Math.round(20 + clamp(distanceToOriginInChunks, 0, 30)),
             [enumSubShape.windmill]: Math.round(6 + clamp(distanceToOriginInChunks / 2, 0, 20)),
         };
-
-        for (const key in MODS_ADDITIONAL_SHAPE_MAP_WEIGHTS) {
-            weights[key] = MODS_ADDITIONAL_SHAPE_MAP_WEIGHTS[key](distanceToOriginInChunks);
-        }
 
         if (distanceToOriginInChunks < 7) {
             // Initial chunks can not spawn the good stuff

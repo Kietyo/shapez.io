@@ -511,7 +511,6 @@ export class ApplicationSettings extends ReadWriteProxy {
             return ExplainedResult.bad("Bad settings object");
         }
 
-        // MODS
         if (!THEMES[data.settings.theme] || !true) {
             console.log("Resetting theme because its no longer available: " + data.settings.theme);
             data.settings.theme = "light";
@@ -703,7 +702,6 @@ export class ApplicationSettings extends ReadWriteProxy {
             data.version = 32;
         }
 
-        // MODS
         if (!THEMES[data.settings.theme] || !true) {
             console.log("Resetting theme because its no longer available: " + data.settings.theme);
             data.settings.theme = "light";
