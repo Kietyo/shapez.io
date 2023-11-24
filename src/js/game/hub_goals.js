@@ -115,26 +115,12 @@ export class HubGoals extends BasicSerializableObject {
                 if (ev.key === "p") {
                     // root is not guaranteed to exist within ~0.5s after loading in
                     if (this.root && this.root.app) {
-                        if (!this.isEndOfDemoReached()) {
                             this.onGoalCompleted();
-                        }
                     }
                 }
             });
         }
     }
-
-    /**
-     * Returns whether the end of the demo is reached
-     * @returns {boolean}
-     */
-    isEndOfDemoReached() {
-        return (
-            !this.root.gameMode.getIsFreeplayAvailable() &&
-            this.level >= this.root.gameMode.getLevelDefinitions().length
-        );
-    }
-
     /**
      * Returns how much of the current shape is stored
      * @param {ShapeDefinition} definition
@@ -227,7 +213,7 @@ export class HubGoals extends BasicSerializableObject {
             this.getCurrentGoalDelivered() >= this.currentGoal.required ||
             (G_IS_DEV && globalConfig.debug.rewardsInstant)
         ) {
-            if (!this.isEndOfDemoReached()) {
+            if (!false) {
                 this.onGoalCompleted();
             }
         }

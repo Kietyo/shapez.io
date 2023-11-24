@@ -383,7 +383,6 @@ export class MainMenuState extends GameState {
             ".redditLink": this.onRedditClicked,
             ".twitterLink": this.onTwitterLinkClicked,
             ".patreonLink": this.onPatreonLinkClicked,
-            ".changelog": this.onChangelogClicked,
             ".helpTranslate": this.onTranslationHelpLinkClicked,
             ".exitAppButton": this.onExitAppButtonClicked,
             ".steamLink": this.onSteamLinkClicked,
@@ -487,10 +486,6 @@ export class MainMenuState extends GameState {
 
     onExitAppButtonClicked() {
         this.app.platformWrapper.exitApp();
-    }
-
-    onChangelogClicked() {
-        this.moveToState("ChangelogState");
     }
 
     onRedditClicked() {
