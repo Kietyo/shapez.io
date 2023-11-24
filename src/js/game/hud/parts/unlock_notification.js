@@ -128,7 +128,6 @@ export class HUDUnlockNotification extends BaseHUDPart {
     }
 
     requestClose() {
-        this.root.app.adProvider.showVideoAd().then(() => {
             this.close();
 
             this.root.hud.signals.unlockNotificationFinished.dispatch();
@@ -161,7 +160,6 @@ export class HUDUnlockNotification extends BaseHUDPart {
                 );
                 showKeybindings.add(() => this.root.gameState.goToKeybindings());
             }
-        });
     }
 
     close() {

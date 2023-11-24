@@ -10,11 +10,8 @@ import { StateManager } from "./core/state_manager";
 import { TrackedState } from "./core/tracked_state";
 import { getPlatformName, waitNextFrame } from "./core/utils";
 import { Vector } from "./core/vector";
-import { AdProviderInterface } from "./platform/ad_provider";
-import { NoAdProvider } from "./platform/ad_providers/no_ad_provider";
 import { NoAchievementProvider } from "./platform/browser/no_achievement_provider";
 import { AnalyticsInterface } from "./platform/analytics";
-import { GoogleAnalyticsImpl } from "./platform/browser/google_analytics";
 import { SoundImplBrowser } from "./platform/browser/sound";
 import { PlatformWrapperImplBrowser } from "./platform/browser/wrapper";
 import { PlatformWrapperImplElectron } from "./platform/electron/wrapper";
@@ -108,9 +105,6 @@ export class Application {
         /** @type {AchievementProviderInterface} */
         this.achievementProvider = null;
 
-        /** @type {AdProviderInterface} */
-        this.adProvider = null;
-
         /** @type {AnalyticsInterface} */
         this.analytics = null;
 
@@ -184,9 +178,7 @@ export class Application {
         }
 
         // Start with empty ad provider
-        this.adProvider = new NoAdProvider(this);
         this.sound = new SoundImplBrowser(this);
-        this.analytics = new GoogleAnalyticsImpl(this);
         this.gameAnalytics = new ShapezGameAnalytics(this);
         this.achievementProvider = new NoAchievementProvider(this);
     }
@@ -332,7 +324,6 @@ export class Application {
 
     onAppPlayingStateChanged(playing) {
         try {
-            this.adProvider.setPlayStatus(playing);
         } catch (ex) {
             console.warn("Play status changed");
         }

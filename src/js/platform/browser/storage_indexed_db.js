@@ -3,14 +3,8 @@ import { createLogger } from "../../core/logging";
 
 const logger = createLogger("storage/browserIDB");
 
-const LOCAL_STORAGE_UNAVAILABLE = "local-storage-unavailable";
-const LOCAL_STORAGE_NO_WRITE_PERMISSION = "local-storage-no-write-permission";
-
-let randomDelay = () => 0;
-
 if (G_IS_DEV) {
     // Random delay for testing
-    // randomDelay = () => 500;
 }
 
 export class StorageImplBrowserIndexedDB extends StorageInterface {

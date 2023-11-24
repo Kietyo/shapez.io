@@ -9,44 +9,6 @@ const METADATA = {
     minimumGameVersion: ">=1.5.0",
 };
 
-class MetaDemoModBuilding extends shapez.ModMetaBuilding {
-    constructor() {
-        super("demoModBuilding");
-    }
-
-    static getAllVariantCombinations() {
-        return [
-            {
-                variant: shapez.defaultBuildingVariant,
-                name: "A test name",
-                description: "A test building",
-
-                regularImageBase64: RESOURCES["demoBuilding.png"],
-                blueprintImageBase64: RESOURCES["demoBuildingBlueprint.png"],
-                tutorialImageBase64: RESOURCES["demoBuildingBlueprint.png"],
-            },
-        ];
-    }
-
-
-}
-
-class Mod extends shapez.Mod {
-    init() {
-        // Register the new building
-        this.modInterface.registerNewBuilding({
-            metaClass: MetaDemoModBuilding,
-            buildingIconBase64: RESOURCES["demoBuilding.png"],
-        });
-
-        // Add it to the regular toolbar
-        this.modInterface.addNewBuildingToToolbar({
-            toolbar: "regular",
-            location: "primary",
-            metaClass: MetaDemoModBuilding,
-        });
-    }
-}
 
 ////////////////////////////////////////////////////////////////////////
 

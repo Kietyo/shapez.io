@@ -3,9 +3,6 @@ import { createLogger } from "../../core/logging";
 import { queryParamOptions } from "../../core/query_parameters";
 import { WEB_STEAM_SSO_AUTHENTICATED } from "../../core/steam_sso";
 import { clamp } from "../../core/utils";
-import { CrazygamesAdProvider } from "../ad_providers/crazygames";
-import { GamedistributionAdProvider } from "../ad_providers/gamedistribution";
-import { NoAdProvider } from "../ad_providers/no_ad_provider";
 import { SteamAchievementProvider } from "../electron/steam_achievement_provider";
 import { PlatformWrapperInterface } from "../wrapper";
 import { NoAchievementProvider } from "./no_achievement_provider";
@@ -18,7 +15,6 @@ export class PlatformWrapperImplBrowser extends PlatformWrapperInterface {
     initialize() {
         this.embedProvider = {
             id: "shapezio-website",
-            adProvider: NoAdProvider,
             iframed: false,
             externalLinks: true,
         };
@@ -46,7 +42,6 @@ export class PlatformWrapperImplBrowser extends PlatformWrapperInterface {
                 case "gamedistribution": {
                     this.embedProvider.id = "gamedistribution";
                     this.embedProvider.externalLinks = false;
-                    this.embedProvider.adProvider = GamedistributionAdProvider;
                     break;
                 }
 
@@ -57,7 +52,6 @@ export class PlatformWrapperImplBrowser extends PlatformWrapperInterface {
 
                 case "crazygames": {
                     this.embedProvider.id = "crazygames";
-                    this.embedProvider.adProvider = CrazygamesAdProvider;
                     break;
                 }
 

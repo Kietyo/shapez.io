@@ -744,7 +744,6 @@ export class MainMenuState extends GameState {
      * @param {SavegameMetadata} game
      */
     resumeGame(game) {
-        this.app.adProvider.showVideoAd().then(() => {
             const savegame = this.app.savegameMgr.getSavegameById(game.internalId);
             savegame
                 .readAsync()
@@ -761,7 +760,6 @@ export class MainMenuState extends GameState {
                         T.dialogs.gameLoadFailure.text + "<br><br>" + err
                     );
                 });
-        });
     }
 
     /**
@@ -889,13 +887,11 @@ export class MainMenuState extends GameState {
             return;
         }
 
-        this.app.adProvider.showVideoAd().then(() => {
             const savegame = this.app.savegameMgr.createNewSavegame();
 
             this.moveToState("InGameState", {
                 savegame,
             });
-        });
     }
 
     onWegameRatingClicked() {
@@ -934,7 +930,6 @@ export class MainMenuState extends GameState {
 
         savegame
             .readAsync()
-            .then(() => this.app.adProvider.showVideoAd())
             .then(() => this.checkForModDifferences(savegame))
             .then(() => {
                 this.moveToState("InGameState", {
