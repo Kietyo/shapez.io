@@ -366,9 +366,7 @@ const STANDALONE_LEVELS = () => [
  * Generates the level definitions
  */
 export function generateLevelsForVariant(app) {
-    if (G_IS_STEAM_DEMO) {
-        return STEAM_DEMO_LEVELS();
-    } else if (G_IS_STANDALONE || WEB_STEAM_SSO_AUTHENTICATED) {
+    if (G_IS_STANDALONE || WEB_STEAM_SSO_AUTHENTICATED) {
         return STANDALONE_LEVELS();
     }
     return WEB_DEMO_LEVELS(app);

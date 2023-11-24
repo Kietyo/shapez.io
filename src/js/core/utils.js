@@ -686,10 +686,6 @@ export function getRomanNumber(number) {
  * Returns the appropriate logo sprite path
  */
 export function getLogoSprite() {
-    if (G_IS_STEAM_DEMO) {
-        return "logo_demo.png";
-    }
-
     if (G_IS_STANDALONE || WEB_STEAM_SSO_AUTHENTICATED) {
         return "logo.png";
     }

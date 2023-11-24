@@ -42,10 +42,9 @@ export class MainMenuState extends GameState {
         const showExitAppButton = G_IS_STANDALONE;
         const showPuzzleDLC =
             (G_IS_STANDALONE || WEB_STEAM_SSO_AUTHENTICATED) &&
-            !G_IS_STEAM_DEMO &&
             !G_GOG_VERSION;
         const hasMods = MODS.anyModsActive();
-        const hasSteamBridge = !G_GOG_VERSION && !G_IS_STEAM_DEMO;
+        const hasSteamBridge = !G_GOG_VERSION;
 
         let showExternalLinks = true;
 
@@ -66,7 +65,6 @@ export class MainMenuState extends GameState {
         const ownsPuzzleDLC =
             WEB_STEAM_SSO_AUTHENTICATED ||
             (G_IS_STANDALONE &&
-                !G_IS_STEAM_DEMO &&
                 /** @type { PlatformWrapperImplElectron}*/ (this.app.platformWrapper).dlcs.puzzle);
 
         const showShapez2 = showExternalLinks && MODS.mods.length === 0;
@@ -101,7 +99,7 @@ export class MainMenuState extends GameState {
             }
                 Play shapez on Steam
             </a>
-            ${!G_IS_STEAM_DEMO ? `<div class="onlinePlayerCount"></div>` : ""}
+            ${`<div class="onlinePlayerCount"></div>`}
 
         `;
 
@@ -250,7 +248,7 @@ export class MainMenuState extends GameState {
 
                     <div class="socialLinks">
                     ${
-                        showExternalLinks && !G_IS_STEAM_DEMO
+                        showExternalLinks
                             ? `<a class="patreonLink boxLink" target="_blank">
                                     <span class="thirdpartyLogo patreonLogo"></span>
                                     <span class="label">Patreon</span>
@@ -258,7 +256,7 @@ export class MainMenuState extends GameState {
                             : ""
                     }
                     ${
-                        showExternalLinks && (!G_IS_STANDALONE || G_IS_STEAM_DEMO)
+                        showExternalLinks && (!G_IS_STANDALONE)
                             ? `<a class="steamLinkSocial boxLink" target="_blank">
                                     <span class="thirdpartyLogo steamLogo"></span>
                                     <span class="label">steam</span>
@@ -266,7 +264,7 @@ export class MainMenuState extends GameState {
                             : ""
                     }
                     ${
-                        showExternalLinks && !G_IS_STEAM_DEMO
+                        showExternalLinks
                             ? `
                         <a class="githubLink boxLink" target="_blank">
                             <span class="thirdpartyLogo githubLogo"></span>

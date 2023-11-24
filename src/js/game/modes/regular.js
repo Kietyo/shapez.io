@@ -367,9 +367,6 @@ export class RegularGameMode extends GameMode {
 
     get difficultyMultiplicator() {
         if (G_IS_STANDALONE || WEB_STEAM_SSO_AUTHENTICATED) {
-            if (G_IS_STEAM_DEMO) {
-                return 0.75;
-            }
             return 1;
         }
         return 0.5;

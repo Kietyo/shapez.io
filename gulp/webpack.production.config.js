@@ -28,7 +28,6 @@ module.exports = ({
         G_GOG_VERSION: JSON.stringify(gogVersion),
         G_IS_RELEASE: environment === "prod" ? "true" : "false",
         G_IS_STANDALONE: standalone ? "true" : "false",
-        G_IS_STEAM_DEMO: JSON.stringify(steamDemo),
         G_IS_BROWSER: isBrowser ? "true" : "false",
         G_APP_ENVIRONMENT: JSON.stringify(environment),
         G_HAVE_ASSERT: "false",

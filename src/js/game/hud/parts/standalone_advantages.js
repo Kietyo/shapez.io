@@ -49,7 +49,7 @@ export class HUDStandaloneAdvantages extends BaseHUDPart {
                     : ""
             }
             </button>
-            <button class="otherCloseButton" data-btn-variant="${G_IS_STEAM_DEMO ? "steam-demo" : "prod"}">${
+            <button class="otherCloseButton" data-btn-variant="${"prod"}">${
                 T.ingame.standaloneAdvantages.no_thanks
             }</button>
             </div>
@@ -96,13 +96,8 @@ export class HUDStandaloneAdvantages extends BaseHUDPart {
 
         // On standalone, show popup instant - but don't do so on web, since it increases
         // the amount of clicks to get into the game
-        if (G_IS_STEAM_DEMO) {
-            // show instant
-            this.lastShown = -1e10;
-        } else {
             // wait for next interval
             this.lastShown = 0;
-        }
 
         this.root.signals.gameRestored.add(() => {
             if (

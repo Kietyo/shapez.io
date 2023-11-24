@@ -46,7 +46,7 @@ export class PreloadState extends GameState {
         this.startLoading();
     }
     async sendBeacon() {
-        if (G_IS_STANDALONE && !G_IS_STEAM_DEMO) {
+        if (G_IS_STANDALONE) {
             return;
         }
         if (queryParamOptions.campaign) {
@@ -198,7 +198,7 @@ export class PreloadState extends GameState {
                     return;
                 }
 
-                if (G_IS_STEAM_DEMO || !G_IS_STANDALONE) {
+                if (!G_IS_STANDALONE) {
                     return;
                 }
 
