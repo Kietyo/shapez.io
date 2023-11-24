@@ -106,9 +106,6 @@ export class MetaUndergroundBeltBuilding extends MetaBuilding {
             ],
         ];
 
-        if (root.gameMode.throughputDoesNotMatter()) {
-            return stats;
-        }
         stats.push([T.ingame.buildingPlacement.infoTexts.speed, formatItemsPerSecond(beltSpeed)]);
 
         return stats;

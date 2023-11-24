@@ -67,9 +67,6 @@ export class MetaPainterBuilding extends MetaBuilding {
      * @returns {Array<[string, string]>}
      */
     getAdditionalStatistics(root, variant) {
-        if (root.gameMode.throughputDoesNotMatter()) {
-            return [];
-        }
         switch (variant) {
             case defaultBuildingVariant:
             case enumPainterVariants.mirrored: {

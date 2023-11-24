@@ -105,10 +105,6 @@ export class PlatformWrapperImplBrowser extends PlatformWrapperInterface {
     }
 
     getUiScale() {
-        if (false) {
-            return 1;
-        }
-
         const avgDims = Math.min(this.app.screenWidth, this.app.screenHeight);
         return clamp((avgDims / 1000.0) * 1.9, 0.1, 10);
     }

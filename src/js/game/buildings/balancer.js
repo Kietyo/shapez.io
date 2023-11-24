@@ -91,9 +91,6 @@ export class MetaBalancerBuilding extends MetaBuilding {
      * @returns {Array<[string, string]>}
      */
     getAdditionalStatistics(root, variant) {
-        if (root.gameMode.throughputDoesNotMatter()) {
-            return [];
-        }
 
         let speedMultiplier = 2;
         switch (variant) {

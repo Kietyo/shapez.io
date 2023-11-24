@@ -65,9 +65,6 @@ export class MetaRotaterBuilding extends MetaBuilding {
      * @returns {Array<[string, string]>}
      */
     getAdditionalStatistics(root, variant) {
-        if (root.gameMode.throughputDoesNotMatter()) {
-            return [];
-        }
         switch (variant) {
             case defaultBuildingVariant: {
                 const speed = root.hubGoals.getProcessorBaseSpeed(enumItemProcessorTypes.rotater);
