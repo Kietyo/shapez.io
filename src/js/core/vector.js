@@ -173,17 +173,6 @@ export class Vector {
         return new Vector(this.x * f, this.y * f);
     }
     /**
-     * For both components, compute the maximum of each component and the given scalar, and return a new vector.
-     * For example:
-     *   - new Vector(-1, 5).maxScalar(0) -> Vector(0, 5)
-     * @param {number} f
-     * @returns {Vector}
-     */
-    maxScalar(f) {
-        return new Vector(Math.max(f, this.x), Math.max(f, this.y));
-    }
-
-    /**
      * Adds a scalar to both components and return a new vector
      * @param {number} f
      * @returns {Vector}
@@ -297,15 +286,6 @@ export class Vector {
     toTileSpace() {
         return new Vector(Math.floor(this.x / tileSize), Math.floor(this.y / tileSize));
     }
-
-    /**
-     * Converts this vector from world to street space and return a new vector
-     * @returns {Vector}
-     */
-    toStreetSpace() {
-        return new Vector(Math.floor(this.x / halfTileSize + 0.25), Math.floor(this.y / halfTileSize + 0.25));
-    }
-
     /**
      * Converts this vector to world space and return a new vector
      * @returns {Vector}
@@ -321,15 +301,6 @@ export class Vector {
     toWorldSpaceCenterOfTile() {
         return new Vector(this.x * tileSize + halfTileSize, this.y * tileSize + halfTileSize);
     }
-
-    /**
-     * Converts the top left tile position of this vector
-     * @returns {Vector}
-     */
-    snapWorldToTile() {
-        return new Vector(Math.floor(this.x / tileSize) * tileSize, Math.floor(this.y / tileSize) * tileSize);
-    }
-
     /**
      * Normalizes the vector, dividing by the length(), and return a new vector
      * @returns {Vector}
@@ -338,36 +309,6 @@ export class Vector {
         const len = Math.max(1e-5, Math.hypot(this.x, this.y));
         return new Vector(this.x / len, this.y / len);
     }
-
-    /**
-     * Normalizes the vector, dividing by the length(), and return a new vector
-     * @returns {Vector}
-     */
-    normalizeIfGreaterOne() {
-        const len = Math.max(1, Math.hypot(this.x, this.y));
-        return new Vector(this.x / len, this.y / len);
-    }
-
-    /**
-     * Returns the normalized vector to the other point
-     * @param {Vector} v
-     * @returns {Vector}
-     */
-    normalizedDirection(v) {
-        const dx = v.x - this.x;
-        const dy = v.y - this.y;
-        const len = Math.max(1e-5, Math.hypot(dx, dy));
-        return new Vector(dx / len, dy / len);
-    }
-
-    /**
-     * Returns a perpendicular vector
-     * @returns {Vector}
-     */
-    findPerpendicular() {
-        return new Vector(-this.y, this.x);
-    }
-
     /**
      * Returns the unnormalized direction to the other point
      * @param {Vector} v
@@ -404,55 +345,6 @@ export class Vector {
         const cos = Math.cos(angle);
         return new Vector(this.x * cos - this.y * sin, this.x * sin + this.y * cos);
     }
-
-    /**
-     * Rotates this vector
-     * @param {number} angle
-     * @returns {Vector} this vector
-     */
-    rotateInplaceFastMultipleOf90(angle) {
-        // const sin = Math.sin(angle);
-        // const cos = Math.cos(angle);
-        // let sin = 0, cos = 1;
-        assert(angle >= 0 && angle <= 360, "Invalid angle, please clamp first: " + angle);
-
-        switch (angle) {
-            case 0:
-            case 360: {
-                return this;
-            }
-            case 90: {
-                // sin = 1;
-                // cos = 0;
-
-                const x = this.x;
-                this.x = -this.y;
-                this.y = x;
-                return this;
-            }
-            case 180: {
-                // sin = 0
-                // cos = -1
-                this.x = -this.x;
-                this.y = -this.y;
-                return this;
-            }
-            case 270: {
-                // sin = -1
-                // cos = 0
-                const x = this.x;
-                this.x = this.y;
-                this.y = -x;
-                return this;
-            }
-            default: {
-                assertAlways(false, "Invalid fast inplace rotation: " + angle);
-                return this;
-            }
-        }
-        // return new Vector(this.x * cos - this.y * sin, this.x * sin + this.y * cos);
-    }
-
     /**
      * Rotates this vector
      * @param {number} angle
@@ -570,28 +462,6 @@ export class Vector {
      */
     angle() {
         return Math.atan2(this.y, this.x) + Math.PI / 2;
-    }
-
-    /**
-     * Serializes the vector to a string
-     * @returns {string}
-     */
-    serializeTile() {
-        return String.fromCharCode(33 + this.x) + String.fromCharCode(33 + this.y);
-    }
-
-    /**
-     * Creates a simple representation of the vector
-     */
-    serializeSimple() {
-        return { x: this.x, y: this.y };
-    }
-
-    /**
-     * @returns {number}
-     */
-    serializeTileToInt() {
-        return this.x + this.y * 256;
     }
     /**
      * Deserializes a vector from a serialized json object
