@@ -26,7 +26,6 @@ import {HUDTutorialVideoOffer} from "../hud/parts/tutorial_video_offer";
 import {HUDMinerHighlight} from "../hud/parts/miner_highlight";
 import {HUDGameMenu} from "../hud/parts/game_menu";
 import {HUDConstantSignalEdit} from "../hud/parts/constant_signal_edit";
-import {IS_MOBILE} from "../../core/config";
 import {HUDKeybindingOverlay} from "../hud/parts/keybinding_overlay";
 import {HUDWatermark} from "../hud/parts/watermark";
 import {HUDStandaloneAdvantages} from "../hud/parts/standalone_advantages";
@@ -338,7 +337,7 @@ export class RegularGameMode extends GameMode {
             constantSignalEdit: HUDConstantSignalEdit,
         };
 
-        if (!IS_MOBILE) {
+        if (!false) {
             this.additionalHudParts.keybindingOverlay = HUDKeybindingOverlay;
         }
 

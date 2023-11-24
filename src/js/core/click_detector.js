@@ -2,13 +2,13 @@ import {createLogger} from "./logging";
 import {Signal} from "./signal";
 import {fastArrayDelete, fastArrayDeleteValueIfContained} from "./utils";
 import {Vector} from "./vector";
-import {IS_MOBILE, SUPPORT_TOUCH} from "./config";
+import {SUPPORT_TOUCH} from "./config";
 import {SOUNDS} from "../platform/sound";
 import {GLOBAL_APP} from "./globals";
 
 const logger = createLogger("click_detector");
 
-export const MAX_MOVE_DISTANCE_PX = IS_MOBILE ? 20 : 80;
+export const MAX_MOVE_DISTANCE_PX = false ? 20 : 80;
 
 // For debugging
 const registerClickDetectors = G_IS_DEV && true;
@@ -406,7 +406,7 @@ export class ClickDetector {
         if (this.clickDownPosition) {
             const pos = /** @type {typeof ClickDetector} */ (this.constructor).extractPointerPosition(event);
             const distance = pos.distance(this.clickDownPosition);
-            if (!IS_MOBILE || distance <= this.maxDistance) {
+            if (!false || distance <= this.maxDistance) {
                 dispatchClick = true;
                 dispatchClickPos = pos;
             } else {
