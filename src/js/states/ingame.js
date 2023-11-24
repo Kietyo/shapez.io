@@ -226,14 +226,8 @@ export class InGameState extends GameState {
 
             this.app.backgroundResourceLoader.getIngamePromise().then(
                 () => {
-                    if (
-                        this.creationPayload.gameModeId &&
-                        this.creationPayload.gameModeId.includes("puzzle")
-                    ) {
-                        this.app.sound.playThemeMusic(MUSIC.puzzle);
-                    } else {
+
                         this.app.sound.playThemeMusic(MUSIC.theme);
-                    }
 
                     this.loadingOverlay.loadingIndicator.innerText = "";
                     this.app.backgroundResourceLoader.resourceStateChangedSignal.removeAll();

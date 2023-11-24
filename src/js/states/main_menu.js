@@ -38,22 +38,10 @@ export class MainMenuState extends GameState {
 
     getInnerHTML() {
         const showExitAppButton = G_IS_STANDALONE;
-        const showPuzzleDLC =
-            (G_IS_STANDALONE || WEB_STEAM_SSO_AUTHENTICATED);
 
-        if (G_IS_STANDALONE) {
-
-        } else {
+        if (!G_IS_STANDALONE) {
             const wrapper = /** @type {PlatformWrapperImplBrowser} */ (this.app.platformWrapper);
         }
-
-        const showDemoAdvertisement =
-            false;
-
-        const ownsPuzzleDLC =
-            WEB_STEAM_SSO_AUTHENTICATED ||
-            (G_IS_STANDALONE &&
-                /** @type { PlatformWrapperImplElectron}*/ (this.app.platformWrapper).dlcs.puzzle);
 
         const showShapez2 = true;
 
@@ -113,7 +101,7 @@ export class MainMenuState extends GameState {
                 >
             </div>
 
-            <div class="mainWrapper" data-columns="${showDemoAdvertisement || showPuzzleDLC ? 2 : 1}">
+            <div class="mainWrapper" data-columns="${1}">
                 <div class="mainContainer">
                     <div class="buttons"></div>
                     <div class="savegamesMount"></div>
@@ -145,7 +133,7 @@ export class MainMenuState extends GameState {
                 </div>
 
                 <div class="sideContainer">
-                    ${showDemoAdvertisement ? `<div class="standaloneBanner">${bannerHtml}</div>` : ""}
+                    ${""}
 
                     ${
                         showShapez2
@@ -241,14 +229,6 @@ export class MainMenuState extends GameState {
      * Asks the user to import a savegame
      */
     requestImportSavegame() {
-        if (
-            this.app.savegameMgr.getSavegamesMetaData().length > 0 &&
-            !true
-        ) {
-            this.showSavegameSlotLimit();
-            return;
-        }
-
         // Create a 'fake' file-input to accept savegames
         startFileChoose(".bin").then(file => {
             if (file) {
