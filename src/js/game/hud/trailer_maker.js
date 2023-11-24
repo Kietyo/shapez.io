@@ -49,30 +49,6 @@ export class TrailerMaker {
                 this.root.camera.center = this.currentPlaybackOrigin.copy();
                 this.root.camera.zoomLevel = this.currentPlaybackZoom;
                 console.log("STart at", this.currentPlaybackOrigin);
-
-                // this.root.entityMgr.getAllWithComponent(MinerComponent).forEach(miner => {
-                //     miner.components.Miner.itemChainBuffer = [];
-                //     miner.components.Miner.lastMiningTime = this.root.time.now() + 5;
-                //     miner.components.ItemEjector.slots.forEach(slot => (slot.item = null));
-                // });
-
-                // this.root.logic.tryPlaceBuilding({
-                //     origin: new Vector(-428, -15),
-                //     building: gMetaBuildingRegistry.findByClass(MetaBeltBaseBuilding),
-                //     originalRotation: 0,
-                //     rotation: 0,
-                //     variant: "default",
-                //     rotationVariant: 0,
-                // });
-
-                // this.root.logic.tryPlaceBuilding({
-                //     origin: new Vector(-427, -15),
-                //     building: gMetaBuildingRegistry.findByClass(MetaBeltBaseBuilding),
-                //     originalRotation: 0,
-                //     rotation: 0,
-                //     variant: "default",
-                //     rotationVariant: 0,
-                // });
             }
         });
     }

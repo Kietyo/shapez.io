@@ -7,8 +7,6 @@ import {defaultBuildingVariant, MetaBuilding} from "../meta_building";
 import {GameRoot} from "../root";
 import {enumHubGoalRewards} from "../tutorial_goals";
 
-const overlayMatrix = generateMatrixRotations([1, 1, 0, 1, 1, 1, 0, 1, 0]);
-
 export class MetaAnalyzerBuilding extends MetaBuilding {
     constructor() {
         super("analyzer");
