@@ -60,13 +60,6 @@ export class Savegame extends ReadWriteProxy {
     }
 
     /**
-     * @returns {typeof BaseSavegameInterface}
-     */
-    static getReaderClass() {
-        return savegameInterfaces[Savegame.getCurrentVersion()];
-    }
-
-    /**
      *
      * @param {Application} app
      * @returns

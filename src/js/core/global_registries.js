@@ -13,10 +13,6 @@ import { Factory } from "./factory";
 
 /** @type {SingletonFactoryTemplate<MetaBuilding>} */
 export let gMetaBuildingRegistry = new SingletonFactory();
-
-/** @type {Object.<string, Array<Class<MetaBuilding>>>} */
-export let gBuildingsByCategory = null;
-
 /** @type {FactoryTemplate<Component>} */
 export let gComponentRegistry = new Factory("component");
 

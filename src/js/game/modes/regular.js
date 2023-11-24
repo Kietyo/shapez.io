@@ -322,11 +322,6 @@ export class RegularGameMode extends GameMode {
     static getId() {
         return enumGameModeIds.regular;
     }
-
-    static getType() {
-        return enumGameModeTypes.default;
-    }
-
     /** @param {GameRoot} root */
     constructor(root) {
         super(root);

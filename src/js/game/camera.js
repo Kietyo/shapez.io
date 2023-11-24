@@ -304,17 +304,6 @@ export class Camera extends BasicSerializableObject {
         const screenSpace = world.sub(this.center).multiplyScalar(this.zoomLevel);
         return screenSpace.addScalars(this.root.gameWidth / 2, this.root.gameHeight / 2);
     }
-
-    /**
-     * Returns if a point is on screen
-     * @param {Vector} point
-     * @returns {boolean} true if its on screen
-     */
-    isWorldPointOnScreen(point) {
-        const rect = this.getVisibleRect();
-        return rect.containsPoint(point.x, point.y);
-    }
-
     getMaximumZoom() {
         return this.root.gameMode.getMaximumZoom();
     }

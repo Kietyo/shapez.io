@@ -55,13 +55,6 @@ export class GameTime extends BasicSerializableObject {
         this.realtimeSeconds = performance.now() / 1000.0 + this.realtimeAdjust;
     }
     /**
-     * Returns how many seconds we are in the grace period
-     * @returns {number}
-     */
-    getRemainingGracePeriodSeconds() {
-        return 0;
-    }
-    /**
      * Internal method to generate new logic time budget
      * @param {number} deltaMs
      */
@@ -151,11 +144,6 @@ export class GameTime extends BasicSerializableObject {
     systemNow() {
         return (this.realtimeSeconds - this.realtimeAdjust) * 1000.0;
     }
-
-    getIsPaused() {
-        return this.speed.getId() === PausedGameSpeed.getId();
-    }
-
     getSpeed() {
         return this.speed;
     }

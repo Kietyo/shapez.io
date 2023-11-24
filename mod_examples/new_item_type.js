@@ -15,12 +15,6 @@ const enumFluidType = {
     oil: "oil",
 };
 
-// Define which color they should have on the map
-const fluidColors = {
-    [enumFluidType.water]: "#477be7",
-    [enumFluidType.oil]: "#bc483a",
-};
-
 // The fluid item class (also see ColorItem and ShapeItem)
 class FluidItem extends shapez.BaseItem {
     static getId() {

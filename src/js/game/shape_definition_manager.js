@@ -72,18 +72,6 @@ export class ShapeDefinitionManager extends BasicSerializableObject {
     getShapeItemFromDefinition(definition) {
         return this.getShapeItemFromShortKey(definition.getHash());
     }
-
-    /**
-     * Registers a new shape definition
-     * @param {ShapeDefinition} definition
-     */
-    registerShapeDefinition(definition) {
-        const id = definition.getHash();
-        assert(!this.shapeKeyToDefinition[id], "Shape Definition " + id + " already exists");
-        this.shapeKeyToDefinition[id] = definition;
-        // logger.log("Registered shape with key", id);
-    }
-
     /**
      * Generates a definition for splitting a shape definition in two halfs
      * @param {ShapeDefinition} definition
