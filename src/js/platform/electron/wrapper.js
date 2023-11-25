@@ -48,25 +48,6 @@ export class PlatformWrapperImplElectron extends PlatformWrapperImplBrowser {
         window.location.reload(true);
     }
 
-    initializeAdProvider() {
-        return Promise.resolve();
-    }
-
-    initializeDlcStatus() {
-
-        logger.log("Checking DLC ownership ...");
-        // @todo: Don't hardcode the app id
-        return ipcRenderer.invoke("steam:check-app-ownership", 1625400).then(
-            res => {
-                logger.log("Got DLC ownership:", res);
-                this.dlcs.puzzle = Boolean(res);
-            },
-            err => {
-                logger.error("Failed to get DLC ownership:", err);
-            }
-        );
-    }
-
     getSupportsFullscreen() {
         return true;
     }

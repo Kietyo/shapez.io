@@ -37,8 +37,6 @@ export class MainMenuState extends GameState {
 
     getInnerHTML() {
         const showExitAppButton = G_IS_STANDALONE;
-        const showPuzzleDLC =
-            (G_IS_STANDALONE || WEB_STEAM_SSO_AUTHENTICATED);
 
         if (G_IS_STANDALONE) {
 
@@ -103,7 +101,7 @@ export class MainMenuState extends GameState {
                 >
             </div>
 
-            <div class="mainWrapper" data-columns="${false || showPuzzleDLC ? 2 : 1}">
+            <div class="mainWrapper" data-columns="${1}">
                 <div class="mainContainer">
                     <div class="buttons"></div>
                     <div class="savegamesMount"></div>
@@ -306,11 +304,6 @@ export class MainMenuState extends GameState {
                 T.dialogs.gameLoadFailure.title,
                 T.dialogs.gameLoadFailure.text + "<br><br>" + payload.loadError
             );
-        }
-
-        if (G_IS_DEV && globalConfig.debug.testPuzzleMode) {
-            this.onPuzzleModeButtonClicked(true);
-            return;
         }
 
         if (G_IS_DEV && globalConfig.debug.fastGameEnter) {

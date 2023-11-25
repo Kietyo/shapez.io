@@ -18,7 +18,6 @@ import {WireTunnelComponent} from "./components/wire_tunnel";
 import {BeltReaderComponent} from "./components/belt_reader";
 import {FilterComponent} from "./components/filter";
 import {ItemProducerComponent} from "./components/item_producer";
-import {GoalAcceptorComponent} from "./components/goal_acceptor";
 
 /* typehints:end */
 
@@ -86,9 +85,6 @@ export class EntityComponentStorage {
 
         /** @type {ItemProducerComponent} */
         this.ItemProducer;
-
-        /** @type {GoalAcceptorComponent} */
-        this.GoalAcceptor;
 
         /* typehints:end */
     }

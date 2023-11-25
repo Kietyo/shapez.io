@@ -125,12 +125,7 @@ export class HUDBaseToolbar extends BaseHUDPart {
 
             //lock icon for puzzle editor
             if (this.root.gameMode.getIsEditor() && !this.inRequiredBuildings(metaBuilding)) {
-                const puzzleLock = makeDiv(itemContainer, null, ["puzzle-lock"]);
-
                 itemContainer.classList.toggle("editor", true);
-                this.trackClicks(puzzleLock, () => this.toggleBuildingLock(metaBuilding), {
-                    clickSound: null,
-                });
             }
 
             this.buildingHandles[metaBuilding.id] = {

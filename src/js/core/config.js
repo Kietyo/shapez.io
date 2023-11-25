@@ -24,7 +24,6 @@ export const THIRDPARTY_URLS = {
     privacyPolicy: "https://tobspr.io/privacy.html",
 
     standaloneCampaignLink: "https://get.shapez.io/bundle/$campaign",
-    puzzleDlcStorePage: "https://get.shapez.io/mm_puzzle_dlc?target=dlc",
 
     levelTutorialVideos: {
         21: "https://www.youtube.com/watch?v=0nUfRLMCcgo&",

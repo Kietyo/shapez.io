@@ -18,7 +18,6 @@ import {WireTunnelComponent} from "./components/wire_tunnel";
 import {BeltReaderComponent} from "./components/belt_reader";
 import {FilterComponent} from "./components/filter";
 import {ItemProducerComponent} from "./components/item_producer";
-import {GoalAcceptorComponent} from "./components/goal_acceptor";
 
 export function initComponentRegistry() {
     const components = [
@@ -41,7 +40,6 @@ export function initComponentRegistry() {
         BeltReaderComponent,
         FilterComponent,
         ItemProducerComponent,
-        GoalAcceptorComponent,
     ];
     components.forEach(component => gComponentRegistry.register(component));
 
