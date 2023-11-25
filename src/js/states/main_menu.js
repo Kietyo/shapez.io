@@ -60,21 +60,6 @@ export class MainMenuState extends GameState {
             .join("")}
 
             </div>
-
-
-            <a href="#" class="steamLink steam_dlbtn_0" target="_blank">
-            ${
-            globalConfig.currentDiscount > 0
-                ? `<span class='discount'>${T.global.discount.replace(
-                    "<percentage>",
-                    String(globalConfig.currentDiscount)
-                )}</span>`
-                : ""
-        }
-                Play shapez on Steam
-            </a>
-            ${`<div class="onlinePlayerCount"></div>`}
-
         `;
 
         return `
@@ -117,55 +102,12 @@ export class MainMenuState extends GameState {
 
                 </div>
 
-                <div class="sideContainer">
-                    ${false ? `<div class="standaloneBanner">${bannerHtml}</div>` : ""}
-                </div>
-
-
             </div>
 
             ${
             `
 
                 <div class="footer ${""} ">
-
-                    <div class="socialLinks">
-                    ${
-                `<a class="patreonLink boxLink" target="_blank">
-                                    <span class="thirdpartyLogo patreonLogo"></span>
-                                    <span class="label">Patreon</span>
-                                </a>`
-            }
-                    ${
-                `
-                        <a class="githubLink boxLink" target="_blank">
-                            <span class="thirdpartyLogo githubLogo"></span>
-                            <span class="label">GitHub</span>
-                        </a>`
-            }
-
-
-                    ${
-                `<a class="discordLink boxLink" target="_blank">
-                                    <span class="thirdpartyLogo  discordLogo"></span>
-                                    <span class="label">Discord</span>
-                                </a>`
-            }
-
-                    ${
-                `<a class="redditLink boxLink" target="_blank">
-                                    <span class="thirdpartyLogo redditLogo"></span>
-                                    <span class="label">Reddit</span>
-                                </a>`
-            }
-
-                    ${
-                ""
-            }
-
-
-                    </div>
-
                     <div class="footerGrow">
                         ${`<a class="helpTranslate">${T.mainMenu.helpTranslate}</a>`}
 
