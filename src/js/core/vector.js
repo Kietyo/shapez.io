@@ -199,14 +199,6 @@ export class Vector {
         return new Vector(Math.max(v.x, this.x), Math.max(v.y, this.y));
     }
     /**
-     * Computes the component wise absolute
-     * @returns {Vector}
-     */
-    abs() {
-        return new Vector(Math.abs(this.x), Math.abs(this.y));
-    }
-
-    /**
      * Computes the scalar product
      * @param {Vector} v
      * @returns {number}

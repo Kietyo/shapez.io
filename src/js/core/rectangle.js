@@ -20,14 +20,7 @@ export class Rectangle {
     static fromTRBL(top, right, bottom, left) {
         return new Rectangle(left, top, right - left, bottom - top);
     }
-    /**
-     *
-     * @param {number} width
-     * @param {number} height
-     */
-    static centered(width, height) {
-        return new Rectangle(-Math.ceil(width / 2), -Math.ceil(height / 2), width, height);
-    }
+
     /**
      * Copies this instance
      * @returns {Rectangle}

@@ -451,30 +451,6 @@ export function formatSecondsToTimeAgo(secs) {
         return T.global.time.xDaysAgo.replace("<x>", "" + days);
     }
 }
-
-/**
- * Formats seconds into a readable string like "5h 23m"
- * @param {number} secs Seconds
- * @returns {string}
- */
-export function formatSeconds(secs) {
-    const trans = T.global.time;
-    secs = Math.ceil(secs);
-    if (secs < 60) {
-        return trans.secondsShort.replace("<seconds>", "" + secs);
-    } else if (secs < 60 * 60) {
-        const minutes = Math.floor(secs / 60);
-        const seconds = secs % 60;
-        return trans.minutesAndSecondsShort
-            .replace("<seconds>", "" + seconds)
-            .replace("<minutes>", "" + minutes);
-    } else {
-        const hours = Math.floor(secs / 3600);
-        const minutes = Math.floor(secs / 60) % 60;
-        return trans.hoursAndMinutesShort.replace("<minutes>", "" + minutes).replace("<hours>", "" + hours);
-    }
-}
-
 /**
  * Formats a number like 2.51 to "2.5"
  * @param {number} speed
