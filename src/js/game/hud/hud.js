@@ -17,7 +17,6 @@ import {HUDModalDialogs} from "./parts/modal_dialogs";
 import {enumNotificationType} from "./parts/notifications";
 import {HUDSettingsMenu} from "./parts/settings_menu";
 import {HUDShapeTooltip} from "./parts/shape_tooltip";
-import {HUDVignetteOverlay} from "./parts/vignette_overlay";
 
 export class GameHUD {
     /**
@@ -69,10 +68,6 @@ export class GameHUD {
 
         if (G_IS_DEV && globalConfig.debug.renderChanges) {
             this.parts.changesDebugger = new HUDChangesDebugger(this.root);
-        }
-
-        if (this.root.app.settings.getAllSettings().vignette) {
-            this.parts.vignetteOverlay = new HUDVignetteOverlay(this.root);
         }
 
         if (this.root.app.settings.getAllSettings().enableColorBlindHelper) {
