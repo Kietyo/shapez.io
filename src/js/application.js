@@ -1,6 +1,5 @@
 import {AnimationFrame} from "./core/animation_frame";
 import {BackgroundResourcesLoader} from "./core/background_resources_loader";
-import {IS_MOBILE} from "./core/config";
 import {GameState} from "./core/game_state";
 import {GLOBAL_APP, setGlobalApp} from "./core/globals";
 import {InputDistributor} from "./core/input_distributor";

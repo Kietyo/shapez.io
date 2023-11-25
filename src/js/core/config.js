@@ -89,10 +89,6 @@ export const globalConfig = {
 
     goalAcceptorItemsRequired: 12,
     goalAcceptorsPerProducer: 5,
-    puzzleModeSpeed: 3,
-    puzzleMinBoundsSize: 2,
-    puzzleMaxBoundsSize: 20,
-    puzzleValidationDurationSeconds: 30,
 
     buildingSpeeds: {
         cutter: 1 / 4,
@@ -140,8 +136,6 @@ export const globalConfig = {
         analyticsApiKey: "baf6a50f0cc7dfdec5a0e21c88a1c69a4b34bc4a",
     },
 };
-
-export const IS_MOBILE = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 // Automatic calculations
 globalConfig.minerSpeedItemsPerSecond = globalConfig.beltSpeedItemsPerSecond / 5;

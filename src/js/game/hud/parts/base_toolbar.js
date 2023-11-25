@@ -272,42 +272,6 @@ export class HUDBaseToolbar extends BaseHUDPart {
         this.root.hud.signals.buildingSelectedForPlacement.dispatch(metaBuilding);
         this.onSelectedPlacementBuildingChanged(metaBuilding);
     }
-
-    /**
-     * @param {MetaBuilding} metaBuilding
-     */
-    toggleBuildingLock(metaBuilding) {
-        if (!this.visibilityCondition()) {
-            // Not active
-            return;
-        }
-
-        if (this.inRequiredBuildings(metaBuilding) || !metaBuilding.getIsUnlocked(this.root)) {
-            this.root.soundProxy.playUiError();
-            return STOP_PROPAGATION;
-        }
-
-        const handle = this.buildingHandles[metaBuilding.getId()];
-        handle.puzzleLocked = !handle.puzzleLocked;
-        handle.element.classList.toggle("unlocked", !handle.puzzleLocked);
-        this.root.soundProxy.playUiClick();
-
-        const entityManager = this.root.entityMgr;
-        for (const entity of entityManager.getAllWithComponent(StaticMapEntityComponent)) {
-            const staticComp = entity.components.StaticMapEntity;
-            if (staticComp.getMetaBuilding().id === metaBuilding.id) {
-                this.root.map.removeStaticEntity(entity);
-                entityManager.destroyEntity(entity);
-            }
-        }
-        entityManager.processDestroyList();
-
-        const currentMetaBuilding = this.root.hud.parts.buildingPlacer.currentMetaBuilding;
-        if (currentMetaBuilding.get() == metaBuilding) {
-            currentMetaBuilding.set(null);
-        }
-    }
-
     /**
      * @param {MetaBuilding} metaBuilding
      */

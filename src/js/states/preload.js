@@ -7,7 +7,7 @@ import {getLogoSprite} from "../core/utils";
 import {getRandomHint} from "../game/hints";
 import {HUDModalDialogs} from "../game/hud/parts/modal_dialogs";
 import {PlatformWrapperImplBrowser} from "../platform/browser/wrapper";
-import {autoDetectLanguageId, T, updateApplicationLanguage} from "../translations";
+import {autoDetectLanguageId, updateApplicationLanguage} from "../translations";
 
 const logger = createLogger("state/preload");
 

@@ -7,10 +7,6 @@ const logger = createLogger("electron-wrapper");
 
 export class PlatformWrapperImplElectron extends PlatformWrapperImplBrowser {
     initialize() {
-        this.dlcs = {
-            puzzle: false,
-        };
-
         this.steamOverlayCanvasFix = document.createElement("canvas");
         this.steamOverlayCanvasFix.width = 1;
         this.steamOverlayCanvasFix.height = 1;

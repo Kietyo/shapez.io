@@ -1,4 +1,3 @@
-import {globalConfig, IS_MOBILE} from "../../core/config";
 import {createLogger} from "../../core/logging";
 import {queryParamOptions} from "../../core/query_parameters";
 import {WEB_STEAM_SSO_AUTHENTICATED} from "../../core/steam_sso";
@@ -105,7 +104,7 @@ export class PlatformWrapperImplBrowser extends PlatformWrapperInterface {
     }
 
     getUiScale() {
-        if (IS_MOBILE) {
+        if (false) {
             return 1;
         }
 
@@ -118,7 +117,7 @@ export class PlatformWrapperImplBrowser extends PlatformWrapperInterface {
     }
 
     getTouchPanStrength() {
-        return IS_MOBILE ? 1 : 0.5;
+        return false ? 1 : 0.5;
     }
 
     openExternalLink(url, force = false) {
