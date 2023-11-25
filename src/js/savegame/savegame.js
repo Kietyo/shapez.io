@@ -15,9 +15,6 @@ import {SavegameInterface_V1007} from "./schemas/1007";
 import {SavegameInterface_V1008} from "./schemas/1008";
 import {SavegameInterface_V1009} from "./schemas/1009";
 import {SavegameInterface_V1010} from "./schemas/1010";
-
-const logger = createLogger("savegame");
-
 /**
  * @typedef {import("../application").Application} Application
  * @typedef {import("../game/root").GameRoot} GameRoot

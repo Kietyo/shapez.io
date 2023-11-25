@@ -188,9 +188,7 @@ export class SettingsState extends TextualGameState {
         this.moveToStateAddGoBack("AboutState");
     }
 
-    onPrivacyClicked() {
-        this.app.platformWrapper.openExternalLink(THIRDPARTY_URLS.privacyPolicy);
-    }
+
 
     onKeybindingsClicked() {
         this.moveToStateAddGoBack("KeybindingsState");

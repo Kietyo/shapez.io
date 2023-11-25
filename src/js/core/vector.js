@@ -222,15 +222,6 @@ export class Vector {
     length() {
         return Math.hypot(this.x, this.y);
     }
-
-    /**
-     * Returns the square length
-     * @returns {number}
-     */
-    lengthSquare() {
-        return this.x * this.x + this.y * this.y;
-    }
-
     /**
      * Divides both components by a scalar and return a new vector
      * @param {number} f

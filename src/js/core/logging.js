@@ -1,7 +1,4 @@
 import {globalConfig} from "../core/config";
-
-const circularJson = require("circular-json");
-
 /*
 Logging functions
 - To be extended
@@ -115,7 +112,7 @@ function serializeEvent(event) {
  * @param {string} key
  * @param {any} value
  */
-function preparePayload(key, value) {
+function preparePayload(value) {
     if (value instanceof Error || value instanceof ErrorEvent) {
         return serializeError(value);
     }

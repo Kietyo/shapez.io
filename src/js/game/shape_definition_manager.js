@@ -5,8 +5,6 @@ import {ShapeItem} from "./items/shape_item";
 import {GameRoot} from "./root";
 import {enumSubShape, ShapeDefinition} from "./shape_definition";
 
-const logger = createLogger("shape_definition_manager");
-
 export class ShapeDefinitionManager extends BasicSerializableObject {
     /**
      *

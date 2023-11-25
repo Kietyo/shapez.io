@@ -277,10 +277,7 @@ export class GameLogic {
         if (!targetEntity) {
             return false;
         }
-
-        const targetStaticComp = targetEntity.components.StaticMapEntity;
-
-        // Check if its a crossing
+// Check if its a crossing
         const wireTunnelComp = targetEntity.components.WireTunnel;
         if (wireTunnelComp) {
             return true;

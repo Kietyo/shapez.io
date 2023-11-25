@@ -14,8 +14,6 @@ import {enumUndergroundBeltMode, UndergroundBeltComponent} from "../components/u
 import {Entity} from "../entity";
 import {GameSystemWithFilter} from "../game_system_with_filter";
 
-const logger = createLogger("tunnels");
-
 export class UndergroundBeltSystem extends GameSystemWithFilter {
     constructor(root) {
         super(root, [UndergroundBeltComponent]);

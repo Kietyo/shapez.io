@@ -120,11 +120,6 @@ export class PlatformWrapperImplBrowser extends PlatformWrapperInterface {
         return false ? 1 : 0.5;
     }
 
-    openExternalLink(url, force = false) {
-        logger.log("Opening external:", url);
-        window.open(url);
-    }
-
     performRestart() {
         logger.log("Performing restart");
         window.location.reload(true);

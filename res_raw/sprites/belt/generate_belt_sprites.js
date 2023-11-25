@@ -3,11 +3,9 @@
  * Run `yarn global add canvas` first
  */
 
-const {createCanvas, loadImage} = require("canvas");
+const {createCanvas} = require("canvas");
 const fs = require("fs");
 const path = require("path");
-const {fileURLToPath} = require("url");
-
 async function run() {
     console.log("Running");
 

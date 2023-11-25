@@ -1,4 +1,3 @@
-const path = require("path");
 const {BUILD_VARIANTS} = require("./build_variants");
 
 function requireUncached(module) {

@@ -25,7 +25,6 @@ export class HUDTutorialVideoOffer extends BaseHUDPart {
                 ]);
 
                 ok.add(() => {
-                    this.root.app.platformWrapper.openExternalLink(tutorialVideoLink);
                 });
             }
         });

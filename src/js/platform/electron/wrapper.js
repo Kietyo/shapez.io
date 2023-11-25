@@ -20,11 +20,6 @@ export class PlatformWrapperImplElectron extends PlatformWrapperImplBrowser {
         return true;
     }
 
-    openExternalLink(url) {
-        logger.log(this, "Opening external:", url);
-        window.open(url, "about:blank");
-    }
-
     performRestart() {
         logger.log(this, "Performing restart");
         window.location.reload(true);

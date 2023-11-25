@@ -442,8 +442,6 @@ export class KeyActionMapper {
         // Reset all down states
         // Find mapping
         for (const key in this.keybindings) {
-            /** @type {Keybinding} */
-            const binding = this.keybindings[key];
         }
     }
 

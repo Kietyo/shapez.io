@@ -4,7 +4,6 @@ import {GameRoot} from "./root";
 import {SOUNDS} from "../platform/sound";
 
 const avgSoundDurationSeconds = 0.1;
-const maxOngoingSounds = 2;
 const maxOngoingUiSounds = 5;
 
 // Proxy to the application sound instance

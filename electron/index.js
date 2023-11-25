@@ -13,9 +13,6 @@ app.commandLine.appendSwitch("disable-features", "HardwareMediaKeyHandling");
 
 const isDev = app.commandLine.hasSwitch("dev");
 const isLocal = app.commandLine.hasSwitch("local");
-const safeMode = app.commandLine.hasSwitch("safe-mode");
-const externalMod = app.commandLine.getSwitchValue("load-mod");
-
 const roamingFolder =
     process.env.APPDATA ||
     (process.platform == "darwin"

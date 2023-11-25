@@ -42,16 +42,6 @@ export class PlatformWrapperInterface {
     }
 
     /**
-     * Attempt to open an external url
-     * @param {string} url
-     * @param {boolean=} force Whether to always open the url even if not allowed
-     * @abstract
-     */
-    openExternalLink(url, force = false) {
-        abstract;
-    }
-
-    /**
      * Attempt to restart the app
      * @abstract
      */

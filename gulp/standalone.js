@@ -4,7 +4,6 @@ const pj = require("../electron/package.json");
 const path = require("path");
 const {getVersion} = require("./buildutils");
 const fs = require("fs");
-const fse = require("fs-extra");
 const buildutils = require("./buildutils");
 const execSync = require("child_process").execSync;
 const electronNotarize = require("electron-notarize");

@@ -273,7 +273,7 @@ export class MapChunk {
      * @param {Vector} param0.chunkCenter
      * @param {number} param0.distanceToOriginInChunks
      */
-    generatePatches({rng, chunkCenter, distanceToOriginInChunks}) {
+    generatePatches({rng, distanceToOriginInChunks}) {
         // Determine how likely it is that there is a color patch
         const colorPatchChance = 0.9 - clamp(distanceToOriginInChunks / 25, 0, 1) * 0.5;
 

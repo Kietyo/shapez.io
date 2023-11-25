@@ -218,7 +218,6 @@ export class PreloadState extends GameState {
     }
 
     update() {
-        const now = performance.now();
     }
 
     onRender() {
@@ -244,9 +243,6 @@ export class PreloadState extends GameState {
 
     showFailMessage(text) {
         logger.error("App init failed:", text);
-
-        const email = "bugs@shapez.io";
-
         const subElement = document.createElement("div");
         subElement.classList.add("failureBox");
 

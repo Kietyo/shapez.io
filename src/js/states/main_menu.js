@@ -44,7 +44,6 @@ export class MainMenuState extends GameState {
         if (G_IS_STANDALONE) {
 
         } else {
-            const wrapper = /** @type {PlatformWrapperImplBrowser} */ (this.app.platformWrapper);
         }
 
         const bannerHtml = `
@@ -310,17 +309,7 @@ export class MainMenuState extends GameState {
         const clickHandling = {
             ".settingsButton": this.onSettingsButtonClicked,
             ".languageChoose": this.onLanguageChooseClicked,
-            ".redditLink": this.onRedditClicked,
-            ".twitterLink": this.onTwitterLinkClicked,
-            ".patreonLink": this.onPatreonLinkClicked,
-            ".helpTranslate": this.onTranslationHelpLinkClicked,
             ".exitAppButton": this.onExitAppButtonClicked,
-            ".discordLink": () => {
-                this.app.platformWrapper.openExternalLink(THIRDPARTY_URLS.discord);
-            },
-            ".githubLink": () => {
-                this.app.platformWrapper.openExternalLink(THIRDPARTY_URLS.github);
-            },
         };
 
         for (const key in clickHandling) {
@@ -376,18 +365,6 @@ export class MainMenuState extends GameState {
 
     onExitAppButtonClicked() {
         this.app.platformWrapper.exitApp();
-    }
-
-    onRedditClicked() {
-        this.app.platformWrapper.openExternalLink(THIRDPARTY_URLS.reddit);
-    }
-
-    onTwitterLinkClicked() {
-        this.app.platformWrapper.openExternalLink(THIRDPARTY_URLS.twitter);
-    }
-
-    onPatreonLinkClicked() {
-        this.app.platformWrapper.openExternalLink(THIRDPARTY_URLS.patreon);
     }
 
     onLanguageChooseClicked() {
@@ -607,12 +584,6 @@ export class MainMenuState extends GameState {
 
     onSettingsButtonClicked() {
         this.moveToState("SettingsState");
-    }
-
-    onTranslationHelpLinkClicked() {
-        this.app.platformWrapper.openExternalLink(
-            "https://github.com/tobspr-games/shapez.io/blob/master/translations"
-        );
     }
 
     onPlayButtonClicked() {

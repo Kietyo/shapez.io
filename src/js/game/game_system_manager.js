@@ -123,12 +123,7 @@ export class GameSystemManager {
      * Initializes all systems
      */
     internalInitSystems() {
-        const addBefore = id => {
-
-        };
-
         const add = (id, systemClass) => {
-            addBefore(id);
             this.systems[id] = new systemClass(this.root);
             this.systemUpdateOrder.push(id);
         };
@@ -190,8 +185,6 @@ export class GameSystemManager {
         if (this.root.gameMode.getBuildableZones()) {
             add("zone", ZoneSystem);
         }
-
-        addBefore("end");
 
         logger.log("📦 There are", this.systemUpdateOrder.length, "game systems");
     }
