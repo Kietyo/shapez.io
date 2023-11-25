@@ -8,7 +8,7 @@ export class ConstantSignalSystem extends GameSystemWithFilter {
         this.root.signals.entityManuallyPlaced.add(entity => {
             const editorHud = this.root.hud.parts.constantSignalEdit;
             if (editorHud) {
-                editorHud.editConstantSignal(entity, { deleteOnCancel: true });
+                editorHud.editConstantSignal(entity, {deleteOnCancel: true});
             }
         });
     }

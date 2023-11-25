@@ -5,6 +5,14 @@ import {BaseItem} from "../base_item";
 import {globalConfig} from "../../core/config";
 
 export class BooleanItem extends BaseItem {
+    /**
+     * @param {number} value
+     */
+    constructor(value) {
+        super();
+        this.value = value ? 1 : 0;
+    }
+
     static getId() {
         return "boolean_item";
     }
@@ -31,14 +39,6 @@ export class BooleanItem extends BaseItem {
      */
     getAsCopyableKey() {
         return this.value ? "1" : "0";
-    }
-
-    /**
-     * @param {number} value
-     */
-    constructor(value) {
-        super();
-        this.value = value ? 1 : 0;
     }
 
     /**

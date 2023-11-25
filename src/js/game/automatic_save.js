@@ -23,6 +23,7 @@ export class AutomaticSave {
 
         this.lastSaveAttempt = -1000;
     }
+
     doSave() {
         if (G_IS_DEV && globalConfig.debug.disableSavegameWrite) {
             return;

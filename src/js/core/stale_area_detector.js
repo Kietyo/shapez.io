@@ -14,7 +14,7 @@ export class StaleAreaDetector {
      * @param {string} param0.name The name for reference
      * @param {(Rectangle) => void} param0.recomputeMethod Method which recomputes the given area
      */
-    constructor({ root, name, recomputeMethod }) {
+    constructor({root, name, recomputeMethod}) {
         this.root = root;
         this.name = name;
         this.recomputeMethod = recomputeMethod;

@@ -31,7 +31,7 @@ export class HUDGameMenu extends BaseHUDPart {
                 handler: () => this.root.hud.parts.statistics.show(),
                 keybinding: KEYMAPPINGS.ingame.menuOpenStats,
                 visible: () =>
-                   this.root.hubGoals.level >= 3,
+                    this.root.hubGoals.level >= 3,
             },
         ];
 
@@ -52,7 +52,7 @@ export class HUDGameMenu extends BaseHUDPart {
          * }>} */
         this.visibilityToUpdate = [];
 
-        buttons.forEach(({ id, label, handler, keybinding, badge, notification, visible }) => {
+        buttons.forEach(({id, label, handler, keybinding, badge, notification, visible}) => {
             const button = document.createElement("button");
             button.classList.add(id);
             this.element.appendChild(button);
@@ -106,7 +106,7 @@ export class HUDGameMenu extends BaseHUDPart {
 
         // Update visibility of buttons
         for (let i = 0; i < this.visibilityToUpdate.length; ++i) {
-            const { condition, domAttach } = this.visibilityToUpdate[i];
+            const {condition, domAttach} = this.visibilityToUpdate[i];
             domAttach.update(condition());
         }
 

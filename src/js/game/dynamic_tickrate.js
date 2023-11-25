@@ -1,6 +1,5 @@
 import {GameRoot} from "./root";
 import {createLogger} from "../core/logging";
-import {globalConfig} from "../core/config";
 
 const logger = createLogger("dynamic_tickrate");
 
@@ -56,6 +55,7 @@ export class DynamicTickrate {
         this.deltaMs = 1000.0 / this.currentTickRate;
         this.deltaSeconds = 1.0 / this.currentTickRate;
     }
+
     /**
      * Call whenever a tick began
      */

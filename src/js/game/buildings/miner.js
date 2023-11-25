@@ -9,7 +9,7 @@ import {T} from "../../translations";
 import {formatItemsPerSecond, generateMatrixRotations} from "../../core/utils";
 
 /** @enum {string} */
-export const enumMinerVariants = { chainable: "chainable" };
+export const enumMinerVariants = {chainable: "chainable"};
 
 const overlayMatrix = {
     [defaultBuildingVariant]: generateMatrixRotations([1, 1, 1, 1, 0, 1, 1, 1, 1]),
@@ -77,7 +77,7 @@ export class MetaMinerBuilding extends MetaBuilding {
         entity.addComponent(new MinerComponent({}));
         entity.addComponent(
             new ItemEjectorComponent({
-                slots: [{ pos: new Vector(0, 0), direction: enumDirection.top }],
+                slots: [{pos: new Vector(0, 0), direction: enumDirection.top}],
             })
         );
     }

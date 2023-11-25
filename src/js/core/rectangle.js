@@ -78,6 +78,7 @@ export class Rectangle {
     bottom() {
         return this.y + this.h;
     }
+
     /**
      * Returns the center of the rect
      * @returns {Vector}
@@ -85,6 +86,7 @@ export class Rectangle {
     getCenter() {
         return new Vector(this.x + this.w / 2, this.y + this.h / 2);
     }
+
     /**
      * Moves the rectangle by the given parameters
      * @param {number} x
@@ -94,6 +96,7 @@ export class Rectangle {
         this.x += x;
         this.y += y;
     }
+
     /**
      * Scales every parameter (w, h, x, y) by the given factor. Useful to transform from world to
      * tile space and vice versa
@@ -214,6 +217,7 @@ export class Rectangle {
 
         return Rectangle.fromTRBL(top, right, bottom, left);
     }
+
     /**
      * Good for printing stuff
      */

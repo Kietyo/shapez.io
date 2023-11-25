@@ -57,6 +57,7 @@ class LoaderImpl {
         assert(sprite instanceof AtlasSprite || sprite === this.spriteNotFoundSprite, "Not an atlas sprite");
         return /** @type {AtlasSprite} */ (sprite);
     }
+
     /**
      *
      * @param {string} key
@@ -115,11 +116,11 @@ class LoaderImpl {
      * @param {AtlasDefinition} atlas
      * @param {HTMLImageElement} loadedImage
      */
-    internalParseAtlas({ meta: { scale }, sourceData }, loadedImage) {
+    internalParseAtlas({meta: {scale}, sourceData}, loadedImage) {
         this.rawImages.push(loadedImage);
 
         for (const spriteName in sourceData) {
-            const { frame, sourceSize, spriteSourceSize } = sourceData[spriteName];
+            const {frame, sourceSize, spriteSourceSize} = sourceData[spriteName];
 
             let sprite = /** @type {AtlasSprite} */ (this.sprites.get(spriteName));
 

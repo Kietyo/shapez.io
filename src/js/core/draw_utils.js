@@ -57,7 +57,7 @@ export function initDrawUtils() {
  * @param {number=} param0.offsetX
  * @param {number=} param0.offsetY
  */
-export function drawRotatedSprite({ parameters, sprite, x, y, angle, size, offsetX = 0, offsetY = 0 }) {
+export function drawRotatedSprite({parameters, sprite, x, y, angle, size, offsetX = 0, offsetY = 0}) {
     if (angle === 0) {
         sprite.drawCachedCentered(parameters, x + offsetX, y + offsetY, size);
         return;
@@ -84,7 +84,7 @@ let warningsShown = 0;
  * @param {number} param0.originalW
  * @param {number} param0.originalH
  */
-export function drawSpriteClipped({ parameters, sprite, x, y, w, h, originalW, originalH }) {
+export function drawSpriteClipped({parameters, sprite, x, y, w, h, originalW, originalH}) {
     const rect = new Rectangle(x, y, w, h);
     const intersection = rect.getIntersection(parameters.visibleRect);
     if (!intersection) {

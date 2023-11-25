@@ -6,7 +6,7 @@ import {Vector} from "../../../core/vector";
 import {TrackedState} from "../../../core/tracked_state";
 
 /** @enum {string} */
-const enumDebugOverlayMode = { disabled: "disabled", regular: "regular", detailed: "detailed" };
+const enumDebugOverlayMode = {disabled: "disabled", regular: "regular", detailed: "detailed"};
 
 /**
  * Specifies which mode follows after which mode
@@ -70,10 +70,10 @@ export class HUDDebugInfo extends BaseHUDPart {
         this.trackedTickRate.set("Tickrate: " + this.root.dynamicTickrate.currentTickRate);
         this.trackedFPS.set(
             "FPS: " +
-                Math.round(this.root.dynamicTickrate.averageFps) +
-                " (" +
-                round2Digits(1000 / this.root.dynamicTickrate.averageFps) +
-                " ms)"
+            Math.round(this.root.dynamicTickrate.averageFps) +
+            " (" +
+            round2Digits(1000 / this.root.dynamicTickrate.averageFps) +
+            " ms)"
         );
         this.trackedTickDuration.set(
             "Tick: " + round3Digits(this.root.dynamicTickrate.averageTickDuration) + "ms"

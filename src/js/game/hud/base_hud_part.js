@@ -19,7 +19,8 @@ export class BaseHUDPart {
      * Should create all require elements
      * @param {HTMLElement} parent
      */
-    createElements(parent) {}
+    createElements(parent) {
+    }
 
     /**
      * Should initialize the element, called *after* the elements have been created
@@ -32,19 +33,22 @@ export class BaseHUDPart {
     /**
      * Should update any required logic
      */
-    update() {}
+    update() {
+    }
 
     /**
      * Should draw the hud
      * @param {DrawParameters} parameters
      */
-    draw(parameters) {}
+    draw(parameters) {
+    }
 
     /**
      * Should draw any overlays (screen space)
      * @param {DrawParameters} parameters
      */
-    drawOverlays(parameters) {}
+    drawOverlays(parameters) {
+    }
 
     /**
      * Should return true if the widget has a modal dialog opened and thus
@@ -92,7 +96,8 @@ export class BaseHUDPart {
     /**
      * Should close the element, in case its supported
      */
-    close() {}
+    close() {
+    }
 
     // Helpers
 

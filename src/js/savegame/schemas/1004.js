@@ -5,14 +5,6 @@ const schema = require("./1004.json");
 const logger = createLogger("savegame_interface/1004");
 
 export class SavegameInterface_V1004 extends SavegameInterface_V1003 {
-    getVersion() {
-        return 1004;
-    }
-
-    getSchemaUncached() {
-        return schema;
-    }
-
     /**
      * @param {import("../savegame_typedefs.js").SavegameData} data
      */
@@ -32,5 +24,13 @@ export class SavegameInterface_V1004 extends SavegameInterface_V1003 {
             }
             delete waypoint.deletable;
         }
+    }
+
+    getVersion() {
+        return 1004;
+    }
+
+    getSchemaUncached() {
+        return schema;
     }
 }

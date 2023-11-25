@@ -95,7 +95,7 @@ export class HUDShapeViewer extends BaseHUDPart {
             }
             fakeLayers.push(layers[i]);
 
-            const thisLayerOnly = new ShapeDefinition({ layers: fakeLayers });
+            const thisLayerOnly = new ShapeDefinition({layers: fakeLayers});
             const thisLayerCanvas = thisLayerOnly.generateAsCanvas(160);
             layerElem.appendChild(thisLayerCanvas);
 

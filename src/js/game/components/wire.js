@@ -15,16 +15,12 @@ export const enumWireVariant = {
 };
 
 export class WireComponent extends Component {
-    static getId() {
-        return "Wire";
-    }
-
     /**
      * @param {object} param0
      * @param {enumWireType=} param0.type
      * @param {enumWireVariant=} param0.variant
      */
-    constructor({ type = enumWireType.forward, variant = enumWireVariant.first }) {
+    constructor({type = enumWireType.forward, variant = enumWireVariant.first}) {
         super();
         this.type = type;
 
@@ -38,5 +34,9 @@ export class WireComponent extends Component {
          * @type {import("../systems/wire").WireNetwork}
          */
         this.linkedNetwork = null;
+    }
+
+    static getId() {
+        return "Wire";
     }
 }

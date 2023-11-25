@@ -208,7 +208,7 @@ export class GameCore {
             canvas.setAttribute("webkitOpaque", "true");
             canvas.setAttribute("mozOpaque", "true");
             this.root.gameState.getDivElement().appendChild(canvas);
-            context = canvas.getContext("2d", { alpha: false });
+            context = canvas.getContext("2d", {alpha: false});
 
             lastCanvas = canvas;
             lastContext = context;
@@ -497,11 +497,11 @@ export class GameCore {
             context.fillStyle = "blue";
             context.fillText(
                 "Atlas: " +
-                    desiredAtlasScale +
-                    " / Zoom: " +
-                    round2Digits(zoomLevel) +
-                    " / Effective Zoom: " +
-                    round2Digits(effectiveZoomLevel),
+                desiredAtlasScale +
+                " / Zoom: " +
+                round2Digits(zoomLevel) +
+                " / Effective Zoom: " +
+                round2Digits(effectiveZoomLevel),
                 20,
                 600
             );
@@ -510,31 +510,31 @@ export class GameCore {
 
             context.fillText(
                 "Maintained Buffers: " +
-                    stats.rootKeys +
-                    " root keys / " +
-                    stats.subKeys +
-                    " buffers / VRAM: " +
-                    round2Digits(stats.vramBytes / (1024 * 1024)) +
-                    " MB",
+                stats.rootKeys +
+                " root keys / " +
+                stats.subKeys +
+                " buffers / VRAM: " +
+                round2Digits(stats.vramBytes / (1024 * 1024)) +
+                " MB",
                 20,
                 620
             );
             const internalStats = getBufferStats();
             context.fillText(
                 "Total Buffers: " +
-                    internalStats.bufferCount +
-                    " buffers / " +
-                    internalStats.backlogSize +
-                    " backlog / " +
-                    internalStats.backlogKeys +
-                    " keys in backlog / VRAM " +
-                    round2Digits(internalStats.vramUsage / (1024 * 1024)) +
-                    " MB / Backlog " +
-                    round2Digits(internalStats.backlogVramUsage / (1024 * 1024)) +
-                    " MB / Created " +
-                    internalStats.numCreated +
-                    " / Reused " +
-                    internalStats.numReused,
+                internalStats.bufferCount +
+                " buffers / " +
+                internalStats.backlogSize +
+                " backlog / " +
+                internalStats.backlogKeys +
+                " keys in backlog / VRAM " +
+                round2Digits(internalStats.vramUsage / (1024 * 1024)) +
+                " MB / Backlog " +
+                round2Digits(internalStats.backlogVramUsage / (1024 * 1024)) +
+                " MB / Created " +
+                internalStats.numCreated +
+                " / Reused " +
+                internalStats.numReused,
                 20,
                 640
             );

@@ -45,7 +45,7 @@ class AsynCompression {
         this.currentJobs = {};
 
         this.worker.addEventListener("message", event => {
-            const { jobId, result } = event.data;
+            const {jobId, result} = event.data;
             const jobData = this.currentJobs[jobId];
             if (!jobData) {
                 logger.error("Failed to resolve job result, job id", jobId, "is not known");
@@ -112,7 +112,7 @@ class AsynCompression {
             };
 
             logger.log("Posting job", job, "/", jobId);
-            this.worker.postMessage({ jobId, job, data });
+            this.worker.postMessage({jobId, job, data});
         });
     }
 }

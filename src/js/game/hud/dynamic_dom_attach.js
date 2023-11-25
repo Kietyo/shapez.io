@@ -19,7 +19,7 @@ export class DynamicDomAttach {
      * @param {boolean=} param2.trackHover If set, attaches the 'hovered' class if the cursor is above the element. Useful
      *                                     for fading out the element if its below the cursor for example.
      */
-    constructor(root, element, { timeToKeepSeconds = 0, attachClass = null, trackHover = false } = {}) {
+    constructor(root, element, {timeToKeepSeconds = 0, attachClass = null, trackHover = false} = {}) {
         /** @type {GameRoot} */
         this.root = root;
 
@@ -71,6 +71,7 @@ export class DynamicDomAttach {
             this.attached = false;
         }
     }
+
     /**
      * Actually sets the 'hovered' class
      * @param {boolean} isHovered
@@ -102,9 +103,9 @@ export class DynamicDomAttach {
                 if (mousePos) {
                     this.trackedIsHovered.set(
                         mousePos.x > bounds.left &&
-                            mousePos.x < bounds.right &&
-                            mousePos.y > bounds.top &&
-                            mousePos.y < bounds.bottom
+                        mousePos.x < bounds.right &&
+                        mousePos.y > bounds.top &&
+                        mousePos.y < bounds.bottom
                     );
                 }
             }

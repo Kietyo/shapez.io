@@ -54,7 +54,7 @@ export class HUDConstantSignalEdit extends BaseHUDPart {
      * @param {object} param0
      * @param {boolean=} param0.deleteOnCancel
      */
-    editConstantSignal(entity, { deleteOnCancel = true }) {
+    editConstantSignal(entity, {deleteOnCancel = true}) {
         if (!entity.components.ConstantSignal) {
             return;
         }

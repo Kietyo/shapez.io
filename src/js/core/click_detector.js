@@ -102,6 +102,38 @@ export class ClickDetector {
     }
 
     /**
+     * Extracts the mous position from an event
+     * @param {TouchEvent|MouseEvent} event
+     * @returns {Vector} The client space position
+     */
+    static extractPointerPosition(event) {
+        if (window.TouchEvent && event instanceof TouchEvent) {
+            if (event.changedTouches.length !== 1) {
+                logger.warn(
+                    "Got unexpected target touches:",
+                    event.targetTouches.length,
+                    "->",
+                    event.targetTouches
+                );
+                return new Vector(0, 0);
+            }
+
+            const touch = event.changedTouches[0];
+            return new Vector(touch.clientX, touch.clientY);
+        }
+
+        if (event instanceof MouseEvent) {
+            return new Vector(event.clientX, event.clientY);
+        }
+
+        assertAlways(false, "Got unknown event: " + event);
+
+        return new Vector(0, 0);
+    }
+
+    // INTERNAL METHODS
+
+    /**
      * Cleans up all event listeners of this detector
      */
     cleanup() {
@@ -146,8 +178,6 @@ export class ClickDetector {
             this.element = null;
         }
     }
-
-    // INTERNAL METHODS
 
     /**
      *
@@ -255,36 +285,6 @@ export class ClickDetector {
         }
 
         return true;
-    }
-
-    /**
-     * Extracts the mous position from an event
-     * @param {TouchEvent|MouseEvent} event
-     * @returns {Vector} The client space position
-     */
-    static extractPointerPosition(event) {
-        if (window.TouchEvent && event instanceof TouchEvent) {
-            if (event.changedTouches.length !== 1) {
-                logger.warn(
-                    "Got unexpected target touches:",
-                    event.targetTouches.length,
-                    "->",
-                    event.targetTouches
-                );
-                return new Vector(0, 0);
-            }
-
-            const touch = event.changedTouches[0];
-            return new Vector(touch.clientX, touch.clientY);
-        }
-
-        if (event instanceof MouseEvent) {
-            return new Vector(event.clientX, event.clientY);
-        }
-
-        assertAlways(false, "Got unknown event: " + event);
-
-        return new Vector(0, 0);
     }
 
     /**

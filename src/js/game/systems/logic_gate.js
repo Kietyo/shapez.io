@@ -194,10 +194,10 @@ export class LogicGateSystem extends GameSystemWithFilter {
         const newDefinition = new ShapeDefinition({
             layers: [
                 [
-                    { subShape: topRightContent.subShape, color: enumColors.uncolored },
-                    { subShape: topRightContent.subShape, color: enumColors.uncolored },
-                    { subShape: topRightContent.subShape, color: enumColors.uncolored },
-                    { subShape: topRightContent.subShape, color: enumColors.uncolored },
+                    {subShape: topRightContent.subShape, color: enumColors.uncolored},
+                    {subShape: topRightContent.subShape, color: enumColors.uncolored},
+                    {subShape: topRightContent.subShape, color: enumColors.uncolored},
+                    {subShape: topRightContent.subShape, color: enumColors.uncolored},
                 ],
             ],
         });
@@ -251,7 +251,7 @@ export class LogicGateSystem extends GameSystemWithFilter {
 
         const lowerLayers = layers.slice(0, layers.length - 1);
         const lowerLayerDefinition =
-            lowerLayers.length > 0 ? new ShapeDefinition({ layers: lowerLayers }) : null;
+            lowerLayers.length > 0 ? new ShapeDefinition({layers: lowerLayers}) : null;
 
         return [
             lowerLayerDefinition
@@ -334,7 +334,7 @@ export class LogicGateSystem extends GameSystemWithFilter {
         switch (itemA.getItemType()) {
             case "shape": {
                 return /** @type {ShapeItem} */ (itemA).definition.getHash() ===
-                    /** @type {ShapeItem} */ (itemB).definition.getHash()
+                /** @type {ShapeItem} */ (itemB).definition.getHash()
                     ? BOOL_TRUE_SINGLETON
                     : BOOL_FALSE_SINGLETON;
             }

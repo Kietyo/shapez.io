@@ -1,5 +1,5 @@
-const { join, resolve } = require("path");
-const { readFileSync, readdirSync, writeFileSync } = require("fs");
+const {join, resolve} = require("path");
+const {readFileSync, readdirSync, writeFileSync} = require("fs");
 
 const suffixToScale = {
     lq: "0.25",
@@ -46,7 +46,7 @@ function convert(srcDir) {
             if (!line.startsWith("  ")) {
                 // New frame, convert previous if it exists
                 if (current != null) {
-                    let { name, rotate, xy, size, orig, offset, index } = current;
+                    let {name, rotate, xy, size, orig, offset, index} = current;
 
                     // Convert to arrays because Node.js doesn't
                     // support latest JS features
@@ -79,7 +79,7 @@ function convert(srcDir) {
                             w: size[0],
                             h: size[1]
                         },
-                        
+
                         sourceSize: {
                             w: orig[0],
                             h: orig[1]
@@ -124,4 +124,4 @@ if (require.main == module) {
     convert(process.argv[2]);
 }
 
-module.exports = { convert };
+module.exports = {convert};

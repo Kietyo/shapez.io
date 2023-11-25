@@ -13,7 +13,7 @@ export class Signal {
      */
     add(receiver, scope = null) {
         assert(receiver, "receiver is null");
-        this.receivers.push({ receiver, scope });
+        this.receivers.push({receiver, scope});
         ++this.modifyCount;
     }
 
@@ -24,7 +24,7 @@ export class Signal {
      */
     addToTop(receiver, scope = null) {
         assert(receiver, "receiver is null");
-        this.receivers.unshift({ receiver, scope });
+        this.receivers.unshift({receiver, scope});
         ++this.modifyCount;
     }
 
@@ -37,7 +37,7 @@ export class Signal {
 
         const n = this.receivers.length;
         for (let i = 0; i < n; ++i) {
-            const { receiver, scope } = this.receivers[i];
+            const {receiver, scope} = this.receivers[i];
             if (receiver.apply(scope, arguments) === STOP_PROPAGATION) {
                 return STOP_PROPAGATION;
             }

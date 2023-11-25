@@ -18,17 +18,17 @@ export const enumLogicGateType = {
 };
 
 export class LogicGateComponent extends Component {
-    static getId() {
-        return "LogicGate";
-    }
-
     /**
      *
      * @param {object} param0
      * @param {enumLogicGateType=} param0.type
      */
-    constructor({ type = enumLogicGateType.and }) {
+    constructor({type = enumLogicGateType.and}) {
         super();
         this.type = type;
+    }
+
+    static getId() {
+        return "LogicGate";
     }
 }

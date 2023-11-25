@@ -20,8 +20,8 @@ export class AboutState extends TextualGameState {
             </div>
             <div class="text">
             ${T.about.body
-                .replace("<githublink>", THIRDPARTY_URLS.github)
-                .replace("<discordlink>", THIRDPARTY_URLS.discord)}
+            .replace("<githublink>", THIRDPARTY_URLS.github)
+            .replace("<discordlink>", THIRDPARTY_URLS.discord)}
             </div>
         `;
     }
@@ -32,7 +32,7 @@ export class AboutState extends TextualGameState {
             this.trackClicks(
                 link,
                 () => this.app.platformWrapper.openExternalLink(link.getAttribute("href")),
-                { preventClick: true }
+                {preventClick: true}
             );
         });
     }

@@ -49,6 +49,7 @@ export class SoundProxy {
     playUiError() {
         this.playUi(SOUNDS.uiError);
     }
+
     /**
      * Updates the list of ongoing sounds
      */

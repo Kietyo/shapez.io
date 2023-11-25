@@ -1,7 +1,9 @@
 // Globals defined by webpack
 
 declare const G_IS_DEV: boolean;
+
 declare function assert(condition: boolean | object | string, ...errorMessage: string[]): void;
+
 declare function assertAlways(condition: boolean | object | string, ...errorMessage: string[]): void;
 
 declare const abstract: void;
@@ -27,12 +29,13 @@ declare interface String {
 }
 
 declare interface CanvasRenderingContext2D {
-    beginRoundedRect(x: number, y: number, w: number, h: number, r: number): void;
-    beginCircle(x: number, y: number, r: number): void;
-
     msImageSmoothingEnabled: boolean;
     mozImageSmoothingEnabled: boolean;
     webkitImageSmoothingEnabled: boolean;
+
+    beginRoundedRect(x: number, y: number, w: number, h: number, r: number): void;
+
+    beginCircle(x: number, y: number, r: number): void;
 }
 
 // FontFace
@@ -46,6 +49,7 @@ declare interface Object {
 
 declare interface Math {
     radians(number): number;
+
     degrees(number): number;
 }
 
@@ -53,6 +57,7 @@ declare type Class<T = unknown> = new (...args: any[]) => T;
 
 declare interface String {
     padStart(size: number, fill?: string): string;
+
     padEnd(size: number, fill: string): string;
 }
 
@@ -62,11 +67,17 @@ declare interface FactoryTemplate<T> {
     idToEntry: any;
 
     getId(): string;
+
     getAllIds(): Array<string>;
+
     register(entry: Class<T>): void;
+
     hasId(id: string): boolean;
+
     findById(id: string): Class<T>;
+
     getEntries(): Array<Class<T>>;
+
     getNumEntries(): number;
 }
 
@@ -74,6 +85,7 @@ declare class TypedTrackedState<T> {
     constructor(callbackMethod?: (value: T) => void, callbackScope?: any);
 
     set(value: T, changeHandler?: (value: T) => void, changeScope?: any): void;
+
     get(): T;
 }
 
@@ -81,7 +93,9 @@ declare const STOP_PROPAGATION = "stop_propagation";
 
 declare interface TypedSignal<T extends Array<any>> {
     add(receiver: (...args: T) => /* STOP_PROPAGATION */ string | void, scope?: object);
+
     addToTop(receiver: (...args: T) => /* STOP_PROPAGATION */ string | void, scope?: object);
+
     remove(receiver: (...args: T) => /* STOP_PROPAGATION */ string | void);
 
     dispatch(...args: T): /* STOP_PROPAGATION */ string | void;

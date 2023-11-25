@@ -34,7 +34,8 @@ export class FormElement {
         abstract;
     }
 
-    focus() {}
+    focus() {
+    }
 
     isValid() {
         return true;
@@ -47,7 +48,7 @@ export class FormElement {
 }
 
 export class FormElementInput extends FormElement {
-    constructor({ id, label = null, placeholder, defaultValue = "", inputType = "text", validator = null }) {
+    constructor({id, label = null, placeholder, defaultValue = "", inputType = "text", validator = null}) {
         super(id, label);
         this.placeholder = placeholder;
         this.defaultValue = defaultValue;
@@ -116,11 +117,13 @@ export class FormElementInput extends FormElement {
     getValue() {
         return this.element.value;
     }
+
     focus() {
         this.element.focus();
         this.element.select();
     }
 }
+
 export class FormElementItemChooser extends FormElement {
     /**
      *
@@ -129,7 +132,7 @@ export class FormElementItemChooser extends FormElement {
      * @param {string=} param0.label
      * @param {Array<BaseItem>} param0.items
      */
-    constructor({ id, label, items = [] }) {
+    constructor({id, label, items = []}) {
         super(id, label);
         this.items = items;
         this.element = null;
@@ -185,5 +188,6 @@ export class FormElementItemChooser extends FormElement {
         return null;
     }
 
-    focus() {}
+    focus() {
+    }
 }

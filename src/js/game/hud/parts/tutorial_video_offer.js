@@ -6,7 +6,8 @@ import {BaseHUDPart} from "../base_hud_part";
  * Offers to open the tutorial video after completing a level
  */
 export class HUDTutorialVideoOffer extends BaseHUDPart {
-    createElements() {}
+    createElements() {
+    }
 
     initialize() {
         this.root.hud.signals.unlockNotificationFinished.add(() => {
@@ -18,7 +19,7 @@ export class HUDTutorialVideoOffer extends BaseHUDPart {
                     ? T.dialogs.tutorialVideoAvailableForeignLanguage
                     : T.dialogs.tutorialVideoAvailable;
 
-                const { ok } = this.root.hud.parts.dialogs.showInfo(dialogData.title, dialogData.desc, [
+                const {ok} = this.root.hud.parts.dialogs.showInfo(dialogData.title, dialogData.desc, [
                     "cancel:bad",
                     "ok:good",
                 ]);

@@ -123,7 +123,7 @@ export class HUDPinnedShapes extends BaseHUDPart {
             }
 
             for (let i = 0; i < tierHandle.required.length; ++i) {
-                const { shape, amount } = tierHandle.required[i];
+                const {shape, amount} = tierHandle.required[i];
                 if (shape === key) {
                     return amount;
                 }
@@ -191,7 +191,7 @@ export class HUDPinnedShapes extends BaseHUDPart {
         for (let i = 0; i < this.pinnedShapes.length; ++i) {
             const key = this.pinnedShapes[i];
             if (key !== currentKey) {
-                this.internalPinShape({ key });
+                this.internalPinShape({key});
             }
         }
     }
@@ -204,7 +204,7 @@ export class HUDPinnedShapes extends BaseHUDPart {
      * @param {string=} param0.className
      * @param {boolean=} param0.throughputOnly
      */
-    internalPinShape({ key, canUnpin = true, className = null, throughputOnly = false }) {
+    internalPinShape({key, canUnpin = true, className = null, throughputOnly = false}) {
         const definition = this.root.shapeDefinitionMgr.getShapeFromShortKey(key);
 
         const element = makeDiv(this.element, null, ["shape"]);
@@ -233,17 +233,17 @@ export class HUDPinnedShapes extends BaseHUDPart {
 
         // Show small info icon
         let infoDetector;
-            const infoButton = document.createElement("button");
-            infoButton.classList.add("infoButton");
-            element.appendChild(infoButton);
-            infoDetector = new ClickDetector(infoButton, {
-                consumeEvents: true,
-                preventDefault: true,
-                targetOnly: true,
-            });
-            infoDetector.click.add(() =>
-                this.root.hud.signals.viewShapeDetailsRequested.dispatch(definition)
-            );
+        const infoButton = document.createElement("button");
+        infoButton.classList.add("infoButton");
+        element.appendChild(infoButton);
+        infoDetector = new ClickDetector(infoButton, {
+            consumeEvents: true,
+            preventDefault: true,
+            targetOnly: true,
+        });
+        infoDetector.click.add(() =>
+            this.root.hud.signals.viewShapeDetailsRequested.dispatch(definition)
+        );
 
         const amountLabel = makeDiv(element, null, ["amountLabel"], "");
 

@@ -80,7 +80,7 @@ export class SavegameManager extends ReadWriteProxy {
         if (!metadata) {
             return null;
         }
-        return new Savegame(this.app, { internalId, metaDataRef: metadata });
+        return new Savegame(this.app, {internalId, metaDataRef: metadata});
     }
 
     /**
@@ -197,7 +197,8 @@ export class SavegameManager extends ReadWriteProxy {
             promiseChain = promiseChain
                 .then(() => game.deleteAsync())
                 .then(
-                    () => {},
+                    () => {
+                    },
                     err => {
                         logger.error(this, "Failed to remove old savegame:", toRemove, ":", err);
                     }

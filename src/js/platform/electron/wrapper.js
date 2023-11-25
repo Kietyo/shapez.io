@@ -24,6 +24,7 @@ export class PlatformWrapperImplElectron extends PlatformWrapperImplBrowser {
         logger.log(this, "Opening external:", url);
         window.open(url, "about:blank");
     }
+
     performRestart() {
         logger.log(this, "Performing restart");
         window.location.reload(true);
@@ -36,6 +37,7 @@ export class PlatformWrapperImplElectron extends PlatformWrapperImplBrowser {
     setFullscreen(flag) {
         ipcRenderer.send("set-fullscreen", flag);
     }
+
     exitApp() {
         logger.log(this, "Sending app exit signal");
         ipcRenderer.send("exit-app");

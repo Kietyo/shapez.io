@@ -35,16 +35,12 @@ export const FAKE_BELT_EJECTOR_SLOT_BY_DIRECTION = {
 };
 
 export class BeltComponent extends Component {
-    static getId() {
-        return "Belt";
-    }
-
     /**
      *
      * @param {object} param0
      * @param {enumDirection=} param0.direction The direction of the belt
      */
-    constructor({ direction = enumDirection.top }) {
+    constructor({direction = enumDirection.top}) {
         super();
 
         this.direction = direction;
@@ -54,6 +50,10 @@ export class BeltComponent extends Component {
          * @type {BeltPath}
          */
         this.assignedPath = null;
+    }
+
+    static getId() {
+        return "Belt";
     }
 
     clear() {

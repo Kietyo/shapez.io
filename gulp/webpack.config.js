@@ -2,13 +2,13 @@
 
 const path = require("path");
 const webpack = require("webpack");
-const { getRevision, getVersion, getAllResourceImages } = require("./buildutils");
+const {getRevision, getVersion, getAllResourceImages} = require("./buildutils");
 const CircularDependencyPlugin = require("circular-dependency-plugin");
 
 module.exports = ({
-    watch = false,
-    standalone = false,
-}) => {
+                      watch = false,
+                      standalone = false,
+                  }) => {
     return {
         mode: "development",
         devtool: "cheap-source-map",
@@ -66,8 +66,8 @@ module.exports = ({
                     use: ["./gulp/loader.compressjson"],
                     type: "javascript/auto",
                 },
-                { test: /\.(png|jpe?g|svg)$/, loader: "ignore-loader" },
-                { test: /\.nobuild/, loader: "ignore-loader" },
+                {test: /\.(png|jpe?g|svg)$/, loader: "ignore-loader"},
+                {test: /\.nobuild/, loader: "ignore-loader"},
                 {
                     test: /\.md$/,
                     use: [

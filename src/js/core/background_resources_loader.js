@@ -83,7 +83,7 @@ export class BackgroundResourcesLoader {
      * @param {AtlasDefinition[]} param0.atlas
      * @param {string[]} param0.css
      */
-    async loadAssets({ sprites, sounds, atlas, css }) {
+    async loadAssets({sprites, sounds, atlas, css}) {
         /**
          * @type {((progressHandler: (progress: number) => void) => Promise<void>)[]}
          */
@@ -143,7 +143,7 @@ export class BackgroundResourcesLoader {
         logger.log("⏰ Preloading", originalAmount, "assets");
 
         let progress = 0;
-        this.resourceStateChangedSignal.dispatch({ progress });
+        this.resourceStateChangedSignal.dispatch({progress});
         let promises = [];
 
         for (let i = 0; i < promiseFunctions.length; i++) {
@@ -152,7 +152,7 @@ export class BackgroundResourcesLoader {
                 const delta = clamp(individualProgress) - lastIndividualProgress;
                 lastIndividualProgress = clamp(individualProgress);
                 progress += delta / originalAmount;
-                this.resourceStateChangedSignal.dispatch({ progress });
+                this.resourceStateChangedSignal.dispatch({progress});
             };
             promises.push(
                 promiseFunctions[i](progressHandler).then(() => {
@@ -185,8 +185,8 @@ export class BackgroundResourcesLoader {
                         "<demoOnSteamLinkText>",
                         `<a href="https://get.shapez.io/resource_timeout" target="_blank">${T.dialogs.resourceLoadFailed.demoLinkText}</a>`
                     ) +
-                        "<br>" +
-                        err,
+                    "<br>" +
+                    err,
                     ["retry"]
                 )
                 .retry.add(() => window.location.reload());

@@ -95,7 +95,7 @@ export class BaseSetting {
      * Shows the dialog that a restart is required
      */
     showRestartRequiredDialog() {
-        const { restart } = this.dialogs.showInfo(
+        const {restart} = this.dialogs.showInfo(
             T.dialogs.restartRequired.title,
             T.dialogs.restartRequired.text,
             this.app.platformWrapper.getSupportsRestart() ? ["later:grey", "restart:misc"] : ["ok:good"]
@@ -153,12 +153,12 @@ export class EnumSetting extends BaseSetting {
         return `
             <div class="setting cardbox ${available ? "enabled" : "disabled"}">
                 ${
-                    available
-                        ? ""
-                        : `<span class="standaloneOnlyHint">${
-                              WEB_STEAM_SSO_AUTHENTICATED ? "" : T.demo.settingNotAvailable
-                          }</span>`
-                }
+            available
+                ? ""
+                : `<span class="standaloneOnlyHint">${
+                    WEB_STEAM_SSO_AUTHENTICATED ? "" : T.demo.settingNotAvailable
+                }</span>`
+        }
                 <div class="row">
                     <label>${T.settings.labels[this.id].title}</label>
                     <div class="value enum" data-setting="${this.id}"></div>
@@ -200,7 +200,7 @@ export class EnumSetting extends BaseSetting {
     }
 
     modify() {
-        const { optionSelected } = this.dialogs.showOptionChooser(T.settings.labels[this.id].title, {
+        const {optionSelected} = this.dialogs.showOptionChooser(T.settings.labels[this.id].title, {
             active: this.app.settings.getSetting(this.id),
             options: this.options.map(option => ({
                 value: this.valueGetter(option),
@@ -237,12 +237,12 @@ export class BoolSetting extends BaseSetting {
         return `
         <div class="setting cardbox ${available ? "enabled" : "disabled"}">
             ${
-                available
-                    ? ""
-                    : `<span class="standaloneOnlyHint">${
-                          WEB_STEAM_SSO_AUTHENTICATED ? "" : T.demo.settingNotAvailable
-                      }</span>`
-            }
+            available
+                ? ""
+                : `<span class="standaloneOnlyHint">${
+                    WEB_STEAM_SSO_AUTHENTICATED ? "" : T.demo.settingNotAvailable
+                }</span>`
+        }
 
             <div class="row">
                 <label>${T.settings.labels[this.id].title}</label>
@@ -303,12 +303,12 @@ export class RangeSetting extends BaseSetting {
         return `
         <div class="setting cardbox ${available ? "enabled" : "disabled"}">
             ${
-                available
-                    ? ""
-                    : `<span class="standaloneOnlyHint">${
-                          WEB_STEAM_SSO_AUTHENTICATED ? "" : T.demo.settingNotAvailable
-                      }</span>`
-            }
+            available
+                ? ""
+                : `<span class="standaloneOnlyHint">${
+                    WEB_STEAM_SSO_AUTHENTICATED ? "" : T.demo.settingNotAvailable
+                }</span>`
+        }
 
             <div class="row">
                 <label>${T.settings.labels[this.id].title}</label>

@@ -68,27 +68,27 @@ const standalone = require("./standalone");
 standalone.gulptasksStandalone($, gulp);
 
 const translations = require("./translations");
-const { BUILD_VARIANTS } = require("./build_variants");
+const {BUILD_VARIANTS} = require("./build_variants");
 translations.gulptasksTranslations($, gulp);
 
 /////////////////////  BUILD TASKS  /////////////////////
 
 // Cleans up everything
 gulp.task("utils.cleanBuildFolder", () => {
-    return gulp.src(buildFolder, { read: false, allowEmpty: true }).pipe($.clean({ force: true }));
+    return gulp.src(buildFolder, {read: false, allowEmpty: true}).pipe($.clean({force: true}));
 });
 gulp.task("utils.cleanBuildOutputFolder", () => {
-    return gulp.src(buildOuptutFolder, { read: false, allowEmpty: true }).pipe($.clean({ force: true }));
+    return gulp.src(buildOuptutFolder, {read: false, allowEmpty: true}).pipe($.clean({force: true}));
 });
 gulp.task("utils.cleanBuildTempFolder", () => {
     return gulp
-        .src(path.join(__dirname, "..", "src", "js", "built-temp"), { read: false, allowEmpty: true })
-        .pipe($.clean({ force: true }));
+        .src(path.join(__dirname, "..", "src", "js", "built-temp"), {read: false, allowEmpty: true})
+        .pipe($.clean({force: true}));
 });
 gulp.task("utils.cleanImageBuildFolder", () => {
     return gulp
-        .src(path.join(__dirname, "res_built"), { read: false, allowEmpty: true })
-        .pipe($.clean({ force: true }));
+        .src(path.join(__dirname, "res_built"), {read: false, allowEmpty: true})
+        .pipe($.clean({force: true}));
 });
 
 gulp.task(
@@ -144,7 +144,7 @@ gulp.task("main.webserver", () => {
  * @param {object} param0
  * @param {keyof typeof BUILD_VARIANTS} param0.version
  */
-function serveHTML({ version = "web-dev" }) {
+function serveHTML({version = "web-dev"}) {
     browserSync.init({
         server: [buildFolder, path.join(baseDir, "mod_examples")],
         port: 3005,
@@ -195,11 +195,11 @@ function serveHTML({ version = "web-dev" }) {
     // Watch the build folder and reload when anything changed
     const extensions = ["html", "js", "png", "gif", "jpg", "svg", "mp3", "ico", "woff2", "json"];
     gulp.watch(extensions.map(ext => path.join(buildFolder, "**", "*." + ext))).on("change", function (path) {
-        return gulp.src(path).pipe(browserSync.reload({ stream: true }));
+        return gulp.src(path).pipe(browserSync.reload({stream: true}));
     });
 
     gulp.watch("../src/js/built-temp/*.json").on("change", function (path) {
-        return gulp.src(path).pipe(browserSync.reload({ stream: true }));
+        return gulp.src(path).pipe(browserSync.reload({stream: true}));
     });
 
     gulp.series("js." + version + ".dev.watch")(() => true);
@@ -273,7 +273,7 @@ for (const variant in BUILD_VARIANTS) {
     // serve
     gulp.task(
         "serve." + variant,
-        gulp.series("build.prepare.dev", "html." + variant + ".dev", () => serveHTML({ version: variant }))
+        gulp.series("build.prepare.dev", "html." + variant + ".dev", () => serveHTML({version: variant}))
     );
 }
 

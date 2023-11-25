@@ -97,6 +97,7 @@ export class GameHUD {
         this.root.keyMapper.getBinding(KEYMAPPINGS.ingame.toggleHud).add(this.toggleUi, this);
 
     }
+
     /**
      * Returns true if the game logic should be paused
      */

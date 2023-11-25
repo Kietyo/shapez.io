@@ -115,7 +115,7 @@ export class Application {
 
         // Check for mobile
 
-            this.stateMgr.moveToState("PreloadState");
+        this.stateMgr.moveToState("PreloadState");
 
         // Starting rendering
         this.ticker.frameEmitted.add(this.onFrameEmitted, this);
@@ -298,6 +298,7 @@ export class Application {
             }
         }
     }
+
     /**
      * Background frame update callback
      * @param {number} dt

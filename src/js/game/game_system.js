@@ -21,17 +21,20 @@ export class GameSystem {
     /**
      * Updates the game system, override to perform logic
      */
-    update() {}
+    update() {
+    }
 
     /**
      * Override, do not call this directly, use startDraw()
      * @param {DrawParameters} parameters
      */
-    draw(parameters) {}
+    draw(parameters) {
+    }
 
     /**
      * Should refresh all caches
      */
-    refreshCaches() {}
+    refreshCaches() {
+    }
 
 }

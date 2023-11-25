@@ -2,13 +2,13 @@ require("colors");
 const packager = require("electron-packager");
 const pj = require("../electron/package.json");
 const path = require("path");
-const { getVersion } = require("./buildutils");
+const {getVersion} = require("./buildutils");
 const fs = require("fs");
 const fse = require("fs-extra");
 const buildutils = require("./buildutils");
 const execSync = require("child_process").execSync;
 const electronNotarize = require("electron-notarize");
-const { BUILD_VARIANTS } = require("./build_variants");
+const {BUILD_VARIANTS} = require("./build_variants");
 
 let signAsync;
 try {
@@ -29,7 +29,7 @@ function gulptasksStandalone($, gulp) {
         const tempDestBuildDir = path.join(tempDestDir, "built");
 
         gulp.task(taskPrefix + ".prepare.cleanup", () => {
-            return gulp.src(tempDestDir, { read: false, allowEmpty: true }).pipe($.clean({ force: true }));
+            return gulp.src(tempDestDir, {read: false, allowEmpty: true}).pipe($.clean({force: true}));
         });
 
         gulp.task(taskPrefix + ".prepare.copyPrefab", () => {
@@ -38,7 +38,7 @@ function gulptasksStandalone($, gulp) {
                 path.join(electronBaseDir, "node_modules", "**", ".*"),
                 path.join(electronBaseDir, "favicon*"),
             ];
-            return gulp.src(requiredFiles, { base: electronBaseDir }).pipe(gulp.dest(tempDestBuildDir));
+            return gulp.src(requiredFiles, {base: electronBaseDir}).pipe(gulp.dest(tempDestBuildDir));
         });
 
         gulp.task(taskPrefix + ".prepare.writeAppId", cb => {
@@ -75,7 +75,7 @@ function gulptasksStandalone($, gulp) {
         });
 
         gulp.task(taskPrefix + ".prepare.copyGamefiles", () => {
-            return gulp.src("../build/**/*.*", { base: "../build" }).pipe(gulp.dest(tempDestBuildDir));
+            return gulp.src("../build/**/*.*", {base: "../build"}).pipe(gulp.dest(tempDestBuildDir));
         });
 
         gulp.task(taskPrefix + ".killRunningInstances", cb => {
@@ -115,7 +115,7 @@ function gulptasksStandalone($, gulp) {
             // Unpack private artifacts though
             if (asar && fs.existsSync(path.join(tempDestBuildDir, privateArtifactsPath))) {
                 // @ts-expect-error
-                asar = { unpackDir: privateArtifactsPath };
+                asar = {unpackDir: privateArtifactsPath};
             }
 
             packager({
@@ -316,10 +316,10 @@ function gulptasksStandalone($, gulp) {
                 return variables[variable];
             });
 
-            fs.writeFileSync(path.join(templatesDest, file), content, { encoding: "utf8" });
+            fs.writeFileSync(path.join(templatesDest, file), content, {encoding: "utf8"});
         }
         cb();
     });
 }
 
-module.exports = { gulptasksStandalone };
+module.exports = {gulptasksStandalone};

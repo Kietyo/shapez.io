@@ -121,47 +121,55 @@ export class GameState {
      * Callback when entering the state, to be overriddemn
      * @param {any} payload Arbitrary data passed from the state which we are transferring from
      */
-    onEnter(payload) {}
+    onEnter(payload) {
+    }
 
     /**
      * Callback when leaving the state
      */
-    onLeave() {}
+    onLeave() {
+    }
 
     /**
      * Callback when the app got paused (on android, this means in background)
      */
-    onAppPause() {}
+    onAppPause() {
+    }
 
     /**
      * Callback when the app got resumed (on android, this means in foreground again)
      */
-    onAppResume() {}
+    onAppResume() {
+    }
 
     /**
      * Render callback
      * @param {number} dt Delta time in ms since last render
      */
-    onRender(dt) {}
+    onRender(dt) {
+    }
 
     /**
      * Background tick callback, called while the game is inactiev
      * @param {number} dt Delta time in ms since last tick
      */
-    onBackgroundTick(dt) {}
+    onBackgroundTick(dt) {
+    }
 
     /**
      * Called when the screen resized
      * @param {number} w window/screen width
      * @param {number} h window/screen height
      */
-    onResized(w, h) {}
+    onResized(w, h) {
+    }
 
     /**
      * Internal backbutton handler, called when the hardware back button is pressed or
      * the escape key is pressed
      */
-    onBackButton() {}
+    onBackButton() {
+    }
 
     //// INTERFACE ////
 
@@ -193,6 +201,7 @@ export class GameState {
     getHasFadeOut() {
         return true;
     }
+
     /**
      * Should return the html code of the state.
      * @returns {string}
@@ -287,6 +296,7 @@ export class GameState {
         this.internalCleanUpClickDetectors();
         this.asyncChannel.cancelAll();
     }
+
     /**
      * Cleans up all click detectors
      */

@@ -24,20 +24,20 @@ import {Component} from "../component";
  * }} ItemAcceptorSlotConfig */
 
 export class ItemAcceptorComponent extends Component {
-    static getId() {
-        return "ItemAcceptor";
-    }
-
     /**
      *
      * @param {object} param0
      * @param {Array<ItemAcceptorSlotConfig>} param0.slots The slots from which we accept items
      */
-    constructor({ slots = [] }) {
+    constructor({slots = []}) {
         super();
 
         this.setSlots(slots);
         this.clear();
+    }
+
+    static getId() {
+        return "ItemAcceptor";
     }
 
     clear() {

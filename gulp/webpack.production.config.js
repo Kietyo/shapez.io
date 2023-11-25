@@ -2,20 +2,20 @@
 
 const path = require("path");
 const webpack = require("webpack");
-const { getRevision, getVersion, getAllResourceImages } = require("./buildutils");
+const {getRevision, getVersion, getAllResourceImages} = require("./buildutils");
 
 const TerserPlugin = require("terser-webpack-plugin");
 const StringReplacePlugin = require("string-replace-webpack-plugin");
 const UnusedFilesPlugin = require("unused-files-webpack-plugin").UnusedFilesWebpackPlugin;
 
 module.exports = ({
-    environment,
-    es6 = false,
+                      environment,
+                      es6 = false,
 
-    standalone = false,
-    isBrowser = true,
+                      standalone = false,
+                      isBrowser = true,
 
-}) => {
+                  }) => {
     const globalDefs = {
         assert: "false && window.assert",
         assertAlways: "window.assert",
@@ -166,8 +166,8 @@ module.exports = ({
                     use: ["./gulp/loader.compressjson"],
                     type: "javascript/auto",
                 },
-                { test: /\.(png|jpe?g|svg)$/, loader: "ignore-loader" },
-                { test: /\.nobuild/, loader: "ignore-loader" },
+                {test: /\.(png|jpe?g|svg)$/, loader: "ignore-loader"},
+                {test: /\.nobuild/, loader: "ignore-loader"},
                 {
                     test: /\.js$/,
                     enforce: "pre",
@@ -214,13 +214,13 @@ module.exports = ({
                         "uglify-template-string-loader", // Finally found this plugin
                         StringReplacePlugin.replace({
                             replacements: [
-                                { pattern: /globalConfig\.tileSize/g, replacement: () => "32" },
-                                { pattern: /globalConfig\.halfTileSize/g, replacement: () => "16" },
+                                {pattern: /globalConfig\.tileSize/g, replacement: () => "32"},
+                                {pattern: /globalConfig\.halfTileSize/g, replacement: () => "16"},
                                 {
                                     pattern: /globalConfig\.beltSpeedItemsPerSecond/g,
                                     replacement: () => "2.0",
                                 },
-                                { pattern: /globalConfig\.debug/g, replacement: () => "''" },
+                                {pattern: /globalConfig\.debug/g, replacement: () => "''"},
                             ],
                         }),
                     ],

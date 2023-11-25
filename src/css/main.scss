@@ -1,9 +1,9 @@
 // Control here whether to inline all resources or instead load them
 @function uiResource($pth) {
-    @if (str-index($string: $pth, $substring: ".noinline")) {
-        @return resolve($pth);
-    }
-    @return inline($pth);
+  @if (str-index($string: $pth, $substring: ".noinline")) {
+    @return resolve($pth);
+  }
+  @return inline($pth);
 }
 
 @import "resources";
@@ -52,57 +52,52 @@
 @import "ingame_hud/standalone_advantages";
 
 // prettier-ignore
-$elements:
-// Base
-ingame_Canvas,
-
-// Ingame overlays
-ingame_HUD_Waypoints,
-ingame_HUD_PlacementHints,
-ingame_HUD_PlacerVariants,
-
-// Regular hud
-ingame_HUD_PinnedShapes,
-ingame_HUD_GameMenu,
-ingame_HUD_KeybindingOverlay,
-ingame_HUD_Notifications,
-ingame_HUD_DebugInfo,
-ingame_HUD_EntityDebugger,
-ingame_HUD_TutorialHints,
-ingame_HUD_InteractiveTutorial,
-ingame_HUD_BuildingsToolbar,
-ingame_HUD_wires_toolbar,
-ingame_HUD_BlueprintPlacer,
-ingame_HUD_Waypoints_Hint,
-ingame_HUD_WatermarkClicker,
-ingame_HUD_Watermark,
-ingame_HUD_ColorBlindBelowTileHelper,
-ingame_HUD_SandboxController,
-
-// Overlays
-ingame_HUD_BetaOverlay,
-
-// Dialogs
-ingame_HUD_Shop,
-ingame_HUD_Statistics,
-ingame_HUD_ShapeViewer,
-ingame_HUD_StandaloneAdvantages,
-ingame_HUD_UnlockNotification,
-ingame_HUD_SettingsMenu,
-ingame_HUD_ModalDialogs;
+$elements: // Base
+        ingame_Canvas,
+          // Ingame overlays
+        ingame_HUD_Waypoints,
+        ingame_HUD_PlacementHints,
+        ingame_HUD_PlacerVariants,
+          // Regular hud
+        ingame_HUD_PinnedShapes,
+        ingame_HUD_GameMenu,
+        ingame_HUD_KeybindingOverlay,
+        ingame_HUD_Notifications,
+        ingame_HUD_DebugInfo,
+        ingame_HUD_EntityDebugger,
+        ingame_HUD_TutorialHints,
+        ingame_HUD_InteractiveTutorial,
+        ingame_HUD_BuildingsToolbar,
+        ingame_HUD_wires_toolbar,
+        ingame_HUD_BlueprintPlacer,
+        ingame_HUD_Waypoints_Hint,
+        ingame_HUD_WatermarkClicker,
+        ingame_HUD_Watermark,
+        ingame_HUD_ColorBlindBelowTileHelper,
+        ingame_HUD_SandboxController,
+          // Overlays
+        ingame_HUD_BetaOverlay,
+          // Dialogs
+        ingame_HUD_Shop,
+        ingame_HUD_Statistics,
+        ingame_HUD_ShapeViewer,
+        ingame_HUD_StandaloneAdvantages,
+        ingame_HUD_UnlockNotification,
+        ingame_HUD_SettingsMenu,
+        ingame_HUD_ModalDialogs;
 
 $zindex: 100;
 
 @each $elem in $elements {
-    ##{$elem} {
-        z-index: $zindex;
-    }
+  ##{$elem} {
+    z-index: $zindex;
+  }
 
-    $zindex: $zindex + 10;
+  $zindex: $zindex + 10;
 }
 
 body.uiHidden {
-    > div:not(.ingameDialog):not(#ingame_HUD_SettingsMenu):not(#ingame_HUD_ModalDialogs):not(#ingame_HUD_UnlockNotification){
-        display: none !important;
-    }
+  > div:not(.ingameDialog):not(#ingame_HUD_SettingsMenu):not(#ingame_HUD_ModalDialogs):not(#ingame_HUD_UnlockNotification) {
+    display: none !important;
+  }
 }

@@ -1,10 +1,6 @@
 import {Component} from "../component";
 
 export class WireTunnelComponent extends Component {
-    static getId() {
-        return "WireTunnel";
-    }
-
     constructor() {
         super();
 
@@ -13,5 +9,9 @@ export class WireTunnelComponent extends Component {
          * @type {Array<import("../systems/wire").WireNetwork>}
          */
         this.linkedNetworks = [];
+    }
+
+    static getId() {
+        return "WireTunnel";
     }
 }

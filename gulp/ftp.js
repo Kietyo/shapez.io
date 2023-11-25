@@ -61,7 +61,7 @@ function gulptasksFTP($, gulp, buildFolder) {
 
         gulp.task(`ftp.upload.${deployEnv}.game`, () => {
             return gulp
-                .src(gameSrcGlobs, { base: buildFolder })
+                .src(gameSrcGlobs, {base: buildFolder})
                 .pipe(
                     $.rename(pth => {
                         pth.dirname = path.join("v", commitHash, pth.dirname);
@@ -80,7 +80,7 @@ function gulptasksFTP($, gulp, buildFolder) {
 
         gulp.task(`ftp.upload.${deployEnv}.additionalFiles`, () => {
             return gulp
-                .src(additionalFiles, { base: additionalFolder }) //
+                .src(additionalFiles, {base: additionalFolder}) //
                 .pipe($.sftp(deployCredentials));
         });
 

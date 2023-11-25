@@ -41,14 +41,6 @@ function rebalance(value) {
 }
 
 export class SavegameInterface_V1006 extends SavegameInterface_V1005 {
-    getVersion() {
-        return 1006;
-    }
-
-    getSchemaUncached() {
-        return schema;
-    }
-
     static computeSpriteMapping() {
         return {
             // Belt
@@ -297,5 +289,13 @@ export class SavegameInterface_V1006 extends SavegameInterface_V1005 {
         }
 
         entity.components.StaticMapEntity = newStaticComp;
+    }
+
+    getVersion() {
+        return 1006;
+    }
+
+    getSchemaUncached() {
+        return schema;
     }
 }

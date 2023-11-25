@@ -235,7 +235,7 @@ export class BeltUnderlaysSystem extends GameSystem {
             const underlays = underlayComp.underlays;
             for (let i = 0; i < underlays.length; ++i) {
                 // Extract underlay parameters
-                const { pos, direction } = underlays[i];
+                const {pos, direction} = underlays[i];
                 const transformedPos = staticComp.localTileToWorld(pos);
                 const destX = transformedPos.x * globalConfig.tileSize;
                 const destY = transformedPos.y * globalConfig.tileSize;
@@ -276,13 +276,13 @@ export class BeltUnderlaysSystem extends GameSystem {
                 // SYNC with systems/belt.js:drawSingleEntity!
                 const animationIndex = Math.floor(
                     ((this.root.time.realtimeNow() * speedMultiplier * BELT_ANIM_COUNT * 126) / 42) *
-                        globalConfig.itemSpacingOnBelts
+                    globalConfig.itemSpacingOnBelts
                 );
                 parameters.context.translate(x, y);
                 parameters.context.rotate(angleRadians);
                 this.underlayBeltSprites[
-                    animationIndex % this.underlayBeltSprites.length
-                ].drawCachedWithClipRect(
+                animationIndex % this.underlayBeltSprites.length
+                    ].drawCachedWithClipRect(
                     parameters,
                     -globalConfig.halfTileSize,
                     -globalConfig.halfTileSize,

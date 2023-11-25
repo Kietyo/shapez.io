@@ -50,7 +50,7 @@ export class Dialog {
      * @param {string=} param0.type The dialog type, either "info" or "warn"
      * @param {boolean=} param0.closeButton Whether this dialog has a close button
      */
-    constructor({ app, title, contentHTML, buttons, type = "info", closeButton = false }) {
+    constructor({app, title, contentHTML, buttons, type = "info", closeButton = false}) {
         this.app = app;
         this.title = title;
         this.contentHTML = contentHTML;
@@ -91,7 +91,7 @@ export class Dialog {
      * @param {boolean} param0.alt
      * @param {boolean} param0.ctrl
      */
-    handleKeydown({ keyCode, shift, alt, ctrl }) {
+    handleKeydown({keyCode, shift, alt, ctrl}) {
         if (keyCode === kbEnter && this.enterHandler) {
             this.internalButtonHandler(this.enterHandler);
             return STOP_PROPAGATION;
@@ -308,10 +308,10 @@ export class DialogLoading extends Dialog {
 }
 
 export class DialogOptionChooser extends Dialog {
-    constructor({ app, title, options }) {
+    constructor({app, title, options}) {
         let html = "<div class='optionParent'>";
 
-        options.options.forEach(({ value, text, desc = null, iconPrefix = null }) => {
+        options.options.forEach(({value, text, desc = null, iconPrefix = null}) => {
             const descHtml = desc ? `<span class="desc">${desc}</span>` : "";
             let iconHtml = iconPrefix ? `<span class="icon icon-${iconPrefix}-${value}"></span>` : "";
             html += `
@@ -393,14 +393,14 @@ export class DialogWithForm extends Dialog {
      * @param {Array<FormElement>} param0.formElements
      */
     constructor({
-        app,
-        title,
-        desc,
-        formElements,
-        buttons = ["cancel", "ok:good"],
-        confirmButtonId = "ok",
-        closeButton = true,
-    }) {
+                    app,
+                    title,
+                    desc,
+                    formElements,
+                    buttons = ["cancel", "ok:good"],
+                    confirmButtonId = "ok",
+                    closeButton = true,
+                }) {
         let html = "";
         html += desc + "<br>";
         for (let i = 0; i < formElements.length; ++i) {

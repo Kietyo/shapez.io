@@ -19,23 +19,13 @@ export const enumUndergroundBeltMode = {
  */
 
 export class UndergroundBeltComponent extends Component {
-    static getId() {
-        return "UndergroundBelt";
-    }
-
-    static getSchema() {
-        return {
-            pendingItems: types.array(types.pair(typeItemSingleton, types.float)),
-        };
-    }
-
     /**
      *
      * @param {object} param0
      * @param {enumUndergroundBeltMode=} param0.mode As which type of belt the entity acts
      * @param {number=} param0.tier
      */
-    constructor({ mode = enumUndergroundBeltMode.sender, tier = 0 }) {
+    constructor({mode = enumUndergroundBeltMode.sender, tier = 0}) {
         super();
 
         this.mode = mode;
@@ -49,6 +39,16 @@ export class UndergroundBeltComponent extends Component {
         this.cachedLinkedEntity = null;
 
         this.clear();
+    }
+
+    static getId() {
+        return "UndergroundBelt";
+    }
+
+    static getSchema() {
+        return {
+            pendingItems: types.array(types.pair(typeItemSingleton, types.float)),
+        };
     }
 
     clear() {

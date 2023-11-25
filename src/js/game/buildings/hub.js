@@ -76,10 +76,10 @@ export class MetaHubBuilding extends MetaBuilding {
         const slots = [];
         for (let i = 0; i < 4; ++i) {
             slots.push(
-                { pos: new Vector(i, 0), direction: enumDirection.top, filter: "shape" },
-                { pos: new Vector(i, 3), direction: enumDirection.bottom, filter: "shape" },
-                { pos: new Vector(0, i), direction: enumDirection.left, filter: "shape" },
-                { pos: new Vector(3, i), direction: enumDirection.right, filter: "shape" }
+                {pos: new Vector(i, 0), direction: enumDirection.top, filter: "shape"},
+                {pos: new Vector(i, 3), direction: enumDirection.bottom, filter: "shape"},
+                {pos: new Vector(0, i), direction: enumDirection.left, filter: "shape"},
+                {pos: new Vector(3, i), direction: enumDirection.right, filter: "shape"}
             );
         }
 

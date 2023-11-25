@@ -18,7 +18,7 @@ export const arrayUndergroundRotationVariantToMode = [
 ];
 
 /** @enum {string} */
-export const enumUndergroundBeltVariants = { tier2: "tier2" };
+export const enumUndergroundBeltVariants = {tier2: "tier2"};
 
 export const enumUndergroundBeltVariantToTier = {
     [defaultBuildingVariant]: 0,
@@ -206,7 +206,7 @@ export class MetaUndergroundBeltBuilding extends MetaBuilding {
      * @param {Layer} param0.layer
      * @return {{ rotation: number, rotationVariant: number, connectedEntities?: Array<Entity> }}
      */
-    computeOptimalDirectionAndRotationVariantAtTile({ root, tile, rotation, variant, layer }) {
+    computeOptimalDirectionAndRotationVariantAtTile({root, tile, rotation, variant, layer}) {
         const searchDirection = enumAngleToDirection[rotation];
         const searchVector = enumDirectionToVector[searchDirection];
         const tier = enumUndergroundBeltVariantToTier[variant];

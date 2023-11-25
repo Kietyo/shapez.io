@@ -76,9 +76,9 @@ export class ItemAcceptorSystem extends GameSystemWithFilter {
 
             const staticComp = entity.components.StaticMapEntity;
             for (let animIndex = 0; animIndex < acceptorComp.itemConsumptionAnimations.length; ++animIndex) {
-                const { item, slotIndex, animProgress, direction } = acceptorComp.itemConsumptionAnimations[
+                const {item, slotIndex, animProgress, direction} = acceptorComp.itemConsumptionAnimations[
                     animIndex
-                ];
+                    ];
 
                 const slotData = acceptorComp.slots[slotIndex];
                 const realSlotPos = staticComp.localTileToWorld(slotData.pos);

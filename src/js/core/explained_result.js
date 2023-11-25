@@ -12,19 +12,19 @@ export class ExplainedResult {
         }
     }
 
-    isGood() {
-        return !!this.result;
-    }
-
-    isBad() {
-        return !this.result;
-    }
-
     static good() {
         return new ExplainedResult(true);
     }
 
     static bad(reason, additionalProps) {
         return new ExplainedResult(false, reason, additionalProps);
+    }
+
+    isGood() {
+        return !!this.result;
+    }
+
+    isBad() {
+        return !this.result;
     }
 }

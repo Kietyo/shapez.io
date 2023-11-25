@@ -8,14 +8,6 @@ const schema = require("./1001.json");
 const logger = createLogger("savegame_interface/1001");
 
 export class SavegameInterface_V1001 extends SavegameInterface_V1000 {
-    getVersion() {
-        return 1001;
-    }
-
-    getSchemaUncached() {
-        return schema;
-    }
-
     /**
      * @param {import("../savegame_typedefs.js").SavegameData} data
      */
@@ -33,7 +25,7 @@ export class SavegameInterface_V1001 extends SavegameInterface_V1000 {
             waypoints: [
                 {
                     label: T.ingame.waypoints.hub,
-                    center: { x: 0, y: 0 },
+                    center: {x: 0, y: 0},
                     zoomLevel: 3,
                     deletable: false,
                 },
@@ -62,7 +54,7 @@ export class SavegameInterface_V1001 extends SavegameInterface_V1000 {
             // The ignored error is the error that the types do not overlap.  In the case
             // of a v1000 save though, the data will match the mocked type above.
             /** @type OldStaticMapEntity **/
-            // @ts-ignore
+                // @ts-ignore
             const staticComp = entity.components.StaticMapEntity;
             const beltComp = entity.components.Belt;
             if (staticComp) {
@@ -83,5 +75,13 @@ export class SavegameInterface_V1001 extends SavegameInterface_V1000 {
                 }
             }
         }
+    }
+
+    getVersion() {
+        return 1001;
+    }
+
+    getSchemaUncached() {
+        return schema;
     }
 }

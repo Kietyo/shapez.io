@@ -10,7 +10,7 @@ import {GameRoot} from "../root";
 import {enumHubGoalRewards} from "../tutorial_goals";
 
 /** @enum {string} */
-export const enumCutterVariants = { quad: "quad" };
+export const enumCutterVariants = {quad: "quad"};
 
 export class MetaCutterBuilding extends MetaBuilding {
     constructor() {
@@ -111,18 +111,18 @@ export class MetaCutterBuilding extends MetaBuilding {
         switch (variant) {
             case defaultBuildingVariant: {
                 entity.components.ItemEjector.setSlots([
-                    { pos: new Vector(0, 0), direction: enumDirection.top },
-                    { pos: new Vector(1, 0), direction: enumDirection.top },
+                    {pos: new Vector(0, 0), direction: enumDirection.top},
+                    {pos: new Vector(1, 0), direction: enumDirection.top},
                 ]);
                 entity.components.ItemProcessor.type = enumItemProcessorTypes.cutter;
                 break;
             }
             case enumCutterVariants.quad: {
                 entity.components.ItemEjector.setSlots([
-                    { pos: new Vector(0, 0), direction: enumDirection.top },
-                    { pos: new Vector(1, 0), direction: enumDirection.top },
-                    { pos: new Vector(2, 0), direction: enumDirection.top },
-                    { pos: new Vector(3, 0), direction: enumDirection.top },
+                    {pos: new Vector(0, 0), direction: enumDirection.top},
+                    {pos: new Vector(1, 0), direction: enumDirection.top},
+                    {pos: new Vector(2, 0), direction: enumDirection.top},
+                    {pos: new Vector(3, 0), direction: enumDirection.top},
                 ]);
                 entity.components.ItemProcessor.type = enumItemProcessorTypes.cutterQuad;
                 break;

@@ -3,7 +3,7 @@ import {cachebust} from "../../core/cachebust";
 import {createLogger} from "../../core/logging";
 import {globalConfig} from "../../core/config";
 
-const { Howl, Howler } = require("howler");
+const {Howl, Howler} = require("howler");
 
 const logger = createLogger("sound/browser");
 
@@ -92,6 +92,7 @@ class MusicInstance extends MusicInstanceInterface {
         this.instance = null;
         this.playing = false;
     }
+
     load() {
         return new Promise((resolve, reject) => {
             this.howl = new Howl({

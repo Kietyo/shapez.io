@@ -2,7 +2,7 @@ const buildUtils = require("./buildutils");
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
-const { BUILD_VARIANTS } = require("./build_variants");
+const {BUILD_VARIANTS} = require("./build_variants");
 
 function computeIntegrityHash(fullPath, algorithm = "sha256") {
     const file = fs.readFileSync(fullPath);
@@ -18,12 +18,13 @@ function computeIntegrityHash(fullPath, algorithm = "sha256") {
  */
 function gulptasksHTML($, gulp, buildFolder) {
     const commitHash = buildUtils.getRevision();
+
     async function buildHtml({
-        googleAnalytics = false,
-        standalone = false,
-        integrity = true,
-        enableCachebust = true,
-    }) {
+                                 googleAnalytics = false,
+                                 standalone = false,
+                                 integrity = true,
+                                 enableCachebust = true,
+                             }) {
         function cachebust(url) {
             if (enableCachebust) {
                 return buildUtils.cachebust(url, commitHash);

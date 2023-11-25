@@ -1,6 +1,6 @@
 /* eslint-disable quotes,no-undef */
 
-const { app, BrowserWindow, Menu, MenuItem, ipcMain, shell, dialog, session } = require("electron");
+const {app, BrowserWindow, Menu, MenuItem, ipcMain, shell, dialog, session} = require("electron");
 const path = require("path");
 const url = require("url");
 const fs = require("fs");
@@ -26,7 +26,7 @@ let storePath = path.join(roamingFolder, "shapez.io", "saves");
 
 if (!fs.existsSync(storePath)) {
     // No try-catch by design
-    fs.mkdirSync(storePath, { recursive: true });
+    fs.mkdirSync(storePath, {recursive: true});
 }
 
 /** @type {BrowserWindow} */
@@ -316,7 +316,7 @@ ipcMain.handle("fs-job", async (event, job) => {
         case "read": {
             if (!fs.existsSync(fname)) {
                 // Special FILE_NOT_FOUND error code
-                return { error: "file_not_found" };
+                return {error: "file_not_found"};
             }
             return await fs.promises.readFile(fname, "utf8");
         }

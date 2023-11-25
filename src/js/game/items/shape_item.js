@@ -6,6 +6,18 @@ import {THEME} from "../theme";
 import {globalConfig} from "../../core/config";
 
 export class ShapeItem extends BaseItem {
+    /**
+     * @param {ShapeDefinition} definition
+     */
+    constructor(definition) {
+        super();
+
+        /**
+         * This property must not be modified on runtime, you have to clone the class in order to change the definition
+         */
+        this.definition = definition;
+    }
+
     static getId() {
         return "shape";
     }
@@ -39,18 +51,6 @@ export class ShapeItem extends BaseItem {
      */
     equalsImpl(other) {
         return this.definition.getHash() === /** @type {ShapeItem} */ (other).definition.getHash();
-    }
-
-    /**
-     * @param {ShapeDefinition} definition
-     */
-    constructor(definition) {
-        super();
-
-        /**
-         * This property must not be modified on runtime, you have to clone the class in order to change the definition
-         */
-        this.definition = definition;
     }
 
     getBackgroundColorAsResource() {

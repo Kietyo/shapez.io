@@ -34,7 +34,7 @@ export class MetaItemProducerBuilding extends MetaBuilding {
     setupEntityComponents(entity) {
         entity.addComponent(
             new ItemEjectorComponent({
-                slots: [{ pos: new Vector(0, 0), direction: enumDirection.top }],
+                slots: [{pos: new Vector(0, 0), direction: enumDirection.top}],
             })
         );
         entity.addComponent(

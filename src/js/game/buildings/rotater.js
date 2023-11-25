@@ -10,7 +10,7 @@ import {GameRoot} from "../root";
 import {enumHubGoalRewards} from "../tutorial_goals";
 
 /** @enum {string} */
-export const enumRotaterVariants = { ccw: "ccw", rotate180: "rotate180" };
+export const enumRotaterVariants = {ccw: "ccw", rotate180: "rotate180"};
 
 const overlayMatrices = {
     [defaultBuildingVariant]: generateMatrixRotations([0, 1, 1, 1, 1, 0, 0, 1, 1]),
@@ -117,7 +117,7 @@ export class MetaRotaterBuilding extends MetaBuilding {
 
         entity.addComponent(
             new ItemEjectorComponent({
-                slots: [{ pos: new Vector(0, 0), direction: enumDirection.top }],
+                slots: [{pos: new Vector(0, 0), direction: enumDirection.top}],
             })
         );
         entity.addComponent(

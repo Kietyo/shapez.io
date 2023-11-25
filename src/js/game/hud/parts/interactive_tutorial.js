@@ -27,13 +27,13 @@ const tutorialsByLevel = [
         // 1.1. place an extractor
         {
             id: "1_1_extractor",
-            condition: /** @param {GameRoot} root */ root =>
+            condition: /** @param {GameRoot} root */root =>
                 root.entityMgr.getAllWithComponent(MinerComponent).length === 0,
         },
         // 1.2. connect to hub
         {
             id: "1_2_conveyor",
-            condition: /** @param {GameRoot} root */ root => {
+            condition: /** @param {GameRoot} root */root => {
                 const paths = root.systemMgr.systems.belt.beltPaths;
                 const miners = root.entityMgr.getAllWithComponent(MinerComponent);
                 for (let i = 0; i < paths.length; i++) {
@@ -56,7 +56,7 @@ const tutorialsByLevel = [
         // 1.3 wait for completion
         {
             id: "1_3_expand",
-            condition: /** @param {GameRoot} root */ root => true,
+            condition: /** @param {GameRoot} root */root => true,
         },
     ],
     // Level 2
@@ -64,7 +64,7 @@ const tutorialsByLevel = [
         // 2.1 place a cutter
         {
             id: "2_1_place_cutter",
-            condition: /** @param {GameRoot} root */ root =>
+            condition: /** @param {GameRoot} root */root =>
                 root.entityMgr
                     .getAllWithComponent(ItemProcessorComponent)
                     .filter(e => e.components.ItemProcessor.type === enumItemProcessorTypes.cutter).length ===
@@ -73,7 +73,7 @@ const tutorialsByLevel = [
         // 2.2 place trash
         {
             id: "2_2_place_trash",
-            condition: /** @param {GameRoot} root */ root =>
+            condition: /** @param {GameRoot} root */root =>
                 root.entityMgr
                     .getAllWithComponent(ItemProcessorComponent)
                     .filter(e => e.components.ItemProcessor.type === enumItemProcessorTypes.trash).length ===
@@ -82,7 +82,7 @@ const tutorialsByLevel = [
         // 2.3 place more cutters
         {
             id: "2_3_more_cutters",
-            condition: /** @param {GameRoot} root */ root => true,
+            condition: /** @param {GameRoot} root */root => true,
         },
     ],
 
@@ -91,7 +91,7 @@ const tutorialsByLevel = [
         // 3.1. rectangles
         {
             id: "3_1_rectangles",
-            condition: /** @param {GameRoot} root */ root =>
+            condition: /** @param {GameRoot} root */root =>
                 // 4 miners placed above rectangles and 10 delivered
                 root.hubGoals.getCurrentGoalDelivered() < 10 ||
                 root.entityMgr.getAllWithComponent(MinerComponent).filter(entity => {
@@ -129,7 +129,7 @@ const tutorialsByLevel = [
         // 21.1 place quad painter
         {
             id: "21_1_place_quad_painter",
-            condition: /** @param {GameRoot} root */ root =>
+            condition: /** @param {GameRoot} root */root =>
                 root.entityMgr
                     .getAllWithComponent(ItemProcessorComponent)
                     .filter(e => e.components.ItemProcessor.type === enumItemProcessorTypes.painterQuad)
@@ -139,21 +139,21 @@ const tutorialsByLevel = [
         // 21.2 switch to wires layer
         {
             id: "21_2_switch_to_wires",
-            condition: /** @param {GameRoot} root */ root =>
+            condition: /** @param {GameRoot} root */root =>
                 root.entityMgr.getAllWithComponent(WireComponent).length < 5,
         },
 
         // 21.3 place button
         {
             id: "21_3_place_button",
-            condition: /** @param {GameRoot} root */ root =>
+            condition: /** @param {GameRoot} root */root =>
                 root.entityMgr.getAllWithComponent(LeverComponent).length === 0,
         },
 
         // 21.4 activate button
         {
             id: "21_4_press_button",
-            condition: /** @param {GameRoot} root */ root =>
+            condition: /** @param {GameRoot} root */root =>
                 root.entityMgr.getAllWithComponent(LeverComponent).some(e => !e.components.Lever.toggled),
         },
     ],
@@ -179,7 +179,7 @@ export class HUDInteractiveTutorial extends BaseHUDPart {
     }
 
     initialize() {
-        this.domAttach = new DynamicDomAttach(this.root, this.element, { trackHover: true });
+        this.domAttach = new DynamicDomAttach(this.root, this.element, {trackHover: true});
         this.currentHintId = new TrackedState(this.onHintChanged, this);
 
         document.documentElement.setAttribute("data-tutorial-step", "");
@@ -358,7 +358,7 @@ export class HUDInteractiveTutorial extends BaseHUDPart {
                     }
 
                     for (let i = 0; i < arrows.length; i++) {
-                        const { pos, rotation } = arrows[i];
+                        const {pos, rotation} = arrows[i];
                         const worldPos = pos.toWorldSpaceCenterOfTile();
                         const angle = Math.radians(rotation);
 
@@ -368,11 +368,11 @@ export class HUDInteractiveTutorial extends BaseHUDPart {
                             arrowSprite,
                             -6,
                             -globalConfig.halfTileSize -
-                                clamp((this.root.time.realtimeNow() * 1.5) % 1.0, 0, 1) *
-                                    1 *
-                                    globalConfig.tileSize +
-                                globalConfig.halfTileSize -
-                                6,
+                            clamp((this.root.time.realtimeNow() * 1.5) % 1.0, 0, 1) *
+                            1 *
+                            globalConfig.tileSize +
+                            globalConfig.halfTileSize -
+                            6,
                             12,
                             12
                         );

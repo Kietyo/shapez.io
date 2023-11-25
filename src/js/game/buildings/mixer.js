@@ -62,7 +62,7 @@ export class MetaMixerBuilding extends MetaBuilding {
 
         entity.addComponent(
             new ItemEjectorComponent({
-                slots: [{ pos: new Vector(0, 0), direction: enumDirection.top }],
+                slots: [{pos: new Vector(0, 0), direction: enumDirection.top}],
             })
         );
         entity.addComponent(

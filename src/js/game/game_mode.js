@@ -12,21 +12,8 @@ import {BaseHUDPart} from "./hud/base_hud_part";
 export const enumGameModeIds = {
     regular: "regularMode",
 };
-export class GameMode extends BasicSerializableObject {
-    /** @returns {string} */
-    static getId() {
-        abstract;
-        return "unknownMode";
-    }
-    /**
-     * @param {GameRoot} root
-     * @param {string} [id=Regular]
-     * @param {object|undefined} payload
-     */
-    static create(root, id = enumGameModeIds.regular, payload = undefined) {
-        return new (gGameModeRegistry.findById(id))(root, payload);
-    }
 
+export class GameMode extends BasicSerializableObject {
     /**
      * @param {GameRoot} root
      */
@@ -43,6 +30,21 @@ export class GameMode extends BasicSerializableObject {
         this.hiddenBuildings = [MetaItemProducerBuilding];
     }
 
+    /** @returns {string} */
+    static getId() {
+        abstract;
+        return "unknownMode";
+    }
+
+    /**
+     * @param {GameRoot} root
+     * @param {string} [id=Regular]
+     * @param {object|undefined} payload
+     */
+    static create(root, id = enumGameModeIds.regular, payload = undefined) {
+        return new (gGameModeRegistry.findById(id))(root, payload);
+    }
+
     /** @returns {object} */
     serialize() {
         return {
@@ -52,7 +54,7 @@ export class GameMode extends BasicSerializableObject {
     }
 
     /** @param {object} savedata */
-    deserialize({ data }) {
+    deserialize({data}) {
         super.deserialize(data, this.root);
     }
 
@@ -61,6 +63,7 @@ export class GameMode extends BasicSerializableObject {
         // @ts-ignore
         return this.constructor.getId();
     }
+
     /**
      * @param {typeof MetaBuilding} building - Class name of building
      * @returns {boolean}
@@ -88,6 +91,7 @@ export class GameMode extends BasicSerializableObject {
     hasResources() {
         return true;
     }
+
     /** @returns {number} */
     getMinimumZoom() {
         return 0.06;
@@ -107,6 +111,7 @@ export class GameMode extends BasicSerializableObject {
             painting: [],
         };
     }
+
     /** @returns {array} */
     getLevelDefinitions() {
         return [];

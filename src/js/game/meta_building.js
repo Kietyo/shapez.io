@@ -150,9 +150,9 @@ export class MetaBuilding {
     getPreviewSprite(rotationVariant = 0, variant = defaultBuildingVariant) {
         return Loader.getSprite(
             "sprites/buildings/" +
-                this.id +
-                (variant === defaultBuildingVariant ? "" : "-" + variant) +
-                ".png"
+            this.id +
+            (variant === defaultBuildingVariant ? "" : "-" + variant) +
+            ".png"
         );
     }
 
@@ -163,9 +163,9 @@ export class MetaBuilding {
     getBlueprintSprite(rotationVariant = 0, variant = defaultBuildingVariant) {
         return Loader.getSprite(
             "sprites/blueprints/" +
-                this.id +
-                (variant === defaultBuildingVariant ? "" : "-" + variant) +
-                ".png"
+            this.id +
+            (variant === defaultBuildingVariant ? "" : "-" + variant) +
+            ".png"
         );
     }
 
@@ -212,7 +212,7 @@ export class MetaBuilding {
      * @param {number} param0.rotationVariant Rotation variant
      * @param {string} param0.variant
      */
-    createEntity({ root, origin, rotation, originalRotation, rotationVariant, variant }) {
+    createEntity({root, origin, rotation, originalRotation, rotationVariant, variant}) {
         const entity = new Entity(root);
         entity.layer = this.getLayer();
         entity.addComponent(
@@ -238,9 +238,9 @@ export class MetaBuilding {
     getSprite(rotationVariant, variant) {
         return Loader.getSprite(
             "sprites/buildings/" +
-                this.id +
-                (variant === defaultBuildingVariant ? "" : "-" + variant) +
-                ".png"
+            this.id +
+            (variant === defaultBuildingVariant ? "" : "-" + variant) +
+            ".png"
         );
     }
 
@@ -254,7 +254,7 @@ export class MetaBuilding {
      * @param {Layer} param0.layer
      * @return {{ rotation: number, rotationVariant: number, connectedEntities?: Array<Entity> }}
      */
-    computeOptimalDirectionAndRotationVariantAtTile({ root, tile, rotation, variant, layer }) {
+    computeOptimalDirectionAndRotationVariantAtTile({root, tile, rotation, variant, layer}) {
         if (!this.getIsRotateable()) {
             return {
                 rotation: 0,
@@ -273,7 +273,8 @@ export class MetaBuilding {
      * @param {number} rotationVariant
      * @param {string} variant
      */
-    updateVariants(entity, rotationVariant, variant) {}
+    updateVariants(entity, rotationVariant, variant) {
+    }
 
     // PRIVATE INTERFACE
 

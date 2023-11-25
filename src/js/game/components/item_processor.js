@@ -39,16 +39,6 @@ export const enumItemProcessorRequirements = {
  * }} EjectorCharge */
 
 export class ItemProcessorComponent extends Component {
-    static getId() {
-        return "ItemProcessor";
-    }
-
-    static getSchema() {
-        return {
-            nextOutputSlot: types.uint,
-        };
-    }
-
     /**
      *
      * @param {object} param0
@@ -58,10 +48,10 @@ export class ItemProcessorComponent extends Component {
      *
      */
     constructor({
-        processorType = enumItemProcessorTypes.balancer,
-        processingRequirement = null,
-        inputsPerCharge = 1,
-    }) {
+                    processorType = enumItemProcessorTypes.balancer,
+                    processingRequirement = null,
+                    inputsPerCharge = 1,
+                }) {
         super();
 
         // How many inputs we need for one charge
@@ -80,6 +70,16 @@ export class ItemProcessorComponent extends Component {
         this.inputSlots = new Map();
 
         this.clear();
+    }
+
+    static getId() {
+        return "ItemProcessor";
+    }
+
+    static getSchema() {
+        return {
+            nextOutputSlot: types.uint,
+        };
     }
 
     clear() {

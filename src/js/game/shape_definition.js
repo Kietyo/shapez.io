@@ -66,33 +66,12 @@ for (const key in enumSubShapeToShortcode) {
 const SHORT_KEY_CACHE = new Map();
 
 export class ShapeDefinition extends BasicSerializableObject {
-    static getId() {
-        return "ShapeDefinition";
-    }
-
-    static getSchema() {
-        return {};
-    }
-
-    deserialize(data) {
-        const errorCode = super.deserialize(data);
-        if (errorCode) {
-            return errorCode;
-        }
-        const definition = ShapeDefinition.fromShortKey(data);
-        this.layers = /** @type {Array<ShapeLayer>} */ (definition.layers);
-    }
-
-    serialize() {
-        return this.getHash();
-    }
-
     /**
      *
      * @param {object} param0
      * @param {Array<ShapeLayer>=} param0.layers
      */
-    constructor({ layers = [] }) {
+    constructor({layers = []}) {
         super();
 
         /**
@@ -106,6 +85,14 @@ export class ShapeDefinition extends BasicSerializableObject {
 
         // Set on demand
         this.bufferGenerator = null;
+    }
+
+    static getId() {
+        return "ShapeDefinition";
+    }
+
+    static getSchema() {
+        return {};
     }
 
     /**
@@ -139,7 +126,7 @@ export class ShapeDefinition extends BasicSerializableObject {
             layers.push(quads);
         }
 
-        const definition = new ShapeDefinition({ layers });
+        const definition = new ShapeDefinition({layers});
         // We know the hash so save some work
         definition.cachedHash = key;
         return definition;
@@ -218,6 +205,19 @@ export class ShapeDefinition extends BasicSerializableObject {
         }
 
         return true;
+    }
+
+    deserialize(data) {
+        const errorCode = super.deserialize(data);
+        if (errorCode) {
+            return errorCode;
+        }
+        const definition = ShapeDefinition.fromShortKey(data);
+        this.layers = /** @type {Array<ShapeLayer>} */ (definition.layers);
+    }
+
+    serialize() {
+        return this.getHash();
     }
 
     /**
@@ -346,7 +346,7 @@ export class ShapeDefinition extends BasicSerializableObject {
                 if (!quadrants[quadrantIndex]) {
                     continue;
                 }
-                const { subShape, color } = quadrants[quadrantIndex];
+                const {subShape, color} = quadrants[quadrantIndex];
 
                 const quadrantPos = arrayQuadrantIndexToOffset[quadrantIndex];
                 const centerQuadrantX = quadrantPos.x * quadrantHalfSize;
@@ -361,70 +361,70 @@ export class ShapeDefinition extends BasicSerializableObject {
                 context.strokeStyle = THEME.items.outline;
                 context.lineWidth = THEME.items.outlineWidth;
 
-                    switch (subShape) {
-                        case enumSubShape.rect: {
-                            context.beginPath();
-                            const dims = quadrantSize * layerScale;
-                            context.rect(-quadrantHalfSize, quadrantHalfSize - dims, dims, dims);
-                            context.fill();
-                            context.stroke();
-                            break;
-                        }
-                        case enumSubShape.star: {
-                            context.beginPath();
-                            const dims = quadrantSize * layerScale;
-
-                            let originX = -quadrantHalfSize;
-                            let originY = quadrantHalfSize - dims;
-
-                            const moveInwards = dims * 0.4;
-                            context.moveTo(originX, originY + moveInwards);
-                            context.lineTo(originX + dims, originY);
-                            context.lineTo(originX + dims - moveInwards, originY + dims);
-                            context.lineTo(originX, originY + dims);
-                            context.closePath();
-                            context.fill();
-                            context.stroke();
-                            break;
-                        }
-
-                        case enumSubShape.windmill: {
-                            context.beginPath();
-                            const dims = quadrantSize * layerScale;
-
-                            let originX = -quadrantHalfSize;
-                            let originY = quadrantHalfSize - dims;
-                            const moveInwards = dims * 0.4;
-                            context.moveTo(originX, originY + moveInwards);
-                            context.lineTo(originX + dims, originY);
-                            context.lineTo(originX + dims, originY + dims);
-                            context.lineTo(originX, originY + dims);
-                            context.closePath();
-                            context.fill();
-                            context.stroke();
-                            break;
-                        }
-
-                        case enumSubShape.circle: {
-                            context.beginPath();
-                            context.moveTo(-quadrantHalfSize, quadrantHalfSize);
-                            context.arc(
-                                -quadrantHalfSize,
-                                quadrantHalfSize,
-                                quadrantSize * layerScale,
-                                -Math.PI * 0.5,
-                                0
-                            );
-                            context.closePath();
-                            context.fill();
-                            context.stroke();
-                            break;
-                        }
-
-                        default: {
-                            throw new Error("Unkown sub shape: " + subShape);
-                        }
+                switch (subShape) {
+                    case enumSubShape.rect: {
+                        context.beginPath();
+                        const dims = quadrantSize * layerScale;
+                        context.rect(-quadrantHalfSize, quadrantHalfSize - dims, dims, dims);
+                        context.fill();
+                        context.stroke();
+                        break;
                     }
+                    case enumSubShape.star: {
+                        context.beginPath();
+                        const dims = quadrantSize * layerScale;
+
+                        let originX = -quadrantHalfSize;
+                        let originY = quadrantHalfSize - dims;
+
+                        const moveInwards = dims * 0.4;
+                        context.moveTo(originX, originY + moveInwards);
+                        context.lineTo(originX + dims, originY);
+                        context.lineTo(originX + dims - moveInwards, originY + dims);
+                        context.lineTo(originX, originY + dims);
+                        context.closePath();
+                        context.fill();
+                        context.stroke();
+                        break;
+                    }
+
+                    case enumSubShape.windmill: {
+                        context.beginPath();
+                        const dims = quadrantSize * layerScale;
+
+                        let originX = -quadrantHalfSize;
+                        let originY = quadrantHalfSize - dims;
+                        const moveInwards = dims * 0.4;
+                        context.moveTo(originX, originY + moveInwards);
+                        context.lineTo(originX + dims, originY);
+                        context.lineTo(originX + dims, originY + dims);
+                        context.lineTo(originX, originY + dims);
+                        context.closePath();
+                        context.fill();
+                        context.stroke();
+                        break;
+                    }
+
+                    case enumSubShape.circle: {
+                        context.beginPath();
+                        context.moveTo(-quadrantHalfSize, quadrantHalfSize);
+                        context.arc(
+                            -quadrantHalfSize,
+                            quadrantHalfSize,
+                            quadrantSize * layerScale,
+                            -Math.PI * 0.5,
+                            0
+                        );
+                        context.closePath();
+                        context.fill();
+                        context.stroke();
+                        break;
+                    }
+
+                    default: {
+                        throw new Error("Unkown sub shape: " + subShape);
+                    }
+                }
 
                 context.rotate(-rotation);
                 context.translate(-centerQuadrantX, -centerQuadrantY);
@@ -456,7 +456,7 @@ export class ShapeDefinition extends BasicSerializableObject {
                 layerIndex -= 1;
             }
         }
-        return new ShapeDefinition({ layers: newLayers });
+        return new ShapeDefinition({layers: newLayers});
     }
 
     /**
@@ -470,7 +470,7 @@ export class ShapeDefinition extends BasicSerializableObject {
             quadrants.unshift(quadrants[3]);
             quadrants.pop();
         }
-        return new ShapeDefinition({ layers: newLayers });
+        return new ShapeDefinition({layers: newLayers});
     }
 
     /**
@@ -484,7 +484,7 @@ export class ShapeDefinition extends BasicSerializableObject {
             quadrants.push(quadrants[0]);
             quadrants.shift();
         }
-        return new ShapeDefinition({ layers: newLayers });
+        return new ShapeDefinition({layers: newLayers});
     }
 
     /**
@@ -497,7 +497,7 @@ export class ShapeDefinition extends BasicSerializableObject {
             const quadrants = newLayers[layerIndex];
             quadrants.push(quadrants.shift(), quadrants.shift());
         }
-        return new ShapeDefinition({ layers: newLayers });
+        return new ShapeDefinition({layers: newLayers});
     }
 
     /**
@@ -568,7 +568,7 @@ export class ShapeDefinition extends BasicSerializableObject {
         // Limit to 4 layers at max
         mergedLayers.splice(4);
 
-        return new ShapeDefinition({ layers: mergedLayers });
+        return new ShapeDefinition({layers: mergedLayers});
     }
 
     /**
@@ -587,7 +587,7 @@ export class ShapeDefinition extends BasicSerializableObject {
                 }
             }
         }
-        return new ShapeDefinition({ layers: newLayers });
+        return new ShapeDefinition({layers: newLayers});
     }
 
     /**
@@ -606,6 +606,6 @@ export class ShapeDefinition extends BasicSerializableObject {
                 }
             }
         }
-        return new ShapeDefinition({ layers: newLayers });
+        return new ShapeDefinition({layers: newLayers});
     }
 }

@@ -26,16 +26,16 @@ export const enumClippedBeltUnderlayType = {
  */
 
 export class BeltUnderlaysComponent extends Component {
-    static getId() {
-        return "BeltUnderlays";
-    }
-
     /**
      * @param {object} param0
      * @param {Array<BeltUnderlayTile>=} param0.underlays Where to render belt underlays
      */
-    constructor({ underlays = [] }) {
+    constructor({underlays = []}) {
         super();
         this.underlays = underlays;
+    }
+
+    static getId() {
+        return "BeltUnderlays";
     }
 }

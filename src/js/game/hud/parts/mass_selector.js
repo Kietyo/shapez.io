@@ -21,7 +21,8 @@ import {Component} from "../../component";
 const logger = createLogger("hud/mass_selector");
 
 export class HUDMassSelector extends BaseHUDPart {
-    createElements(parent) {}
+    createElements(parent) {
+    }
 
     initialize() {
         this.currentSelectionStartWorld = null;
@@ -81,7 +82,7 @@ export class HUDMassSelector extends BaseHUDPart {
             !this.root.app.settings.getAllSettings().disableCutDeleteWarnings &&
             this.selectedUids.size > 100
         ) {
-            const { ok } = this.root.hud.parts.dialogs.showWarning(
+            const {ok} = this.root.hud.parts.dialogs.showWarning(
                 T.dialogs.massDeleteConfirm.title,
                 T.dialogs.massDeleteConfirm.desc.replace(
                     "<count>",
@@ -165,7 +166,7 @@ export class HUDMassSelector extends BaseHUDPart {
             !this.root.app.settings.getAllSettings().disableCutDeleteWarnings &&
             this.selectedUids.size > 100
         ) {
-            const { ok } = this.root.hud.parts.dialogs.showWarning(
+            const {ok} = this.root.hud.parts.dialogs.showWarning(
                 T.dialogs.massCutConfirm.title,
                 T.dialogs.massCutConfirm.desc.replace(
                     "<count>",
@@ -201,7 +202,7 @@ export class HUDMassSelector extends BaseHUDPart {
             if (blueprint.canAfford(this.root)) {
                 cutAction();
             } else {
-                const { cancel, ok } = this.root.hud.parts.dialogs.showWarning(
+                const {cancel, ok} = this.root.hud.parts.dialogs.showWarning(
                     T.dialogs.massCutInsufficientConfirm.title,
                     T.dialogs.massCutInsufficientConfirm.desc,
                     ["cancel:good:escape", "ok:bad:enter"]

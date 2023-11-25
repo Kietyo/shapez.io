@@ -46,6 +46,7 @@ export class EntityManager extends BasicSerializableObject {
             nextUid: types.uint,
         };
     }
+
 // Main update
     update() {
         this.processDestroyList();

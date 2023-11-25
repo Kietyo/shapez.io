@@ -28,6 +28,7 @@ export class TrackedState {
             }
         }
     }
+
     get() {
         return this.lastSeenValue;
     }

@@ -2,6 +2,14 @@ import {BasicSerializableObject} from "../savegame/serialization";
 
 export class Component extends BasicSerializableObject {
     /**
+     * Fixes typeof DerivedComponent is not assignable to typeof Component, compiled out
+     * in non-dev builds
+     */
+    constructor(...args) {
+        super();
+    }
+
+    /**
      * Returns the components unique id
      * @returns {string}
      * @abstract
@@ -22,22 +30,17 @@ export class Component extends BasicSerializableObject {
      * Copy the current state to another component
      * @param {Component} otherComponent
      */
-    copyAdditionalStateTo(otherComponent) {}
-
-    /**
-     * Clears all items and state
-     */
-    clear() {}
+    copyAdditionalStateTo(otherComponent) {
+    }
 
     /* dev:start */
 
     /**
-     * Fixes typeof DerivedComponent is not assignable to typeof Component, compiled out
-     * in non-dev builds
+     * Clears all items and state
      */
-    constructor(...args) {
-        super();
+    clear() {
     }
+
     /* dev:end */
 }
 

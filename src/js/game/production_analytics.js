@@ -13,10 +13,6 @@ export const enumAnalyticsDataSource = {
 };
 
 export class ProductionAnalytics extends BasicSerializableObject {
-    static getId() {
-        return "ProductionAnalytics";
-    }
-
     /**
      * @param {GameRoot} root
      */
@@ -38,6 +34,10 @@ export class ProductionAnalytics extends BasicSerializableObject {
         this.root.signals.itemProduced.add(this.onItemProduced, this);
 
         this.lastAnalyticsSlice = 0;
+    }
+
+    static getId() {
+        return "ProductionAnalytics";
     }
 
     /**

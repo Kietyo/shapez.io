@@ -253,6 +253,7 @@ body {
 #ll_preload_error > .inner .discordLink a {
     color: #39f;
 }
+
 #ll_preload_error > .inner .discordLink strong {
     font-weight: 900 !important;
 }

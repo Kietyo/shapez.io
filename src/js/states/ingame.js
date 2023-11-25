@@ -28,6 +28,7 @@ export const GAME_LOADING_STATES = {
     destroyed: "destroyed",
     initFailed: "initFailed",
 };
+
 // Typehints
 export class GameCreationPayload {
     constructor() {
@@ -111,6 +112,7 @@ export class InGameState extends GameState {
     getHasFadeIn() {
         return false;
     }
+
     getHasUnloadConfirmation() {
         return true;
     }
@@ -135,7 +137,7 @@ export class InGameState extends GameState {
      * Goes back to the menu state
      */
     goBackToMenu() {
-            this.saveThenGoToState("MainMenuState");
+        this.saveThenGoToState("MainMenuState");
     }
 
     /**
@@ -202,7 +204,7 @@ export class InGameState extends GameState {
         if (this.switchStage(GAME_LOADING_STATES.initFailed)) {
             logger.error("Init failure:", err);
             this.stageDestroyed();
-            this.moveToState("MainMenuState", { loadError: err });
+            this.moveToState("MainMenuState", {loadError: err});
         }
     }
 
@@ -215,7 +217,7 @@ export class InGameState extends GameState {
         if (this.switchStage(GAME_LOADING_STATES.s3_createCore)) {
             logger.log("Waiting for resources to load");
 
-            this.app.backgroundResourceLoader.resourceStateChangedSignal.add(({ progress }) => {
+            this.app.backgroundResourceLoader.resourceStateChangedSignal.add(({progress}) => {
                 this.loadingOverlay.loadingIndicator.innerText = T.global.loadingResources.replace(
                     "<percentage>",
                     (progress * 100.0).toFixed(1)
@@ -225,7 +227,7 @@ export class InGameState extends GameState {
             this.app.backgroundResourceLoader.getIngamePromise().then(
                 () => {
 
-                        this.app.sound.playThemeMusic(MUSIC.theme);
+                    this.app.sound.playThemeMusic(MUSIC.theme);
 
                     this.loadingOverlay.loadingIndicator.innerText = "";
                     this.app.backgroundResourceLoader.resourceStateChangedSignal.removeAll();

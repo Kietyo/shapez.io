@@ -12,7 +12,8 @@ import {BaseHUDPart} from "../base_hud_part";
 const logger = createLogger("screenshot_exporter");
 
 export class HUDScreenshotExporter extends BaseHUDPart {
-    createElements() {}
+    createElements() {
+    }
 
     initialize() {
         this.root.keyMapper.getBinding(KEYMAPPINGS.ingame.exportScreenshot).add(this.startExport, this);
@@ -24,7 +25,7 @@ export class HUDScreenshotExporter extends BaseHUDPart {
             return;
         }
 
-        const { ok } = this.root.hud.parts.dialogs.showInfo(
+        const {ok} = this.root.hud.parts.dialogs.showInfo(
             T.dialogs.exportScreenshotWarning.title,
             T.dialogs.exportScreenshotWarning.desc,
             ["cancel:good", "ok:bad"]

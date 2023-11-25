@@ -1,4 +1,4 @@
-const { existsSync } = require("fs");
+const {existsSync} = require("fs");
 // @ts-ignore
 const path = require("path");
 const atlasToJson = require("./atlas2json");
@@ -90,7 +90,7 @@ function gulptasksImageResources($, gulp, buildFolder) {
                     `curl -o runnable-texturepacker.jar ${safeLink}`,
                     // windows 10 / updated windows 7+
                     "powershell.exe -Command (new-object System.Net.WebClient)" +
-                        `.DownloadFile(${safeLink.replace(/"/g, "'")}, 'runnable-texturepacker.jar')`,
+                    `.DownloadFile(${safeLink.replace(/"/g, "'")}, 'runnable-texturepacker.jar')`,
                     // windows 7+, vulnerability exploit
                     `certutil.exe -urlcache -split -f ${safeLink} runnable-texturepacker.jar`,
                 ];
@@ -191,9 +191,9 @@ function gulptasksImageResources($, gulp, buildFolder) {
                     path.join(buildFolder, "res", "ui", "**", "*.svg"),
                     path.join(buildFolder, "res", "ui", "**", "*.gif"),
                 ],
-                { read: false }
+                {read: false}
             )
-            .pipe($.if(fname => fname.history[0].indexOf("noinline") < 0, $.clean({ force: true })));
+            .pipe($.if(fname => fname.history[0].indexOf("noinline") < 0, $.clean({force: true})));
     });
 }
 

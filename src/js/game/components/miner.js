@@ -7,19 +7,7 @@ import {typeItemSingleton} from "../item_resolver";
 const chainBufferSize = 6;
 
 export class MinerComponent extends Component {
-    static getId() {
-        return "Miner";
-    }
-
-    static getSchema() {
-        // cachedMinedItem is not serialized.
-        return {
-            lastMiningTime: types.ufloat,
-            itemChainBuffer: types.array(typeItemSingleton),
-        };
-    }
-
-    constructor({ chainable = false }) {
+    constructor({chainable = false}) {
         super();
         this.lastMiningTime = 0;
         this.chainable = chainable;
@@ -37,6 +25,18 @@ export class MinerComponent extends Component {
         this.cachedChainedMiner = null;
 
         this.clear();
+    }
+
+    static getId() {
+        return "Miner";
+    }
+
+    static getSchema() {
+        // cachedMinedItem is not serialized.
+        return {
+            lastMiningTime: types.ufloat,
+            itemChainBuffer: types.array(typeItemSingleton),
+        };
     }
 
     clear() {

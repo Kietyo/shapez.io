@@ -3,7 +3,7 @@
  * Run `yarn global add canvas` first
  */
 
-const { createCanvas } = require("canvas");
+const {createCanvas} = require("canvas");
 const fs = require("fs");
 const path = require("path");
 

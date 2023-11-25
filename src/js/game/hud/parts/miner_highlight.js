@@ -7,7 +7,8 @@ import {THEME} from "../../theme";
 import {BaseHUDPart} from "../base_hud_part";
 
 export class HUDMinerHighlight extends BaseHUDPart {
-    initialize() {}
+    initialize() {
+    }
 
     /**
      *

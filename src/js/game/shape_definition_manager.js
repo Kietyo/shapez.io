@@ -8,10 +8,6 @@ import {enumSubShape, ShapeDefinition} from "./shape_definition";
 const logger = createLogger("shape_definition_manager");
 
 export class ShapeDefinitionManager extends BasicSerializableObject {
-    static getId() {
-        return "ShapeDefinitionManager";
-    }
-
     /**
      *
      * @param {GameRoot} root
@@ -34,6 +30,10 @@ export class ShapeDefinitionManager extends BasicSerializableObject {
         // Caches operations in the form of 'operation/def1[/def2]'
         /** @type {Object.<string, Array<ShapeDefinition>|ShapeDefinition>} */
         this.operationCache = {};
+    }
+
+    static getId() {
+        return "ShapeDefinitionManager";
     }
 
     /**
@@ -71,6 +71,7 @@ export class ShapeDefinitionManager extends BasicSerializableObject {
     getShapeItemFromDefinition(definition) {
         return this.getShapeItemFromShortKey(definition.getHash());
     }
+
     /**
      * Generates a definition for splitting a shape definition in two halfs
      * @param {ShapeDefinition} definition
@@ -104,7 +105,7 @@ export class ShapeDefinitionManager extends BasicSerializableObject {
 
         return /** @type {[ShapeDefinition, ShapeDefinition, ShapeDefinition, ShapeDefinition]} */ (this.operationCache[
             key
-        ] = [
+            ] = [
             this.registerOrReturnHandle(definition.cloneFilteredByQuadrants([0])),
             this.registerOrReturnHandle(definition.cloneFilteredByQuadrants([1])),
             this.registerOrReturnHandle(definition.cloneFilteredByQuadrants([2])),
@@ -241,9 +242,9 @@ export class ShapeDefinitionManager extends BasicSerializableObject {
      */
     getDefinitionFromSimpleShapes(subShapes, color = enumColors.uncolored) {
         const shapeLayer = /** @type {import("./shape_definition").ShapeLayer} */ (subShapes.map(
-            subShape => ({ subShape, color })
+            subShape => ({subShape, color})
         ));
 
-        return this.registerOrReturnHandle(new ShapeDefinition({ layers: [shapeLayer] }));
+        return this.registerOrReturnHandle(new ShapeDefinition({layers: [shapeLayer]}));
     }
 }

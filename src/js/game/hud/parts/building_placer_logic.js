@@ -21,6 +21,91 @@ import {safeModulo} from "../../../core/utils";
  */
 export class HUDBuildingPlacerLogic extends BaseHUDPart {
     /**
+     * Returns the current base rotation for the current meta-building.
+     * @returns {number}
+     */
+    get currentBaseRotation() {
+        if (!this.root.app.settings.getAllSettings().rotationByBuilding) {
+            return this.currentBaseRotationGeneral;
+        }
+        const metaBuilding = this.currentMetaBuilding.get();
+        if (metaBuilding && this.preferredBaseRotations.hasOwnProperty(metaBuilding.getId())) {
+            return this.preferredBaseRotations[metaBuilding.getId()];
+        } else {
+            return this.currentBaseRotationGeneral;
+        }
+    }
+
+    /**
+     * Sets the base rotation for the current meta-building.
+     * @param {number} rotation The new rotation/angle.
+     */
+    set currentBaseRotation(rotation) {
+        if (!this.root.app.settings.getAllSettings().rotationByBuilding) {
+            this.currentBaseRotationGeneral = rotation;
+        } else {
+            const metaBuilding = this.currentMetaBuilding.get();
+            if (metaBuilding) {
+                this.preferredBaseRotations[metaBuilding.getId()] = rotation;
+            } else {
+                this.currentBaseRotationGeneral = rotation;
+            }
+        }
+    }
+
+    /**
+     * Returns if the direction lock is currently active
+     * @returns {boolean}
+     */
+    get isDirectionLockActive() {
+        const metaBuilding = this.currentMetaBuilding.get();
+        return (
+            metaBuilding &&
+            metaBuilding.getHasDirectionLockAvailable(this.currentVariant.get()) &&
+            this.root.keyMapper.getBinding(KEYMAPPINGS.placementModifiers.lockBeltDirection).pressed
+        );
+    }
+
+    /**
+     * Returns the current direction lock corner, that is, the corner between
+     * mouse and original start point
+     * @returns {Vector|null}
+     */
+    get currentDirectionLockCorner() {
+        const mousePosition = this.root.app.mousePosition;
+        if (!mousePosition) {
+            // Not on screen
+            return null;
+        }
+
+        if (!this.lastDragTile) {
+            // Haven't dragged yet
+            return null;
+        }
+
+        // Figure which points the line visits
+        const worldPos = this.root.camera.screenToWorld(mousePosition);
+        const mouseTile = worldPos.toTileSpace();
+
+        // Figure initial direction
+        const dx = Math.abs(this.lastDragTile.x - mouseTile.x);
+        const dy = Math.abs(this.lastDragTile.y - mouseTile.y);
+        if (dx === 0 && dy === 0) {
+            // Back at the start. Try a new direction.
+            this.currentDirectionLockSideIndeterminate = true;
+        } else if (this.currentDirectionLockSideIndeterminate) {
+            this.currentDirectionLockSideIndeterminate = false;
+            this.currentDirectionLockSide = dx <= dy ? 0 : 1;
+        }
+
+        if (this.currentDirectionLockSide === 0) {
+            return new Vector(this.lastDragTile.x, mouseTile.y);
+        } else {
+            return new Vector(mouseTile.x, this.lastDragTile.y);
+        }
+    }
+
+    /**
      * Initializes the logic
      * @see BaseHUDPart.initialize
      */
@@ -147,91 +232,6 @@ export class HUDBuildingPlacerLogic extends BaseHUDPart {
                 // This layer doesn't fit the edit mode anymore
                 this.currentMetaBuilding.set(null);
             }
-        }
-    }
-
-    /**
-     * Returns the current base rotation for the current meta-building.
-     * @returns {number}
-     */
-    get currentBaseRotation() {
-        if (!this.root.app.settings.getAllSettings().rotationByBuilding) {
-            return this.currentBaseRotationGeneral;
-        }
-        const metaBuilding = this.currentMetaBuilding.get();
-        if (metaBuilding && this.preferredBaseRotations.hasOwnProperty(metaBuilding.getId())) {
-            return this.preferredBaseRotations[metaBuilding.getId()];
-        } else {
-            return this.currentBaseRotationGeneral;
-        }
-    }
-
-    /**
-     * Sets the base rotation for the current meta-building.
-     * @param {number} rotation The new rotation/angle.
-     */
-    set currentBaseRotation(rotation) {
-        if (!this.root.app.settings.getAllSettings().rotationByBuilding) {
-            this.currentBaseRotationGeneral = rotation;
-        } else {
-            const metaBuilding = this.currentMetaBuilding.get();
-            if (metaBuilding) {
-                this.preferredBaseRotations[metaBuilding.getId()] = rotation;
-            } else {
-                this.currentBaseRotationGeneral = rotation;
-            }
-        }
-    }
-
-    /**
-     * Returns if the direction lock is currently active
-     * @returns {boolean}
-     */
-    get isDirectionLockActive() {
-        const metaBuilding = this.currentMetaBuilding.get();
-        return (
-            metaBuilding &&
-            metaBuilding.getHasDirectionLockAvailable(this.currentVariant.get()) &&
-            this.root.keyMapper.getBinding(KEYMAPPINGS.placementModifiers.lockBeltDirection).pressed
-        );
-    }
-
-    /**
-     * Returns the current direction lock corner, that is, the corner between
-     * mouse and original start point
-     * @returns {Vector|null}
-     */
-    get currentDirectionLockCorner() {
-        const mousePosition = this.root.app.mousePosition;
-        if (!mousePosition) {
-            // Not on screen
-            return null;
-        }
-
-        if (!this.lastDragTile) {
-            // Haven't dragged yet
-            return null;
-        }
-
-        // Figure which points the line visits
-        const worldPos = this.root.camera.screenToWorld(mousePosition);
-        const mouseTile = worldPos.toTileSpace();
-
-        // Figure initial direction
-        const dx = Math.abs(this.lastDragTile.x - mouseTile.x);
-        const dy = Math.abs(this.lastDragTile.y - mouseTile.y);
-        if (dx === 0 && dy === 0) {
-            // Back at the start. Try a new direction.
-            this.currentDirectionLockSideIndeterminate = true;
-        } else if (this.currentDirectionLockSideIndeterminate) {
-            this.currentDirectionLockSideIndeterminate = false;
-            this.currentDirectionLockSide = dx <= dy ? 0 : 1;
-        }
-
-        if (this.currentDirectionLockSide === 0) {
-            return new Vector(this.lastDragTile.x, mouseTile.y);
-        } else {
-            return new Vector(mouseTile.x, this.lastDragTile.y);
         }
     }
 
@@ -420,7 +420,7 @@ export class HUDBuildingPlacerLogic extends BaseHUDPart {
      * Checks if the direction lock key got released and if such, resets the placement
      * @param {any} args
      */
-    checkForDirectionLockSwitch({ keyCode }) {
+    checkForDirectionLockSwitch({keyCode}) {
         if (
             keyCode ===
             this.root.keyMapper.getBinding(KEYMAPPINGS.placementModifiers.lockBeltDirection).keyCode
@@ -440,7 +440,7 @@ export class HUDBuildingPlacerLogic extends BaseHUDPart {
         }
 
         const metaBuilding = this.currentMetaBuilding.get();
-        const { rotation, rotationVariant } = metaBuilding.computeOptimalDirectionAndRotationVariantAtTile({
+        const {rotation, rotationVariant} = metaBuilding.computeOptimalDirectionAndRotationVariantAtTile({
             root: this.root,
             tile,
             rotation: this.currentBaseRotation,
@@ -542,7 +542,7 @@ export class HUDBuildingPlacerLogic extends BaseHUDPart {
         // Perform this in bulk to avoid recalculations
         this.root.logic.performBulkOperation(() => {
             for (let i = 0; i < path.length; ++i) {
-                const { rotation, tile } = path[i];
+                const {rotation, tile} = path[i];
                 this.currentBaseRotation = rotation;
                 if (this.tryPlaceCurrentBuildingAt(tile)) {
                     anythingPlaced = true;

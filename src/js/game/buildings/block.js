@@ -34,5 +34,6 @@ export class MetaBlockBuilding extends MetaBuilding {
      * Creates the entity at the given location
      * @param {Entity} entity
      */
-    setupEntityComponents(entity) {}
+    setupEntityComponents(entity) {
+    }
 }

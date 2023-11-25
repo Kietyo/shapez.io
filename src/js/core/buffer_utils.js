@@ -102,7 +102,7 @@ export function clearBufferBacklog() {
  * @param {Number} h
  * @returns {[HTMLCanvasElement, CanvasRenderingContext2D]}
  */
-export function makeOffscreenBuffer(w, h, { smooth = true, reusable = true, label = "buffer" }) {
+export function makeOffscreenBuffer(w, h, {smooth = true, reusable = true, label = "buffer"}) {
     assert(w > 0 && h > 0, "W or H < 0");
     if (w % 1 !== 0 || h % 1 !== 0) {
         // console.warn("Subpixel offscreen buffer size:", w, h);
@@ -128,7 +128,7 @@ export function makeOffscreenBuffer(w, h, { smooth = true, reusable = true, labe
     const bucket = freeCanvasBuckets.get(w * h) || [];
 
     for (let i = 0; i < bucket.length; ++i) {
-        const { canvas: useableCanvas, context: useableContext } = bucket[i];
+        const {canvas: useableCanvas, context: useableContext} = bucket[i];
         if (useableCanvas.width === w && useableCanvas.height === h) {
             // Ok we found one
             canvas = useableCanvas;
@@ -197,7 +197,7 @@ export function makeOffscreenBuffer(w, h, { smooth = true, reusable = true, labe
  * @param {HTMLCanvasElement} canvas
  */
 export function registerCanvas(canvas, context) {
-    registeredCanvas.push({ canvas, context });
+    registeredCanvas.push({canvas, context});
 
     stats.bufferCount += 1;
     const bytesUsed = getBufferVramUsageBytes(canvas);

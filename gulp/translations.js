@@ -13,7 +13,7 @@ function gulptasksTranslations($, gulp) {
         return gulp
             .src(path.join(translationsSourceDir, "*.yaml"))
             .pipe($.plumber())
-            .pipe(gulpYaml({ space: 2, safe: true }))
+            .pipe(gulpYaml({space: 2, safe: true}))
             .pipe(gulp.dest(translationsJsonDir));
     });
 
@@ -31,7 +31,7 @@ function gulptasksTranslations($, gulp) {
 
                 const destpath = path.join(translationsSourceDir, "tmp", languageName + "-store.txt");
 
-                const contents = fs.readFileSync(abspath, { encoding: "utf-8" });
+                const contents = fs.readFileSync(abspath, {encoding: "utf-8"});
                 const data = YAML.parse(contents);
 
                 const storePage = data.steamPage;

@@ -14,7 +14,7 @@ module.exports = {
 
     getAllResourceImages() {
         return glob
-            .sync("res/**/*.@(png|svg|jpg)", { cwd: ".." })
+            .sync("res/**/*.@(png|svg|jpg)", {cwd: ".."})
             .map(f => f.replace(/^res\//gi, ""))
             .filter(f => {
                 if (f.indexOf("ui") >= 0) {

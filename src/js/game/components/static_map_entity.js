@@ -8,6 +8,34 @@ import {getBuildingDataFromCode} from "../building_codes";
 import {Component} from "../component";
 
 export class StaticMapEntityComponent extends Component {
+    /**
+     *
+     * @param {object} param0
+     * @param {Vector=} param0.origin Origin (Top Left corner) of the entity
+     * @param {Vector=} param0.tileSize Size of the entity in tiles
+     * @param {number=} param0.rotation Rotation in degrees. Must be multiple of 90
+     * @param {number=} param0.originalRotation Original Rotation in degrees. Must be multiple of 90
+     * @param {number|string=} param0.code Building code
+     */
+    constructor({
+                    origin = new Vector(),
+                    tileSize = new Vector(1, 1),
+                    rotation = 0,
+                    originalRotation = 0,
+                    code = 0,
+                }) {
+        super();
+        assert(
+            rotation % 90 === 0,
+            "Rotation of static map entity must be multiple of 90 (was " + rotation + ")"
+        );
+
+        this.origin = origin;
+        this.rotation = rotation;
+        this.code = code;
+        this.originalRotation = originalRotation;
+    }
+
     static getId() {
         return "StaticMapEntity";
     }
@@ -93,34 +121,6 @@ export class StaticMapEntityComponent extends Component {
     }
 
     /**
-     *
-     * @param {object} param0
-     * @param {Vector=} param0.origin Origin (Top Left corner) of the entity
-     * @param {Vector=} param0.tileSize Size of the entity in tiles
-     * @param {number=} param0.rotation Rotation in degrees. Must be multiple of 90
-     * @param {number=} param0.originalRotation Original Rotation in degrees. Must be multiple of 90
-     * @param {number|string=} param0.code Building code
-     */
-    constructor({
-        origin = new Vector(),
-        tileSize = new Vector(1, 1),
-        rotation = 0,
-        originalRotation = 0,
-        code = 0,
-    }) {
-        super();
-        assert(
-            rotation % 90 === 0,
-            "Rotation of static map entity must be multiple of 90 (was " + rotation + ")"
-        );
-
-        this.origin = origin;
-        this.rotation = rotation;
-        this.code = code;
-        this.originalRotation = originalRotation;
-    }
-
-    /**
      * Returns the effective rectangle of this entity in tile space
      * @returns {Rectangle}
      */
@@ -139,6 +139,7 @@ export class StaticMapEntityComponent extends Component {
                 assert(false, "Invalid rotation");
         }
     }
+
     /**
      * Transforms the given vector/rotation from world space to local space
      * @param {Vector} vector

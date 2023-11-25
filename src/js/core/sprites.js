@@ -39,7 +39,7 @@ export class SpriteAtlasLink {
      * @param {number} param0.h
      * @param {HTMLImageElement|HTMLCanvasElement} param0.atlas
      */
-    constructor({ w, h, packedX, packedY, packOffsetX, packOffsetY, packedW, packedH, atlas }) {
+    constructor({w, h, packedX, packedY, packOffsetX, packOffsetY, packedW, packedH, atlas}) {
         this.packedX = packedX;
         this.packedY = packedY;
         this.packedW = packedW;
@@ -65,6 +65,7 @@ export class AtlasSprite extends BaseSprite {
 
         this.frozen = false;
     }
+
     /**
      * Draws the sprite onto a regular context using no contexts
      * @see {BaseSprite.draw}
@@ -79,12 +80,12 @@ export class AtlasSprite extends BaseSprite {
         if (!link) {
             throw new Error(
                 "draw: Link for " +
-                    this.spriteName +
-                    " not known: " +
-                    ORIGINAL_SPRITE_SCALE +
-                    " (having " +
-                    Object.keys(this.linksByResolution) +
-                    ")"
+                this.spriteName +
+                " not known: " +
+                ORIGINAL_SPRITE_SCALE +
+                " (having " +
+                Object.keys(this.linksByResolution) +
+                ")"
             );
         }
 
@@ -156,12 +157,12 @@ export class AtlasSprite extends BaseSprite {
         if (!link) {
             throw new Error(
                 "drawCached: Link for " +
-                    this.spriteName +
-                    " at scale " +
-                    scale +
-                    " not known (having " +
-                    Object.keys(this.linksByResolution) +
-                    ")"
+                this.spriteName +
+                " at scale " +
+                scale +
+                " not known (having " +
+                Object.keys(this.linksByResolution) +
+                ")"
             );
         }
 
@@ -242,12 +243,12 @@ export class AtlasSprite extends BaseSprite {
         if (!link) {
             throw new Error(
                 "drawCachedWithClipRect: Link for " +
-                    this.spriteName +
-                    " at scale " +
-                    scale +
-                    " not known (having " +
-                    Object.keys(this.linksByResolution) +
-                    ")"
+                this.spriteName +
+                " at scale " +
+                scale +
+                " not known (having " +
+                Object.keys(this.linksByResolution) +
+                ")"
             );
         }
 
@@ -282,6 +283,7 @@ export class AtlasSprite extends BaseSprite {
             destH + 2 * EXTRUDE
         );
     }
+
     /**
      * Returns the html to render as icon
      * @param {number} w
@@ -293,11 +295,11 @@ export class AtlasSprite extends BaseSprite {
         if (!link) {
             throw new Error(
                 "getAsHTML: Link for " +
-                    this.spriteName +
-                    " at scale 0.5" +
-                    " not known (having " +
-                    Object.keys(this.linksByResolution) +
-                    ")"
+                this.spriteName +
+                " at scale 0.5" +
+                " not known (having " +
+                Object.keys(this.linksByResolution) +
+                ")"
             );
         }
 
@@ -358,6 +360,7 @@ export class RegularSprite extends BaseSprite {
         this.h = h;
         this.sprite = sprite;
     }
+
     /**
      * Draws the sprite, do *not* use this for sprites which are rendered! Only for drawing
      * images into buffers

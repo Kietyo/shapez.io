@@ -263,7 +263,7 @@ export class MapChunk {
         const chunkCenter = new Vector(this.x, this.y).addScalar(0.5);
         const distanceToOriginInChunks = Math.round(chunkCenter.length());
 
-        this.generatePatches({ rng, chunkCenter, distanceToOriginInChunks });
+        this.generatePatches({rng, chunkCenter, distanceToOriginInChunks});
     }
 
     /**
@@ -273,7 +273,7 @@ export class MapChunk {
      * @param {Vector} param0.chunkCenter
      * @param {number} param0.distanceToOriginInChunks
      */
-    generatePatches({ rng, chunkCenter, distanceToOriginInChunks }) {
+    generatePatches({rng, chunkCenter, distanceToOriginInChunks}) {
         // Determine how likely it is that there is a color patch
         const colorPatchChance = 0.9 - clamp(distanceToOriginInChunks / 25, 0, 1) * 0.5;
 
@@ -378,6 +378,7 @@ export class MapChunk {
             return this.wireContents[localX][localY] || null;
         }
     }
+
     /**
      * Returns the contents of this chunk from the given world space coordinates
      * @param {number} worldX
@@ -404,6 +405,7 @@ export class MapChunk {
         }
         return result;
     }
+
     /**
      * Sets the chunks contents
      * @param {number} tileX

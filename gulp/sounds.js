@@ -7,7 +7,7 @@ function gulptasksSounds($, gulp, buildFolder) {
     const builtSoundsDir = path.join(__dirname, "..", "res_built", "sounds");
 
     gulp.task("sounds.clear", () => {
-        return gulp.src(builtSoundsDir, { read: false, allowEmpty: true }).pipe($.clean({ force: true }));
+        return gulp.src(builtSoundsDir, {read: false, allowEmpty: true}).pipe($.clean({force: true}));
     });
 
     const filters = ["volume=0.2"];
@@ -17,9 +17,9 @@ function gulptasksSounds($, gulp, buildFolder) {
     });
 
     function getFileCacheValue(file) {
-        const { _isVinyl, base, cwd, contents, history, stat, path } = file;
+        const {_isVinyl, base, cwd, contents, history, stat, path} = file;
         const encodedContents = Buffer.from(contents).toString("base64");
-        return { _isVinyl, base, cwd, contents: encodedContents, history, stat, path };
+        return {_isVinyl, base, cwd, contents: encodedContents, history, stat, path};
     }
 
     // Encodes the game music

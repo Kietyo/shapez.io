@@ -72,6 +72,7 @@ export class RandomNumberGenerator {
     constructor(seed) {
         this.internalRng = makeNewRng(seed || Math.random());
     }
+
     /**
      * @returns {number} between 0 and 1
      */

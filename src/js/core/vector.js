@@ -64,6 +64,90 @@ export class Vector {
     }
 
     /**
+     * Helper method to rotate a direction
+     * @param {enumDirection} direction
+     * @param {number} angle
+     * @returns {enumDirection}
+     */
+    static transformDirectionFromMultipleOf90(direction, angle) {
+        if (angle === 0 || angle === 360) {
+            return direction;
+        }
+        assert(angle >= 0 && angle <= 360, "Invalid angle: " + angle);
+        switch (direction) {
+            case enumDirection.top: {
+                switch (angle) {
+                    case 90:
+                        return enumDirection.right;
+                    case 180:
+                        return enumDirection.bottom;
+                    case 270:
+                        return enumDirection.left;
+                    default:
+                        assertAlways(false, "Invalid angle: " + angle);
+                        return;
+                }
+            }
+
+            case enumDirection.right: {
+                switch (angle) {
+                    case 90:
+                        return enumDirection.bottom;
+                    case 180:
+                        return enumDirection.left;
+                    case 270:
+                        return enumDirection.top;
+                    default:
+                        assertAlways(false, "Invalid angle: " + angle);
+                        return;
+                }
+            }
+
+            case enumDirection.bottom: {
+                switch (angle) {
+                    case 90:
+                        return enumDirection.left;
+                    case 180:
+                        return enumDirection.top;
+                    case 270:
+                        return enumDirection.right;
+                    default:
+                        assertAlways(false, "Invalid angle: " + angle);
+                        return;
+                }
+            }
+
+            case enumDirection.left: {
+                switch (angle) {
+                    case 90:
+                        return enumDirection.top;
+                    case 180:
+                        return enumDirection.right;
+                    case 270:
+                        return enumDirection.bottom;
+                    default:
+                        assertAlways(false, "Invalid angle: " + angle);
+                        return;
+                }
+            }
+            default:
+                assertAlways(false, "Invalid angle: " + angle);
+                return;
+        }
+    }
+
+    /**
+     * Deserializes a vector from a serialized json object
+     * @param {object} obj
+     * @returns {Vector}
+     */
+    static fromSerializedObject(obj) {
+        if (obj) {
+            return new Vector(obj.x || 0, obj.y || 0);
+        }
+    }
+
+    /**
      * return a copy of the vector
      * @returns {Vector}
      */
@@ -110,6 +194,7 @@ export class Vector {
         this.y -= other.y;
         return this;
     }
+
     /**
      * Adds two scalars and return a new vector
      * @param {number} x
@@ -119,6 +204,7 @@ export class Vector {
     addScalars(x, y) {
         return new Vector(this.x + x, this.y + y);
     }
+
     /**
      * Substracts two scalars and return a new vector
      * @param {number} x
@@ -153,6 +239,7 @@ export class Vector {
     divideScalar(f) {
         return new Vector(this.x / f, this.y / f);
     }
+
     /**
      * Divides both components by a scalar
      * @param {number} f
@@ -172,6 +259,7 @@ export class Vector {
     multiplyScalar(f) {
         return new Vector(this.x * f, this.y * f);
     }
+
     /**
      * Adds a scalar to both components and return a new vector
      * @param {number} f
@@ -198,6 +286,7 @@ export class Vector {
     max(v) {
         return new Vector(Math.max(v.x, this.x), Math.max(v.y, this.y));
     }
+
     /**
      * Computes the scalar product
      * @param {Vector} v
@@ -278,6 +367,7 @@ export class Vector {
     toTileSpace() {
         return new Vector(Math.floor(this.x / tileSize), Math.floor(this.y / tileSize));
     }
+
     /**
      * Converts this vector to world space and return a new vector
      * @returns {Vector}
@@ -293,6 +383,7 @@ export class Vector {
     toWorldSpaceCenterOfTile() {
         return new Vector(this.x * tileSize + halfTileSize, this.y * tileSize + halfTileSize);
     }
+
     /**
      * Normalizes the vector, dividing by the length(), and return a new vector
      * @returns {Vector}
@@ -301,6 +392,7 @@ export class Vector {
         const len = Math.max(1e-5, Math.hypot(this.x, this.y));
         return new Vector(this.x / len, this.y / len);
     }
+
     /**
      * Returns the unnormalized direction to the other point
      * @param {Vector} v
@@ -337,6 +429,7 @@ export class Vector {
         const cos = Math.cos(angle);
         return new Vector(this.x * cos - this.y * sin, this.x * sin + this.y * cos);
     }
+
     /**
      * Rotates this vector
      * @param {number} angle
@@ -367,79 +460,6 @@ export class Vector {
     }
 
     /**
-     * Helper method to rotate a direction
-     * @param {enumDirection} direction
-     * @param {number} angle
-     * @returns {enumDirection}
-     */
-    static transformDirectionFromMultipleOf90(direction, angle) {
-        if (angle === 0 || angle === 360) {
-            return direction;
-        }
-        assert(angle >= 0 && angle <= 360, "Invalid angle: " + angle);
-        switch (direction) {
-            case enumDirection.top: {
-                switch (angle) {
-                    case 90:
-                        return enumDirection.right;
-                    case 180:
-                        return enumDirection.bottom;
-                    case 270:
-                        return enumDirection.left;
-                    default:
-                        assertAlways(false, "Invalid angle: " + angle);
-                        return;
-                }
-            }
-
-            case enumDirection.right: {
-                switch (angle) {
-                    case 90:
-                        return enumDirection.bottom;
-                    case 180:
-                        return enumDirection.left;
-                    case 270:
-                        return enumDirection.top;
-                    default:
-                        assertAlways(false, "Invalid angle: " + angle);
-                        return;
-                }
-            }
-
-            case enumDirection.bottom: {
-                switch (angle) {
-                    case 90:
-                        return enumDirection.left;
-                    case 180:
-                        return enumDirection.top;
-                    case 270:
-                        return enumDirection.right;
-                    default:
-                        assertAlways(false, "Invalid angle: " + angle);
-                        return;
-                }
-            }
-
-            case enumDirection.left: {
-                switch (angle) {
-                    case 90:
-                        return enumDirection.top;
-                    case 180:
-                        return enumDirection.right;
-                    case 270:
-                        return enumDirection.bottom;
-                    default:
-                        assertAlways(false, "Invalid angle: " + angle);
-                        return;
-                }
-            }
-            default:
-                assertAlways(false, "Invalid angle: " + angle);
-                return;
-        }
-    }
-
-    /**
      * Compares both vectors for epsilon equality
      * @param {Vector} v
      * @returns {Boolean}
@@ -454,16 +474,6 @@ export class Vector {
      */
     angle() {
         return Math.atan2(this.y, this.x) + Math.PI / 2;
-    }
-    /**
-     * Deserializes a vector from a serialized json object
-     * @param {object} obj
-     * @returns {Vector}
-     */
-    static fromSerializedObject(obj) {
-        if (obj) {
-            return new Vector(obj.x || 0, obj.y || 0);
-        }
     }
 }
 

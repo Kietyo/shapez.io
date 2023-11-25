@@ -46,40 +46,6 @@ export class ReadWriteProxy {
 
     // -- Methods to override
 
-    /** @returns {ExplainedResult} */
-    verify(data) {
-        abstract;
-        return ExplainedResult.bad();
-    }
-
-    // Should return the default data
-    getDefaultData() {
-        abstract;
-        return {};
-    }
-
-    // Should return the current version as an integer
-    getCurrentVersion() {
-        abstract;
-        return 0;
-    }
-
-    // Should migrate the data (Modify in place)
-    /** @returns {ExplainedResult} */
-    migrate(data) {
-        abstract;
-        return ExplainedResult.bad();
-    }
-
-    // -- / Methods
-
-    // Resets whole data, returns promise
-    resetEverythingAsync() {
-        logger.warn("Reset data to default");
-        this.currentData = this.getDefaultData();
-        return this.writeAsync();
-    }
-
     /**
      *
      * @param {object} obj
@@ -121,6 +87,40 @@ export class ReadWriteProxy {
         const parsed = JSON.parse(jsonString);
         const decoded = decompressObject(parsed);
         return decoded;
+    }
+
+    /** @returns {ExplainedResult} */
+    verify(data) {
+        abstract;
+        return ExplainedResult.bad();
+    }
+
+    // Should return the default data
+    getDefaultData() {
+        abstract;
+        return {};
+    }
+
+    // -- / Methods
+
+    // Should return the current version as an integer
+    getCurrentVersion() {
+        abstract;
+        return 0;
+    }
+
+    // Should migrate the data (Modify in place)
+    /** @returns {ExplainedResult} */
+    migrate(data) {
+        abstract;
+        return ExplainedResult.bad();
+    }
+
+    // Resets whole data, returns promise
+    resetEverythingAsync() {
+        logger.warn("Reset data to default");
+        this.currentData = this.getDefaultData();
+        return this.writeAsync();
     }
 
     /**

@@ -271,11 +271,11 @@ export class UndergroundBeltSystem extends GameSystemWithFilter {
                 break;
             }
 
-            return { entity: potentialReceiver, distance: searchOffset };
+            return {entity: potentialReceiver, distance: searchOffset};
         }
 
         // None found
-        return { entity: null, distance: 0 };
+        return {entity: null, distance: 0};
     }
 
     /**

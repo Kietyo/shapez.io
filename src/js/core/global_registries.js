@@ -9,9 +9,9 @@ import {Factory} from "./factory";
  * @typedef {import("../game/meta_building").MetaBuilding} MetaBuilding
 
 
-// These factories are here to remove circular dependencies
+ // These factories are here to remove circular dependencies
 
-/** @type {SingletonFactoryTemplate<MetaBuilding>} */
+ /** @type {SingletonFactoryTemplate<MetaBuilding>} */
 export let gMetaBuildingRegistry = new SingletonFactory();
 /** @type {FactoryTemplate<Component>} */
 export let gComponentRegistry = new Factory("component");

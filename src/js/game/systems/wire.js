@@ -205,14 +205,14 @@ export class WireSystem extends GameSystem {
     findNetworkForEjector(initialEntity, slot) {
         let currentNetwork = new WireNetwork();
         VERBOSE_WIRES &&
-            logger.log(
-                "Finding network for entity",
-                initialEntity.uid,
-                initialEntity.components.StaticMapEntity.origin.toString(),
-                "(nw-id:",
-                currentNetwork.uid,
-                ")"
-            );
+        logger.log(
+            "Finding network for entity",
+            initialEntity.uid,
+            initialEntity.components.StaticMapEntity.origin.toString(),
+            "(nw-id:",
+            currentNetwork.uid,
+            ")"
+        );
         const entitiesToVisit = [
             {
                 entity: initialEntity,
@@ -246,11 +246,11 @@ export class WireSystem extends GameSystem {
                 assert(
                     !wireComp.linkedNetwork || wireComp.linkedNetwork === currentNetwork,
                     "Mismatching wire network on wire entity " +
-                        (wireComp.linkedNetwork ? wireComp.linkedNetwork.uid : "<empty>") +
-                        " vs " +
-                        currentNetwork.uid +
-                        " @ " +
-                        staticComp.origin.toString()
+                    (wireComp.linkedNetwork ? wireComp.linkedNetwork.uid : "<empty>") +
+                    " vs " +
+                    currentNetwork.uid +
+                    " @ " +
+                    staticComp.origin.toString()
                 );
 
                 if (!wireComp.linkedNetwork) {
@@ -277,10 +277,10 @@ export class WireSystem extends GameSystem {
 
                 if (slot.type === enumPinSlotType.logicalEjector) {
                     VERBOSE_WIRES &&
-                        logger.log("  Visiting ejector slot", staticComp.origin.toString(), "->", slot.type);
+                    logger.log("  Visiting ejector slot", staticComp.origin.toString(), "->", slot.type);
                 } else if (slot.type === enumPinSlotType.logicalAcceptor) {
                     VERBOSE_WIRES &&
-                        logger.log("  Visiting acceptor slot", staticComp.origin.toString(), "->", slot.type);
+                    logger.log("  Visiting acceptor slot", staticComp.origin.toString(), "->", slot.type);
                 } else {
                     assertAlways(false, "Bad slot type: " + slot.type);
                 }
@@ -289,9 +289,9 @@ export class WireSystem extends GameSystem {
                 assert(
                     !slot.linkedNetwork || slot.linkedNetwork === currentNetwork,
                     "Mismatching wire network on pin slot entity " +
-                        (slot.linkedNetwork ? slot.linkedNetwork.uid : "<empty>") +
-                        " vs " +
-                        currentNetwork.uid
+                    (slot.linkedNetwork ? slot.linkedNetwork.uid : "<empty>") +
+                    " vs " +
+                    currentNetwork.uid
                 );
                 if (!slot.linkedNetwork) {
                     // This one is new
@@ -299,15 +299,15 @@ export class WireSystem extends GameSystem {
 
                     // Add to the right list
                     if (slot.type === enumPinSlotType.logicalEjector) {
-                        currentNetwork.providers.push({ entity: nextEntity, slot });
+                        currentNetwork.providers.push({entity: nextEntity, slot});
                     } else if (slot.type === enumPinSlotType.logicalAcceptor) {
-                        currentNetwork.receivers.push({ entity: nextEntity, slot });
+                        currentNetwork.receivers.push({entity: nextEntity, slot});
                     } else {
                         assertAlways(false, "unknown slot type:" + slot.type);
                     }
 
                     // Register on the network
-                    currentNetwork.allSlots.push({ entity: nextEntity, slot });
+                    currentNetwork.allSlots.push({entity: nextEntity, slot});
                     slot.linkedNetwork = currentNetwork;
 
                     // Specify where to search next
@@ -371,14 +371,14 @@ export class WireSystem extends GameSystem {
         let result = [];
 
         VERBOSE_WIRES &&
-            logger.log(
-                "    Searching for new targets at",
-                initialTile.toString(),
-                "and d=",
-                directions,
-                "with mask=",
-                variantMask
-            );
+        logger.log(
+            "    Searching for new targets at",
+            initialTile.toString(),
+            "and d=",
+            directions,
+            "with mask=",
+            variantMask
+        );
 
         // Go over all directions we should search for
         for (let i = 0; i < directions.length; ++i) {
@@ -406,7 +406,7 @@ export class WireSystem extends GameSystem {
             }
 
             for (let k = 0; k < contents.length; ++k) {
-                const { entity, tile } = contents[k];
+                const {entity, tile} = contents[k];
                 const wireComp = entity.components.Wire;
 
                 // Check for wire
@@ -467,14 +467,14 @@ export class WireSystem extends GameSystem {
                     // Compute where this tunnel connects to
                     const forwardedTile = staticComp.origin.add(offset);
                     VERBOSE_WIRES &&
-                        logger.log(
-                            "   Found tunnel",
-                            entity.uid,
-                            "at",
-                            tile,
-                            "-> forwarding to",
-                            forwardedTile
-                        );
+                    logger.log(
+                        "   Found tunnel",
+                        entity.uid,
+                        "at",
+                        tile,
+                        "-> forwarding to",
+                        forwardedTile
+                    );
 
                     // Figure out which entities are connected
                     const connectedContents = this.root.map.getLayersContentsMultipleXY(
@@ -608,7 +608,7 @@ export class WireSystem extends GameSystem {
                     const wireComp = entity.components.Wire;
                     const wireType = wireComp.type;
 
-                    const { opacity, spriteSet } = this.getSpriteSetAndOpacityForWire(wireComp);
+                    const {opacity, spriteSet} = this.getSpriteSetAndOpacityForWire(wireComp);
 
                     const sprite = spriteSet[wireType];
 

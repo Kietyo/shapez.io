@@ -110,6 +110,7 @@ const globalSchemaCache = {};
 
 /* dev:start */
 const classnamesCache = {};
+
 /* dev:end*/
 
 export class BasicSerializableObject {
@@ -118,7 +119,8 @@ export class BasicSerializableObject {
      * Fixes typeof DerivedComponent is not assignable to typeof Component, compiled out
      * in non-dev builds
      */
-    constructor(...args) {}
+    constructor(...args) {
+    }
 
     /* dev:end */
 
@@ -157,6 +159,11 @@ export class BasicSerializableObject {
         return schema;
     }
 
+    /** @returns {string|void} */
+    static verify(data) {
+        return verifySchema(this.getCachedSchema(), data);
+    }
+
     /** @returns {object | string | number} */
     serialize() {
         return serializeSchema(
@@ -178,11 +185,6 @@ export class BasicSerializableObject {
             null,
             root
         );
-    }
-
-    /** @returns {string|void} */
-    static verify(data) {
-        return verifySchema(this.getCachedSchema(), data);
     }
 }
 

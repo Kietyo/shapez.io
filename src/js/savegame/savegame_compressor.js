@@ -54,11 +54,11 @@ if (G_IS_DEV) {
         if (decompressInt(compressInt(i)) !== i) {
             throw new Error(
                 "Bad compression for: " +
-                    i +
-                    " compressed: " +
-                    compressInt(i) +
-                    " decompressed: " +
-                    decompressInt(compressInt(i))
+                i +
+                " compressed: " +
+                compressInt(i) +
+                " decompressed: " +
+                decompressInt(compressInt(i))
             );
         }
     }

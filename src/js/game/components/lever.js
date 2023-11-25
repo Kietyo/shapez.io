@@ -2,6 +2,15 @@ import {Component} from "../component";
 import {types} from "../../savegame/serialization";
 
 export class LeverComponent extends Component {
+    /**
+     * @param {object} param0
+     * @param {boolean=} param0.toggled
+     */
+    constructor({toggled = false}) {
+        super();
+        this.toggled = toggled;
+    }
+
     static getId() {
         return "Lever";
     }
@@ -18,14 +27,5 @@ export class LeverComponent extends Component {
      */
     copyAdditionalStateTo(otherComponent) {
         otherComponent.toggled = this.toggled;
-    }
-
-    /**
-     * @param {object} param0
-     * @param {boolean=} param0.toggled
-     */
-    constructor({ toggled = false }) {
-        super();
-        this.toggled = toggled;
     }
 }

@@ -201,13 +201,13 @@ export class MetaWireBuilding extends MetaBuilding {
      * @param {string} param0.layer
      * @return {{ rotation: number, rotationVariant: number, connectedEntities?: Array<Entity> }}
      */
-    computeOptimalDirectionAndRotationVariantAtTile({ root, tile, rotation, variant, layer }) {
+    computeOptimalDirectionAndRotationVariantAtTile({root, tile, rotation, variant, layer}) {
         const wireVariant = enumWireVariantToVariant[variant];
         const connections = {
-            top: root.logic.computeWireEdgeStatus({ tile, wireVariant, edge: enumDirection.top }),
-            right: root.logic.computeWireEdgeStatus({ tile, wireVariant, edge: enumDirection.right }),
-            bottom: root.logic.computeWireEdgeStatus({ tile, wireVariant, edge: enumDirection.bottom }),
-            left: root.logic.computeWireEdgeStatus({ tile, wireVariant, edge: enumDirection.left }),
+            top: root.logic.computeWireEdgeStatus({tile, wireVariant, edge: enumDirection.top}),
+            right: root.logic.computeWireEdgeStatus({tile, wireVariant, edge: enumDirection.right}),
+            bottom: root.logic.computeWireEdgeStatus({tile, wireVariant, edge: enumDirection.bottom}),
+            left: root.logic.computeWireEdgeStatus({tile, wireVariant, edge: enumDirection.left}),
         };
 
         let flag = 0;

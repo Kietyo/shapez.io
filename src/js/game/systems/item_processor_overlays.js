@@ -50,7 +50,7 @@ export class ItemProcessorOverlaysSystem extends GameSystem {
 
                 switch (requirement) {
                     case enumItemProcessorRequirements.painterQuad: {
-                        this.drawConnectedSlotRequirement(parameters, entity, { drawIfFalse: true });
+                        this.drawConnectedSlotRequirement(parameters, entity, {drawIfFalse: true});
                         break;
                     }
                 }
@@ -67,7 +67,7 @@ export class ItemProcessorOverlaysSystem extends GameSystem {
                 }
                 this.drawnUids.add(entity.uid);
 
-                this.drawConnectedSlotRequirement(parameters, entity, { drawIfFalse: false });
+                this.drawConnectedSlotRequirement(parameters, entity, {drawIfFalse: false});
             }
         }
     }
@@ -107,7 +107,7 @@ export class ItemProcessorOverlaysSystem extends GameSystem {
      * @param {object} param0
      * @param {boolean=} param0.drawIfFalse
      */
-    drawConnectedSlotRequirement(parameters, entity, { drawIfFalse = true }) {
+    drawConnectedSlotRequirement(parameters, entity, {drawIfFalse = true}) {
         const staticComp = entity.components.StaticMapEntity;
         const pinsComp = entity.components.WiredPins;
 

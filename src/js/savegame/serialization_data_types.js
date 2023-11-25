@@ -60,7 +60,8 @@ export class BaseDataType {
      * @param {any} value
      * @returns {string|void} String error code or null on success
      */
-    verifySerializedValue(value) {}
+    verifySerializedValue(value) {
+    }
 
     /**
      * Deserializes a serialized value into the target object under the given key
@@ -243,7 +244,7 @@ export class TypePositiveIntegerOrString extends BaseDataType {
 
     getAsJsonSchemaUncached() {
         return {
-            oneOf: [{ type: "integer", minimum: 0 }, { type: "string" }],
+            oneOf: [{type: "integer", minimum: 0}, {type: "string"}],
         };
     }
 
@@ -316,6 +317,7 @@ export class TypeString extends BaseDataType {
     deserialize(value, targetObject, targetKey, root) {
         targetObject[targetKey] = value;
     }
+
     getAsJsonSchemaUncached() {
         return {
             type: "string",
@@ -375,6 +377,7 @@ export class TypeVector extends BaseDataType {
         return "vector";
     }
 }
+
 export class TypeNumber extends BaseDataType {
     serialize(value) {
         assert(Number.isFinite(value), "Type number got non number for serialize: " + value);
@@ -631,7 +634,7 @@ export class TypeClass extends BaseDataType {
             );
         }
 
-        return { oneOf: options };
+        return {oneOf: options};
     }
 
     /**
@@ -703,7 +706,7 @@ export class TypeClassData extends BaseDataType {
                 schemaToJsonSchema(/** @type {typeof BasicSerializableObject} */ (entry).getCachedSchema())
             );
         }
-        return { oneOf: options };
+        return {oneOf: options};
     }
 
     /**
@@ -728,6 +731,7 @@ export class TypeClassData extends BaseDataType {
         return "class." + this.registry.getId();
     }
 }
+
 export class TypeArray extends BaseDataType {
     /**
      * @param {BaseDataType} innerType
@@ -788,6 +792,7 @@ export class TypeArray extends BaseDataType {
         return "array." + this.innerType.getCacheKey();
     }
 }
+
 export class TypeKeyValueMap extends BaseDataType {
     /**
      * @param {BaseDataType} valueType
@@ -857,6 +862,7 @@ export class TypeKeyValueMap extends BaseDataType {
         return "kvmap." + this.valueType.getCacheKey();
     }
 }
+
 export class TypePair extends BaseDataType {
     /**
      * @param {BaseDataType} type1

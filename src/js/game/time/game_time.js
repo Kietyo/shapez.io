@@ -52,6 +52,7 @@ export class GameTime extends BasicSerializableObject {
     updateRealtimeNow() {
         this.realtimeSeconds = performance.now() / 1000.0 + this.realtimeAdjust;
     }
+
     /**
      * Internal method to generate new logic time budget
      * @param {number} deltaMs
@@ -142,9 +143,11 @@ export class GameTime extends BasicSerializableObject {
     systemNow() {
         return (this.realtimeSeconds - this.realtimeAdjust) * 1000.0;
     }
+
     getSpeed() {
         return this.speed;
     }
+
     deserialize(data) {
         const errorCode = super.deserialize(data);
         if (errorCode) {

@@ -23,7 +23,7 @@ export class HUDBaseToolbar extends BaseHUDPart {
      */
     constructor(
         root,
-        { primaryBuildings, secondaryBuildings = [], visibilityCondition, htmlElementId, layer = "regular" }
+        {primaryBuildings, secondaryBuildings = [], visibilityCondition, htmlElementId, layer = "regular"}
     ) {
         super(root);
 
@@ -42,6 +42,14 @@ export class HUDBaseToolbar extends BaseHUDPart {
          * puzzleLocked: boolean;
          * }>} */
         this.buildingHandles = {};
+    }
+
+    /**
+     * Returns all buildings
+     * @returns {Array<typeof MetaBuilding>}
+     */
+    get allBuildings() {
+        return [...this.primaryBuildings, ...this.secondaryBuildings];
     }
 
     /**
@@ -68,14 +76,6 @@ export class HUDBaseToolbar extends BaseHUDPart {
         }
 
         return filtered;
-    }
-
-    /**
-     * Returns all buildings
-     * @returns {Array<typeof MetaBuilding>}
-     */
-    get allBuildings() {
-        return [...this.primaryBuildings, ...this.secondaryBuildings];
     }
 
     initialize() {
@@ -271,6 +271,7 @@ export class HUDBaseToolbar extends BaseHUDPart {
         this.root.hud.signals.buildingSelectedForPlacement.dispatch(metaBuilding);
         this.onSelectedPlacementBuildingChanged(metaBuilding);
     }
+
     /**
      * @param {MetaBuilding} metaBuilding
      */

@@ -35,7 +35,7 @@ export class Savegame extends ReadWriteProxy {
      * @param {string} param0.internalId
      * @param {SavegameMetadata} param0.metaDataRef Handle to the meta data
      */
-    constructor(app, { internalId, metaDataRef }) {
+    constructor(app, {internalId, metaDataRef}) {
         super(app, "savegame-" + internalId + ".bin");
         this.internalId = internalId;
         this.metaDataRef = metaDataRef;
@@ -169,6 +169,7 @@ export class Savegame extends ReadWriteProxy {
     isSaveable() {
         return true;
     }
+
     /**
      * Returns the *real* last update of the savegame, not the one of the metadata
      * which could also be the servers one
@@ -191,6 +192,7 @@ export class Savegame extends ReadWriteProxy {
     getCurrentDump() {
         return this.currentData.dump;
     }
+
     /**
      * Returns a reader to access external data
      * @returns {BaseSavegameInterface}

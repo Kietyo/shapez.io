@@ -79,7 +79,7 @@ export class HUDWaypoints extends BaseHUDPart {
         this.waypoints = [];
         this.waypoints.push({
             label: null,
-            center: { x: 0, y: 0 },
+            center: {x: 0, y: 0},
             zoomLevel: 3,
             layer: gMetaBuildingRegistry.findByClass(MetaHubBuilding).getLayer(),
         });
@@ -96,10 +96,10 @@ export class HUDWaypoints extends BaseHUDPart {
         }
 
         // Catch mouse and key events
-            this.root.camera.downPreHandler.add(this.onMouseDown, this);
-            this.root.keyMapper
-                .getBinding(KEYMAPPINGS.navigation.createMarker)
-                .add(() => this.requestSaveMarker({}));
+        this.root.camera.downPreHandler.add(this.onMouseDown, this);
+        this.root.keyMapper
+            .getBinding(KEYMAPPINGS.navigation.createMarker)
+            .add(() => this.requestSaveMarker({}));
 
         /**
          * Stores at how much opacity the markers should be rendered on the map.
@@ -114,7 +114,7 @@ export class HUDWaypoints extends BaseHUDPart {
             reusable: false,
             label: "waypoints-compass",
         });
-        this.compassBuffer = { canvas, context };
+        this.compassBuffer = {canvas, context};
 
         /**
          * Stores a cache from a shape short key to its canvas representation
@@ -194,7 +194,7 @@ export class HUDWaypoints extends BaseHUDPart {
 
             if (this.isWaypointDeletable(waypoint)) {
                 const editButton = makeDiv(element, null, ["editButton"]);
-                this.trackClicks(editButton, () => this.requestSaveMarker({ waypoint }));
+                this.trackClicks(editButton, () => this.requestSaveMarker({waypoint}));
             }
 
             if (!waypoint.label) {
@@ -252,7 +252,7 @@ export class HUDWaypoints extends BaseHUDPart {
      * @param {Vector=} param0.worldPos Override the world pos, otherwise it is the camera position
      * @param {Waypoint=} param0.waypoint Waypoint to be edited. If omitted, create new
      */
-    requestSaveMarker({ worldPos = null, waypoint = null }) {
+    requestSaveMarker({worldPos = null, waypoint = null}) {
         // Construct dialog with input field
         const markerNameInput = new FormElementInput({
             id: "markerName",
@@ -311,7 +311,7 @@ export class HUDWaypoints extends BaseHUDPart {
     addWaypoint(label, position) {
         this.waypoints.push({
             label,
-            center: { x: position.x, y: position.y },
+            center: {x: position.x, y: position.y},
             zoomLevel: this.root.camera.zoomLevel,
             layer: this.root.currentLayer,
         });
@@ -472,7 +472,7 @@ export class HUDWaypoints extends BaseHUDPart {
             } else if (button === enumMouseButton.right) {
                 if (this.isWaypointDeletable(waypoint)) {
                     this.root.soundProxy.playUiClick();
-                    this.requestSaveMarker({ waypoint });
+                    this.requestSaveMarker({waypoint});
                 } else {
                     this.root.soundProxy.playUiError();
                 }
@@ -484,7 +484,7 @@ export class HUDWaypoints extends BaseHUDPart {
             if (button === enumMouseButton.right) {
                 if (this.root.camera.getIsMapOverlayActive()) {
                     const worldPos = this.root.camera.screenToWorld(pos);
-                    this.requestSaveMarker({ worldPos });
+                    this.requestSaveMarker({worldPos});
                     return STOP_PROPAGATION;
                 }
             }

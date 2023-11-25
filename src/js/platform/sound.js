@@ -53,7 +53,8 @@ export class SoundInstanceInterface {
         abstract;
     }
 
-    deinitialize() {}
+    deinitialize() {
+    }
 }
 
 export class MusicInstanceInterface {
@@ -86,7 +87,8 @@ export class MusicInstanceInterface {
         return false;
     }
 
-    deinitialize() {}
+    deinitialize() {
+    }
 }
 
 export class SoundInterface {
@@ -172,6 +174,7 @@ export class SoundInterface {
         // @ts-ignore
         return Promise.all(...promises);
     }
+
     /**
      * Sets the music volume
      * @param {number} volume
@@ -218,6 +221,7 @@ export class SoundInterface {
         }
         this.sounds[key].play(this.soundVolume);
     }
+
     /**
      * @param {string} key
      */

@@ -139,6 +139,7 @@ export class Camera extends BasicSerializableObject {
     setDesiredZoom(zoom) {
         this.desiredZoom = zoom;
     }
+
     /**
      * Finds a good initial zoom level
      */
@@ -158,6 +159,7 @@ export class Camera extends BasicSerializableObject {
         );
         return finalLevel;
     }
+
     /**
      * Returns effective viewport width
      */
@@ -304,6 +306,7 @@ export class Camera extends BasicSerializableObject {
         const screenSpace = world.sub(this.center).multiplyScalar(this.zoomLevel);
         return screenSpace.addScalars(this.root.gameWidth / 2, this.root.gameHeight / 2);
     }
+
     getMaximumZoom() {
         return this.root.gameMode.getMaximumZoom();
     }
@@ -311,6 +314,7 @@ export class Camera extends BasicSerializableObject {
     getMinimumZoom() {
         return this.root.gameMode.getMinimumZoom();
     }
+
 // EVENTS
 
     /**
@@ -513,12 +517,12 @@ export class Camera extends BasicSerializableObject {
                 assert(
                     Number.isFinite(difference),
                     "Invalid pinch difference: " +
-                        difference +
-                        "(last=" +
-                        lastDistance +
-                        ", new = " +
-                        thisDistance +
-                        ")"
+                    difference +
+                    "(last=" +
+                    lastDistance +
+                    ", new = " +
+                    thisDistance +
+                    ")"
                 );
                 this.zoomLevel *= difference;
 

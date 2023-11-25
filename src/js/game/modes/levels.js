@@ -213,5 +213,5 @@ const STANDALONE_LEVELS = () => [
  * Generates the level definitions
  */
 export function generateLevelsForVariant(app) {
-        return STANDALONE_LEVELS();
+    return STANDALONE_LEVELS();
 }

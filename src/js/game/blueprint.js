@@ -81,7 +81,7 @@ export class Blueprint {
             const rect = staticComp.getTileSpaceBounds();
             rect.moveBy(tile.x, tile.y);
 
-            if (!parameters.root.logic.checkCanPlaceEntity(entity, { offset: tile })) {
+            if (!parameters.root.logic.checkCanPlaceEntity(entity, {offset: tile})) {
                 parameters.context.globalAlpha = 0.3;
             } else {
                 parameters.context.globalAlpha = 1;
@@ -119,6 +119,7 @@ export class Blueprint {
             this.rotateCw();
         }
     }
+
     /**
      * @param {GameRoot} root
      */
@@ -140,7 +141,7 @@ export class Blueprint {
                 let count = 0;
                 for (let i = 0; i < this.entities.length; ++i) {
                     const entity = this.entities[i];
-                    if (!root.logic.checkCanPlaceEntity(entity, { offset: tile })) {
+                    if (!root.logic.checkCanPlaceEntity(entity, {offset: tile})) {
                         continue;
                     }
 

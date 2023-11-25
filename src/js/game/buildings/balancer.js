@@ -162,7 +162,7 @@ export class MetaBalancerBuilding extends MetaBuilding {
             })
         );
 
-        entity.addComponent(new BeltUnderlaysComponent({ underlays: [] }));
+        entity.addComponent(new BeltUnderlaysComponent({underlays: []}));
     }
 
     /**
@@ -186,13 +186,13 @@ export class MetaBalancerBuilding extends MetaBuilding {
                 ]);
 
                 entity.components.ItemEjector.setSlots([
-                    { pos: new Vector(0, 0), direction: enumDirection.top },
-                    { pos: new Vector(1, 0), direction: enumDirection.top },
+                    {pos: new Vector(0, 0), direction: enumDirection.top},
+                    {pos: new Vector(1, 0), direction: enumDirection.top},
                 ]);
 
                 entity.components.BeltUnderlays.underlays = [
-                    { pos: new Vector(0, 0), direction: enumDirection.top },
-                    { pos: new Vector(1, 0), direction: enumDirection.top },
+                    {pos: new Vector(0, 0), direction: enumDirection.top},
+                    {pos: new Vector(1, 0), direction: enumDirection.top},
                 ];
 
                 break;
@@ -214,11 +214,11 @@ export class MetaBalancerBuilding extends MetaBuilding {
                 ]);
 
                 entity.components.ItemEjector.setSlots([
-                    { pos: new Vector(0, 0), direction: enumDirection.top },
+                    {pos: new Vector(0, 0), direction: enumDirection.top},
                 ]);
 
                 entity.components.BeltUnderlays.underlays = [
-                    { pos: new Vector(0, 0), direction: enumDirection.top },
+                    {pos: new Vector(0, 0), direction: enumDirection.top},
                 ];
 
                 break;
@@ -247,7 +247,7 @@ export class MetaBalancerBuilding extends MetaBuilding {
                 ]);
 
                 entity.components.BeltUnderlays.underlays = [
-                    { pos: new Vector(0, 0), direction: enumDirection.top },
+                    {pos: new Vector(0, 0), direction: enumDirection.top},
                 ];
 
                 break;

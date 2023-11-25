@@ -57,7 +57,7 @@ export class GameLogic {
      * @param {Vector=} param0.offset Optional, move the entity by the given offset first
      * @returns {boolean} true if the entity could be placed there
      */
-    checkCanPlaceEntity(entity, { allowReplaceBuildings = true, offset = null }) {
+    checkCanPlaceEntity(entity, {allowReplaceBuildings = true, offset = null}) {
         // Compute area of the building
         const rect = entity.components.StaticMapEntity.getTileSpaceBounds();
         if (offset) {
@@ -113,7 +113,7 @@ export class GameLogic {
      * @param {MetaBuilding} param0.building
      * @returns {Entity}
      */
-    tryPlaceBuilding({ origin, rotation, rotationVariant, originalRotation, variant, building }) {
+    tryPlaceBuilding({origin, rotation, rotationVariant, originalRotation, variant, building}) {
         const entity = building.createEntity({
             root: this.root,
             origin,
@@ -232,7 +232,7 @@ export class GameLogic {
      * @param {Vector} param0.tile The tile to check at
      * @param {enumDirection} param0.edge The edge to check for
      */
-    computeWireEdgeStatus({ wireVariant, tile, edge }) {
+    computeWireEdgeStatus({wireVariant, tile, edge}) {
         const offset = enumDirectionToVector[edge];
         const targetTile = tile.add(offset);
 
@@ -465,6 +465,6 @@ export class GameLogic {
                 }
             }
         }
-        return { ejectors, acceptors };
+        return {ejectors, acceptors};
     }
 }

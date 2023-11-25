@@ -13,7 +13,8 @@ import {BaseHUDPart} from "../base_hud_part";
  */
 
 export class HUDChangesDebugger extends BaseHUDPart {
-    createElements(parent) {}
+    createElements(parent) {
+    }
 
     initialize() {
         /** @type {Array<DebugChange>} */

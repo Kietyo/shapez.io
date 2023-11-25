@@ -25,4 +25,4 @@ const BUILD_VARIANTS = {
         buildArgs: {},
     },
 };
-module.exports = { BUILD_VARIANTS };
+module.exports = {BUILD_VARIANTS};

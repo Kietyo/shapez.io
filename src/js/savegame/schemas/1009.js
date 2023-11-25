@@ -6,14 +6,6 @@ const schema = require("./1009.json");
 const logger = createLogger("savegame_interface/1009");
 
 export class SavegameInterface_V1009 extends SavegameInterface_V1008 {
-    getVersion() {
-        return 1009;
-    }
-
-    getSchemaUncached() {
-        return schema;
-    }
-
     /**
      * @param {import("../savegame_typedefs.js").SavegameData} data
      */
@@ -30,5 +22,13 @@ export class SavegameInterface_V1009 extends SavegameInterface_V1008 {
                 data: {},
             },
         };
+    }
+
+    getVersion() {
+        return 1009;
+    }
+
+    getSchemaUncached() {
+        return schema;
     }
 }

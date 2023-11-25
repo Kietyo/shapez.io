@@ -45,7 +45,7 @@ export class HUDSettingsMenu extends BaseHUDPart {
         ];
 
         for (let i = 0; i < buttons.length; ++i) {
-            const { action, id } = buttons[i];
+            const {action, id} = buttons[i];
 
             const element = document.createElement("button");
             element.classList.add("styledButton");
@@ -61,7 +61,7 @@ export class HUDSettingsMenu extends BaseHUDPart {
     }
 
     returnToMenu() {
-            this.root.gameState.goBackToMenu();
+        this.root.gameState.goBackToMenu();
     }
 
     goToSettings() {
@@ -108,7 +108,7 @@ export class HUDSettingsMenu extends BaseHUDPart {
 
             buildingsPlacedElement.innerText = formatBigNumberFull(
                 this.root.entityMgr.getAllWithComponent(StaticMapEntityComponent).length -
-                    this.root.entityMgr.getAllWithComponent(BeltComponent).length
+                this.root.entityMgr.getAllWithComponent(BeltComponent).length
             );
 
             beltsPlacedElement.innerText = formatBigNumberFull(

@@ -27,8 +27,6 @@ import {HUDMinerHighlight} from "../hud/parts/miner_highlight";
 import {HUDGameMenu} from "../hud/parts/game_menu";
 import {HUDConstantSignalEdit} from "../hud/parts/constant_signal_edit";
 import {HUDKeybindingOverlay} from "../hud/parts/keybinding_overlay";
-import {HUDPartTutorialHints} from "../hud/parts/tutorial_hints";
-import {HUDInteractiveTutorial} from "../hud/parts/interactive_tutorial";
 import {MetaBlockBuilding} from "../buildings/block";
 import {MetaItemProducerBuilding} from "../buildings/item_producer";
 import {finalGameShape, generateLevelsForVariant} from "./levels";
@@ -76,9 +74,9 @@ function generateUpgrades(limitedVersion = false, difficulty = 1) {
     function generateInfiniteUnlocks() {
         return new Array(numEndgameUpgrades).fill(null).map((_, i) => ({
             required: [
-                { shape: preparementShape, amount: 30000 + i * 10000 },
-                { shape: finalGameShape, amount: 20000 + i * 5000 },
-                { shape: rocketShape, amount: 20000 + i * 5000 },
+                {shape: preparementShape, amount: 30000 + i * 10000},
+                {shape: finalGameShape, amount: 20000 + i * 5000},
+                {shape: rocketShape, amount: 20000 + i * 5000},
             ],
             excludePrevious: true,
         }));
@@ -100,28 +98,28 @@ function generateUpgrades(limitedVersion = false, difficulty = 1) {
     const upgrades = {
         belt: [
             {
-                required: [{ shape: "CuCuCuCu", amount: 30 }],
+                required: [{shape: "CuCuCuCu", amount: 30}],
             },
             {
-                required: [{ shape: "--CuCu--", amount: 500 }],
+                required: [{shape: "--CuCu--", amount: 500}],
             },
             {
-                required: [{ shape: "CpCpCpCp", amount: 1000 }],
+                required: [{shape: "CpCpCpCp", amount: 1000}],
             },
             {
-                required: [{ shape: "SrSrSrSr:CyCyCyCy", amount: 6000 }],
+                required: [{shape: "SrSrSrSr:CyCyCyCy", amount: 6000}],
             },
             {
-                required: [{ shape: "SrSrSrSr:CyCyCyCy:SwSwSwSw", amount: 25000 }],
+                required: [{shape: "SrSrSrSr:CyCyCyCy:SwSwSwSw", amount: 25000}],
             },
             {
-                required: [{ shape: preparementShape, amount: 25000 }],
+                required: [{shape: preparementShape, amount: 25000}],
                 excludePrevious: true,
             },
             {
                 required: [
-                    { shape: preparementShape, amount: 25000 },
-                    { shape: finalGameShape, amount: 50000 },
+                    {shape: preparementShape, amount: 25000},
+                    {shape: finalGameShape, amount: 50000},
                 ],
                 excludePrevious: true,
             },
@@ -130,16 +128,16 @@ function generateUpgrades(limitedVersion = false, difficulty = 1) {
 
         miner: [
             {
-                required: [{ shape: "RuRuRuRu", amount: 300 }],
+                required: [{shape: "RuRuRuRu", amount: 300}],
             },
             {
-                required: [{ shape: "Cu------", amount: 800 }],
+                required: [{shape: "Cu------", amount: 800}],
             },
             {
-                required: [{ shape: "ScScScSc", amount: 3500 }],
+                required: [{shape: "ScScScSc", amount: 3500}],
             },
             {
-                required: [{ shape: "CwCwCwCw:WbWbWbWb", amount: 23000 }],
+                required: [{shape: "CwCwCwCw:WbWbWbWb", amount: 23000}],
             },
             {
                 required: [
@@ -150,13 +148,13 @@ function generateUpgrades(limitedVersion = false, difficulty = 1) {
                 ],
             },
             {
-                required: [{ shape: preparementShape, amount: 25000 }],
+                required: [{shape: preparementShape, amount: 25000}],
                 excludePrevious: true,
             },
             {
                 required: [
-                    { shape: preparementShape, amount: 25000 },
-                    { shape: finalGameShape, amount: 50000 },
+                    {shape: preparementShape, amount: 25000},
+                    {shape: finalGameShape, amount: 50000},
                 ],
                 excludePrevious: true,
             },
@@ -165,28 +163,28 @@ function generateUpgrades(limitedVersion = false, difficulty = 1) {
 
         processors: [
             {
-                required: [{ shape: "SuSuSuSu", amount: 500 }],
+                required: [{shape: "SuSuSuSu", amount: 500}],
             },
             {
-                required: [{ shape: "RuRu----", amount: 600 }],
+                required: [{shape: "RuRu----", amount: 600}],
             },
             {
-                required: [{ shape: "CgScScCg", amount: 3500 }],
+                required: [{shape: "CgScScCg", amount: 3500}],
             },
             {
-                required: [{ shape: "CwCrCwCr:SgSgSgSg", amount: 25000 }],
+                required: [{shape: "CwCrCwCr:SgSgSgSg", amount: 25000}],
             },
             {
-                required: [{ shape: "WrRgWrRg:CwCrCwCr:SgSgSgSg", amount: 50000 }],
+                required: [{shape: "WrRgWrRg:CwCrCwCr:SgSgSgSg", amount: 50000}],
             },
             {
-                required: [{ shape: preparementShape, amount: 25000 }],
+                required: [{shape: preparementShape, amount: 25000}],
                 excludePrevious: true,
             },
             {
                 required: [
-                    { shape: preparementShape, amount: 25000 },
-                    { shape: finalGameShape, amount: 50000 },
+                    {shape: preparementShape, amount: 25000},
+                    {shape: finalGameShape, amount: 50000},
                 ],
                 excludePrevious: true,
             },
@@ -195,10 +193,10 @@ function generateUpgrades(limitedVersion = false, difficulty = 1) {
 
         painting: [
             {
-                required: [{ shape: "RbRb----", amount: 600 }],
+                required: [{shape: "RbRb----", amount: 600}],
             },
             {
-                required: [{ shape: "WrWrWrWr", amount: 3800 }],
+                required: [{shape: "WrWrWrWr", amount: 3800}],
             },
             {
                 required: [
@@ -209,19 +207,19 @@ function generateUpgrades(limitedVersion = false, difficulty = 1) {
                 ],
             },
             {
-                required: [{ shape: "WpWpWpWp:CwCwCwCw:WpWpWpWp", amount: 25000 }],
+                required: [{shape: "WpWpWpWp:CwCwCwCw:WpWpWpWp", amount: 25000}],
             },
             {
-                required: [{ shape: "WpWpWpWp:CwCwCwCw:WpWpWpWp:CwCwCwCw", amount: 50000 }],
+                required: [{shape: "WpWpWpWp:CwCwCwCw:WpWpWpWp:CwCwCwCw", amount: 50000}],
             },
             {
-                required: [{ shape: preparementShape, amount: 25000 }],
+                required: [{shape: preparementShape, amount: 25000}],
                 excludePrevious: true,
             },
             {
                 required: [
-                    { shape: preparementShape, amount: 25000 },
-                    { shape: finalGameShape, amount: 50000 },
+                    {shape: preparementShape, amount: 25000},
+                    {shape: finalGameShape, amount: 50000},
                 ],
                 excludePrevious: true,
             },
@@ -269,7 +267,7 @@ function generateUpgrades(limitedVersion = false, difficulty = 1) {
     if (G_IS_DEV) {
         for (const upgradeId in upgrades) {
             upgrades[upgradeId].forEach(tier => {
-                tier.required.forEach(({ shape }) => {
+                tier.required.forEach(({shape}) => {
                     try {
                         ShapeDefinition.fromShortKey(shape);
                     } catch (ex) {
@@ -295,7 +293,7 @@ export function generateLevelDefinitions(app) {
     }
     const levelDefinitions = generateLevelsForVariant(app);
     if (G_IS_DEV) {
-        levelDefinitions.forEach(({ shape }) => {
+        levelDefinitions.forEach(({shape}) => {
             try {
                 ShapeDefinition.fromShortKey(shape);
             } catch (ex) {
@@ -308,9 +306,6 @@ export function generateLevelDefinitions(app) {
 }
 
 export class RegularGameMode extends GameMode {
-    static getId() {
-        return enumGameModeIds.regular;
-    }
     /** @param {GameRoot} root */
     constructor(root) {
         super(root);
@@ -353,6 +348,10 @@ export class RegularGameMode extends GameMode {
             return 1;
         }
         return 0.5;
+    }
+
+    static getId() {
+        return enumGameModeIds.regular;
     }
 
     /**

@@ -9,22 +9,11 @@ import {ShapeItem} from "../items/shape_item";
  * [x: string]: (item: BaseItem) => Boolean
  * }} */
 export class StorageComponent extends Component {
-    static getId() {
-        return "Storage";
-    }
-
-    static getSchema() {
-        return {
-            storedCount: types.uint,
-            storedItem: types.nullable(typeItemSingleton),
-        };
-    }
-
     /**
      * @param {object} param0
      * @param {number=} param0.maximumStorage How much this storage can hold
      */
-    constructor({ maximumStorage = 1e20 }) {
+    constructor({maximumStorage = 1e20}) {
         super();
         this.maximumStorage = maximumStorage;
 
@@ -43,6 +32,17 @@ export class StorageComponent extends Component {
          * We compute an opacity to make sure it doesn't flicker
          */
         this.overlayOpacity = 0;
+    }
+
+    static getId() {
+        return "Storage";
+    }
+
+    static getSchema() {
+        return {
+            storedCount: types.uint,
+            storedItem: types.nullable(typeItemSingleton),
+        };
     }
 
     /**

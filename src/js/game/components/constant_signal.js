@@ -4,6 +4,16 @@ import {Component} from "../component";
 import {typeItemSingleton} from "../item_resolver";
 
 export class ConstantSignalComponent extends Component {
+    /**
+     *
+     * @param {object} param0
+     * @param {BaseItem=} param0.signal The signal to store
+     */
+    constructor({signal = null}) {
+        super();
+        this.signal = signal;
+    }
+
     static getId() {
         return "ConstantSignal";
     }
@@ -20,15 +30,5 @@ export class ConstantSignalComponent extends Component {
      */
     copyAdditionalStateTo(otherComponent) {
         otherComponent.signal = this.signal;
-    }
-
-    /**
-     *
-     * @param {object} param0
-     * @param {BaseItem=} param0.signal The signal to store
-     */
-    constructor({ signal = null }) {
-        super();
-        this.signal = signal;
     }
 }

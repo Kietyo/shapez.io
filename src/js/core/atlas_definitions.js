@@ -29,7 +29,7 @@ export class AtlasDefinition {
     /**
      * @param {SourceData} sourceData
      */
-    constructor({ frames, meta }) {
+    constructor({frames, meta}) {
         this.meta = meta;
         this.sourceData = frames;
         this.sourceFileName = meta.image;

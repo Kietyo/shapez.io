@@ -22,23 +22,23 @@ export class SettingsState extends TextualGameState {
 
 
             ${
-                this.app.platformWrapper.getSupportsKeyboard()
-                    ? `
+            this.app.platformWrapper.getSupportsKeyboard()
+                ? `
             <button class="styledButton categoryButton editKeybindings">
             ${T.keybindings.title}
             </button>`
-                    : ""
-            }
+                : ""
+        }
 
             <div class="other ${""}">
 
             ${
-                `
+            `
                 <button class="styledButton about">${T.about.title}</button>
                 <button class="styledButton privacy">Privacy Policy</button>
 
 `
-            }
+        }
                 <div class="versionbar">
                     ${`<div class="buildVersion">${T.global.loading} ...</div>`}
                 </div>
@@ -111,18 +111,18 @@ export class SettingsState extends TextualGameState {
         this.renderBuildText();
 
 
-            this.trackClicks(this.htmlElement.querySelector(".about"), this.onAboutClicked, {
-                preventDefault: false,
-            });
-            this.trackClicks(this.htmlElement.querySelector(".privacy"), this.onPrivacyClicked, {
-                preventDefault: false,
-            });
+        this.trackClicks(this.htmlElement.querySelector(".about"), this.onAboutClicked, {
+            preventDefault: false,
+        });
+        this.trackClicks(this.htmlElement.querySelector(".privacy"), this.onPrivacyClicked, {
+            preventDefault: false,
+        });
 
 
         const keybindingsButton = this.htmlElement.querySelector(".editKeybindings");
 
         if (keybindingsButton) {
-            this.trackClicks(keybindingsButton, this.onKeybindingsClicked, { preventDefault: false });
+            this.trackClicks(keybindingsButton, this.onKeybindingsClicked, {preventDefault: false});
         }
 
         this.initSettings();
@@ -165,7 +165,7 @@ export class SettingsState extends TextualGameState {
                 () => {
                     setting.modify();
                 },
-                { preventDefault: false }
+                {preventDefault: false}
             );
         });
     }
@@ -179,7 +179,7 @@ export class SettingsState extends TextualGameState {
                 () => {
                     this.setActiveCategory(category);
                 },
-                { preventDefault: false }
+                {preventDefault: false}
             );
         });
     }

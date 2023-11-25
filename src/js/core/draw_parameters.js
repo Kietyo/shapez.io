@@ -4,7 +4,7 @@
  */
 
 export class DrawParameters {
-    constructor({ context, visibleRect, desiredAtlasScale, zoomLevel, root }) {
+    constructor({context, visibleRect, desiredAtlasScale, zoomLevel, root}) {
         /** @type {CanvasRenderingContext2D} */
         this.context = context;
 

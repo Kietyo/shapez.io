@@ -7,6 +7,14 @@ import {enumColors} from "../colors";
 import {THEME} from "../theme";
 
 export class ColorItem extends BaseItem {
+    /**
+     * @param {enumColors} color
+     */
+    constructor(color) {
+        super();
+        this.color = color;
+    }
+
     static getId() {
         return "color";
     }
@@ -40,14 +48,6 @@ export class ColorItem extends BaseItem {
      */
     equalsImpl(other) {
         return this.color === /** @type {ColorItem} */ (other).color;
-    }
-
-    /**
-     * @param {enumColors} color
-     */
-    constructor(color) {
-        super();
-        this.color = color;
     }
 
     getBackgroundColorAsResource() {

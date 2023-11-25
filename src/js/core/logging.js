@@ -127,6 +127,7 @@ function preparePayload(key, value) {
     }
     return value;
 }
+
 export function globalDebug(context, ...args) {
     if (G_IS_DEV) {
         logInternal(context, console.log, prepareArgsForLogging(args));

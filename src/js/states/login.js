@@ -59,6 +59,7 @@ export class LoginState extends GameState {
     finishLoading() {
         this.moveToState(this.payload.nextStateId);
     }
+
     update() {
     }
 

@@ -155,7 +155,7 @@ function initializeSettings() {
                 /**
                  * @param {Application} app
                  */
-                (app, id) => app.updateAfterUiScaleChanged(),
+                    (app, id) => app.updateAfterUiScaleChanged(),
         }),
 
         new RangeSetting(
@@ -188,7 +188,7 @@ function initializeSettings() {
             },
             /**
              * @param {Application} app
-             */ app => G_IS_STANDALONE
+             */app => G_IS_STANDALONE
         ),
 
         new BoolSetting(
@@ -210,13 +210,13 @@ function initializeSettings() {
                 /**
                  * @param {Application} app
                  */
-                (app, id) => {
+                    (app, id) => {
                     applyGameTheme(id);
                     document.documentElement.setAttribute("data-theme", id);
                 },
             enabledCb: /**
              * @param {Application} app
-             */ app => true,
+             */app => true,
         }),
 
         new EnumSetting("autosaveInterval", {
@@ -229,7 +229,7 @@ function initializeSettings() {
                 /**
                  * @param {Application} app
                  */
-                (app, id) => null,
+                    (app, id) => null,
         }),
 
         new EnumSetting("scrollWheelSensitivity", {
@@ -242,7 +242,7 @@ function initializeSettings() {
                 /**
                  * @param {Application} app
                  */
-                (app, id) => app.updateAfterUiScaleChanged(),
+                    (app, id) => app.updateAfterUiScaleChanged(),
         }),
 
         new EnumSetting("movementSpeed", {
@@ -251,20 +251,32 @@ function initializeSettings() {
             textGetter: multiplier => T.settings.labels.movementSpeed.speeds[multiplier.id],
             category: enumCategories.advanced,
             restartRequired: false,
-            changeCb: (app, id) => {},
+            changeCb: (app, id) => {
+            },
         }),
 
-        new BoolSetting("enableMousePan", enumCategories.advanced, (app, value) => {}),
-        new BoolSetting("shapeTooltipAlwaysOn", enumCategories.advanced, (app, value) => {}),
-        new BoolSetting("alwaysMultiplace", enumCategories.advanced, (app, value) => {}),
-        new BoolSetting("zoomToCursor", enumCategories.advanced, (app, value) => {}),
-        new BoolSetting("clearCursorOnDeleteWhilePlacing", enumCategories.advanced, (app, value) => {}),
-        new BoolSetting("enableTunnelSmartplace", enumCategories.advanced, (app, value) => {}),
-        new BoolSetting("compactBuildingInfo", enumCategories.userInterface, (app, value) => {}),
-        new BoolSetting("disableCutDeleteWarnings", enumCategories.advanced, (app, value) => {}),
-        new BoolSetting("rotationByBuilding", enumCategories.advanced, (app, value) => {}),
-        new BoolSetting("displayChunkBorders", enumCategories.advanced, (app, value) => {}),
-        new BoolSetting("pickMinerOnPatch", enumCategories.advanced, (app, value) => {}),
+        new BoolSetting("enableMousePan", enumCategories.advanced, (app, value) => {
+        }),
+        new BoolSetting("shapeTooltipAlwaysOn", enumCategories.advanced, (app, value) => {
+        }),
+        new BoolSetting("alwaysMultiplace", enumCategories.advanced, (app, value) => {
+        }),
+        new BoolSetting("zoomToCursor", enumCategories.advanced, (app, value) => {
+        }),
+        new BoolSetting("clearCursorOnDeleteWhilePlacing", enumCategories.advanced, (app, value) => {
+        }),
+        new BoolSetting("enableTunnelSmartplace", enumCategories.advanced, (app, value) => {
+        }),
+        new BoolSetting("compactBuildingInfo", enumCategories.userInterface, (app, value) => {
+        }),
+        new BoolSetting("disableCutDeleteWarnings", enumCategories.advanced, (app, value) => {
+        }),
+        new BoolSetting("rotationByBuilding", enumCategories.advanced, (app, value) => {
+        }),
+        new BoolSetting("displayChunkBorders", enumCategories.advanced, (app, value) => {
+        }),
+        new BoolSetting("pickMinerOnPatch", enumCategories.advanced, (app, value) => {
+        }),
         new RangeSetting("mapResourcesScale", enumCategories.advanced, () => null),
 
         new EnumSetting("refreshRate", {
@@ -273,17 +285,22 @@ function initializeSettings() {
             textGetter: rate => T.settings.tickrateHz.replace("<amount>", rate),
             category: enumCategories.performance,
             restartRequired: false,
-            changeCb: (app, id) => {},
+            changeCb: (app, id) => {
+            },
             enabledCb: /**
              * @param {Application} app
-             */ app => true,
+             */app => true,
         }),
 
-        new BoolSetting("lowQualityMapResources", enumCategories.performance, (app, value) => {}),
-        new BoolSetting("disableTileGrid", enumCategories.performance, (app, value) => {}),
-        new BoolSetting("lowQualityTextures", enumCategories.performance, (app, value) => {}),
+        new BoolSetting("lowQualityMapResources", enumCategories.performance, (app, value) => {
+        }),
+        new BoolSetting("disableTileGrid", enumCategories.performance, (app, value) => {
+        }),
+        new BoolSetting("lowQualityTextures", enumCategories.performance, (app, value) => {
+        }),
 
-        new BoolSetting("simplifiedBelts", enumCategories.performance, (app, value) => {}),
+        new BoolSetting("simplifiedBelts", enumCategories.performance, (app, value) => {
+        }),
     ];
 }
 
@@ -489,6 +506,7 @@ export class ApplicationSettings extends ReadWriteProxy {
         delete this.getAllSettings().keybindingOverrides[id];
         return this.writeAsync();
     }
+
     /**
      * Resets all keybinding overrides
      */
@@ -519,14 +537,14 @@ export class ApplicationSettings extends ReadWriteProxy {
             if (!setting.validate(storedValue)) {
                 return ExplainedResult.bad(
                     "Bad setting value for " +
-                        setting.id +
-                        ": " +
-                        storedValue +
-                        " @ settings version " +
-                        data.version +
-                        " (latest is " +
-                        this.getCurrentVersion() +
-                        ")"
+                    setting.id +
+                    ": " +
+                    storedValue +
+                    " @ settings version " +
+                    data.version +
+                    " (latest is " +
+                    this.getCurrentVersion() +
+                    ")"
                 );
             }
         }

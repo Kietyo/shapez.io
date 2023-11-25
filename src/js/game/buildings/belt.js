@@ -53,6 +53,7 @@ export class MetaBeltBuilding extends MetaBuilding {
     getHasDirectionLockAvailable() {
         return true;
     }
+
     getStayInPlacementMode() {
         return true;
     }
@@ -155,13 +156,13 @@ export class MetaBeltBuilding extends MetaBuilding {
      * @param {Layer} param0.layer
      * @return {{ rotation: number, rotationVariant: number, connectedEntities?: Array<Entity> }}
      */
-    computeOptimalDirectionAndRotationVariantAtTile({ root, tile, rotation, variant, layer }) {
+    computeOptimalDirectionAndRotationVariantAtTile({root, tile, rotation, variant, layer}) {
         const topDirection = enumAngleToDirection[rotation];
         const rightDirection = enumAngleToDirection[(rotation + 90) % 360];
         const bottomDirection = enumAngleToDirection[(rotation + 180) % 360];
         const leftDirection = enumAngleToDirection[(rotation + 270) % 360];
 
-        const { ejectors, acceptors } = root.logic.getEjectorsAndAcceptorsAtTile(tile);
+        const {ejectors, acceptors} = root.logic.getEjectorsAndAcceptorsAtTile(tile);
 
         let hasBottomEjector = false;
         let hasRightEjector = false;

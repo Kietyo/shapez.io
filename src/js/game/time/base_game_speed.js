@@ -19,13 +19,13 @@ export class BaseGameSpeed extends BasicSerializableObject {
         return "unknown-speed";
     }
 
+    static getSchema() {
+        return {};
+    }
+
     getId() {
         // @ts-ignore
         return this.constructor.getId();
-    }
-
-    static getSchema() {
-        return {};
     }
 
     initializeAfterDeserialize(root) {

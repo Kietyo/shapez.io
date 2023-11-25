@@ -71,6 +71,7 @@ export class TextualGameState extends GameState {
             },
         });
     }
+
     /**
      * Overrides the GameState implementation to provide our own html
      */

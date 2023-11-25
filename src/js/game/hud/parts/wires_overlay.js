@@ -12,7 +12,8 @@ const copy = require("clipboard-copy");
 const wiresBackgroundDpi = 4;
 
 export class HUDWiresOverlay extends BaseHUDPart {
-    createElements(parent) {}
+    createElements(parent) {
+    }
 
     initialize() {
         // Probably not the best location, but the one which makes most sense

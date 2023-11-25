@@ -70,6 +70,7 @@ export class SingletonFactory {
         assert(false, "Factory: Object not found by classHandle (classid: " + classHandle.name + ")");
         return null;
     }
+
     /**
      * Returns all registered ids
      * @returns {Array<string>}

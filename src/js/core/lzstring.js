@@ -42,6 +42,7 @@ export function decompressX64(input) {
         return getBaseValue(keyStrUriSafe, input.charAt(index));
     });
 }
+
 function _compress(uncompressed, bitsPerChar, getCharFromInt) {
     if (uncompressed == null) return "";
     let i,
@@ -255,6 +256,7 @@ function _compress(uncompressed, bitsPerChar, getCharFromInt) {
     }
     return context_data.join("");
 }
+
 function _decompress(length, resetValue, getNextValue) {
     let dictionary = [],
         next,
@@ -270,7 +272,7 @@ function _decompress(length, resetValue, getNextValue) {
         maxpower,
         power,
         c,
-        data = { val: getNextValue(0), position: resetValue, index: 1 };
+        data = {val: getNextValue(0), position: resetValue, index: 1};
 
     for (i = 0; i < 3; i += 1) {
         dictionary[i] = i;

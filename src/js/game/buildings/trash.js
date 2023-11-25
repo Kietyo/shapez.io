@@ -45,6 +45,7 @@ export class MetaTrashBuilding extends MetaBuilding {
     getIsUnlocked(root) {
         return root.hubGoals.isRewardUnlocked(enumHubGoalRewards.reward_cutter_and_trash);
     }
+
     /**
      * Creates the entity at the given location
      * @param {Entity} entity

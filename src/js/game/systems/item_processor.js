@@ -119,7 +119,7 @@ export class ItemProcessorSystem extends GameSystemWithFilter {
             }
 
             for (let j = 0; j < processorComp.queuedEjects.length; ++j) {
-                const { item, requiredSlot, preferredSlot } = processorComp.queuedEjects[j];
+                const {item, requiredSlot, preferredSlot} = processorComp.queuedEjects[j];
 
                 assert(ejectorComp, "To eject items, the building needs to have an ejector");
 

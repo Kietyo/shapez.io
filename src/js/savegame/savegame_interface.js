@@ -14,6 +14,14 @@ const logger = createLogger("savegame_interface");
 
 export class BaseSavegameInterface {
     /**
+     * Constructs an new interface for the given savegame
+     * @param {any} data
+     */
+    constructor(data) {
+        this.data = data;
+    }
+
+    /**
      * Returns the interfaces version
      */
     getVersion() {
@@ -43,14 +51,6 @@ export class BaseSavegameInterface {
             throw new Error("Invalid schema for version " + version);
         }
         return validators[version];
-    }
-
-    /**
-     * Constructs an new interface for the given savegame
-     * @param {any} data
-     */
-    constructor(data) {
-        this.data = data;
     }
 
     /**

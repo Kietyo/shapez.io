@@ -31,16 +31,16 @@ export class StorageImplBrowserIndexedDB extends StorageInterface {
             // @ts-ignore
             request.onsuccess = event => resolve(event.target.result);
 
-            request.onupgradeneeded = /** @type {IDBVersionChangeEvent} */ event => {
+            request.onupgradeneeded = /** @type {IDBVersionChangeEvent} */event => {
                 /** @type {IDBDatabase} */
-                // @ts-ignore
+                    // @ts-ignore
                 const database = event.target.result;
 
                 const objectStore = database.createObjectStore("files", {
                     keyPath: "filename",
                 });
 
-                objectStore.createIndex("filename", "filename", { unique: true });
+                objectStore.createIndex("filename", "filename", {unique: true});
 
                 objectStore.transaction.onerror = event => {
                     logger.error("IDB transaction error:", event);

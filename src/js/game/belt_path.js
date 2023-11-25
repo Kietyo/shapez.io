@@ -22,6 +22,35 @@ const DEBUG = G_IS_DEV && false;
  * Stores a path of belts, used for optimizing performance
  */
 export class BeltPath extends BasicSerializableObject {
+    /**
+     * @param {GameRoot} root
+     * @param {Array<Entity>} entityPath
+     */
+    constructor(root, entityPath) {
+        super();
+        this.root = root;
+
+        assert(entityPath.length > 0, "invalid entity path");
+        this.entityPath = entityPath;
+
+        /**
+         * Stores the items sorted, and their distance to the previous item (or start)
+         * Layout: [distanceToNext, item]
+         * @type {Array<[number, BaseItem]>}
+         */
+        this.items = [];
+
+        /**
+         * Stores the spacing to the first item
+         */
+
+        this.init();
+
+        if (G_IS_DEV && globalConfig.debug.checkBeltPaths) {
+            this.debug_checkIntegrity("constructor");
+        }
+    }
+
     static getId() {
         return "BeltPath";
     }
@@ -57,34 +86,6 @@ export class BeltPath extends BasicSerializableObject {
         return fakeObject;
     }
 
-    /**
-     * @param {GameRoot} root
-     * @param {Array<Entity>} entityPath
-     */
-    constructor(root, entityPath) {
-        super();
-        this.root = root;
-
-        assert(entityPath.length > 0, "invalid entity path");
-        this.entityPath = entityPath;
-
-        /**
-         * Stores the items sorted, and their distance to the previous item (or start)
-         * Layout: [distanceToNext, item]
-         * @type {Array<[number, BaseItem]>}
-         */
-        this.items = [];
-
-        /**
-         * Stores the spacing to the first item
-         */
-
-        this.init();
-
-        if (G_IS_DEV && globalConfig.debug.checkBeltPaths) {
-            this.debug_checkIntegrity("constructor");
-        }
-    }
     /**
      * Initializes the path by computing the properties which are not saved
      * @param {boolean} computeSpacing Whether to also compute the spacing
@@ -237,15 +238,15 @@ export class BeltPath extends BasicSerializableObject {
         if (targetBeltComp) {
             const beltAcceptingDirection = targetStaticComp.localDirectionToWorld(enumDirection.top);
             DEBUG &&
-                !debug_Silent &&
-                logger.log(
-                    "  Entity is accepting items from",
-                    ejectSlotWsDirection,
-                    "vs",
-                    beltAcceptingDirection,
-                    "Rotation:",
-                    targetStaticComp.rotation
-                );
+            !debug_Silent &&
+            logger.log(
+                "  Entity is accepting items from",
+                ejectSlotWsDirection,
+                "vs",
+                beltAcceptingDirection,
+                "Rotation:",
+                targetStaticComp.rotation
+            );
             if (ejectSlotWsDirection === beltAcceptingDirection) {
                 return {
                     entity: targetEntity,
@@ -554,12 +555,12 @@ export class BeltPath extends BasicSerializableObject {
             // Otherwise, update the next-distance of the last item
             const lastItem = this.items[this.items.length - 1];
             DEBUG &&
-                logger.log(
-                    "  Extended spacing of last item from",
-                    lastItem[0 /* nextDistance */],
-                    "to",
-                    lastItem[0 /* nextDistance */] + additionalLength
-                );
+            logger.log(
+                "  Extended spacing of last item from",
+                lastItem[0 /* nextDistance */],
+                "to",
+                lastItem[0 /* nextDistance */] + additionalLength
+            );
             lastItem[0 /* nextDistance */] += additionalLength;
         }
 
@@ -659,40 +660,40 @@ export class BeltPath extends BasicSerializableObject {
         }
 
         DEBUG &&
-            logger.log(
-                "First path ends at",
-                firstPathLength,
-                "and entity",
-                firstPathEndEntity.components.StaticMapEntity.origin,
-                "and has",
-                firstPathEntityCount,
-                "entities"
-            );
+        logger.log(
+            "First path ends at",
+            firstPathLength,
+            "and entity",
+            firstPathEndEntity.components.StaticMapEntity.origin,
+            "and has",
+            firstPathEntityCount,
+            "entities"
+        );
 
         // Compute length of second path
         const secondPathLength = this.totalLength - firstPathLength - entityLength;
         const secondPathStart = firstPathLength + entityLength;
         const secondEntities = this.entityPath.splice(firstPathEntityCount + 1);
         DEBUG &&
-            logger.log(
-                "Second path starts at",
-                secondPathStart,
-                "and has a length of ",
-                secondPathLength,
-                "with",
-                secondEntities.length,
-                "entities"
-            );
+        logger.log(
+            "Second path starts at",
+            secondPathStart,
+            "and has a length of ",
+            secondPathLength,
+            "with",
+            secondEntities.length,
+            "entities"
+        );
 
         // Remove the last item
         this.entityPath.pop();
 
         DEBUG && logger.log("Splitting", this.items.length, "items");
         DEBUG &&
-            logger.log(
-                "Old items are",
-                this.items.map(i => i[0 /* nextDistance */])
-            );
+        logger.log(
+            "Old items are",
+            this.items.map(i => i[0 /* nextDistance */])
+        );
 
         // Create second path
         const secondPath = new BeltPath(this.root, secondEntities);
@@ -711,19 +712,19 @@ export class BeltPath extends BasicSerializableObject {
                 this.items.splice(i, 1);
                 i -= 1;
                 DEBUG &&
-                    logger.log("     Removed item from first path since its no longer contained @", itemPos);
+                logger.log("     Removed item from first path since its no longer contained @", itemPos);
 
                 // Check if its on the second path (otherwise its on the removed belt and simply lost)
                 if (itemPos >= secondPathStart) {
                     // Put item on second path
                     secondPath.items.push([distanceToNext, item[1 /* item */]]);
                     DEBUG &&
-                        logger.log(
-                            "     Put item to second path @",
-                            itemPos,
-                            "with distance to next =",
-                            distanceToNext
-                        );
+                    logger.log(
+                        "     Put item to second path @",
+                        itemPos,
+                        "with distance to next =",
+                        distanceToNext
+                    );
 
                     // If it was the first item, adjust the distance to the first item
                     if (secondPath.items.length === 1) {
@@ -739,12 +740,12 @@ export class BeltPath extends BasicSerializableObject {
                 const clampedDistanceToNext = Math.min(itemPos + distanceToNext, firstPathLength) - itemPos;
                 if (clampedDistanceToNext < distanceToNext) {
                     DEBUG &&
-                        logger.log(
-                            "Correcting next distance (first path) from",
-                            distanceToNext,
-                            "to",
-                            clampedDistanceToNext
-                        );
+                    logger.log(
+                        "Correcting next distance (first path) from",
+                        distanceToNext,
+                        "to",
+                        clampedDistanceToNext
+                    );
                     item[0 /* nextDistance */] = clampedDistanceToNext;
                 }
             }
@@ -754,16 +755,16 @@ export class BeltPath extends BasicSerializableObject {
         }
 
         DEBUG &&
-            logger.log(
-                "New items are",
-                this.items.map(i => i[0 /* nextDistance */])
-            );
+        logger.log(
+            "New items are",
+            this.items.map(i => i[0 /* nextDistance */])
+        );
 
         DEBUG &&
-            logger.log(
-                "And second path items are",
-                secondPath.items.map(i => i[0 /* nextDistance */])
-            );
+        logger.log(
+            "And second path items are",
+            secondPath.items.map(i => i[0 /* nextDistance */])
+        );
 
         // Adjust our total length
         this.totalLength = firstPathLength;
@@ -802,27 +803,27 @@ export class BeltPath extends BasicSerializableObject {
         const beltLength = beltComp.getEffectiveLengthTiles();
 
         DEBUG &&
-            logger.log(
-                "Deleting last entity on path with length",
-                this.entityPath.length,
-                "(reducing",
-                this.totalLength,
-                " by",
-                beltLength,
-                ")"
-            );
+        logger.log(
+            "Deleting last entity on path with length",
+            this.entityPath.length,
+            "(reducing",
+            this.totalLength,
+            " by",
+            beltLength,
+            ")"
+        );
         this.totalLength -= beltLength;
         this.entityPath.pop();
         this.onPathChanged();
 
         DEBUG &&
-            logger.log(
-                "  New path has length of",
-                this.totalLength,
-                "with",
-                this.entityPath.length,
-                "entities"
-            );
+        logger.log(
+            "  New path has length of",
+            this.totalLength,
+            "with",
+            this.entityPath.length,
+            "entities"
+        );
 
         // This is just for sanity
         beltComp.assignedPath = null;
@@ -850,14 +851,14 @@ export class BeltPath extends BasicSerializableObject {
                 }
 
                 DEBUG &&
-                    logger.log(
-                        "Item",
-                        i,
-                        "is at",
-                        itemOffset,
-                        "with next offset",
-                        item[0 /* nextDistance */]
-                    );
+                logger.log(
+                    "Item",
+                    i,
+                    "is at",
+                    itemOffset,
+                    "with next offset",
+                    item[0 /* nextDistance */]
+                );
                 lastItemOffset = itemOffset;
                 itemOffset += item[0 /* nextDistance */];
             }
@@ -869,23 +870,23 @@ export class BeltPath extends BasicSerializableObject {
                 assert(
                     lastDistance >= 0.0,
                     "Last item distance mismatch: " +
-                        lastDistance +
-                        " -> Total length was " +
-                        this.totalLength +
-                        " and lastItemOffset was " +
-                        lastItemOffset
+                    lastDistance +
+                    " -> Total length was " +
+                    this.totalLength +
+                    " and lastItemOffset was " +
+                    lastItemOffset
                 );
 
                 DEBUG &&
-                    logger.log(
-                        "Adjusted distance of last item: it is at",
-                        lastItemOffset,
-                        "so it has a distance of",
-                        lastDistance,
-                        "to the end (",
-                        this.totalLength,
-                        ")"
-                    );
+                logger.log(
+                    "Adjusted distance of last item: it is at",
+                    lastItemOffset,
+                    "so it has a distance of",
+                    lastDistance,
+                    "to the end (",
+                    this.totalLength,
+                    ")"
+                );
                 this.items[this.items.length - 1][0 /* nextDistance */] = lastDistance;
             } else {
                 DEBUG && logger.log("  Removed all items so we'll update spacing to total length");
@@ -919,27 +920,27 @@ export class BeltPath extends BasicSerializableObject {
         const beltLength = beltComp.getEffectiveLengthTiles();
 
         DEBUG &&
-            logger.log(
-                "Deleting first entity on path with length",
-                this.entityPath.length,
-                "(reducing",
-                this.totalLength,
-                " by",
-                beltLength,
-                ")"
-            );
+        logger.log(
+            "Deleting first entity on path with length",
+            this.entityPath.length,
+            "(reducing",
+            this.totalLength,
+            " by",
+            beltLength,
+            ")"
+        );
         this.totalLength -= beltLength;
         this.entityPath.shift();
         this.onPathChanged();
 
         DEBUG &&
-            logger.log(
-                "  New path has length of",
-                this.totalLength,
-                "with",
-                this.entityPath.length,
-                "entities"
-            );
+        logger.log(
+            "  New path has length of",
+            this.totalLength,
+            "with",
+            this.entityPath.length,
+            "entities"
+        );
 
         // This is just for sanity
         beltComp.assignedPath = null;
@@ -952,30 +953,30 @@ export class BeltPath extends BasicSerializableObject {
             // Simple case, we had no item on the beginning -> all good
             if (this.spacingToFirstItem >= beltLength) {
                 DEBUG &&
-                    logger.log(
-                        "  No item on the first place, so we can just adjust the spacing (spacing=",
-                        this.spacingToFirstItem,
-                        ") removed =",
-                        beltLength
-                    );
+                logger.log(
+                    "  No item on the first place, so we can just adjust the spacing (spacing=",
+                    this.spacingToFirstItem,
+                    ") removed =",
+                    beltLength
+                );
                 this.spacingToFirstItem -= beltLength;
             } else {
                 // Welp, okay we need to drop all items which are < beltLength and adjust
                 // the other item offsets as well
 
                 DEBUG &&
-                    logger.log(
-                        "  We have at least one item in the beginning, drop those and adjust spacing (first item @",
-                        this.spacingToFirstItem,
-                        ") since we removed",
-                        beltLength,
-                        "length from path"
-                    );
+                logger.log(
+                    "  We have at least one item in the beginning, drop those and adjust spacing (first item @",
+                    this.spacingToFirstItem,
+                    ") since we removed",
+                    beltLength,
+                    "length from path"
+                );
                 DEBUG &&
-                    logger.log(
-                        "    Items:",
-                        this.items.map(i => i[0 /* nextDistance */])
-                    );
+                logger.log(
+                    "    Items:",
+                    this.items.map(i => i[0 /* nextDistance */])
+                );
 
                 // Find offset to first item
                 let itemOffset = this.spacingToFirstItem;
@@ -983,13 +984,13 @@ export class BeltPath extends BasicSerializableObject {
                     const item = this.items[i];
                     if (itemOffset <= beltLength) {
                         DEBUG &&
-                            logger.log(
-                                "  -> Dropping item with index",
-                                i,
-                                "at",
-                                itemOffset,
-                                "since it was on the removed belt"
-                            );
+                        logger.log(
+                            "  -> Dropping item with index",
+                            i,
+                            "at",
+                            itemOffset,
+                            "since it was on the removed belt"
+                        );
                         // This item must be dropped
                         this.items.splice(i, 1);
                         i -= 1;
@@ -1003,13 +1004,13 @@ export class BeltPath extends BasicSerializableObject {
 
                 if (this.items.length > 0) {
                     DEBUG &&
-                        logger.log(
-                            "  Offset of first non-dropped item was at:",
-                            itemOffset,
-                            "-> setting spacing to it (total length=",
-                            this.totalLength,
-                            ")"
-                        );
+                    logger.log(
+                        "  Offset of first non-dropped item was at:",
+                        itemOffset,
+                        "-> setting spacing to it (total length=",
+                        this.totalLength,
+                        ")"
+                    );
 
                     this.spacingToFirstItem = itemOffset - beltLength;
                     assert(
@@ -1061,35 +1062,35 @@ export class BeltPath extends BasicSerializableObject {
         }
 
         DEBUG &&
-            logger.log(
-                "  Path is now",
-                this.entityPath.length,
-                "entities and has a length of",
-                this.totalLength
-            );
+        logger.log(
+            "  Path is now",
+            this.entityPath.length,
+            "entities and has a length of",
+            this.totalLength
+        );
 
         // Now, update the distance of our last item
         if (this.items.length !== 0) {
             const lastItem = this.items[this.items.length - 1];
             lastItem[0 /* nextDistance */] += otherPath.spacingToFirstItem;
             DEBUG &&
-                logger.log(
-                    "  Add distance to last item, effectively being",
-                    lastItem[0 /* nextDistance */],
-                    "now"
-                );
+            logger.log(
+                "  Add distance to last item, effectively being",
+                lastItem[0 /* nextDistance */],
+                "now"
+            );
         } else {
             // Seems we have no items, update our first item distance
             this.spacingToFirstItem = oldLength + otherPath.spacingToFirstItem;
             DEBUG &&
-                logger.log(
-                    "  We had no items, so our new spacing to first is old length (",
-                    oldLength,
-                    ") plus others spacing to first (",
-                    otherPath.spacingToFirstItem,
-                    ") =",
-                    this.spacingToFirstItem
-                );
+            logger.log(
+                "  We had no items, so our new spacing to first is old length (",
+                oldLength,
+                ") plus others spacing to first (",
+                otherPath.spacingToFirstItem,
+                ") =",
+                this.spacingToFirstItem
+            );
         }
 
         DEBUG && logger.log("  Pushing", otherPath.items.length, "items from other path");
@@ -1566,7 +1567,7 @@ export class BeltPath extends BasicSerializableObject {
      * @param {GameRoot} param0.root
      * @param {number} param0.zoomLevel
      */
-    drawShapesInARow(canvas, context, w, h, dpi, { direction, stack, root, zoomLevel }) {
+    drawShapesInARow(canvas, context, w, h, dpi, {direction, stack, root, zoomLevel}) {
         context.scale(dpi, dpi);
 
         if (G_IS_DEV && globalConfig.debug.showShapeGrouping) {

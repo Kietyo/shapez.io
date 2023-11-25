@@ -8,16 +8,6 @@ import {MapChunkView} from "./map_chunk_view";
 import {GameRoot} from "./root";
 
 export class BaseMap extends BasicSerializableObject {
-    static getId() {
-        return "Map";
-    }
-
-    static getSchema() {
-        return {
-            seed: types.uint,
-        };
-    }
-
     /**
      *
      * @param {GameRoot} root
@@ -37,6 +27,16 @@ export class BaseMap extends BasicSerializableObject {
          * Mapping of 'X|Y' to chunk aggregate
          * @type {Map<string, MapChunkAggregate>} */
         this.aggregatesById = new Map();
+    }
+
+    static getId() {
+        return "Map";
+    }
+
+    static getSchema() {
+        return {
+            seed: types.uint,
+        };
     }
 
     /**
@@ -117,6 +117,7 @@ export class BaseMap extends BasicSerializableObject {
         const chunkY = Math.floor(tileY / globalConfig.mapChunkSize);
         return this.getChunk(chunkX, chunkY, false);
     }
+
     /**
      * Returns the tile content of a given tile
      * @param {Vector} tile
@@ -166,6 +167,7 @@ export class BaseMap extends BasicSerializableObject {
         }
         return chunk.getLayersContentsMultipleFromWorldCoords(x, y);
     }
+
     /**
      * Places an entity with the StaticMapEntity component
      * @param {Entity} entity

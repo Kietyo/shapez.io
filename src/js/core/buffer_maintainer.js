@@ -136,7 +136,7 @@ export class BufferMaintainer {
      * @returns {HTMLCanvasElement}
      *
      */
-    getForKey({ key, subKey, w, h, dpi, redrawMethod, additionalParams }) {
+    getForKey({key, subKey, w, h, dpi, redrawMethod, additionalParams}) {
         // First, create parent key
         let parent = this.cache.get(key);
         if (!parent) {
@@ -178,7 +178,7 @@ export class BufferMaintainer {
      * @returns {HTMLCanvasElement?}
      *
      */
-    getForKeyOrNullNoUpdate({ key, subKey }) {
+    getForKeyOrNullNoUpdate({key, subKey}) {
         let parent = this.cache.get(key);
         if (!parent) {
             return null;

@@ -11,9 +11,16 @@ import {typeItemSingleton} from "../item_resolver";
  */
 
 export class FilterComponent extends Component {
+    constructor() {
+        super();
+
+        this.clear();
+    }
+
     static getId() {
         return "Filter";
     }
+
     static getSchema() {
         return {
             pendingItemsToLeaveThrough: types.array(
@@ -30,12 +37,6 @@ export class FilterComponent extends Component {
                 })
             ),
         };
-    }
-
-    constructor() {
-        super();
-
-        this.clear();
     }
 
     clear() {

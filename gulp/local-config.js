@@ -15,4 +15,4 @@ function gulptasksLocalConfig($, gulp) {
     });
 }
 
-module.exports = { gulptasksLocalConfig };
+module.exports = {gulptasksLocalConfig};

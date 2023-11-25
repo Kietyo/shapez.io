@@ -4,6 +4,11 @@ import {typeItemSingleton} from "../item_resolver";
 import {types} from "../../savegame/serialization";
 
 export class BeltReaderComponent extends Component {
+    constructor() {
+        super();
+        this.clear();
+    }
+
     static getId() {
         return "BeltReader";
     }
@@ -12,11 +17,6 @@ export class BeltReaderComponent extends Component {
         return {
             lastItem: types.nullable(typeItemSingleton),
         };
-    }
-
-    constructor() {
-        super();
-        this.clear();
     }
 
     clear() {

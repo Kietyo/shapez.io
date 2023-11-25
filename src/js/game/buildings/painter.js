@@ -15,7 +15,7 @@ import {enumHubGoalRewards} from "../tutorial_goals";
 import {enumPinSlotType, WiredPinsComponent} from "../components/wired_pins";
 
 /** @enum {string} */
-export const enumPainterVariants = { mirrored: "mirrored", double: "double", quad: "quad" };
+export const enumPainterVariants = {mirrored: "mirrored", double: "double", quad: "quad"};
 
 export class MetaPainterBuilding extends MetaBuilding {
     constructor() {
@@ -117,7 +117,7 @@ export class MetaPainterBuilding extends MetaBuilding {
 
         entity.addComponent(
             new ItemEjectorComponent({
-                slots: [{ pos: new Vector(1, 0), direction: enumDirection.right }],
+                slots: [{pos: new Vector(1, 0), direction: enumDirection.right}],
             })
         );
         entity.addComponent(
@@ -169,7 +169,7 @@ export class MetaPainterBuilding extends MetaBuilding {
                 ]);
 
                 entity.components.ItemEjector.setSlots([
-                    { pos: new Vector(1, 0), direction: enumDirection.right },
+                    {pos: new Vector(1, 0), direction: enumDirection.right},
                 ]);
 
                 entity.components.ItemProcessor.type = enumItemProcessorTypes.painter;
@@ -205,7 +205,7 @@ export class MetaPainterBuilding extends MetaBuilding {
                 ]);
 
                 entity.components.ItemEjector.setSlots([
-                    { pos: new Vector(1, 0), direction: enumDirection.right },
+                    {pos: new Vector(1, 0), direction: enumDirection.right},
                 ]);
 
                 entity.components.ItemProcessor.type = enumItemProcessorTypes.painterDouble;
@@ -218,7 +218,7 @@ export class MetaPainterBuilding extends MetaBuilding {
                 // QUAD PAINTER
 
                 if (!entity.components.WiredPins) {
-                    entity.addComponent(new WiredPinsComponent({ slots: [] }));
+                    entity.addComponent(new WiredPinsComponent({slots: []}));
                 }
 
                 entity.components.WiredPins.setSlots([
@@ -273,7 +273,7 @@ export class MetaPainterBuilding extends MetaBuilding {
                 ]);
 
                 entity.components.ItemEjector.setSlots([
-                    { pos: new Vector(0, 0), direction: enumDirection.top },
+                    {pos: new Vector(0, 0), direction: enumDirection.top},
                 ]);
 
                 entity.components.ItemProcessor.type = enumItemProcessorTypes.painterQuad;

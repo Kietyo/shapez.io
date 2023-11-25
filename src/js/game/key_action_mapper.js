@@ -48,106 +48,106 @@ export const KEYCODES = {
 
 export const KEYMAPPINGS = {
     general: {
-        confirm: { keyCode: KEYCODES.Enter },
-        back: { keyCode: KEYCODES.Escape, builtin: true },
+        confirm: {keyCode: KEYCODES.Enter},
+        back: {keyCode: KEYCODES.Escape, builtin: true},
     },
 
     ingame: {
-        menuOpenShop: { keyCode: keyToKeyCode("F") },
-        menuOpenStats: { keyCode: keyToKeyCode("G") },
-        menuClose: { keyCode: keyToKeyCode("Q") },
+        menuOpenShop: {keyCode: keyToKeyCode("F")},
+        menuOpenStats: {keyCode: keyToKeyCode("G")},
+        menuClose: {keyCode: keyToKeyCode("Q")},
 
-        toggleHud: { keyCode: KEYCODES.F2 },
-        exportScreenshot: { keyCode: KEYCODES.F3 },
-        toggleFPSInfo: { keyCode: KEYCODES.F4 },
+        toggleHud: {keyCode: KEYCODES.F2},
+        exportScreenshot: {keyCode: KEYCODES.F3},
+        toggleFPSInfo: {keyCode: KEYCODES.F4},
 
-        switchLayers: { keyCode: keyToKeyCode("E") },
+        switchLayers: {keyCode: keyToKeyCode("E")},
 
-        showShapeTooltip: { keyCode: KEYCODES.Alt },
+        showShapeTooltip: {keyCode: KEYCODES.Alt},
     },
 
     navigation: {
-        mapMoveUp: { keyCode: keyToKeyCode("W") },
-        mapMoveRight: { keyCode: keyToKeyCode("D") },
-        mapMoveDown: { keyCode: keyToKeyCode("S") },
-        mapMoveLeft: { keyCode: keyToKeyCode("A") },
-        mapMoveFaster: { keyCode: KEYCODES.Shift },
+        mapMoveUp: {keyCode: keyToKeyCode("W")},
+        mapMoveRight: {keyCode: keyToKeyCode("D")},
+        mapMoveDown: {keyCode: keyToKeyCode("S")},
+        mapMoveLeft: {keyCode: keyToKeyCode("A")},
+        mapMoveFaster: {keyCode: KEYCODES.Shift},
 
-        centerMap: { keyCode: KEYCODES.Space },
-        mapZoomIn: { keyCode: KEYCODES.Plus, repeated: true },
-        mapZoomOut: { keyCode: KEYCODES.Minus, repeated: true },
-        createMarker: { keyCode: keyToKeyCode("M") },
+        centerMap: {keyCode: KEYCODES.Space},
+        mapZoomIn: {keyCode: KEYCODES.Plus, repeated: true},
+        mapZoomOut: {keyCode: KEYCODES.Minus, repeated: true},
+        createMarker: {keyCode: keyToKeyCode("M")},
     },
 
     buildings: {
         // Puzzle buildings
-        constant_producer: { keyCode: keyToKeyCode("H") },
-        goal_acceptor: { keyCode: keyToKeyCode("N") },
-        block: { keyCode: keyToKeyCode("4") },
+        constant_producer: {keyCode: keyToKeyCode("H")},
+        goal_acceptor: {keyCode: keyToKeyCode("N")},
+        block: {keyCode: keyToKeyCode("4")},
 
         // Primary Toolbar
-        belt: { keyCode: keyToKeyCode("1") },
-        balancer: { keyCode: keyToKeyCode("2") },
-        underground_belt: { keyCode: keyToKeyCode("3") },
-        miner: { keyCode: keyToKeyCode("4") },
-        cutter: { keyCode: keyToKeyCode("5") },
-        rotater: { keyCode: keyToKeyCode("6") },
-        stacker: { keyCode: keyToKeyCode("7") },
-        mixer: { keyCode: keyToKeyCode("8") },
-        painter: { keyCode: keyToKeyCode("9") },
-        trash: { keyCode: keyToKeyCode("0") },
+        belt: {keyCode: keyToKeyCode("1")},
+        balancer: {keyCode: keyToKeyCode("2")},
+        underground_belt: {keyCode: keyToKeyCode("3")},
+        miner: {keyCode: keyToKeyCode("4")},
+        cutter: {keyCode: keyToKeyCode("5")},
+        rotater: {keyCode: keyToKeyCode("6")},
+        stacker: {keyCode: keyToKeyCode("7")},
+        mixer: {keyCode: keyToKeyCode("8")},
+        painter: {keyCode: keyToKeyCode("9")},
+        trash: {keyCode: keyToKeyCode("0")},
 
         // Sandbox
-        item_producer: { keyCode: keyToKeyCode("L") },
+        item_producer: {keyCode: keyToKeyCode("L")},
 
         // Secondary toolbar
-        storage: { keyCode: keyToKeyCode("Y") },
-        reader: { keyCode: keyToKeyCode("U") },
-        lever: { keyCode: keyToKeyCode("I") },
-        filter: { keyCode: keyToKeyCode("O") },
-        display: { keyCode: keyToKeyCode("P") },
+        storage: {keyCode: keyToKeyCode("Y")},
+        reader: {keyCode: keyToKeyCode("U")},
+        lever: {keyCode: keyToKeyCode("I")},
+        filter: {keyCode: keyToKeyCode("O")},
+        display: {keyCode: keyToKeyCode("P")},
 
         // Wires toolbar
-        wire: { keyCode: keyToKeyCode("1") },
-        wire_tunnel: { keyCode: keyToKeyCode("2") },
-        constant_signal: { keyCode: keyToKeyCode("3") },
-        logic_gate: { keyCode: keyToKeyCode("4") },
-        virtual_processor: { keyCode: keyToKeyCode("5") },
-        analyzer: { keyCode: keyToKeyCode("6") },
-        comparator: { keyCode: keyToKeyCode("7") },
-        transistor: { keyCode: keyToKeyCode("8") },
+        wire: {keyCode: keyToKeyCode("1")},
+        wire_tunnel: {keyCode: keyToKeyCode("2")},
+        constant_signal: {keyCode: keyToKeyCode("3")},
+        logic_gate: {keyCode: keyToKeyCode("4")},
+        virtual_processor: {keyCode: keyToKeyCode("5")},
+        analyzer: {keyCode: keyToKeyCode("6")},
+        comparator: {keyCode: keyToKeyCode("7")},
+        transistor: {keyCode: keyToKeyCode("8")},
     },
 
     placement: {
-        pipette: { keyCode: keyToKeyCode("Q") },
-        rotateWhilePlacing: { keyCode: keyToKeyCode("R") },
-        rotateInverseModifier: { keyCode: KEYCODES.Shift },
-        rotateToUp: { keyCode: KEYCODES.ArrowUp },
-        rotateToDown: { keyCode: KEYCODES.ArrowDown },
-        rotateToRight: { keyCode: KEYCODES.ArrowRight },
-        rotateToLeft: { keyCode: KEYCODES.ArrowLeft },
-        cycleBuildingVariants: { keyCode: keyToKeyCode("T") },
-        cycleBuildings: { keyCode: KEYCODES.Tab },
-        switchDirectionLockSide: { keyCode: keyToKeyCode("R") },
+        pipette: {keyCode: keyToKeyCode("Q")},
+        rotateWhilePlacing: {keyCode: keyToKeyCode("R")},
+        rotateInverseModifier: {keyCode: KEYCODES.Shift},
+        rotateToUp: {keyCode: KEYCODES.ArrowUp},
+        rotateToDown: {keyCode: KEYCODES.ArrowDown},
+        rotateToRight: {keyCode: KEYCODES.ArrowRight},
+        rotateToLeft: {keyCode: KEYCODES.ArrowLeft},
+        cycleBuildingVariants: {keyCode: keyToKeyCode("T")},
+        cycleBuildings: {keyCode: KEYCODES.Tab},
+        switchDirectionLockSide: {keyCode: keyToKeyCode("R")},
 
-        copyWireValue: { keyCode: keyToKeyCode("Z") },
+        copyWireValue: {keyCode: keyToKeyCode("Z")},
     },
 
     massSelect: {
-        massSelectStart: { keyCode: KEYCODES.Ctrl },
-        massSelectSelectMultiple: { keyCode: KEYCODES.Shift },
-        massSelectCopy: { keyCode: keyToKeyCode("C") },
-        massSelectCut: { keyCode: keyToKeyCode("X") },
-        massSelectClear: { keyCode: keyToKeyCode("B") },
-        confirmMassDelete: { keyCode: KEYCODES.Delete },
-        pasteLastBlueprint: { keyCode: keyToKeyCode("V") },
+        massSelectStart: {keyCode: KEYCODES.Ctrl},
+        massSelectSelectMultiple: {keyCode: KEYCODES.Shift},
+        massSelectCopy: {keyCode: keyToKeyCode("C")},
+        massSelectCut: {keyCode: keyToKeyCode("X")},
+        massSelectClear: {keyCode: keyToKeyCode("B")},
+        confirmMassDelete: {keyCode: KEYCODES.Delete},
+        pasteLastBlueprint: {keyCode: keyToKeyCode("V")},
     },
 
     placementModifiers: {
-        lockBeltDirection: { keyCode: KEYCODES.Shift },
-        placementDisableAutoOrientation: { keyCode: KEYCODES.Ctrl },
-        placeMultiple: { keyCode: KEYCODES.Shift },
-        placeInverse: { keyCode: KEYCODES.Alt },
+        lockBeltDirection: {keyCode: KEYCODES.Shift},
+        placementDisableAutoOrientation: {keyCode: KEYCODES.Ctrl},
+        placeMultiple: {keyCode: KEYCODES.Shift},
+        placeInverse: {keyCode: KEYCODES.Alt},
     },
 };
 
@@ -327,7 +327,7 @@ export class Keybinding {
      * @param {boolean=} param0.repeated
      * @param {{ shift?: boolean; alt?: boolean; ctrl?: boolean; }=} param0.modifiers
      */
-    constructor(keyMapper, app, { keyCode, builtin = false, repeated = false, modifiers = {} }) {
+    constructor(keyMapper, app, {keyCode, builtin = false, repeated = false, modifiers = {}}) {
         assert(keyCode && Number.isInteger(keyCode), "Invalid key code: " + keyCode);
         this.keyMapper = keyMapper;
         this.app = app;
@@ -372,6 +372,7 @@ export class Keybinding {
     addToTop(receiver, scope = null) {
         this.signal.addToTop(receiver, scope);
     }
+
     /**
      * Returns the key code as a nice string
      */
@@ -418,6 +419,7 @@ export class KeyActionMapper {
         inputReciever.pageBlur.add(this.onPageBlur, this);
         inputReciever.destroyed.add(this.cleanup, this);
     }
+
     /**
      * Forwards the given events to the other mapper (used in tooltips)
      * @param {KeyActionMapper} receiver
@@ -454,7 +456,7 @@ export class KeyActionMapper {
      * @param {boolean} param0.ctrl
      * @param {boolean=} param0.initial
      */
-    handleKeydown({ keyCode, shift, alt, ctrl, initial }) {
+    handleKeydown({keyCode, shift, alt, ctrl, initial}) {
         let stop = false;
 
         // Find mapping
@@ -494,7 +496,7 @@ export class KeyActionMapper {
      * @param {boolean} param0.shift
      * @param {boolean} param0.alt
      */
-    handleKeyup({ keyCode, shift, alt }) {
+    handleKeyup({keyCode, shift, alt}) {
         // Empty
     }
 

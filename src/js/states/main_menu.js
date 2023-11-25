@@ -34,6 +34,10 @@ export class MainMenuState extends GameState {
         this.refreshInterval = null;
     }
 
+    get savedGames() {
+        return this.app.savegameMgr.getSavegamesMetaData();
+    }
+
     getInnerHTML() {
         const showExitAppButton = G_IS_STANDALONE;
 
@@ -48,28 +52,28 @@ export class MainMenuState extends GameState {
 
             <div class="points">
                 ${Array.from(Object.entries(T.ingame.standaloneAdvantages.points))
-                    .slice(0, 6)
-                    .map(
-                        ([key, trans]) => `
+            .slice(0, 6)
+            .map(
+                ([key, trans]) => `
                 <div class="point ${key}">
                     <strong>${trans.title}</strong>
                     <p>${trans.desc}</p>
                 </div>`
-                    )
-                    .join("")}
+            )
+            .join("")}
 
             </div>
 
 
             <a href="#" class="steamLink steam_dlbtn_0" target="_blank">
             ${
-                globalConfig.currentDiscount > 0
-                    ? `<span class='discount'>${T.global.discount.replace(
-                          "<percentage>",
-                          String(globalConfig.currentDiscount)
-                      )}</span>`
-                    : ""
-            }
+            globalConfig.currentDiscount > 0
+                ? `<span class='discount'>${T.global.discount.replace(
+                    "<percentage>",
+                    String(globalConfig.currentDiscount)
+                )}</span>`
+                : ""
+        }
                 Play shapez on Steam
             </a>
             ${`<div class="onlinePlayerCount"></div>`}
@@ -79,8 +83,8 @@ export class MainMenuState extends GameState {
         return `
             <div class="topButtons">
                 ${
-                    `<button aria-label="Choose Language" class="languageChoose" data-languageicon="${this.app.settings.getLanguage()}"></button>`
-                }
+            `<button aria-label="Choose Language" class="languageChoose" data-languageicon="${this.app.settings.getLanguage()}"></button>`
+        }
 
                 <button class="settingsButton" aria-label="Settings"></button>
                 ${showExitAppButton ? `<button class="exitAppButton" aria-label="Exit App"></button>` : ""}
@@ -103,30 +107,30 @@ export class MainMenuState extends GameState {
                     <div class="buttons"></div>
                     <div class="savegamesMount"></div>
                     ${
-                        (G_IS_STANDALONE || !WEB_STEAM_SSO_AUTHENTICATED)
-                            ? `<div class="steamSso">
+            (G_IS_STANDALONE || !WEB_STEAM_SSO_AUTHENTICATED)
+                ? `<div class="steamSso">
                                 <span class="description">${
-                                    G_IS_STANDALONE
-                                        ? T.mainMenu.playFullVersionStandalone
-                                        : T.mainMenu.playFullVersionV2
-                                }</span>
+                    G_IS_STANDALONE
+                        ? T.mainMenu.playFullVersionStandalone
+                        : T.mainMenu.playFullVersionV2
+                }</span>
                                 <a class="ssoSignIn" target="_blank" href="${
-                                    this.app.clientApi.getEndpoint() + "/v1/noauth/steam-sso"
-                                }">Sign in</a>
+                    this.app.clientApi.getEndpoint() + "/v1/noauth/steam-sso"
+                }">Sign in</a>
                             </div>`
-                            : ""
-                    }
+                : ""
+        }
                     ${
-                        WEB_STEAM_SSO_AUTHENTICATED
-                            ? `
+            WEB_STEAM_SSO_AUTHENTICATED
+                ? `
                             <div class="steamSso">
                                 <span class="description">${T.mainMenu.playingFullVersion}</span>
                                 <a class="ssoSignOut" href="?sso_logout_silent">${T.mainMenu.logout}</a>
 
                             </div>
                         `
-                            : ""
-                    }
+                : ""
+        }
 
 
 
@@ -140,43 +144,43 @@ export class MainMenuState extends GameState {
             </div>
 
             ${
-                `
+            `
 
                 <div class="footer ${""} ">
 
                     <div class="socialLinks">
                     ${
-                            `<a class="patreonLink boxLink" target="_blank">
+                `<a class="patreonLink boxLink" target="_blank">
                                     <span class="thirdpartyLogo patreonLogo"></span>
                                     <span class="label">Patreon</span>
                                 </a>`
-                    }
+            }
                     ${
-                        `
+                `
                         <a class="githubLink boxLink" target="_blank">
                             <span class="thirdpartyLogo githubLogo"></span>
                             <span class="label">GitHub</span>
                         </a>`
-                    }
+            }
 
 
                     ${
-                        `<a class="discordLink boxLink" target="_blank">
+                `<a class="discordLink boxLink" target="_blank">
                                     <span class="thirdpartyLogo  discordLogo"></span>
                                     <span class="label">Discord</span>
                                 </a>`
-                    }
+            }
 
                     ${
-                            `<a class="redditLink boxLink" target="_blank">
+                `<a class="redditLink boxLink" target="_blank">
                                     <span class="thirdpartyLogo redditLogo"></span>
                                     <span class="label">Reddit</span>
                                 </a>`
-                    }
+            }
 
                     ${
-                        ""
-                    }
+                ""
+            }
 
 
                     </div>
@@ -196,7 +200,7 @@ export class MainMenuState extends GameState {
                 </div>
 
             `
-            }
+        }
         `;
     }
 
@@ -323,7 +327,7 @@ export class MainMenuState extends GameState {
             const handler = clickHandling[key];
             const element = this.htmlElement.querySelector(key);
             if (element) {
-                this.trackClicks(element, handler, { preventClick: true });
+                this.trackClicks(element, handler, {preventClick: true});
             }
         }
 
@@ -369,6 +373,7 @@ export class MainMenuState extends GameState {
 
         buttonContainer.appendChild(outerDiv);
     }
+
     onExitAppButtonClicked() {
         this.app.platformWrapper.exitApp();
     }
@@ -388,7 +393,7 @@ export class MainMenuState extends GameState {
     onLanguageChooseClicked() {
         const setting = /** @type {EnumSetting} */ (this.app.settings.getSettingHandleById("language"));
 
-        const { optionSelected } = this.dialogs.showOptionChooser(T.settings.labels.language.title, {
+        const {optionSelected} = this.dialogs.showOptionChooser(T.settings.labels.language.title, {
             active: this.app.settings.getLanguage(),
             options: setting.options.map(option => ({
                 value: setting.valueGetter(option),
@@ -420,10 +425,6 @@ export class MainMenuState extends GameState {
             // Update current icon
             this.htmlElement.querySelector("button.languageChoose").setAttribute("data-languageIcon", value);
         }, this);
-    }
-
-    get savedGames() {
-        return this.app.savegameMgr.getSavegamesMetaData();
     }
 
     renderSavegames() {
@@ -473,11 +474,11 @@ export class MainMenuState extends GameState {
                 downloadButton.setAttribute("aria-label", "Download");
                 elem.appendChild(downloadButton);
 
-                    const renameButton = document.createElement("button");
-                    renameButton.classList.add("styledButton", "renameGame");
-                    renameButton.setAttribute("aria-label", "Rename Savegame");
-                    name.appendChild(renameButton);
-                    this.trackClicks(renameButton, () => this.requestRenameSavegame(games[i]));
+                const renameButton = document.createElement("button");
+                renameButton.classList.add("styledButton", "renameGame");
+                renameButton.setAttribute("aria-label", "Rename Savegame");
+                name.appendChild(renameButton);
+                this.trackClicks(renameButton, () => this.requestRenameSavegame(games[i]));
 
                 const resumeButton = document.createElement("button");
                 resumeButton.classList.add("styledButton", "resumeGame");
@@ -532,21 +533,21 @@ export class MainMenuState extends GameState {
      * @param {SavegameMetadata} game
      */
     resumeGame(game) {
-            const savegame = this.app.savegameMgr.getSavegameById(game.internalId);
-            savegame
-                .readAsync()
-                .then(() => {
-                    this.moveToState("InGameState", {
-                        savegame,
-                    });
-                })
-
-                .catch(err => {
-                    this.dialogs.showWarning(
-                        T.dialogs.gameLoadFailure.title,
-                        T.dialogs.gameLoadFailure.text + "<br><br>" + err
-                    );
+        const savegame = this.app.savegameMgr.getSavegameById(game.internalId);
+        savegame
+            .readAsync()
+            .then(() => {
+                this.moveToState("InGameState", {
+                    savegame,
                 });
+            })
+
+            .catch(err => {
+                this.dialogs.showWarning(
+                    T.dialogs.gameLoadFailure.title,
+                    T.dialogs.gameLoadFailure.text + "<br><br>" + err
+                );
+            });
     }
 
     /**
@@ -593,7 +594,7 @@ export class MainMenuState extends GameState {
      * Shows a hint that the slot limit has been reached
      */
     showSavegameSlotLimit() {
-        const { getStandalone } = this.dialogs.showWarning(
+        const {getStandalone} = this.dialogs.showWarning(
             T.dialogs.oneSavegameLimit.title,
             T.dialogs.oneSavegameLimit.desc,
             ["cancel:bad", "getStandalone:good"]
@@ -623,12 +624,13 @@ export class MainMenuState extends GameState {
             return;
         }
 
-            const savegame = this.app.savegameMgr.createNewSavegame();
+        const savegame = this.app.savegameMgr.createNewSavegame();
 
-            this.moveToState("InGameState", {
-                savegame,
-            });
+        this.moveToState("InGameState", {
+            savegame,
+        });
     }
+
     onContinueButtonClicked() {
         let latestLastUpdate = 0;
         let latestInternalId;

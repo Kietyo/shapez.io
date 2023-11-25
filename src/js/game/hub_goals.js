@@ -10,60 +10,6 @@ import {enumSubShape, ShapeDefinition} from "./shape_definition";
 import {enumHubGoalRewards} from "./tutorial_goals";
 
 export class HubGoals extends BasicSerializableObject {
-    static getId() {
-        return "HubGoals";
-    }
-
-    static getSchema() {
-        return {
-            level: types.uint,
-            storedShapes: types.keyValueMap(types.uint),
-            upgradeLevels: types.keyValueMap(types.uint),
-        };
-    }
-
-    /**
-     *
-     * @param {*} data
-     * @param {GameRoot} root
-     */
-    deserialize(data, root) {
-        const errorCode = super.deserialize(data);
-        if (errorCode) {
-            return errorCode;
-        }
-
-        const levels = root.gameMode.getLevelDefinitions();
-
-        // If freeplay is not available, clamp the level
-        if (!root.gameMode.getIsFreeplayAvailable()) {
-            this.level = Math.min(this.level, levels.length);
-        }
-
-        // Compute gained rewards
-        for (let i = 0; i < this.level - 1; ++i) {
-            if (i < levels.length) {
-                const reward = levels[i].reward;
-                this.gainedRewards[reward] = (this.gainedRewards[reward] || 0) + 1;
-            }
-        }
-
-        // Compute upgrade improvements
-        const upgrades = this.root.gameMode.getUpgrades();
-        for (const upgradeId in upgrades) {
-            const tiers = upgrades[upgradeId];
-            const level = this.upgradeLevels[upgradeId] || 0;
-            let totalImprovement = 1;
-            for (let i = 0; i < level; ++i) {
-                totalImprovement += tiers[i].improvement;
-            }
-            this.upgradeImprovements[upgradeId] = totalImprovement;
-        }
-
-        // Compute current goal
-        this.computeNextGoal();
-    }
-
     /**
      * @param {GameRoot} root
      */
@@ -121,6 +67,61 @@ export class HubGoals extends BasicSerializableObject {
             });
         }
     }
+
+    static getId() {
+        return "HubGoals";
+    }
+
+    static getSchema() {
+        return {
+            level: types.uint,
+            storedShapes: types.keyValueMap(types.uint),
+            upgradeLevels: types.keyValueMap(types.uint),
+        };
+    }
+
+    /**
+     *
+     * @param {*} data
+     * @param {GameRoot} root
+     */
+    deserialize(data, root) {
+        const errorCode = super.deserialize(data);
+        if (errorCode) {
+            return errorCode;
+        }
+
+        const levels = root.gameMode.getLevelDefinitions();
+
+        // If freeplay is not available, clamp the level
+        if (!root.gameMode.getIsFreeplayAvailable()) {
+            this.level = Math.min(this.level, levels.length);
+        }
+
+        // Compute gained rewards
+        for (let i = 0; i < this.level - 1; ++i) {
+            if (i < levels.length) {
+                const reward = levels[i].reward;
+                this.gainedRewards[reward] = (this.gainedRewards[reward] || 0) + 1;
+            }
+        }
+
+        // Compute upgrade improvements
+        const upgrades = this.root.gameMode.getUpgrades();
+        for (const upgradeId in upgrades) {
+            const tiers = upgrades[upgradeId];
+            const level = this.upgradeLevels[upgradeId] || 0;
+            let totalImprovement = 1;
+            for (let i = 0; i < level; ++i) {
+                totalImprovement += tiers[i].improvement;
+            }
+            this.upgradeImprovements[upgradeId] = totalImprovement;
+        }
+
+        // Compute current goal
+        this.computeNextGoal();
+    }
+
     /**
      * Returns how much of the current shape is stored
      * @param {ShapeDefinition} definition
@@ -226,7 +227,7 @@ export class HubGoals extends BasicSerializableObject {
         const storyIndex = this.level - 1;
         const levels = this.root.gameMode.getLevelDefinitions();
         if (storyIndex < levels.length) {
-            const { shape, required, reward, throughputOnly } = levels[storyIndex];
+            const {shape, required, reward, throughputOnly} = levels[storyIndex];
             this.currentGoal = {
                 /** @type {ShapeDefinition} */
                 definition: this.root.shapeDefinitionMgr.getShapeFromShortKey(shape),
@@ -259,6 +260,7 @@ export class HubGoals extends BasicSerializableObject {
 
         this.root.signals.storyGoalCompleted.dispatch(this.level - 1, reward);
     }
+
     /**
      * Returns whether a given upgrade can be unlocked
      * @param {string} upgradeId
@@ -449,7 +451,7 @@ export class HubGoals extends BasicSerializableObject {
             layers.push(layer);
         }
 
-        const definition = new ShapeDefinition({ layers });
+        const definition = new ShapeDefinition({layers});
         return this.root.shapeDefinitionMgr.registerOrReturnHandle(definition);
     }
 

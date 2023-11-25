@@ -55,7 +55,7 @@ export class HUDBuildingPlacer extends HUDBuildingPlacerLogic {
         this.signals.variantChanged.add(this.rerenderVariants, this);
         this.root.hud.signals.buildingSelectedForPlacement.add(this.startSelection, this);
 
-        this.domAttach = new DynamicDomAttach(this.root, this.element, { trackHover: true });
+        this.domAttach = new DynamicDomAttach(this.root, this.element, {trackHover: true});
         this.variantsAttach = new DynamicDomAttach(this.root, this.variantsElement, {});
         this.lockIndicatorSprites = {};
         [...layers, "error"].forEach(layer => {
@@ -136,9 +136,9 @@ export class HUDBuildingPlacer extends HUDBuildingPlacerLogic {
         this.buildingInfoElements.tutorialImage.setAttribute(
             "data-icon",
             "building_tutorials/" +
-                metaBuilding.getId() +
-                (variant === defaultBuildingVariant ? "" : "-" + variant) +
-                ".png"
+            metaBuilding.getId() +
+            (variant === defaultBuildingVariant ? "" : "-" + variant) +
+            ".png"
         );
 
         removeAllChildren(this.buildingInfoElements.additionalInfo);
@@ -195,10 +195,10 @@ export class HUDBuildingPlacer extends HUDBuildingPlacerLogic {
             T.ingame.buildingPlacement.cycleBuildingVariants.replace(
                 "<key>",
                 "<code class='keybinding'>" +
-                    this.root.keyMapper
-                        .getBinding(KEYMAPPINGS.placement.cycleBuildingVariants)
-                        .getKeyCodeString() +
-                    "</code>"
+                this.root.keyMapper
+                    .getBinding(KEYMAPPINGS.placement.cycleBuildingVariants)
+                    .getKeyCodeString() +
+                "</code>"
             )
         );
 
@@ -427,7 +427,7 @@ export class HUDBuildingPlacer extends HUDBuildingPlacerLogic {
             if (ignorePositions.some(p => p.distanceSquare(current) < 0.1)) {
                 continue;
             }
-            if (!this.root.logic.checkCanPlaceEntity(this.fakeEntity, { allowReplaceBuildings: false })) {
+            if (!this.root.logic.checkCanPlaceEntity(this.fakeEntity, {allowReplaceBuildings: false})) {
                 return true;
             }
         }
@@ -496,7 +496,7 @@ export class HUDBuildingPlacer extends HUDBuildingPlacerLogic {
         const arrowSprite = this.lockIndicatorSprites[anyObstacle ? "error" : this.root.currentLayer];
         const path = this.computeDirectionLockPath();
         for (let i = 0; i < path.length - 1; i += 1) {
-            const { rotation, tile } = path[i];
+            const {rotation, tile} = path[i];
             const worldPos = tile.toWorldSpaceCenterOfTile();
             const angle = Math.radians(rotation);
 
@@ -506,9 +506,9 @@ export class HUDBuildingPlacer extends HUDBuildingPlacerLogic {
                 arrowSprite,
                 -6,
                 -globalConfig.halfTileSize -
-                    clamp((this.root.time.realtimeNow() * 1.5) % 1.0, 0, 1) * 1 * globalConfig.tileSize +
-                    globalConfig.halfTileSize -
-                    6,
+                clamp((this.root.time.realtimeNow() * 1.5) % 1.0, 0, 1) * 1 * globalConfig.tileSize +
+                globalConfig.halfTileSize -
+                6,
                 12,
                 12
             );
@@ -593,7 +593,7 @@ export class HUDBuildingPlacer extends HUDBuildingPlacerLogic {
                 } else if (
                     sourceBeltComp &&
                     sourceStaticComp.localDirectionToWorld(sourceBeltComp.direction) ===
-                        enumInvertedDirections[worldDirection]
+                    enumInvertedDirections[worldDirection]
                 ) {
                     // Belt connected
                     isConnected = true;

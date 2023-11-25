@@ -417,6 +417,7 @@ export function removeAllChildren(elem) {
         range.deleteContents();
     }
 }
+
 /**
  * Formats an amount of seconds into something like "5s ago"
  * @param {number} secs Seconds
@@ -450,6 +451,7 @@ export function formatSecondsToTimeAgo(secs) {
         return T.global.time.xDaysAgo.replace("<x>", "" + days);
     }
 }
+
 /**
  * Formats a number like 2.51 to "2.5"
  * @param {number} speed
@@ -470,9 +472,9 @@ export function formatItemsPerSecond(speed, double = false, separator = T.global
         (speed === 1.0
             ? T.ingame.buildingPlacement.infoTexts.oneItemPerSecond
             : T.ingame.buildingPlacement.infoTexts.itemsPerSecond.replace(
-                  "<x>",
-                  round2Digits(speed).toString().replace(".", separator)
-              )) + (double ? "  " + T.ingame.buildingPlacement.infoTexts.itemsPerSecondDouble : "")
+                "<x>",
+                round2Digits(speed).toString().replace(".", separator)
+            )) + (double ? "  " + T.ingame.buildingPlacement.infoTexts.itemsPerSecondDouble : "")
     );
 }
 

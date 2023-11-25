@@ -102,7 +102,7 @@ export class HUDShop extends BaseHUDPart {
                 .replace("<currentMult>", currentTierMultiplier.toFixed(2))
                 .replace("<newMult>", (currentTierMultiplier + tierHandle.improvement).toFixed(2));
 
-            tierHandle.required.forEach(({ shape, amount }) => {
+            tierHandle.required.forEach(({shape, amount}) => {
                 const container = makeDiv(handle.elemRequirements, null, ["requirement"]);
 
                 const shapeDef = this.root.shapeDefinitionMgr.getShapeFromShortKey(shape);
@@ -124,16 +124,16 @@ export class HUDShop extends BaseHUDPart {
 
                 let infoDetector;
 
-                    const viewInfoButton = document.createElement("button");
-                    viewInfoButton.classList.add("showInfo");
-                    container.appendChild(viewInfoButton);
-                    infoDetector = new ClickDetector(viewInfoButton, {
-                        consumeEvents: true,
-                        preventDefault: true,
-                    });
-                    infoDetector.click.add(() =>
-                        this.root.hud.signals.viewShapeDetailsRequested.dispatch(shapeDef)
-                    );
+                const viewInfoButton = document.createElement("button");
+                viewInfoButton.classList.add("showInfo");
+                container.appendChild(viewInfoButton);
+                infoDetector = new ClickDetector(viewInfoButton, {
+                    consumeEvents: true,
+                    preventDefault: true,
+                });
+                infoDetector.click.add(() =>
+                    this.root.hud.signals.viewShapeDetailsRequested.dispatch(shapeDef)
+                );
 
 
                 const currentGoalShape = this.root.hubGoals.currentGoal.definition.getHash();
@@ -176,7 +176,7 @@ export class HUDShop extends BaseHUDPart {
         for (const upgradeId in this.upgradeToElements) {
             const handle = this.upgradeToElements[upgradeId];
             for (let i = 0; i < handle.requireIndexToElement.length; ++i) {
-                const { progressLabel, progressBar, definition, required } = handle.requireIndexToElement[i];
+                const {progressLabel, progressBar, definition, required} = handle.requireIndexToElement[i];
 
                 const haveAmount = this.root.hubGoals.getShapesStored(definition);
                 const progress = Math.min(haveAmount / required, 1.0);

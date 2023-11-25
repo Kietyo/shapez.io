@@ -5,7 +5,8 @@ import {KEYMAPPINGS} from "../../key_action_mapper";
 import {BaseHUDPart} from "../base_hud_part";
 
 export class HUDShapeTooltip extends BaseHUDPart {
-    createElements(parent) {}
+    createElements(parent) {
+    }
 
     initialize() {
         /** @type {Vector} */

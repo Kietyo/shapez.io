@@ -1,5 +1,5 @@
 const path = require("path");
-const { BUILD_VARIANTS } = require("./build_variants");
+const {BUILD_VARIANTS} = require("./build_variants");
 
 function requireUncached(module) {
     delete require.cache[require.resolve(module)];

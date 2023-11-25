@@ -74,6 +74,7 @@ export class PlatformWrapperInterface {
     setFullscreen(flag) {
         abstract;
     }
+
     /**
      * Attempts to quit the app
      * @abstract

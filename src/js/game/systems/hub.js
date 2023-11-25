@@ -40,6 +40,7 @@ export class HubSystem extends GameSystemWithFilter {
             );
         }
     }
+
     /**
      *
      * @param {HTMLCanvasElement} canvas

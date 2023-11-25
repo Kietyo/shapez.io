@@ -93,7 +93,7 @@ export class KeybindingsState extends TextualGameState {
             type: "info",
         });
 
-        dialog.inputReciever.keydown.add(({ keyCode, shift, alt, event }) => {
+        dialog.inputReciever.keydown.add(({keyCode, shift, alt, event}) => {
             if (keyCode === 27) {
                 this.dialogs.closeDialog(dialog);
                 return;
@@ -121,7 +121,8 @@ export class KeybindingsState extends TextualGameState {
             this.updateKeybindings();
         });
 
-        dialog.inputReciever.backButton.add(() => {});
+        dialog.inputReciever.backButton.add(() => {
+        });
         this.dialogs.internalShowDialog(dialog);
 
         this.app.sound.playUiSound(SOUNDS.dialogOk);
@@ -169,7 +170,7 @@ export class KeybindingsState extends TextualGameState {
     }
 
     resetBindings() {
-        const { reset } = this.dialogs.showWarning(
+        const {reset} = this.dialogs.showWarning(
             T.dialogs.resetKeybindingsConfirmation.title,
             T.dialogs.resetKeybindingsConfirmation.desc,
             ["cancel:good", "reset:bad"]
