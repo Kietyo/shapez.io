@@ -289,12 +289,9 @@ export class GameCore {
             return false;
         }
 
-        // Do not render
-        if (!this.app.isRenderable()) {
-            return false;
-        }
+        return this.app.isRenderable();
 
-        return true;
+
     }
 
     updateLogic() {

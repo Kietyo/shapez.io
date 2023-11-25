@@ -154,17 +154,6 @@ export class BeltPath extends BasicSerializableObject {
         }
         return false;
     }
-
-    /**
-     * SLOW / Tries to find the item closest to the given tile
-     * @param {Vector} tile
-     * @returns {BaseItem|null}
-     */
-    findItemAtTile(tile) {
-        // @TODO: This breaks color blind mode otherwise
-        return null;
-    }
-
     /**
      * Computes the tile bounds of the path
      * @returns {Rectangle}
@@ -1388,11 +1377,8 @@ export class BeltPath extends BasicSerializableObject {
             return true;
         }
 
-        if (contents.components.Belt.assignedPath !== this) {
-            // Not this path
-            return true;
-        }
-        return false;
+        return contents.components.Belt.assignedPath !== this;
+
     }
 
     /**

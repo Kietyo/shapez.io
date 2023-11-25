@@ -1,17 +1,7 @@
 import {GameRoot} from "../game/root";
 import {clearBufferBacklog, freeCanvas, makeOffscreenBuffer} from "./buffer_utils";
 import {createLogger} from "./logging";
-
-/**
- * @typedef {{
- *  canvas: HTMLCanvasElement,
- *  context: CanvasRenderingContext2D,
- *  lastUse: number,
- * }} CacheEntry
- */
-
-const logger = createLogger("buffers");
-
+createLogger("buffers");
 const bufferGcDurationSeconds = 0.5;
 
 export class BufferMaintainer {

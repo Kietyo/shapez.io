@@ -2,7 +2,6 @@ const path = require("path");
 const fs = require("fs");
 const gulpYaml = require("gulp-yaml");
 const YAML = require("yaml");
-const stripIndent = require("strip-indent");
 const trim = require("trim");
 
 const translationsSourceDir = path.join(__dirname, "..", "translations");

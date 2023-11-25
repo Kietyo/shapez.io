@@ -182,9 +182,6 @@ export class BeltUnderlaysSystem extends GameSystem {
         const staticComp = entity.components.StaticMapEntity;
 
         const transformedPos = staticComp.localTileToWorld(underlayTile.pos);
-        const destX = transformedPos.x * globalConfig.tileSize;
-        const destY = transformedPos.y * globalConfig.tileSize;
-
         // Extract direction and angle
         const worldDirection = staticComp.localDirectionToWorld(underlayTile.direction);
         const worldDirectionVector = enumDirectionToVector[worldDirection];

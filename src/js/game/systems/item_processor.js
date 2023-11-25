@@ -175,10 +175,8 @@ export class ItemProcessorSystem extends GameSystemWithFilter {
                 // Check the network value at the given slot
                 const network = pinsComp.slots[slotIndex - 1].linkedNetwork;
                 const slotIsEnabled = network && network.hasValue() && isTruthyItem(network.currentValue);
-                if (!slotIsEnabled) {
-                    return false;
-                }
-                return true;
+                return slotIsEnabled;
+
             }
 
             // By default, everything is accepted

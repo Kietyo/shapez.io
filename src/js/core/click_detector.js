@@ -8,7 +8,7 @@ import {GLOBAL_APP} from "./globals";
 
 const logger = createLogger("click_detector");
 
-export const MAX_MOVE_DISTANCE_PX = false ? 20 : 80;
+export const MAX_MOVE_DISTANCE_PX = 80;
 
 // For debugging
 const registerClickDetectors = G_IS_DEV && true;
@@ -65,7 +65,6 @@ export class ClickDetector {
             applyCssClass = "pressed",
             captureTouchmove = false,
             targetOnly = false,
-            maxDistance = MAX_MOVE_DISTANCE_PX,
             clickSound = SOUNDS.uiClick,
             preventClick = false,
         }
@@ -404,9 +403,8 @@ export class ClickDetector {
         // Check for correct down position, otherwise must have pinched or so
         if (this.clickDownPosition) {
             const pos = /** @type {typeof ClickDetector} */ (this.constructor).extractPointerPosition(event);
-            const distance = pos.distance(this.clickDownPosition);
-                dispatchClick = true;
-                dispatchClickPos = pos;
+            dispatchClick = true;
+            dispatchClickPos = pos;
 
         }
 

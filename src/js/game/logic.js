@@ -93,11 +93,9 @@ export class GameLogic {
 
         }
 
-        if (this.root.signals.prePlacementCheck.dispatch(entity, offset) === STOP_PROPAGATION) {
-            return false;
-        }
+        return this.root.signals.prePlacementCheck.dispatch(entity, offset) !== STOP_PROPAGATION;
 
-        return true;
+
     }
 
     /**

@@ -161,8 +161,7 @@ export function decompressObject(obj) {
     if (obj.keys && obj.values && obj.data) {
         const keys = obj.keys;
         const values = obj.values;
-        const result = decompressObjectInternal(obj.data, keys, values);
-        return result;
+        return decompressObjectInternal(obj.data, keys, values);
     }
     return obj;
 }

@@ -244,8 +244,6 @@ export class HUDBaseToolbar extends BaseHUDPart {
             return STOP_PROPAGATION;
         }
 
-        const handle = this.buildingHandles[metaBuilding.getId()];
-
         // Allow clicking an item again to deselect it
         for (const buildingId in this.buildingHandles) {
             const handle = this.buildingHandles[buildingId];

@@ -619,22 +619,6 @@ export class MainMenuState extends GameState {
             generateFileDownload(filename, data);
         });
     }
-
-    /**
-     * Shows a hint that the slot limit has been reached
-     */
-    showSavegameSlotLimit() {
-        const { getStandalone } = this.dialogs.showWarning(
-            T.dialogs.oneSavegameLimit.title,
-            T.dialogs.oneSavegameLimit.desc,
-            ["cancel:bad", "getStandalone:good"]
-        );
-        getStandalone.add(() => {
-            openStandaloneLink(this.app, "shapez_slotlimit");
-        });
-
-    }
-
     onSettingsButtonClicked() {
         this.moveToState("SettingsState");
     }
@@ -646,15 +630,8 @@ export class MainMenuState extends GameState {
     }
 
     onPlayButtonClicked() {
-        if (
-            this.app.savegameMgr.getSavegamesMetaData().length > 0 &&
-            !true
-        ) {
-            this.showSavegameSlotLimit();
-            return;
-        }
 
-            const savegame = this.app.savegameMgr.createNewSavegame();
+        const savegame = this.app.savegameMgr.createNewSavegame();
 
             this.moveToState("InGameState", {
                 savegame,

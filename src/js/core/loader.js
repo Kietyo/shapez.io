@@ -131,7 +131,7 @@ class LoaderImpl {
                 continue;
             }
 
-            const link = new SpriteAtlasLink({
+            sprite.linksByResolution[scale] = new SpriteAtlasLink({
                 packedX: frame.x,
                 packedY: frame.y,
                 packedW: frame.w,
@@ -142,8 +142,6 @@ class LoaderImpl {
                 w: sourceSize.w,
                 h: sourceSize.h,
             });
-
-            sprite.linksByResolution[scale] = link;
         }
     }
 

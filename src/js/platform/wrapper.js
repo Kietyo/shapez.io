@@ -81,11 +81,4 @@ export class PlatformWrapperInterface {
     exitApp() {
         abstract;
     }
-
-    /**
-     * Whether this platform supports a keyboard
-     */
-    getSupportsKeyboard() {
-        return !false;
-    }
 }

@@ -1,6 +1,5 @@
 import {T} from "../translations";
 import {rando} from "@nastyox/rando.js";
-import {WEB_STEAM_SSO_AUTHENTICATED} from "./steam_sso";
 
 const bigNumberSuffixTranslationKeys = ["thousands", "millions", "billions", "trillions"];
 
@@ -82,8 +81,7 @@ export function fastArrayDelete(array, index) {
     // When the element is not the last element
     if (index !== array.length - 1) {
         // Get the last element, and swap it with the one we want to delete
-        const last = array[array.length - 1];
-        array[index] = last;
+        array[index] = array[array.length - 1];
     }
 
     // Finally remove the last element

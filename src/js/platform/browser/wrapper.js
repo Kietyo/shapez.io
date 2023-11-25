@@ -114,7 +114,7 @@ export class PlatformWrapperImplBrowser extends PlatformWrapperInterface {
     }
 
     getTouchPanStrength() {
-        return false ? 1 : 0.5;
+        return 0.5;
     }
 
     openExternalLink(url, force = false) {

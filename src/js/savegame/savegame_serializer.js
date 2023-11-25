@@ -129,7 +129,7 @@ export class SavegameSerializer {
         }
         let errorReason = null;
 
-        errorReason = errorReason || root.entityMgr.deserialize(savegame.entityMgr);
+        errorReason = root.entityMgr.deserialize(savegame.entityMgr);
         errorReason = errorReason || root.time.deserialize(savegame.time);
         errorReason = errorReason || root.camera.deserialize(savegame.camera);
         errorReason = errorReason || root.map.deserialize(savegame.map);

@@ -103,7 +103,6 @@ export class StaticMapEntityComponent extends Component {
      */
     constructor({
         origin = new Vector(),
-        tileSize = new Vector(1, 1),
         rotation = 0,
         originalRotation = 0,
         code = 0,

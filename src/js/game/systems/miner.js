@@ -141,20 +141,14 @@ export class MinerSystem extends GameSystemWithFilter {
             // Check if we now have a target
             if (targetEntity) {
                 const targetMinerComp = targetEntity.components.Miner;
-                if (targetMinerComp.tryAcceptChainedItem(item)) {
-                    return true;
-                } else {
-                    return false;
-                }
+                return targetMinerComp.tryAcceptChainedItem(item);
             }
         }
 
         // Seems we are a regular miner or at the end of a row, try actually ejecting
-        if (ejectComp.tryEject(0, item)) {
-            return true;
-        }
+        return ejectComp.tryEject(0, item);
 
-        return false;
+
     }
 
     /**

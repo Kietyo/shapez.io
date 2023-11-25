@@ -1,6 +1,5 @@
 import {GameRoot} from "./root";
 import {createLogger} from "../core/logging";
-import {globalConfig} from "../core/config";
 
 const logger = createLogger("dynamic_tickrate");
 
@@ -38,8 +37,7 @@ export class DynamicTickrate {
         const now = performance.now();
         const timeDuration = now - this.accumulatedFpsLastUpdate;
         if (timeDuration > fpsAccumulationTime) {
-            const avgFps = (this.accumulatedFps / fpsAccumulationTime) * 1000;
-            this.averageFps = avgFps;
+            this.averageFps = (this.accumulatedFps / fpsAccumulationTime) * 1000;
             this.accumulatedFps = 0;
             this.accumulatedFpsLastUpdate = now;
         }

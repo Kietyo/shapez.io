@@ -394,7 +394,6 @@ export class KeyActionMapper {
         this.inputReceiver = inputReciever;
 
         inputReciever.keydown.add(this.handleKeydown, this);
-        inputReciever.keyup.add(this.handleKeyup, this);
 
         /** @type {Object.<string, Keybinding>} */
         this.keybindings = {};
@@ -418,7 +417,6 @@ export class KeyActionMapper {
             }
         }
 
-        inputReciever.pageBlur.add(this.onPageBlur, this);
         inputReciever.destroyed.add(this.cleanup, this);
     }
     /**
@@ -436,15 +434,6 @@ export class KeyActionMapper {
     cleanup() {
         for (const key in this.keybindings) {
             this.keybindings[key].signal.removeAll();
-        }
-    }
-
-    onPageBlur() {
-        // Reset all down states
-        // Find mapping
-        for (const key in this.keybindings) {
-            /** @type {Keybinding} */
-            const binding = this.keybindings[key];
         }
     }
 
@@ -490,16 +479,6 @@ export class KeyActionMapper {
         }
     }
 
-    /**
-     * Internal keyup handler
-     * @param {object} param0
-     * @param {number} param0.keyCode
-     * @param {boolean} param0.shift
-     * @param {boolean} param0.alt
-     */
-    handleKeyup({ keyCode, shift, alt }) {
-        // Empty
-    }
 
     /**
      * Returns a given keybinding
