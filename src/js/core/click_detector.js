@@ -7,9 +7,6 @@ import {SOUNDS} from "../platform/sound";
 import {GLOBAL_APP} from "./globals";
 
 const logger = createLogger("click_detector");
-
-export const MAX_MOVE_DISTANCE_PX = 80;
-
 // For debugging
 const registerClickDetectors = G_IS_DEV && true;
 if (registerClickDetectors) {

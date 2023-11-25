@@ -18,8 +18,6 @@ import {
 } from "../core/utils";
 import {HUDModalDialogs} from "../game/hud/parts/modal_dialogs";
 import {PlatformWrapperImplBrowser} from "../platform/browser/wrapper";
-import {PlatformWrapperImplElectron} from "../platform/electron/wrapper";
-import {Savegame} from "../savegame/savegame";
 import {T} from "../translations";
 
 const trim = require("trim");

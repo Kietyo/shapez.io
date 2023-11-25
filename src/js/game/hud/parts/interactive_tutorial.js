@@ -1,5 +1,5 @@
 import {BaseHUDPart} from "../base_hud_part";
-import {clamp, makeDiv, smoothPulse} from "../../../core/utils";
+import {makeDiv, smoothPulse} from "../../../core/utils";
 import {GameRoot} from "../../root";
 import {MinerComponent} from "../../components/miner";
 import {DynamicDomAttach} from "../dynamic_dom_attach";

@@ -27,8 +27,6 @@ import {HUDMinerHighlight} from "../hud/parts/miner_highlight";
 import {HUDGameMenu} from "../hud/parts/game_menu";
 import {HUDConstantSignalEdit} from "../hud/parts/constant_signal_edit";
 import {HUDKeybindingOverlay} from "../hud/parts/keybinding_overlay";
-import {HUDWatermark} from "../hud/parts/watermark";
-import {HUDStandaloneAdvantages} from "../hud/parts/standalone_advantages";
 import {HUDPartTutorialHints} from "../hud/parts/tutorial_hints";
 import {HUDInteractiveTutorial} from "../hud/parts/interactive_tutorial";
 import {MetaBlockBuilding} from "../buildings/block";

@@ -1,5 +1,4 @@
 /* typehints:start */
-import {GameSystem} from "./game_system";
 import {GameRoot} from "./root";
 /* typehints:end */
 import {createLogger} from "../core/logging";

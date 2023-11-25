@@ -1,4 +1,3 @@
-import {globalConfig} from "../../core/config";
 import {createLogger} from "../../core/logging";
 import {queryParamOptions} from "../../core/query_parameters";
 import {WEB_STEAM_SSO_AUTHENTICATED} from "../../core/steam_sso";

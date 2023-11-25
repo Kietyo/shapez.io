@@ -7,7 +7,6 @@ import {KeyActionMapper} from "../game/key_action_mapper";
 import {Savegame} from "../savegame/savegame";
 import {GameCore} from "../game/core";
 import {MUSIC} from "../platform/sound";
-import {enumGameModeIds} from "../game/game_mode";
 import {HUDModalDialogs} from "../game/hud/parts/modal_dialogs";
 import {T} from "../translations";
 
