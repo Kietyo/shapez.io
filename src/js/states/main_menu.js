@@ -205,8 +205,6 @@ export class MainMenuState extends GameState {
                     </div>
 
                     <div class="footerGrow">
-                        ${`<a class="changelog">${T.changelog.title}</a>`}
-
                         ${`<a class="helpTranslate">${T.mainMenu.helpTranslate}</a>`}
 
                     </div>
@@ -339,7 +337,6 @@ export class MainMenuState extends GameState {
             ".redditLink": this.onRedditClicked,
             ".twitterLink": this.onTwitterLinkClicked,
             ".patreonLink": this.onPatreonLinkClicked,
-            ".changelog": this.onChangelogClicked,
             ".helpTranslate": this.onTranslationHelpLinkClicked,
             ".exitAppButton": this.onExitAppButtonClicked,
             ".steamLink": this.onSteamLinkClicked,
@@ -429,10 +426,6 @@ export class MainMenuState extends GameState {
 
     onExitAppButtonClicked() {
         this.app.platformWrapper.exitApp();
-    }
-
-    onChangelogClicked() {
-        this.moveToState("ChangelogState");
     }
 
     onRedditClicked() {

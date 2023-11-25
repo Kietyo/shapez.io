@@ -1,4 +1,3 @@
-import {CHANGELOG} from "../changelog";
 import {cachebust} from "../core/cachebust";
 import {globalConfig} from "../core/config";
 import {GameState} from "../core/game_state";
@@ -210,40 +209,6 @@ export class PreloadState extends GameState {
                         logger.log("Last version:", version, "App version:", G_BUILD_VERSION);
                         this.app.storage.writeFileAsync("lastversion.bin", G_BUILD_VERSION);
                         return version;
-                    })
-                    .then(version => {
-                        let changelogEntries = [];
-                        logger.log("Last seen version:", version);
-
-                        for (let i = 0; i < CHANGELOG.length; ++i) {
-                            if (CHANGELOG[i].version === version) {
-                                break;
-                            }
-                            changelogEntries.push(CHANGELOG[i]);
-                        }
-                        if (changelogEntries.length === 0) {
-                            return;
-                        }
-
-                        let dialogHtml = T.dialogs.updateSummary.desc;
-                        for (let i = 0; i < changelogEntries.length; ++i) {
-                            const entry = changelogEntries[i];
-                            dialogHtml += `
-                            <div class="changelogDialogEntry" data-changelog-skin="${
-                                entry.skin || "default"
-                            }">
-                                <span class="version">${entry.version}</span>
-                                <span class="date">${entry.date}</span>
-                                <ul class="changes">
-                                    ${entry.entries.map(text => `<li>${text}</li>`).join("")}
-                                </ul>
-                            </div>
-                        `;
-                        }
-
-                        return new Promise(resolve => {
-                            this.dialogs.showInfo(T.dialogs.updateSummary.title, dialogHtml).ok.add(resolve);
-                        });
                     });
             })
 

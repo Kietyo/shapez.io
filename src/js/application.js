@@ -18,7 +18,6 @@ import {PlatformWrapperInterface} from "./platform/wrapper";
 import {ApplicationSettings} from "./profile/application_settings";
 import {SavegameManager} from "./savegame/savegame_manager";
 import {AboutState} from "./states/about";
-import {ChangelogState} from "./states/changelog";
 import {InGameState} from "./states/ingame";
 import {KeybindingsState} from "./states/keybindings";
 import {MainMenuState} from "./states/main_menu";
@@ -163,7 +162,6 @@ export class Application {
             SettingsState,
             KeybindingsState,
             AboutState,
-            ChangelogState,
             LoginState,
             ModsState,
         ];
