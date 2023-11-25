@@ -36,7 +36,6 @@
 @import "ingame_hud/shop";
 @import "ingame_hud/game_menu";
 @import "ingame_hud/dialogs";
-@import "ingame_hud/vignette_overlay";
 @import "ingame_hud/statistics";
 @import "ingame_hud/pinned_shapes";
 @import "ingame_hud/notifications";
@@ -57,7 +56,6 @@
 $elements:
 // Base
 ingame_Canvas,
-ingame_VignetteOverlay,
 
 // Ingame overlays
 ingame_HUD_Waypoints,

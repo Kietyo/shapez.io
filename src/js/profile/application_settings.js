@@ -262,7 +262,6 @@ function initializeSettings() {
         new BoolSetting("zoomToCursor", enumCategories.advanced, (app, value) => {}),
         new BoolSetting("clearCursorOnDeleteWhilePlacing", enumCategories.advanced, (app, value) => {}),
         new BoolSetting("enableTunnelSmartplace", enumCategories.advanced, (app, value) => {}),
-        new BoolSetting("vignette", enumCategories.userInterface, (app, value) => {}),
         new BoolSetting("compactBuildingInfo", enumCategories.userInterface, (app, value) => {}),
         new BoolSetting("disableCutDeleteWarnings", enumCategories.advanced, (app, value) => {}),
         new BoolSetting("rotationByBuilding", enumCategories.advanced, (app, value) => {}),
@@ -309,7 +308,6 @@ class SettingsStorage {
         this.shapeTooltipAlwaysOn = false;
         this.offerHints = true;
         this.enableTunnelSmartplace = true;
-        this.vignette = true;
         this.compactBuildingInfo = false;
         this.disableCutDeleteWarnings = false;
         this.rotationByBuilding = true;
@@ -589,7 +587,6 @@ export class ApplicationSettings extends ReadWriteProxy {
         }
 
         if (data.version < 12) {
-            data.settings.vignette = true;
             data.version = 12;
         }
 
