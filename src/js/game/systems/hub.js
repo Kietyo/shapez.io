@@ -65,7 +65,7 @@ export class HubSystem extends GameSystemWithFilter {
 
         this.hubSprite.draw(context, 0, 0, w, h);
 
-        if (this.root.hubGoals.isEndOfDemoReached()) {
+        if (false) {
             // End of demo
             context.font = "bold 12px GameFont";
             context.fillStyle = "#fd0752";

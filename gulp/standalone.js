@@ -36,8 +36,6 @@ function gulptasksStandalone($, gulp) {
             const requiredFiles = [
                 path.join(electronBaseDir, "node_modules", "**", "*.*"),
                 path.join(electronBaseDir, "node_modules", "**", ".*"),
-                path.join(electronBaseDir, "wegame_sdk", "**", "*.*"),
-                path.join(electronBaseDir, "wegame_sdk", "**", ".*"),
                 path.join(electronBaseDir, "favicon*"),
             ];
             return gulp.src(requiredFiles, { base: electronBaseDir }).pipe(gulp.dest(tempDestBuildDir));
@@ -111,7 +109,7 @@ function gulptasksStandalone($, gulp) {
         function packageStandalone(platform, arch, cb, isRelease = true) {
             const privateArtifactsPath = "node_modules/shapez.io-private-artifacts";
 
-            // Only use asar on steam builds (not supported by wegame)
+            // Only use asar on steam builds
             let asar = Boolean(variantData.steamAppId);
 
             // Unpack private artifacts though

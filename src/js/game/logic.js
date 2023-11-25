@@ -468,15 +468,4 @@ export class GameLogic {
         }
         return { ejectors, acceptors };
     }
-
-    /**
-     * Clears all belts and items
-     */
-    clearAllBeltsAndItems() {
-        for (const entity of this.root.entityMgr.entities) {
-            for (const component of Object.values(entity.components)) {
-                /** @type {Component} */ (component).clear();
-            }
-        }
-    }
 }

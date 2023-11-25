@@ -6,10 +6,6 @@
  *  steamAppId?: number,
  *  executableName?: string,
  *  buildArgs: {
- *      chineseVersion?: boolean,
- *      wegameVersion?: boolean,
- *      steamDemo?: boolean,
- *      gogVersion?: boolean
  * }}>}
  */
 const BUILD_VARIANTS = {
