@@ -19,7 +19,6 @@ import {
 import {HUDModalDialogs} from "../game/hud/parts/modal_dialogs";
 import {MODS} from "../mods/modloader";
 import {PlatformWrapperImplBrowser} from "../platform/browser/wrapper";
-import {PlatformWrapperImplElectron} from "../platform/electron/wrapper";
 import {Savegame} from "../savegame/savegame";
 import {T} from "../translations";
 
@@ -49,19 +48,10 @@ export class MainMenuState extends GameState {
             const wrapper = /** @type {PlatformWrapperImplBrowser} */ (this.app.platformWrapper);
         }
 
-        const showDemoAdvertisement =
-            false;
-
-        const ownsPuzzleDLC =
-            WEB_STEAM_SSO_AUTHENTICATED ||
-            (G_IS_STANDALONE &&
-                /** @type { PlatformWrapperImplElectron}*/ (this.app.platformWrapper).dlcs.puzzle);
-
         const showShapez2 = MODS.mods.length === 0;
 
         const bannerHtml = `
             <h3>${T.demoBanners.titleV2}</h3>
-
 
             <div class="points">
                 ${Array.from(Object.entries(T.ingame.standaloneAdvantages.points))
@@ -116,7 +106,7 @@ export class MainMenuState extends GameState {
                 ${/*showUpdateLabel ? `<span class="updateLabel">MODS UPDATE!</span>` : ""*/ ""}
             </div>
 
-            <div class="mainWrapper" data-columns="${showDemoAdvertisement || showPuzzleDLC ? 2 : 1}">
+            <div class="mainWrapper" data-columns="${false || showPuzzleDLC ? 2 : 1}">
                 <div class="mainContainer">
                     <div class="buttons"></div>
                     <div class="savegamesMount"></div>
@@ -151,7 +141,7 @@ export class MainMenuState extends GameState {
                 </div>
 
                 <div class="sideContainer">
-                    ${showDemoAdvertisement ? `<div class="standaloneBanner">${bannerHtml}</div>` : ""}
+                    ${false ? `<div class="standaloneBanner">${bannerHtml}</div>` : ""}
 
                     ${
                         showShapez2
@@ -167,7 +157,7 @@ export class MainMenuState extends GameState {
                         ? `
 
                         ${
-                            ownsPuzzleDLC && !hasMods
+                            false && !hasMods
                                 ? `
                             <div class="puzzleContainer owned">
                                 <button class="styledButton puzzleDlcPlayButton">${T.mainMenu.play}</button>
@@ -176,7 +166,7 @@ export class MainMenuState extends GameState {
                         }
 
                         ${
-                            !ownsPuzzleDLC && !hasMods
+                            !false && !hasMods
                                 ? `
                             <div class="puzzleContainer notOwned">
                                 <p>${T.mainMenu.puzzleDlcText}</p>
