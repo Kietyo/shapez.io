@@ -23,7 +23,6 @@
         "background": "rgba(255, 137, 137, 0.2)"
       }
     },
-    "colorBlindPickerTile": "rgba(50, 50, 50, 0.4)",
     "resources": {
       "shape": "#e0e2e8",
       "red": "#f3bcb6",

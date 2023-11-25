@@ -8,7 +8,6 @@ import {ShapeDefinition} from "../shape_definition";
 import {HUDBlueprintPlacer} from "./parts/blueprint_placer";
 import {HUDBuildingsToolbar} from "./parts/buildings_toolbar";
 import {HUDBuildingPlacer} from "./parts/building_placer";
-import {HUDColorBlindHelper} from "./parts/color_blind_helper";
 import {HUDChangesDebugger} from "./parts/debug_changes";
 import {HUDDebugInfo} from "./parts/debug_info";
 import {HUDEntityDebugger} from "./parts/entity_debugger";
@@ -67,10 +66,6 @@ export class GameHUD {
 
         if (G_IS_DEV && globalConfig.debug.renderChanges) {
             this.parts.changesDebugger = new HUDChangesDebugger(this.root);
-        }
-
-        if (this.root.app.settings.getAllSettings().enableColorBlindHelper) {
-            this.parts.colorBlindHelper = new HUDColorBlindHelper(this.root);
         }
 
         const additionalParts = this.root.gameMode.additionalHudParts;
@@ -158,7 +153,6 @@ export class GameHUD {
             "massSelector",
             "buildingPlacer",
             "blueprintPlacer",
-            "colorBlindHelper",
             "changesDebugger",
             "minerHighlight",
             "shapeTooltip",

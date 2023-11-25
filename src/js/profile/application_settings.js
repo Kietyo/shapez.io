@@ -191,15 +191,6 @@ function initializeSettings() {
              */app => G_IS_STANDALONE
         ),
 
-        new BoolSetting(
-            "enableColorBlindHelper",
-            enumCategories.general,
-            /**
-             * @param {Application} app
-             */
-            (app, value) => null
-        ),
-
         new EnumSetting("theme", {
             options: Object.keys(THEMES),
             valueGetter: theme => theme,
@@ -329,8 +320,6 @@ class SettingsStorage {
         this.displayChunkBorders = false;
         this.pickMinerOnPatch = true;
         this.enableMousePan = true;
-
-        this.enableColorBlindHelper = false;
 
         this.lowQualityMapResources = false;
         this.disableTileGrid = false;
@@ -626,7 +615,6 @@ export class ApplicationSettings extends ReadWriteProxy {
         }
 
         if (data.version < 17) {
-            data.settings.enableColorBlindHelper = false;
             data.version = 17;
         }
 
