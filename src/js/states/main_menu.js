@@ -1,5 +1,5 @@
 import {cachebust} from "../core/cachebust";
-import {globalConfig, openStandaloneLink} from "../core/config";
+import {globalConfig} from "../core/config";
 import {GameState} from "../core/game_state";
 import {DialogWithForm} from "../core/modal_dialog_elements";
 import {FormElementInput} from "../core/modal_dialog_forms";
@@ -131,13 +131,6 @@ export class MainMenuState extends GameState {
      * Asks the user to import a savegame
      */
     requestImportSavegame() {
-        if (
-            this.app.savegameMgr.getSavegamesMetaData().length > 0 &&
-            !true
-        ) {
-            this.showSavegameSlotLimit();
-            return;
-        }
 
         // Create a 'fake' file-input to accept savegames
         startFileChoose(".bin").then(file => {
@@ -491,33 +484,11 @@ export class MainMenuState extends GameState {
         });
     }
 
-    /**
-     * Shows a hint that the slot limit has been reached
-     */
-    showSavegameSlotLimit() {
-        const {getStandalone} = this.dialogs.showWarning(
-            T.dialogs.oneSavegameLimit.title,
-            T.dialogs.oneSavegameLimit.desc,
-            ["cancel:bad", "getStandalone:good"]
-        );
-        getStandalone.add(() => {
-            openStandaloneLink(this.app, "shapez_slotlimit");
-        });
-
-    }
-
     onSettingsButtonClicked() {
         this.moveToState("SettingsState");
     }
 
     onPlayButtonClicked() {
-        if (
-            this.app.savegameMgr.getSavegamesMetaData().length > 0 &&
-            !true
-        ) {
-            this.showSavegameSlotLimit();
-            return;
-        }
 
         const savegame = this.app.savegameMgr.createNewSavegame();
 

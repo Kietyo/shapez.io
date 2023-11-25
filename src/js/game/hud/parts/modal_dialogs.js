@@ -7,7 +7,6 @@ import {BaseHUDPart} from "../base_hud_part";
 import {Dialog, DialogLoading, DialogOptionChooser} from "../../../core/modal_dialog_elements";
 import {makeDiv} from "../../../core/utils";
 import {T} from "../../../translations";
-import {openStandaloneLink} from "../../../core/config";
 
 export class HUDModalDialogs extends BaseHUDPart {
     constructor(root, app) {
@@ -115,10 +114,6 @@ export class HUDModalDialogs extends BaseHUDPart {
         if (this.app) {
             this.app.sound.playUiSound(SOUNDS.dialogOk);
         }
-
-        dialog.buttonSignals.getStandalone.add(() => {
-            openStandaloneLink(this.app, "shapez_demo_dialog");
-        });
 
         return dialog.buttonSignals;
     }

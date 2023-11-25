@@ -207,9 +207,7 @@
   @include DarkThemeOverride {
     .container .content {
       .sidebar {
-        button.categoryButton,
-        button.about,
-        button.privacy {
+        button.categoryButton {
           color: #ccc;
           background-color: darken($darkModeControlsBackground, 5);
 

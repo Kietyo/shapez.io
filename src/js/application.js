@@ -15,7 +15,6 @@ import {PlatformWrapperImplElectron} from "./platform/electron/wrapper";
 import {PlatformWrapperInterface} from "./platform/wrapper";
 import {ApplicationSettings} from "./profile/application_settings";
 import {SavegameManager} from "./savegame/savegame_manager";
-import {AboutState} from "./states/about";
 import {InGameState} from "./states/ingame";
 import {KeybindingsState} from "./states/keybindings";
 import {MainMenuState} from "./states/main_menu";
@@ -152,7 +151,6 @@ export class Application {
             InGameState,
             SettingsState,
             KeybindingsState,
-            AboutState,
         ];
 
         for (let i = 0; i < states.length; ++i) {

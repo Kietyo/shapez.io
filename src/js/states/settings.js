@@ -30,12 +30,6 @@ export class SettingsState extends TextualGameState {
         }
 
             <div class="other ">
-
-            
-                <button class="styledButton about">${T.about.title}</button>
-                <button class="styledButton privacy">Privacy Policy</button>
-
-
                 <div class="versionbar">
                     <div class="buildVersion">${T.global.loading} ...</div>
                 </div>
@@ -108,14 +102,6 @@ export class SettingsState extends TextualGameState {
         this.renderBuildText();
 
 
-        this.trackClicks(this.htmlElement.querySelector(".about"), this.onAboutClicked, {
-            preventDefault: false,
-        });
-        this.trackClicks(this.htmlElement.querySelector(".privacy"), this.onPrivacyClicked, {
-            preventDefault: false,
-        });
-
-
         const keybindingsButton = this.htmlElement.querySelector(".editKeybindings");
 
         if (keybindingsButton) {
@@ -180,11 +166,6 @@ export class SettingsState extends TextualGameState {
             );
         });
     }
-
-    onAboutClicked() {
-        this.moveToStateAddGoBack("AboutState");
-    }
-
 
 
     onKeybindingsClicked() {
