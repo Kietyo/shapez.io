@@ -1,5 +1,4 @@
 import {GameState} from "../core/game_state";
-import {getRandomHint} from "../game/hints";
 import {HUDModalDialogs} from "../game/hud/parts/modal_dialogs";
 import {T} from "../translations";
 
@@ -36,11 +35,6 @@ export class LoginState extends GameState {
 
         this.htmlElement.classList.add("prefab_LoadingState");
 
-        /** @type {HTMLElement} */
-        this.hintsText = this.htmlElement.querySelector(".prefab_GameHint");
-        this.lastHintShown = -1000;
-        this.nextHintDuration = 0;
-
         this.tryLogin();
     }
 
@@ -66,20 +60,6 @@ export class LoginState extends GameState {
         this.moveToState(this.payload.nextStateId);
     }
     update() {
-        const now = performance.now();
-        if (now - this.lastHintShown > this.nextHintDuration) {
-            this.lastHintShown = now;
-            const hintText = getRandomHint();
-
-            this.hintsText.innerHTML = hintText;
-
-            /**
-             * Compute how long the user will need to read the hint.
-             * We calculate with 130 words per minute, with an average of 5 chars
-             * that is 650 characters / minute
-             */
-            this.nextHintDuration = Math.max(2500, (hintText.length / 650) * 60 * 1000);
-        }
     }
 
     onRender() {

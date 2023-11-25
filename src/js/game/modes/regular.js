@@ -336,14 +336,8 @@ export class RegularGameMode extends GameMode {
             constantSignalEdit: HUDConstantSignalEdit,
         };
 
-        if (!false) {
-            this.additionalHudParts.keybindingOverlay = HUDKeybindingOverlay;
-        }
+        this.additionalHudParts.keybindingOverlay = HUDKeybindingOverlay;
 
-        if (this.root.app.settings.getAllSettings().offerHints) {
-                this.additionalHudParts.tutorialHints = HUDPartTutorialHints;
-            this.additionalHudParts.interactiveTutorial = HUDInteractiveTutorial;
-        }
 
         /** @type {(typeof MetaBuilding)[]} */
         this.hiddenBuildings = [

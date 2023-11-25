@@ -200,8 +200,6 @@ function initializeSettings() {
             (app, value) => null
         ),
 
-        new BoolSetting("offerHints", enumCategories.userInterface, (app, value) => {}),
-
         new EnumSetting("theme", {
             options: Object.keys(THEMES),
             valueGetter: theme => theme,
@@ -307,7 +305,6 @@ class SettingsStorage {
 
         this.alwaysMultiplace = false;
         this.shapeTooltipAlwaysOn = false;
-        this.offerHints = true;
         this.enableTunnelSmartplace = true;
         this.vignette = true;
         this.compactBuildingInfo = false;
@@ -564,7 +561,6 @@ export class ApplicationSettings extends ReadWriteProxy {
         }
 
         if (data.version < 7) {
-            data.settings.offerHints = true;
             data.version = 7;
         }
 
@@ -686,9 +682,6 @@ export class ApplicationSettings extends ReadWriteProxy {
 
         if (data.version < 30) {
             data.settings.mapResourcesScale = 0.5;
-
-            // Re-enable hints as well
-            data.settings.offerHints = true;
 
             data.version = 30;
         }

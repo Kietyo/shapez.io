@@ -105,14 +105,7 @@ export class HUDUnlockNotification extends BaseHUDPart {
 
         this.element.querySelector("button.close").classList.remove("unlocked");
 
-        if (this.root.app.settings.getAllSettings().offerHints) {
-            this.buttonShowTimeout = setTimeout(
-                () => this.element.querySelector("button.close").classList.add("unlocked"),
-                G_IS_DEV ? 100 : 1500
-            );
-        } else {
-            this.element.querySelector("button.close").classList.add("unlocked");
-        }
+        this.element.querySelector("button.close").classList.add("unlocked");
     }
 
     cleanup() {
@@ -137,10 +130,6 @@ export class HUDUnlockNotification extends BaseHUDPart {
                 false
             ) {
                 this.root.hud.parts.standaloneAdvantages.show(true);
-            }
-
-            if (!this.root.app.settings.getAllSettings().offerHints) {
-                return;
             }
 
             if (this.root.hubGoals.level === 3) {

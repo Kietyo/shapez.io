@@ -4,7 +4,6 @@ import {GameState} from "../core/game_state";
 import {createLogger} from "../core/logging";
 import {queryParamOptions} from "../core/query_parameters";
 import {getLogoSprite} from "../core/utils";
-import {getRandomHint} from "../game/hints";
 import {HUDModalDialogs} from "../game/hud/parts/modal_dialogs";
 import {PlatformWrapperImplBrowser} from "../platform/browser/wrapper";
 import {autoDetectLanguageId, updateApplicationLanguage} from "../translations";
@@ -32,11 +31,6 @@ export class PreloadState extends GameState {
         this.dialogs = new HUDModalDialogs(null, this.app);
         const dialogsElement = document.body.querySelector(".modalDialogParent");
         this.dialogs.initializeToElement(dialogsElement);
-
-        /** @type {HTMLElement} */
-        this.hintsText = this.htmlElement.querySelector("#preload_ll_text");
-        this.lastHintShown = -1000;
-        this.nextHintDuration = 0;
 
         this.statusText = this.htmlElement.querySelector("#ll_preload_status");
         this.progressElement = this.htmlElement.querySelector("#ll_progressbar span");
@@ -224,19 +218,6 @@ export class PreloadState extends GameState {
 
     update() {
         const now = performance.now();
-        if (now - this.lastHintShown > this.nextHintDuration) {
-            this.lastHintShown = now;
-            const hintText = getRandomHint();
-
-            this.hintsText.innerHTML = hintText;
-
-            /**
-             * Compute how long the user will need to read the hint.
-             * We calculate with 130 words per minute, with an average of 5 chars
-             * that is 650 characters / minute
-             */
-            this.nextHintDuration = Math.max(2500, (hintText.length / 650) * 60 * 1000);
-        }
     }
 
     onRender() {
@@ -292,8 +273,6 @@ export class PreloadState extends GameState {
 
         const resetBtn = subElement.querySelector("button.resetApp");
         this.trackClicks(resetBtn, this.showResetConfirm);
-
-        this.hintsText.remove();
     }
 
     showResetConfirm() {
