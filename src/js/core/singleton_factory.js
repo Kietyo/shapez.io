@@ -72,14 +72,6 @@ export class SingletonFactory {
     }
 
     /**
-     * Returns all registered ids
-     * @returns {Array<string>}
-     */
-    getAllIds() {
-        return Object.keys(this.idToEntry);
-    }
-
-    /**
      * Returns amount of stored entries
      * @returns {number}
      */

@@ -27,7 +27,18 @@ export class InputDistributor {
          */
         this.keysDown = new Set();
 
-        this.bindToEvents();
+        window.addEventListener("popstate", this.handleBackButton.bind(this), false);
+        document.addEventListener("backbutton", this.handleBackButton.bind(this), false);
+
+        window.addEventListener("keydown", this.handleKeyMouseDown.bind(this));
+        window.addEventListener("keyup", this.handleKeyMouseUp.bind(this));
+
+        window.addEventListener("mousedown", this.handleKeyMouseDown.bind(this));
+        window.addEventListener("mouseup", this.handleKeyMouseUp.bind(this));
+
+        window.addEventListener("blur", this.handleBlur.bind(this));
+
+        document.addEventListener("paste", this.handlePaste.bind(this));
     }
 
     /**
@@ -126,22 +137,6 @@ export class InputDistributor {
         }
         return null;
     }
-
-    bindToEvents() {
-        window.addEventListener("popstate", this.handleBackButton.bind(this), false);
-        document.addEventListener("backbutton", this.handleBackButton.bind(this), false);
-
-        window.addEventListener("keydown", this.handleKeyMouseDown.bind(this));
-        window.addEventListener("keyup", this.handleKeyMouseUp.bind(this));
-
-        window.addEventListener("mousedown", this.handleKeyMouseDown.bind(this));
-        window.addEventListener("mouseup", this.handleKeyMouseUp.bind(this));
-
-        window.addEventListener("blur", this.handleBlur.bind(this));
-
-        document.addEventListener("paste", this.handlePaste.bind(this));
-    }
-
     forwardToReceiver(eventId, payload = null) {
         // Check filters
         for (let i = 0; i < this.filters.length; ++i) {

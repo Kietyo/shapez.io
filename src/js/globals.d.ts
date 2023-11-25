@@ -68,8 +68,6 @@ declare interface FactoryTemplate<T> {
 
     getId(): string;
 
-    getAllIds(): Array<string>;
-
     register(entry: Class<T>): void;
 
     hasId(id: string): boolean;

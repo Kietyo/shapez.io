@@ -64,14 +64,6 @@ export class Factory {
     }
 
     /**
-     * Returns all registered ids
-     * @returns {Array<string>}
-     */
-    getAllIds() {
-        return this.entryIds;
-    }
-
-    /**
      * Returns amount of stored entries
      * @returns {number}
      */
