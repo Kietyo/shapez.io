@@ -34,41 +34,5 @@ const BUILD_VARIANTS = {
         steamAppId: 1318690,
         buildArgs: {},
     },
-    "standalone-steam-china": {
-        standalone: true,
-        steamAppId: 1318690,
-        buildArgs: {
-            chineseVersion: true,
-        },
-    },
-    "standalone-steam-demo": {
-        standalone: true,
-        steamAppId: 1930750,
-        buildArgs: {
-            steamDemo: true,
-        },
-    },
-    "standalone-steam-china-demo": {
-        standalone: true,
-        steamAppId: 1930750,
-        buildArgs: {
-            steamDemo: true,
-            chineseVersion: true,
-        },
-    },
-    "standalone-wegame": {
-        standalone: true,
-        electronBaseDir: "electron_wegame",
-        buildArgs: {
-            wegameVersion: true,
-        },
-    },
-    "standalone-gog": {
-        standalone: true,
-        electronBaseDir: "electron_gog",
-        buildArgs: {
-            gogVersion: true,
-        },
-    },
 };
 module.exports = { BUILD_VARIANTS };
