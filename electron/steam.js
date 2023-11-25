@@ -35,54 +35,6 @@ function init(isDev) {
 
     initialized = true;
 }
-
-function listen() {
-    ipcMain.handle("steam:is-initialized", isInitialized);
-
-    if (!initialized) {
-        console.warn("Steam not initialized, won't be able to listen");
-        return;
-    }
-
-    if (!greenworks) {
-        console.warn("Greenworks not loaded, won't be able to listen");
-        return;
-    }
-
-    console.log("Adding listeners");
-
-    function bufferToHex(buffer) {
-        return Array.from(new Uint8Array(buffer))
-            .map(b => b.toString(16).padStart(2, "0"))
-            .join("");
-    }
-
-    ipcMain.handle("steam:get-ticket", (event, arg) => {
-        console.log("Requested steam ticket ...");
-        return new Promise((resolve, reject) => {
-            greenworks.getAuthSessionTicket(
-                success => {
-                    const ticketHex = bufferToHex(success.ticket);
-                    resolve(ticketHex);
-                },
-                error => {
-                    console.error("Failed to get steam ticket:", error);
-                    reject(error);
-                }
-            );
-        });
-    });
-
-    ipcMain.handle("steam:check-app-ownership", (event, appId) => {
-        return Promise.resolve(greenworks.isDLCInstalled(appId));
-    });
-}
-
-function isInitialized(event) {
-    return Promise.resolve(initialized);
-}
-
 module.exports = {
     init,
-    listen,
 };

@@ -46,9 +46,6 @@ export class MainMenuState extends GameState {
         const showShapez2 = true;
 
         const bannerHtml = `
-            <h3>${T.demoBanners.titleV2}</h3>
-
-
             <div class="points">
                 ${Array.from(Object.entries(T.ingame.standaloneAdvantages.points))
                     .slice(0, 6)

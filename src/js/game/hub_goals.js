@@ -213,9 +213,7 @@ export class HubGoals extends BasicSerializableObject {
             this.getCurrentGoalDelivered() >= this.currentGoal.required ||
             (G_IS_DEV && globalConfig.debug.rewardsInstant)
         ) {
-            if (!false) {
                 this.onGoalCompleted();
-            }
         }
     }
 

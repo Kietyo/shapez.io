@@ -8,10 +8,6 @@ const CircularDependencyPlugin = require("circular-dependency-plugin");
 module.exports = ({
     watch = false,
     standalone = false,
-    chineseVersion = false,
-    wegameVersion = false,
-    steamDemo = false,
-    gogVersion = false,
 }) => {
     return {
         mode: "development",

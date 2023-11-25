@@ -18,8 +18,6 @@ We are currently working on a successor to shapez, with 3D Graphics, Exploration
 This is the source code for shapez, an open source base building game inspired by Factorio.
 Your goal is to produce shapes by cutting, rotating, merging and painting parts of shapes.
 
--   [Play on Steam](https://get.shapez.io/ghr)
--   [Online Demo](https://shapez.io)
 -   [Official Discord](https://discord.com/invite/HN7EVzV) <- _Highly recommended to join!_
 -   [Trello Board & Roadmap](https://trello.com/b/ISQncpJP/shapezio)
 

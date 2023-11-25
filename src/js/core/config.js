@@ -87,9 +87,6 @@ export const globalConfig = {
 
     readerAnalyzeIntervalSeconds: 10,
 
-    goalAcceptorItemsRequired: 12,
-    goalAcceptorsPerProducer: 5,
-
     buildingSpeeds: {
         cutter: 1 / 4,
         cutterQuad: 1 / 4,

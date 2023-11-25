@@ -4,7 +4,6 @@ const { app, BrowserWindow, Menu, MenuItem, ipcMain, shell, dialog, session } = 
 const path = require("path");
 const url = require("url");
 const fs = require("fs");
-const steam = require("./steam");
 const asyncLock = require("async-lock");
 const windowStateKeeper = require("electron-window-state");
 

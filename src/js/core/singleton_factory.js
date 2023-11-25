@@ -33,30 +33,6 @@ export class SingletonFactory {
     }
 
     /**
-     * Checks if a given id is registered
-     * @param {string} id
-     * @returns {boolean}
-     */
-    hasId(id) {
-        return !!this.idToEntry[id];
-    }
-
-    /**
-     * Finds an instance by a given id
-     * @param {string} id
-     * @returns {object}
-     */
-    findById(id) {
-        const entry = this.idToEntry[id];
-        if (!entry) {
-            logger.error("Object with id", id, "is not registered!");
-            assert(false, "Factory: Object with id '" + id + "' is not registered!");
-            return null;
-        }
-        return entry;
-    }
-
-    /**
      * Finds an instance by its constructor (The class handle)
      * @param {object} classHandle
      * @returns {object}
@@ -69,13 +45,6 @@ export class SingletonFactory {
         }
         assert(false, "Factory: Object not found by classHandle (classid: " + classHandle.name + ")");
         return null;
-    }
-    /**
-     * Returns all registered ids
-     * @returns {Array<string>}
-     */
-    getAllIds() {
-        return Object.keys(this.idToEntry);
     }
 
     /**

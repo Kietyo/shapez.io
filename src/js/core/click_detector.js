@@ -79,7 +79,6 @@ export class ClickDetector {
         this.captureTouchmove = captureTouchmove;
         this.targetOnly = targetOnly;
         this.clickSound = clickSound;
-        this.maxDistance = maxDistance;
         this.preventClick = preventClick;
 
         // Signals
@@ -406,12 +405,9 @@ export class ClickDetector {
         if (this.clickDownPosition) {
             const pos = /** @type {typeof ClickDetector} */ (this.constructor).extractPointerPosition(event);
             const distance = pos.distance(this.clickDownPosition);
-            if (!false || distance <= this.maxDistance) {
                 dispatchClick = true;
                 dispatchClickPos = pos;
-            } else {
-                console.warn("[ClickDetector] Touch does not count as click:", "(was", distance, ")");
-            }
+
         }
 
         this.clickDownPosition = null;

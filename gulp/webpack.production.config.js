@@ -14,11 +14,6 @@ module.exports = ({
 
     standalone = false,
     isBrowser = true,
-
-    chineseVersion = false,
-    wegameVersion = false,
-    steamDemo = false,
-    gogVersion = false,
 }) => {
     const globalDefs = {
         assert: "false && window.assert",

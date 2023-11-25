@@ -299,16 +299,6 @@ gulp.task(
         "bundle.standalone-steam.from-windows",
     )
 );
-gulp.task(
-    "bundle.steam-demo.from-darwin",
-    gulp.series("utils.cleanBuildOutputFolder")
-);
-gulp.task(
-    "bundle.steam-demo.from-windows",
-    gulp.series(
-        "utils.cleanBuildOutputFolder"
-    )
-);
 
 // Default task (dev, localhost)
 gulp.task("default", gulp.series("serve.web-localhost"));

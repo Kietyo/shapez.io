@@ -388,8 +388,4 @@ export class RegularGameMode extends GameMode {
         return true;
     }
 
-    /** @returns {boolean} */
-    hasAchievements() {
-        return true;
-    }
 }
