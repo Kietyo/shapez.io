@@ -391,9 +391,4 @@ export class RegularGameMode extends GameMode {
     getIsFreeplayAvailable() {
         return true;
     }
-
-    /** @returns {boolean} */
-    hasAchievements() {
-        return true;
-    }
 }

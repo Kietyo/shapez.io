@@ -45,20 +45,6 @@ export class MetaTrashBuilding extends MetaBuilding {
     getIsUnlocked(root) {
         return root.hubGoals.isRewardUnlocked(enumHubGoalRewards.reward_cutter_and_trash);
     }
-
-    addAchievementReceiver(entity) {
-        if (!entity.root) {
-            return;
-        }
-
-        const itemProcessor = entity.components.ItemProcessor;
-        const tryTakeItem = itemProcessor.tryTakeItem.bind(itemProcessor);
-
-        itemProcessor.tryTakeItem = () => {
-            return tryTakeItem(...arguments);
-        };
-    }
-
     /**
      * Creates the entity at the given location
      * @param {Entity} entity
@@ -94,6 +80,15 @@ export class MetaTrashBuilding extends MetaBuilding {
             })
         );
 
-        this.addAchievementReceiver(entity);
+        if (!entity.root) {
+
+        }
+
+        const itemProcessor = entity.components.ItemProcessor;
+        const tryTakeItem = itemProcessor.tryTakeItem.bind(itemProcessor);
+
+        itemProcessor.tryTakeItem = () => {
+            return tryTakeItem(...arguments);
+        };
     }
 }

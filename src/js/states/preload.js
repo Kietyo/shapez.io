@@ -189,7 +189,6 @@ export class PreloadState extends GameState {
                 this.app.backgroundResourceLoader.resourceStateChangedSignal.removeAll();
             })
 
-            .then(() => this.setStatus("Checking changelog", 95))
             .then(() => {
                 if (G_IS_DEV && globalConfig.debug.disableUpgradeNotification) {
                     return;
