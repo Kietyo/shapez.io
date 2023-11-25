@@ -44,9 +44,6 @@ export class MetaMinerBuilding extends MetaBuilding {
      * @returns {Array<[string, string]>}
      */
     getAdditionalStatistics(root, variant) {
-        if (root.gameMode.throughputDoesNotMatter()) {
-            return [];
-        }
         const speed = root.hubGoals.getMinerBaseSpeed();
         return [[T.ingame.buildingPlacement.infoTexts.speed, formatItemsPerSecond(speed)]];
     }

@@ -472,9 +472,6 @@ export class HubGoals extends BasicSerializableObject {
      * @returns {number} items / sec
      */
     getBeltBaseSpeed() {
-        if (this.root.gameMode.throughputDoesNotMatter()) {
-            return globalConfig.beltSpeedItemsPerSecond * globalConfig.puzzleModeSpeed;
-        }
         return globalConfig.beltSpeedItemsPerSecond * this.upgradeImprovements.belt;
     }
 
@@ -483,9 +480,6 @@ export class HubGoals extends BasicSerializableObject {
      * @returns {number} items / sec
      */
     getUndergroundBeltBaseSpeed() {
-        if (this.root.gameMode.throughputDoesNotMatter()) {
-            return globalConfig.beltSpeedItemsPerSecond * globalConfig.puzzleModeSpeed;
-        }
         return globalConfig.beltSpeedItemsPerSecond * this.upgradeImprovements.belt;
     }
 
@@ -494,9 +488,6 @@ export class HubGoals extends BasicSerializableObject {
      * @returns {number} items / sec
      */
     getMinerBaseSpeed() {
-        if (this.root.gameMode.throughputDoesNotMatter()) {
-            return globalConfig.minerSpeedItemsPerSecond * globalConfig.puzzleModeSpeed;
-        }
         return globalConfig.minerSpeedItemsPerSecond * this.upgradeImprovements.miner;
     }
 
@@ -506,10 +497,6 @@ export class HubGoals extends BasicSerializableObject {
      * @returns {number} items / sec
      */
     getProcessorBaseSpeed(processorType) {
-        if (this.root.gameMode.throughputDoesNotMatter()) {
-            return globalConfig.beltSpeedItemsPerSecond * globalConfig.puzzleModeSpeed * 10;
-        }
-
         switch (processorType) {
             case enumItemProcessorTypes.trash:
             case enumItemProcessorTypes.hub:

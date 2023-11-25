@@ -113,10 +113,6 @@ export class GameMode extends BasicSerializableObject {
             painting: [],
         };
     }
-
-    throughputDoesNotMatter() {
-        return false;
-    }
     /** @returns {array} */
     getLevelDefinitions() {
         return [];
