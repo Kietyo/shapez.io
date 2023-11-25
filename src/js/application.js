@@ -24,7 +24,6 @@ import {PreloadState} from "./states/preload";
 import {SettingsState} from "./states/settings";
 import {RestrictionManager} from "./core/restriction_manager";
 import {LoginState} from "./states/login";
-import {ModsState} from "./states/mods";
 
 /**
  * @typedef {import("./platform/sound").SoundInterface} SoundInterface
@@ -157,7 +156,6 @@ export class Application {
             KeybindingsState,
             AboutState,
             LoginState,
-            ModsState,
         ];
 
         for (let i = 0; i < states.length; ++i) {

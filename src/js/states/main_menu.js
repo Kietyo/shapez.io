@@ -348,10 +348,6 @@ export class MainMenuState extends GameState {
             ".githubLink": () => {
                 this.app.platformWrapper.openExternalLink(THIRDPARTY_URLS.github);
             },
-            ".puzzleDlcPlayButton": this.onPuzzleModeButtonClicked,
-            ".puzzleDlcGetButton": this.onPuzzleWishlistButtonClicked,
-            ".wegameDisclaimer > .rating": this.onWegameRatingClicked,
-            ".editMods": this.onModsClicked,
         };
 
         for (const key in clickHandling) {
@@ -401,12 +397,6 @@ export class MainMenuState extends GameState {
         this.htmlElement
             .querySelector(".mainContainer")
             .setAttribute("data-savegames", String(this.savedGames.length));
-
-        // Mods
-        this.trackClicks(
-            makeButton(outerDiv, ["modsButton", "styledButton"], T.mods.title),
-            this.onModsClicked
-        );
 
         buttonContainer.appendChild(outerDiv);
     }
@@ -695,12 +685,6 @@ export class MainMenuState extends GameState {
             4）游戏功能说明：一款关于传送带自动化生产特定形状产品的工厂流水线模拟游戏，画面简洁而乐趣充足，可以让玩家在轻松愉快的氛围下获得各种游戏乐趣，体验完成目标的成就感。游戏没有失败功能，自动存档，不存在较强的挫折体验。
         `
         );
-    }
-
-    onModsClicked() {
-        this.moveToState("ModsState", {
-            backToStateId: "MainMenuState",
-        });
     }
 
     onContinueButtonClicked() {

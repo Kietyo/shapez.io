@@ -423,13 +423,6 @@
                     }
                 }
 
-                &.mods {
-                    background-image: uiResource("res/ui/icons/advantage_mods.png");
-                    > strong {
-                        color: #8a00ff;
-                    }
-                }
-
                 &.savegames {
                     background-image: uiResource("res/ui/icons/advantage_savegames.png");
                     > strong {
@@ -585,104 +578,6 @@
                 }
             }
         }
-
-        .modsOverview {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            background: #fff;
-            grid-row: 1 / 2;
-            position: relative;
-            text-align: left;
-            align-items: flex-start;
-            @include S(width, 250px);
-            @include S(padding, 15px);
-            @include S(padding-bottom, 10px);
-            @include S(border-radius, $globalBorderRadius);
-            box-shadow: 0 D(5px) D(15px) rgba(#000, 0.2);
-
-            .header {
-                display: flex;
-                width: 100%;
-                align-items: center;
-                text-transform: uppercase;
-
-                @include S(margin-bottom, 10px);
-
-                .editMods {
-                    margin-left: auto;
-                    @include S(width, 20px);
-                    @include S(height, 20px);
-                    padding: 0;
-                    opacity: 0.5;
-                    background: transparent center center/ 80% no-repeat;
-                    & {
-                        background-image: uiResource("icons/edit_key.png") !important;
-                    }
-                    @include DarkThemeInvert;
-                    &:hover {
-                        opacity: 0.6;
-                    }
-                }
-            }
-
-            h3 {
-                @include Heading;
-                color: $modsColor;
-                margin: 0;
-            }
-
-            .dlcHint {
-                @include SuperSmallText;
-                @include S(margin-top, 10px);
-                width: 100%;
-
-                display: grid;
-                grid-template-columns: 1fr auto;
-                grid-gap: 20px;
-                align-items: center;
-            }
-
-            .mod {
-                background: #eee;
-                width: 100%;
-                @include S(border-radius, $globalBorderRadius);
-                @include S(padding, 5px);
-                box-sizing: border-box;
-                @include PlainText;
-                @include S(margin-bottom, 5px);
-                display: flex;
-                flex-direction: column;
-
-                .author,
-                .version {
-                    @include SuperSmallText;
-                    align-self: end;
-                    opacity: 0.4;
-                }
-                .name {
-                    overflow: hidden;
-                }
-            }
-
-            .modsList {
-                box-sizing: border-box;
-                @include S(height, 100px);
-                @include S(padding, 5px);
-                border: D(1px) solid #eee;
-                overflow-y: scroll;
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                @include S(border-radius, $globalBorderRadius);
-                pointer-events: all;
-
-                :last-child {
-                    margin-bottom: auto;
-                }
-            }
-        }
     }
 
     .mainContainer {
@@ -777,10 +672,6 @@
                     @include IncreasedClickArea(0px);
                 }
 
-                .modsButton {
-                    @include IncreasedClickArea(0px);
-                    background-color: $modsColor !important;
-                }
             }
         }
 
@@ -1257,21 +1148,5 @@
             }
         }
 
-        .modsOverview {
-            background: $darkModeControlsBackground;
-
-            .modsList {
-                border-color: darken($darkModeControlsBackground, 5);
-
-                .mod {
-                    background: darken($darkModeControlsBackground, 5);
-                    color: white;
-                }
-            }
-
-            .dlcHint {
-                color: $accentColorBright;
-            }
-        }
     }
 }

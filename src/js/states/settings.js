@@ -30,14 +30,6 @@ export class SettingsState extends TextualGameState {
                     : ""
             }
 
-            ${
-                `
-                <button class="styledButton categoryButton manageMods">${T.mods.title}
-                    <span class="newBadge">${T.settings.newBadge}</span>
-                </button>`
-            }
-
-
             <div class="other ${""}">
 
             ${
@@ -138,11 +130,6 @@ export class SettingsState extends TextualGameState {
 
         this.htmlElement.querySelector(".category").classList.add("active");
         this.htmlElement.querySelector(".categoryButton").classList.add("active");
-
-        const modsButton = this.htmlElement.querySelector(".manageMods");
-        if (modsButton) {
-            this.trackClicks(modsButton, this.onModsClicked, { preventDefault: false });
-        }
     }
 
     setActiveCategory(category) {
@@ -207,9 +194,5 @@ export class SettingsState extends TextualGameState {
 
     onKeybindingsClicked() {
         this.moveToStateAddGoBack("KeybindingsState");
-    }
-
-    onModsClicked() {
-        this.moveToStateAddGoBack("ModsState");
     }
 }

@@ -47,9 +47,6 @@ export const KEYCODES = {
 };
 
 export const KEYMAPPINGS = {
-    // Make sure mods come first so they can override everything
-    mods: {},
-
     general: {
         confirm: { keyCode: KEYCODES.Enter },
         back: { keyCode: KEYCODES.Escape, builtin: true },

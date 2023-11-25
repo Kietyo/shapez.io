@@ -55,9 +55,7 @@ export class MetaTrashBuilding extends MetaBuilding {
         const tryTakeItem = itemProcessor.tryTakeItem.bind(itemProcessor);
 
         itemProcessor.tryTakeItem = () => {
-            const taken = tryTakeItem(...arguments);
-
-            return taken;
+            return tryTakeItem(...arguments);
         };
     }
 
