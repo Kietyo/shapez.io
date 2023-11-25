@@ -89,9 +89,6 @@ module.exports = ({
                                 end: "typehints:end",
                             },
                         },
-                        {
-                            loader: path.resolve(__dirname, "mod.js"),
-                        },
                     ],
                 },
                 {

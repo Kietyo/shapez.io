@@ -1,4 +1,3 @@
-import {THIRDPARTY_URLS} from "../core/config";
 import {TextualGameState} from "../core/textual_game_state";
 import {formatSecondsToTimeAgo} from "../core/utils";
 import {enumCategories} from "../profile/application_settings";
@@ -30,17 +29,15 @@ export class SettingsState extends TextualGameState {
                 : ""
         }
 
-            <div class="other ${""}">
+            <div class="other ">
 
-            ${
-            `
+            
                 <button class="styledButton about">${T.about.title}</button>
                 <button class="styledButton privacy">Privacy Policy</button>
 
-`
-        }
+
                 <div class="versionbar">
-                    ${`<div class="buildVersion">${T.global.loading} ...</div>`}
+                    <div class="buildVersion">${T.global.loading} ...</div>
                 </div>
             </div>
         </div>

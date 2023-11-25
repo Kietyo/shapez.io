@@ -10,8 +10,6 @@ import {createLogger} from "./logging";
  * }} CacheEntry
  */
 
-const logger = createLogger("buffers");
-
 const bufferGcDurationSeconds = 0.5;
 
 export class BufferMaintainer {

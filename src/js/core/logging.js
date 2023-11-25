@@ -1,4 +1,4 @@
-import {globalConfig} from "../core/config";
+import {globalConfig} from "./config";
 /*
 Logging functions
 - To be extended
@@ -106,25 +106,6 @@ function serializeEvent(event) {
     result.eventType = event.type;
     return result;
 }
-
-/**
- * Prepares a json payload
- * @param {string} key
- * @param {any} value
- */
-function preparePayload(value) {
-    if (value instanceof Error || value instanceof ErrorEvent) {
-        return serializeError(value);
-    }
-    if (value instanceof Event) {
-        return serializeEvent(value);
-    }
-    if (typeof value === "undefined") {
-        return null;
-    }
-    return value;
-}
-
 export function globalDebug(context, ...args) {
     if (G_IS_DEV) {
         logInternal(context, console.log, prepareArgsForLogging(args));

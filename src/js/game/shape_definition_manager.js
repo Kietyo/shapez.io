@@ -1,4 +1,3 @@
-import {createLogger} from "../core/logging";
 import {BasicSerializableObject} from "../savegame/serialization";
 import {enumColors} from "./colors";
 import {ShapeItem} from "./items/shape_item";

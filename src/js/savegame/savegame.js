@@ -2,7 +2,6 @@ import {ReadWriteProxy} from "../core/read_write_proxy";
 import {ExplainedResult} from "../core/explained_result";
 import {SavegameSerializer} from "./savegame_serializer";
 import {BaseSavegameInterface} from "./savegame_interface";
-import {createLogger} from "../core/logging";
 import {globalConfig} from "../core/config";
 import {getSavegameInterface, savegameInterfaces} from "./savegame_interface_registry";
 import {SavegameInterface_V1001} from "./schemas/1001";
