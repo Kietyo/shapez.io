@@ -33,7 +33,6 @@ import {ShapeDefinitionManager} from "./shape_definition_manager";
 import {AchievementProxy} from "./achievement_proxy";
 import {SoundProxy} from "./sound_proxy";
 import {GameTime} from "./time/game_time";
-import {MOD_SIGNALS} from "../mods/mod_signals";
 
 const logger = createLogger("ingame/core");
 
@@ -150,7 +149,6 @@ export class GameCore {
         }
 
         logger.log("root initialized");
-        MOD_SIGNALS.gameInitialized.dispatch(root);
     }
 
     /**

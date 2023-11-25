@@ -4,7 +4,6 @@ import {BOOL_FALSE_SINGLETON, BOOL_TRUE_SINGLETON, BooleanItem} from "./items/bo
 import {ShapeItem} from "./items/shape_item";
 import {COLOR_ITEM_SINGLETONS, ColorItem} from "./items/color_item";
 
-export const MODS_ADDITIONAL_ITEMS = {};
 
 /**
  * Resolves items so we share instances
@@ -14,10 +13,6 @@ export const MODS_ADDITIONAL_ITEMS = {};
 export function itemResolverSingleton(root, data) {
     const itemType = data.$;
     const itemData = data.data;
-
-    if (MODS_ADDITIONAL_ITEMS[itemType]) {
-        return MODS_ADDITIONAL_ITEMS[itemType](itemData, root);
-    }
 
     switch (itemType) {
         case BooleanItem.getId(): {

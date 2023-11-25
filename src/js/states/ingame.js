@@ -8,7 +8,6 @@ import {Savegame} from "../savegame/savegame";
 import {GameCore} from "../game/core";
 import {MUSIC} from "../platform/sound";
 import {enumGameModeIds} from "../game/game_mode";
-import {MOD_SIGNALS} from "../mods/mod_signals";
 import {HUDModalDialogs} from "../game/hud/parts/modal_dialogs";
 import {T} from "../translations";
 
@@ -91,7 +90,6 @@ export class InGameState extends GameState {
         if (stage !== this.stage) {
             this.stage = stage;
             logger.log(this.stage);
-            MOD_SIGNALS.gameLoadingStageEntered.dispatch(this, stage);
             return true;
         } else {
             // log(this, "Re entering", stage);
@@ -341,7 +339,6 @@ export class InGameState extends GameState {
             // Initial resize, might have changed during loading (this is possible)
             this.core.resize(this.app.screenWidth, this.app.screenHeight);
 
-            MOD_SIGNALS.gameStarted.dispatch(this.core.root);
         }
     }
 

@@ -9,8 +9,6 @@ import {GameRoot} from "./root";
 import {enumSubShape, ShapeDefinition} from "./shape_definition";
 import {enumHubGoalRewards} from "./tutorial_goals";
 
-export const MOD_ITEM_PROCESSOR_SPEEDS = {};
-
 export class HubGoals extends BasicSerializableObject {
     static getId() {
         return "HubGoals";
@@ -554,9 +552,6 @@ export class HubGoals extends BasicSerializableObject {
                 );
             }
             default:
-                if (MOD_ITEM_PROCESSOR_SPEEDS[processorType]) {
-                    return MOD_ITEM_PROCESSOR_SPEEDS[processorType](this.root);
-                }
                 assertAlways(false, "invalid processor type: " + processorType);
         }
 

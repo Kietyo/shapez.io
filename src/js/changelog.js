@@ -43,16 +43,6 @@ export const CHANGELOG = [
         ],
     },
     {
-        version: "1.5.1",
-        date: "25.02.2022",
-        entries: [
-            "This version adds an official modloader! You can now load mods by extracting them and placing the .js file in the mods/ folder of the game.",
-            "Mods can be found <a href='https://shapez.mod.io'>here</a>",
-            "When holding shift while placing a belt, the indicator now becomes red when crossing buildings",
-            "Lots of performance improvements, leading to up to 50% more FPS",
-        ],
-    },
-    {
         version: "1.4.4",
         date: "29.08.2021",
         entries: [

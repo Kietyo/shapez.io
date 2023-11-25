@@ -8,17 +8,6 @@ import {THEME} from "./theme";
 
 export const CHUNK_OVERLAY_RES = 3;
 
-export const MOD_CHUNK_DRAW_HOOKS = {
-    backgroundLayerBefore: [],
-    backgroundLayerAfter: [],
-
-    foregroundDynamicBefore: [],
-    foregroundDynamicAfter: [],
-
-    staticBefore: [],
-    staticAfter: [],
-};
-
 export class MapChunkView extends MapChunk {
     /**
      *
@@ -53,10 +42,6 @@ export class MapChunkView extends MapChunk {
     drawBackgroundLayer(parameters) {
         const systems = this.root.systemMgr.systems;
 
-        MOD_CHUNK_DRAW_HOOKS.backgroundLayerBefore.forEach(systemId =>
-            systems[systemId].drawChunk(parameters, this)
-        );
-
         if (systems.zone) {
             systems.zone.drawChunk(parameters, this);
         }
@@ -67,10 +52,6 @@ export class MapChunkView extends MapChunk {
 
         systems.beltUnderlays.drawChunk(parameters, this);
         systems.belt.drawChunk(parameters, this);
-
-        MOD_CHUNK_DRAW_HOOKS.backgroundLayerAfter.forEach(systemId =>
-            systems[systemId].drawChunk(parameters, this)
-        );
     }
 
     /**
@@ -80,17 +61,10 @@ export class MapChunkView extends MapChunk {
     drawForegroundDynamicLayer(parameters) {
         const systems = this.root.systemMgr.systems;
 
-        MOD_CHUNK_DRAW_HOOKS.foregroundDynamicBefore.forEach(systemId =>
-            systems[systemId].drawChunk(parameters, this)
-        );
 
         systems.itemEjector.drawChunk(parameters, this);
         systems.itemAcceptor.drawChunk(parameters, this);
         systems.miner.drawChunk(parameters, this);
-
-        MOD_CHUNK_DRAW_HOOKS.foregroundDynamicAfter.forEach(systemId =>
-            systems[systemId].drawChunk(parameters, this)
-        );
     }
 
     /**
@@ -100,8 +74,6 @@ export class MapChunkView extends MapChunk {
     drawForegroundStaticLayer(parameters) {
         const systems = this.root.systemMgr.systems;
 
-        MOD_CHUNK_DRAW_HOOKS.staticBefore.forEach(systemId => systems[systemId].drawChunk(parameters, this));
-
         systems.staticMapEntities.drawChunk(parameters, this);
         systems.lever.drawChunk(parameters, this);
         systems.display.drawChunk(parameters, this);
@@ -110,7 +82,6 @@ export class MapChunkView extends MapChunk {
         systems.goalAcceptor.drawChunk(parameters, this);
         systems.itemProcessorOverlays.drawChunk(parameters, this);
 
-        MOD_CHUNK_DRAW_HOOKS.staticAfter.forEach(systemId => systems[systemId].drawChunk(parameters, this));
     }
 
     /**

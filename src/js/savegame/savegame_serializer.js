@@ -1,7 +1,6 @@
 import {ExplainedResult} from "../core/explained_result";
 import {gComponentRegistry} from "../core/global_registries";
 import {createLogger} from "../core/logging";
-import {MOD_SIGNALS} from "../mods/mod_signals";
 import {SerializerInternal} from "./serializer_internal";
 
 /**
@@ -44,8 +43,6 @@ export class SavegameSerializer {
 
             modExtraData: {},
         };
-
-        MOD_SIGNALS.gameSerialized.dispatch(root, data);
 
         if (G_IS_DEV) {
             if (sanityChecks) {
@@ -153,9 +150,6 @@ export class SavegameSerializer {
         if (errorReason) {
             return ExplainedResult.bad(errorReason);
         }
-
-        // Mods
-        MOD_SIGNALS.gameDeserialized.dispatch(root, savegame);
 
         return ExplainedResult.good();
     }

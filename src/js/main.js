@@ -1,8 +1,6 @@
 import "./core/polyfills";
 import "./core/assert";
 
-import "./mods/modloader";
-
 import {createLogger, logSection} from "./core/logging";
 import {Application} from "./application";
 import {IS_DEBUG} from "./core/config";
