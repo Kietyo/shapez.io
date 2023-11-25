@@ -82,9 +82,6 @@ export class Application {
         /** @type {PlatformWrapperInterface} */
         this.platformWrapper = null;
 
-        /** @type {AchievementProviderInterface} */
-        this.achievementProvider = null;
-
         this.initPlatformDependentInstances();
 
         // Track if the window is focused (only relevant for browser)

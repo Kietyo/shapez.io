@@ -1,6 +1,5 @@
 import {generateMatrixRotations} from "../../core/utils";
 import {enumDirection, Vector} from "../../core/vector";
-import {ACHIEVEMENTS} from "../../platform/achievement_provider";
 import {ItemAcceptorComponent} from "../components/item_acceptor";
 import {enumItemProcessorTypes, ItemProcessorComponent} from "../components/item_processor";
 import {Entity} from "../entity";
@@ -57,10 +56,6 @@ export class MetaTrashBuilding extends MetaBuilding {
 
         itemProcessor.tryTakeItem = () => {
             const taken = tryTakeItem(...arguments);
-
-            if (taken) {
-                entity.root.signals.achievementCheck.dispatch(ACHIEVEMENTS.trash1000, 1);
-            }
 
             return taken;
         };

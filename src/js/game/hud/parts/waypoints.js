@@ -9,7 +9,6 @@ import {Rectangle} from "../../../core/rectangle";
 import {STOP_PROPAGATION} from "../../../core/signal";
 import {arrayDeleteValue, fillInLinkIntoTranslation, lerp, makeDiv, removeAllChildren,} from "../../../core/utils";
 import {Vector} from "../../../core/vector";
-import {ACHIEVEMENTS} from "../../../platform/achievement_provider";
 import {T} from "../../../translations";
 import {MetaHubBuilding} from "../../buildings/hub";
 import {enumMouseButton} from "../../camera";
@@ -340,10 +339,6 @@ export class HUDWaypoints extends BaseHUDPart {
         this.root.hud.signals.notification.dispatch(
             T.ingame.waypoints.creationSuccessNotification,
             enumNotificationType.success
-        );
-        this.root.signals.achievementCheck.dispatch(
-            ACHIEVEMENTS.mapMarkers15,
-            this.waypoints.length - 1 // Disregard HUB
         );
 
         // Re-render the list and thus add it

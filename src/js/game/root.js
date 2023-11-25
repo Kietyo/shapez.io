@@ -177,10 +177,6 @@ export class GameRoot {
             // for freeing space before actually placing.
             freeEntityAreaBeforeBuild: /** @type {TypedSignal<[Entity]>} */ (new Signal()),
 
-            // Called with an achievement key and necessary args to validate it can be unlocked.
-            achievementCheck: /** @type {TypedSignal<[string, any]>} */ (new Signal()),
-            bulkAchievementCheck: /** @type {TypedSignal<(string|any)[]>} */ (new Signal()),
-
             // Puzzle mode
             puzzleComplete: /** @type {TypedSignal<[]>} */ (new Signal()),
         };
