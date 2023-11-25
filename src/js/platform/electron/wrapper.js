@@ -1,8 +1,6 @@
-import {NoAchievementProvider} from "../browser/no_achievement_provider";
 import {PlatformWrapperImplBrowser} from "../browser/wrapper";
 import {createLogger} from "../../core/logging";
 import {StorageImplElectron} from "./storage";
-import {SteamAchievementProvider} from "./steam_achievement_provider";
 import {PlatformWrapperInterface} from "../wrapper";
 
 const logger = createLogger("electron-wrapper");
@@ -24,10 +22,8 @@ export class PlatformWrapperImplElectron extends PlatformWrapperImplBrowser {
         this.app.ticker.frameEmitted.add(this.steamOverlayFixRedrawCanvas, this);
 
         this.app.storage = new StorageImplElectron(this);
-        this.app.achievementProvider = new SteamAchievementProvider(this.app);
 
-        return this.initializeAchievementProvider()
-            .then(() => this.initializeDlcStatus())
+        return this.initializeDlcStatus()
             .then(() => PlatformWrapperInterface.prototype.initialize.call(this));
     }
 
@@ -54,14 +50,6 @@ export class PlatformWrapperImplElectron extends PlatformWrapperImplBrowser {
 
     initializeAdProvider() {
         return Promise.resolve();
-    }
-
-    initializeAchievementProvider() {
-        return this.app.achievementProvider.initialize().catch(err => {
-            logger.error("Failed to initialize achievement provider, disabling:", err);
-
-            this.app.achievementProvider = new NoAchievementProvider(this.app);
-        });
     }
 
     initializeDlcStatus() {
