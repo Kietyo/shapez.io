@@ -443,27 +443,6 @@ export class MainMenuState extends GameState {
         buttonContainer.appendChild(outerDiv);
     }
 
-    onPuzzleModeButtonClicked(force = false) {
-        const hasUnlockedBlueprints = this.app.savegameMgr.getSavegamesMetaData().some(s => s.level >= 12);
-        if (!force && !hasUnlockedBlueprints) {
-            const { ok } = this.dialogs.showWarning(
-                T.dialogs.puzzlePlayRegularRecommendation.title,
-                T.dialogs.puzzlePlayRegularRecommendation.desc,
-                ["cancel:good", "ok:bad:timeout"]
-            );
-            ok.add(() => this.onPuzzleModeButtonClicked(true));
-            return;
-        }
-
-        this.moveToState("LoginState", {
-            nextStateId: "PuzzleMenuState",
-        });
-    }
-
-    onPuzzleWishlistButtonClicked() {
-        this.app.platformWrapper.openExternalLink(THIRDPARTY_URLS.puzzleDlcStorePage);
-    }
-
     onShapez2Clicked() {
         this.app.platformWrapper.openExternalLink("https://tobspr.io/shapez-2?utm_medium=shapez");
     }

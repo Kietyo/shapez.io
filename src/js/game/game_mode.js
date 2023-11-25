@@ -10,8 +10,6 @@ import {BaseHUDPart} from "./hud/base_hud_part";
 
 /** @enum {string} */
 export const enumGameModeIds = {
-    puzzleEdit: "puzzleEditMode",
-    puzzlePlay: "puzzlePlayMode",
     regular: "regularMode",
 };
 export class GameMode extends BasicSerializableObject {

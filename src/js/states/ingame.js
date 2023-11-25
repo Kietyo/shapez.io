@@ -136,11 +136,7 @@ export class InGameState extends GameState {
      * Goes back to the menu state
      */
     goBackToMenu() {
-        if ([enumGameModeIds.puzzleEdit, enumGameModeIds.puzzlePlay].includes(this.gameModeId)) {
-            this.saveThenGoToState("PuzzleMenuState");
-        } else {
             this.saveThenGoToState("MainMenuState");
-        }
     }
 
     /**
