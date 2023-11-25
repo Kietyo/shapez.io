@@ -164,11 +164,6 @@ function gulptasksStandalone($, gulp) {
                                 fs.readFileSync(path.join(__dirname, "..", "LICENSE"))
                             );
 
-                            fs.writeFileSync(
-                                path.join(appPath, "steam_appid.txt"),
-                                String(variantData.steamAppId)
-                            );
-
                             if (platform === "linux") {
                                 // Write launcher script
                                 fs.writeFileSync(

@@ -24,11 +24,5 @@ const BUILD_VARIANTS = {
         environment: "prod",
         buildArgs: {},
     },
-    "standalone-steam": {
-        standalone: true,
-        executableName: "shapez",
-        steamAppId: 1318690,
-        buildArgs: {},
-    },
 };
 module.exports = { BUILD_VARIANTS };

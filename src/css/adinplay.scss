@@ -92,10 +92,6 @@
                 @include TextShadow3D(#fff);
                 @include PlainText;
             }
-
-            button.getOnSteam {
-                @include Text;
-            }
         }
 
         .videoInner {

@@ -34,17 +34,6 @@ export const THIRDPARTY_URLS = {
     modBrowser: "https://shapez.mod.io/",
 };
 
-/**
- * @param {Application} app
- * @param {string} campaign
- */
-export function openStandaloneLink(app, campaign) {
-    const discount = globalConfig.currentDiscount > 0 ? "_discount" + globalConfig.currentDiscount : "";
-    const steamSuffix = "";
-    const event = campaign + discount + steamSuffix;
-    app.platformWrapper.openExternalLink(THIRDPARTY_URLS.standaloneCampaignLink.replace("$campaign", event));
-}
-
 export const globalConfig = {
     // Size of a single tile in Pixels.
     // NOTICE: Update webpack.production.config too!

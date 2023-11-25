@@ -9,8 +9,7 @@ export class PlatformWrapperImplElectron extends PlatformWrapperImplBrowser {
     initialize() {
         this.app.storage = new StorageImplElectron(this);
 
-        return this.initializeDlcStatus()
-            .then(() => PlatformWrapperInterface.prototype.initialize.call(this));
+        return PlatformWrapperInterface.prototype.initialize.call(this);
     }
 
     getId() {

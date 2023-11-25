@@ -164,14 +164,6 @@ export class MainMenuState extends GameState {
                                 </a>`
                     }
                     ${
-                        (!G_IS_STANDALONE)
-                            ? `<a class="steamLinkSocial boxLink" target="_blank">
-                                    <span class="thirdpartyLogo steamLogo"></span>
-                                    <span class="label">steam</span>
-                                </a>`
-                            : ""
-                    }
-                    ${
                         `
                         <a class="githubLink boxLink" target="_blank">
                             <span class="thirdpartyLogo githubLogo"></span>
@@ -331,8 +323,6 @@ export class MainMenuState extends GameState {
             ".patreonLink": this.onPatreonLinkClicked,
             ".helpTranslate": this.onTranslationHelpLinkClicked,
             ".exitAppButton": this.onExitAppButtonClicked,
-            ".steamLink": this.onSteamLinkClicked,
-            ".steamLinkSocial": this.onSteamLinkClickedSocial,
             ".shapez2": this.onShapez2Clicked,
             ".discordLink": () => {
                 this.app.platformWrapper.openExternalLink(THIRDPARTY_URLS.discord);
@@ -395,15 +385,6 @@ export class MainMenuState extends GameState {
 
     onShapez2Clicked() {
         this.app.platformWrapper.openExternalLink("https://tobspr.io/shapez-2?utm_medium=shapez");
-    }
-    onSteamLinkClicked() {
-        openStandaloneLink(this.app, "shapez_mainmenu");
-        return false;
-    }
-
-    onSteamLinkClickedSocial() {
-        openStandaloneLink(this.app, "shapez_mainmenu_social");
-        return false;
     }
 
     onExitAppButtonClicked() {

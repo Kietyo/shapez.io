@@ -287,18 +287,5 @@ gulp.task(
     gulp.series("utils.requireCleanWorkingTree", "build.web-shapezio", "ftp.upload.prod")
 );
 
-// Bundling (pre upload)
-gulp.task(
-    "bundle.steam.from-darwin",
-    gulp.series("utils.cleanBuildOutputFolder", "bundle.standalone-steam.from-darwin")
-);
-gulp.task(
-    "bundle.steam.from-windows",
-    gulp.series(
-        "utils.cleanBuildOutputFolder",
-        "bundle.standalone-steam.from-windows",
-    )
-);
-
 // Default task (dev, localhost)
 gulp.task("default", gulp.series("serve.web-localhost"));

@@ -291,48 +291,6 @@
                 text-align: center;
             }
 
-            .steamLink {
-                align-self: center;
-                justify-self: center;
-                width: 100%;
-                @include S(height, 40px * 1.2);
-                @include S(width, 180px * 1.2);
-                background: #171a23 center center / contain no-repeat;
-                // overflow: hidden;
-                display: block;
-                cursor: pointer;
-                @include S(margin-top, 15px);
-                pointer-events: all;
-                transition: all 0.12s ease-in;
-                transition-property: opacity, transform;
-                position: relative;
-                @include S(border-radius, $globalBorderRadius);
-                color: transparent;
-
-                box-shadow: 0 D(3px) D(7px) rgba(#000, 0.3);
-                &:hover {
-                    opacity: 0.9;
-                }
-
-                @include InlineAnimation(1s ease-in-out infinite) {
-                    50% {
-                        transform: scale(1.02, 1.03);
-                    }
-                }
-
-                > .discount {
-                    position: absolute;
-                    @include S(top, -7px);
-                    @include S(right, -5px);
-                    background: #4c6b22;
-                    color: #c5ea3f;
-                    @include S(border-radius, $globalBorderRadius);
-                    @include S(padding, 1px, 3px, 1px, 4px);
-                    @include PlainText;
-                    text-transform: uppercase;
-                    transform: rotate(5deg);
-                }
-            }
             .specialOffer {
                 color: #000000;
                 @include PlainText;
@@ -904,11 +862,6 @@
                     background-image: uiResource("main_menu/patreon.svg");
                     background-size: 60%;
                     background-position: 60% 60%;
-                }
-
-                &.steamLogo {
-                    background-image: uiResource("main_menu/steam.svg");
-                    background-size: 105%;
                 }
             }
         }
