@@ -25,7 +25,6 @@ import {MainMenuState} from "./states/main_menu";
 import {PreloadState} from "./states/preload";
 import {SettingsState} from "./states/settings";
 import {RestrictionManager} from "./core/restriction_manager";
-import {ClientAPI} from "./platform/api";
 import {LoginState} from "./states/login";
 import {ModsState} from "./states/mods";
 
@@ -71,7 +70,6 @@ export class Application {
         this.savegameMgr = new SavegameManager(this);
         this.inputMgr = new InputDistributor(this);
         this.backgroundResourceLoader = new BackgroundResourcesLoader(this);
-        this.clientApi = new ClientAPI(this);
 
         // Restrictions (Like demo etc)
         this.restrictionMgr = new RestrictionManager(this);

@@ -4,7 +4,6 @@ import {globalConfig} from "../core/config";
 import {GameState} from "../core/game_state";
 import {createLogger} from "../core/logging";
 import {queryParamOptions} from "../core/query_parameters";
-import {authorizeViaSSOToken} from "../core/steam_sso";
 import {getLogoSprite} from "../core/utils";
 import {getRandomHint} from "../game/hints";
 import {HUDModalDialogs} from "../game/hud/parts/modal_dialogs";
@@ -90,7 +89,6 @@ export class PreloadState extends GameState {
             .then(() => this.setStatus("Creating platform wrapper", 3))
 
             .then(() => this.sendBeacon())
-            .then(() => authorizeViaSSOToken(this.app, this.dialogs))
 
             .then(() => this.app.platformWrapper.initialize())
 

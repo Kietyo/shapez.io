@@ -149,35 +149,6 @@ export class MainMenuState extends GameState {
                             : ""
                     }
 
-                ${
-                    showPuzzleDLC
-                        ? `
-
-                        ${
-                            false && !hasMods
-                                ? `
-                            <div class="puzzleContainer owned">
-                                <button class="styledButton puzzleDlcPlayButton">${T.mainMenu.play}</button>
-                            </div>`
-                                : ""
-                        }
-
-                        ${
-                            !false && !hasMods
-                                ? `
-                            <div class="puzzleContainer notOwned">
-                                <p>${T.mainMenu.puzzleDlcText}</p>
-                                <button class="styledButton puzzleDlcGetButton">${T.mainMenu.puzzleDlcViewNow}</button>
-                            </div>`
-                                : ""
-                        }
-
-
-
-                `
-                        : ""
-                }
-
                 </div>
 
 
