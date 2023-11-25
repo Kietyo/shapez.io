@@ -30,7 +30,6 @@ import {HUDKeybindingOverlay} from "../hud/parts/keybinding_overlay";
 import {MetaBlockBuilding} from "../buildings/block";
 import {MetaItemProducerBuilding} from "../buildings/item_producer";
 import {finalGameShape, generateLevelsForVariant} from "./levels";
-import {WEB_STEAM_SSO_AUTHENTICATED} from "../../core/steam_sso";
 
 /** @typedef {{
  *   shape: string,
@@ -344,7 +343,7 @@ export class RegularGameMode extends GameMode {
     }
 
     get difficultyMultiplicator() {
-        if (G_IS_STANDALONE || WEB_STEAM_SSO_AUTHENTICATED) {
+        if (G_IS_STANDALONE || true) {
             return 1;
         }
         return 0.5;

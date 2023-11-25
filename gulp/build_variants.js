@@ -3,7 +3,6 @@
  *  standalone: boolean,
  *  environment?: 'dev' | 'staging' | 'prod',
  *  electronBaseDir?: string,
- *  steamAppId?: number,
  *  executableName?: string,
  *  buildArgs: {
  * }}>}

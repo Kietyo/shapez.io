@@ -169,28 +169,6 @@ export class BackgroundResourcesLoader {
      * Shows an error when a resource failed to load and allows to reload the game
      */
     showLoaderError(dialogs, err) {
-        if (G_IS_STANDALONE) {
-            dialogs
-                .showWarning(
-                    T.dialogs.resourceLoadFailed.title,
-                    T.dialogs.resourceLoadFailed.descSteamDemo + "<br>" + err,
-                    ["retry"]
-                )
-                .retry.add(() => window.location.reload());
-        } else {
-            dialogs
-                .showWarning(
-                    T.dialogs.resourceLoadFailed.title,
-                    T.dialogs.resourceLoadFailed.descWeb.replace(
-                        "<demoOnSteamLinkText>",
-                        `<a href="https://get.shapez.io/resource_timeout" target="_blank">${T.dialogs.resourceLoadFailed.demoLinkText}</a>`
-                    ) +
-                    "<br>" +
-                    err,
-                    ["retry"]
-                )
-                .retry.add(() => window.location.reload());
-        }
     }
 
     preloadWithProgress(src, progressHandler) {

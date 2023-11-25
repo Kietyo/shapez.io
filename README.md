@@ -11,15 +11,10 @@ Mechanics, Research and a lot more! Be sure to check it out:
 
 # shapez
 
-<a href="https://get.shapez.io/ghi" title="shapez on Steam">
-    <img src="https://i.imgur.com/ihW2bUE.png" alt="shapez Logo">
-</a>
-
 <hr>
 This is the source code for shapez, an open source base building game inspired by Factorio.
 Your goal is to produce shapes by cutting, rotating, merging and painting parts of shapes.
 
-- [Play on Steam](https://get.shapez.io/ghr)
 - [Official Discord](https://discord.com/invite/HN7EVzV) <- _Highly recommended to join!_
 - [Trello Board & Roadmap](https://trello.com/b/ISQncpJP/shapezio)
 

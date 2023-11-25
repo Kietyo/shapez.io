@@ -62,7 +62,7 @@ const ftp = require("./ftp");
 ftp.gulptasksFTP($, gulp, buildFolder);
 
 const docs = require("./docs");
-docs.gulptasksDocs($, gulp, buildFolder);
+docs.gulptasksDocs($, gulp);
 
 const standalone = require("./standalone");
 standalone.gulptasksStandalone($, gulp);

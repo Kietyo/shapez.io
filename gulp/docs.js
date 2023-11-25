@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 
-function gulptasksDocs($, gulp, buildFolder) {
+function gulptasksDocs($, gulp) {
     gulp.task("docs.convertJsToTs", () => {
         return gulp
             .src(path.join("..", "src", "js", "**", "*.js"))

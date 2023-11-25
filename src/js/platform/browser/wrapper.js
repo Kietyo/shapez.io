@@ -1,6 +1,5 @@
 import {createLogger} from "../../core/logging";
 import {queryParamOptions} from "../../core/query_parameters";
-import {WEB_STEAM_SSO_AUTHENTICATED} from "../../core/steam_sso";
 import {clamp} from "../../core/utils";
 import {PlatformWrapperInterface} from "../wrapper";
 import {StorageImplBrowser} from "./storage";
@@ -16,7 +15,7 @@ export class PlatformWrapperImplBrowser extends PlatformWrapperInterface {
             externalLinks: true,
         };
 
-        if (!G_IS_STANDALONE && !WEB_STEAM_SSO_AUTHENTICATED && queryParamOptions.embedProvider) {
+        if (!G_IS_STANDALONE && !true && queryParamOptions.embedProvider) {
             const providerId = queryParamOptions.embedProvider;
             this.embedProvider.iframed = true;
 

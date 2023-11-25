@@ -510,14 +510,4 @@ export class KeyActionMapper {
         assert(this.keybindings[id], "Keybinding " + id + " not known!");
         return this.keybindings[id];
     }
-
-    /**
-     * Returns a given keybinding
-     * @param {string} id
-     * @returns {Keybinding}
-     */
-    getBindingById(id) {
-        assert(this.keybindings[id], "Keybinding " + id + " not known!");
-        return this.keybindings[id];
-    }
 }

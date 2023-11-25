@@ -1,10 +1,9 @@
 import {cachebust} from "../core/cachebust";
-import {globalConfig, openStandaloneLink, THIRDPARTY_URLS} from "../core/config";
+import {globalConfig, openStandaloneLink} from "../core/config";
 import {GameState} from "../core/game_state";
 import {DialogWithForm} from "../core/modal_dialog_elements";
 import {FormElementInput} from "../core/modal_dialog_forms";
 import {ReadWriteProxy} from "../core/read_write_proxy";
-import {WEB_STEAM_SSO_AUTHENTICATED} from "../core/steam_sso";
 import {
     formatSecondsToTimeAgo,
     generateFileDownload,
@@ -17,7 +16,6 @@ import {
     waitNextFrame,
 } from "../core/utils";
 import {HUDModalDialogs} from "../game/hud/parts/modal_dialogs";
-import {PlatformWrapperImplBrowser} from "../platform/browser/wrapper";
 import {T} from "../translations";
 
 const trim = require("trim");
@@ -106,32 +104,16 @@ export class MainMenuState extends GameState {
                     <div class="buttons"></div>
                     <div class="savegamesMount"></div>
                     ${
-            (G_IS_STANDALONE || !WEB_STEAM_SSO_AUTHENTICATED)
+            (G_IS_STANDALONE)
                 ? `<div class="steamSso">
                                 <span class="description">${
                     G_IS_STANDALONE
                         ? T.mainMenu.playFullVersionStandalone
                         : T.mainMenu.playFullVersionV2
                 }</span>
-                                <a class="ssoSignIn" target="_blank" href="${
-                    this.app.clientApi.getEndpoint() + "/v1/noauth/steam-sso"
-                }">Sign in</a>
                             </div>`
                 : ""
         }
-                    ${
-            WEB_STEAM_SSO_AUTHENTICATED
-                ? `
-                            <div class="steamSso">
-                                <span class="description">${T.mainMenu.playingFullVersion}</span>
-                                <a class="ssoSignOut" href="?sso_logout_silent">${T.mainMenu.logout}</a>
-
-                            </div>
-                        `
-                : ""
-        }
-
-
 
                 </div>
 

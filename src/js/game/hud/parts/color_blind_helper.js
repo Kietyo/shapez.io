@@ -53,7 +53,7 @@ export class HUDColorBlindHelper extends BaseHUDPart {
 
             // Check if the belt has a color item
             if (beltComp) {
-                const item = beltComp.assignedPath.findItemAtTile(tile);
+                const item = null;
                 if (item && item.getItemType() === "color") {
                     return /** @type {ColorItem} */ (item).color;
                 }

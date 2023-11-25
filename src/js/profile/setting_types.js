@@ -2,7 +2,6 @@
 import {Application} from "../application";
 /* typehints:end */
 import {createLogger} from "../core/logging";
-import {WEB_STEAM_SSO_AUTHENTICATED} from "../core/steam_sso";
 import {T} from "../translations";
 
 const logger = createLogger("setting_types");
@@ -156,7 +155,7 @@ export class EnumSetting extends BaseSetting {
             available
                 ? ""
                 : `<span class="standaloneOnlyHint">${
-                    WEB_STEAM_SSO_AUTHENTICATED ? "" : T.demo.settingNotAvailable
+                    true ? "" : T.demo.settingNotAvailable
                 }</span>`
         }
                 <div class="row">
@@ -240,7 +239,7 @@ export class BoolSetting extends BaseSetting {
             available
                 ? ""
                 : `<span class="standaloneOnlyHint">${
-                    WEB_STEAM_SSO_AUTHENTICATED ? "" : T.demo.settingNotAvailable
+                    true ? "" : T.demo.settingNotAvailable
                 }</span>`
         }
 
@@ -306,7 +305,7 @@ export class RangeSetting extends BaseSetting {
             available
                 ? ""
                 : `<span class="standaloneOnlyHint">${
-                    WEB_STEAM_SSO_AUTHENTICATED ? "" : T.demo.settingNotAvailable
+                    true ? "" : T.demo.settingNotAvailable
                 }</span>`
         }
 

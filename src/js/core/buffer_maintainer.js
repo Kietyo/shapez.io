@@ -1,6 +1,5 @@
 import {GameRoot} from "../game/root";
 import {clearBufferBacklog, freeCanvas, makeOffscreenBuffer} from "./buffer_utils";
-import {createLogger} from "./logging";
 
 /**
  * @typedef {{

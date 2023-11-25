@@ -58,43 +58,6 @@ function prepareObjectForLogging(obj, maxDepth = 1) {
     }
     return result;
 }
-
-/**
- * Serializes an error
- * @param {Error|ErrorEvent} err
- */
-export function serializeError(err) {
-    if (!err) {
-        return null;
-    }
-    const result = {
-        type: err.constructor.name,
-    };
-
-    if (err instanceof Error) {
-        result.message = err.message;
-        result.name = err.name;
-        result.stack = err.stack;
-        result.type = "{type.Error}";
-    } else if (err instanceof ErrorEvent) {
-        result.filename = err.filename;
-        result.message = err.message;
-        result.lineno = err.lineno;
-        result.colno = err.colno;
-        result.type = "{type.ErrorEvent}";
-
-        if (err.error) {
-            result.error = serializeError(err.error);
-        } else {
-            result.error = "{not-provided}";
-        }
-    } else {
-        result.type = "{unkown-type:" + typeof err + "}";
-    }
-
-    return result;
-}
-
 /**
  * Serializes an event
  * @param {Event} event
