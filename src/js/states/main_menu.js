@@ -43,8 +43,6 @@ export class MainMenuState extends GameState {
             const wrapper = /** @type {PlatformWrapperImplBrowser} */ (this.app.platformWrapper);
         }
 
-        const showShapez2 = true
-
         const bannerHtml = `
             <h3>${T.demoBanners.titleV2}</h3>
 
@@ -136,16 +134,6 @@ export class MainMenuState extends GameState {
 
                 <div class="sideContainer">
                     ${false ? `<div class="standaloneBanner">${bannerHtml}</div>` : ""}
-
-                    ${
-                        showShapez2
-                            ? `<div class="mainNews shapez2">
-                        <div class="text">We are currently prototyping Shapez 2!</div>
-
-                    </div>`
-                            : ""
-                    }
-
                 </div>
 
 
@@ -323,7 +311,6 @@ export class MainMenuState extends GameState {
             ".patreonLink": this.onPatreonLinkClicked,
             ".helpTranslate": this.onTranslationHelpLinkClicked,
             ".exitAppButton": this.onExitAppButtonClicked,
-            ".shapez2": this.onShapez2Clicked,
             ".discordLink": () => {
                 this.app.platformWrapper.openExternalLink(THIRDPARTY_URLS.discord);
             },
@@ -382,11 +369,6 @@ export class MainMenuState extends GameState {
 
         buttonContainer.appendChild(outerDiv);
     }
-
-    onShapez2Clicked() {
-        this.app.platformWrapper.openExternalLink("https://tobspr.io/shapez-2?utm_medium=shapez");
-    }
-
     onExitAppButtonClicked() {
         this.app.platformWrapper.exitApp();
     }

@@ -5,7 +5,6 @@ import {makeDiv, safeModulo} from "../../../core/utils";
 import {MetaBlockBuilding} from "../../buildings/block";
 import {MetaConstantProducerBuilding} from "../../buildings/constant_producer";
 import {MetaGoalAcceptorBuilding} from "../../buildings/goal_acceptor";
-import {StaticMapEntityComponent} from "../../components/static_map_entity";
 import {KEYMAPPINGS} from "../../key_action_mapper";
 import {MetaBuilding} from "../../meta_building";
 import {GameRoot} from "../../root";
