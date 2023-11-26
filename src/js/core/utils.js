@@ -8,7 +8,7 @@ const bigNumberSuffixTranslationKeys = ["thousands", "millions", "billions", "tr
  * @returns {"android" | "browser" | "ios" | "standalone" | "unknown"}
  */
 export function getPlatformName() {
-    if (G_IS_STANDALONE) {
+    if (false) {
         return "standalone";
     } else if (G_IS_BROWSER) {
         return "browser";

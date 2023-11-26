@@ -39,7 +39,7 @@ export class PreloadState extends GameState {
     }
 
     async sendBeacon() {
-        if (G_IS_STANDALONE) {
+        if (false) {
             return;
         }
         if (queryParamOptions.campaign) {
@@ -184,7 +184,7 @@ export class PreloadState extends GameState {
                     return;
                 }
 
-                if (!G_IS_STANDALONE) {
+                if (!false) {
                     return;
                 }
 

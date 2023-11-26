@@ -3,7 +3,6 @@ import {Application} from "../application";
 /* typehints:end */
 import {initSpriteCache} from "../game/meta_building_registry";
 import {MUSIC, SOUNDS} from "../platform/sound";
-import {T} from "../translations";
 import {AtlasDefinition, atlasFiles} from "./atlas_definitions";
 import {cachebust} from "./cachebust";
 import {Loader} from "./loader";
@@ -30,7 +29,7 @@ const INGAME_ASSETS = {
     css: ["async-resources.css"],
 };
 
-if (G_IS_STANDALONE) {
+if (false) {
     MAIN_MENU_ASSETS.sounds = [...Array.from(Object.values(MUSIC)), ...Array.from(Object.values(SOUNDS))];
     INGAME_ASSETS.sounds = [];
 }

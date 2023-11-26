@@ -37,13 +37,7 @@ export class MainMenuState extends GameState {
     }
 
     getInnerHTML() {
-        const showExitAppButton = G_IS_STANDALONE;
-
-        if (G_IS_STANDALONE) {
-
-        } else {
-        }
-
+        const showExitAppButton = false;
         const bannerHtml = `
             <h3>${T.demoBanners.titleV2}</h3>
 
@@ -89,10 +83,10 @@ export class MainMenuState extends GameState {
                     <div class="buttons"></div>
                     <div class="savegamesMount"></div>
                     ${
-            (G_IS_STANDALONE)
+            (false)
                 ? `<div class="steamSso">
                                 <span class="description">${
-                    G_IS_STANDALONE
+                    false
                         ? T.mainMenu.playFullVersionStandalone
                         : T.mainMenu.playFullVersionV2
                 }</span>

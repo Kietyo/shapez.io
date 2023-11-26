@@ -188,7 +188,7 @@ function initializeSettings() {
             },
             /**
              * @param {Application} app
-             */app => G_IS_STANDALONE
+             */app => false
         ),
 
         new EnumSetting("theme", {
@@ -298,7 +298,7 @@ function initializeSettings() {
 class SettingsStorage {
     constructor() {
         this.uiScale = "regular";
-        this.fullscreen = G_IS_STANDALONE;
+        this.fullscreen = false;
 
         this.soundVolume = 1.0;
         this.musicVolume = 1.0;

@@ -61,7 +61,7 @@ function bootApp() {
     app.boot();
 }
 
-if (G_IS_STANDALONE) {
+if (false) {
     window.addEventListener("load", bootApp);
 } else {
     bootApp();
