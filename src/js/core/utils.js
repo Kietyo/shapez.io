@@ -8,12 +8,7 @@ const bigNumberSuffixTranslationKeys = ["thousands", "millions", "billions", "tr
  * @returns {"android" | "browser" | "ios" | "standalone" | "unknown"}
  */
 export function getPlatformName() {
-    if (false) {
-        return "standalone";
-    } else if (G_IS_BROWSER) {
-        return "browser";
-    }
-    return "unknown";
+    return "browser";
 }
 
 /**
@@ -81,8 +76,7 @@ export function fastArrayDelete(array, index) {
     // When the element is not the last element
     if (index !== array.length - 1) {
         // Get the last element, and swap it with the one we want to delete
-        const last = array[array.length - 1];
-        array[index] = last;
+        array[index] = array[array.length - 1];
     }
 
     // Finally remove the last element

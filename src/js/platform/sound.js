@@ -30,12 +30,10 @@ export const SOUNDS = {
 export const MUSIC = {
     // The theme always depends on the standalone only, even if running the full
     // version in the browser
-    theme: false ? "theme-full" : "theme-short",
+    theme: "theme-short",
 };
 
-if (false) {
-    MUSIC.menu = "menu";
-}
+
 
 export class SoundInstanceInterface {
     constructor(key, url) {
@@ -121,14 +119,12 @@ export class SoundInterface {
     initialize() {
         for (const soundKey in SOUNDS) {
             const soundPath = SOUNDS[soundKey];
-            const sound = new this.soundClass(soundKey, soundPath);
-            this.sounds[soundPath] = sound;
+            this.sounds[soundPath] = new this.soundClass(soundKey, soundPath);
         }
 
         for (const musicKey in MUSIC) {
             const musicPath = MUSIC[musicKey];
-            const music = new this.musicClass(musicKey, musicPath);
-            this.music[musicPath] = music;
+            this.music[musicPath] = new this.musicClass(musicKey, musicPath);
         }
 
         this.musicVolume = this.app.settings.getAllSettings().musicVolume;

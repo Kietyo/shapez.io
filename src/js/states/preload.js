@@ -39,9 +39,7 @@ export class PreloadState extends GameState {
     }
 
     async sendBeacon() {
-        if (false) {
-            return;
-        }
+
         if (queryParamOptions.campaign) {
             fetch(
                 "https://analytics.shapez.io/campaign/" +

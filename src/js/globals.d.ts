@@ -11,8 +11,6 @@ declare const abstract: void;
 declare const G_APP_ENVIRONMENT: string;
 declare const G_HAVE_ASSERT: boolean;
 declare const G_BUILD_TIME: number;
-declare const G_IS_BROWSER: boolean;
-
 declare const G_BUILD_COMMIT_HASH: string;
 declare const G_BUILD_VERSION: string;
 declare const G_ALL_UI_IMAGES: Array<string>;

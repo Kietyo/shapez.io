@@ -61,8 +61,4 @@ function bootApp() {
     app.boot();
 }
 
-if (false) {
-    window.addEventListener("load", bootApp);
-} else {
-    bootApp();
-}
+bootApp();

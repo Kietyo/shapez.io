@@ -85,8 +85,7 @@ export class ReadWriteProxy {
         }
 
         const parsed = JSON.parse(jsonString);
-        const decoded = decompressObject(parsed);
-        return decoded;
+        return decompressObject(parsed);
     }
 
     /** @returns {ExplainedResult} */

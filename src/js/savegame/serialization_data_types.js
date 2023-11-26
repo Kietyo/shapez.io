@@ -569,8 +569,7 @@ export class TypeEntityWeakref extends BaseDataType {
             targetObject[targetKey] = null;
             return;
         }
-        const entity = root.entityMgr.findByUid(value, false);
-        targetObject[targetKey] = entity;
+        targetObject[targetKey] = root.entityMgr.findByUid(value, false);
     }
 
     getAsJsonSchemaUncached() {

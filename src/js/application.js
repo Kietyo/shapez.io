@@ -124,11 +124,7 @@ export class Application {
     initPlatformDependentInstances() {
         logger.log("Creating platform dependent instances (standalone=", false, ")");
 
-        if (false) {
-            this.platformWrapper = new PlatformWrapperImplElectron(this);
-        } else {
-            this.platformWrapper = new PlatformWrapperImplBrowser(this);
-        }
+        this.platformWrapper = new PlatformWrapperImplBrowser(this);
 
         // Start with empty ad provider
         this.sound = new SoundImplBrowser(this);

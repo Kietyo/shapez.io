@@ -3,7 +3,7 @@
  * @param {string} path
  */
 export function cachebust(path) {
-    if (G_IS_BROWSER && !false && !G_IS_DEV) {
+    if (true && !false && !G_IS_DEV) {
         return "/v/" + G_BUILD_COMMIT_HASH + "/" + path;
     }
     return path;

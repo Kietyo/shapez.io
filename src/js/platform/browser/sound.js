@@ -181,8 +181,7 @@ export class SoundImplBrowser extends SoundInterface {
         });
         for (const musicKey in MUSIC) {
             const musicPath = MUSIC[musicKey];
-            const music = new this.musicClass(musicKey, musicPath);
-            this.music[musicPath] = music;
+            this.music[musicPath] = new this.musicClass(musicKey, musicPath);
         }
 
         this.musicVolume = this.app.settings.getAllSettings().musicVolume;
