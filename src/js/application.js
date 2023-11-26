@@ -11,7 +11,6 @@ import {getPlatformName, waitNextFrame} from "./core/utils";
 import {Vector} from "./core/vector";
 import {SoundImplBrowser} from "./platform/browser/sound";
 import {PlatformWrapperImplBrowser} from "./platform/browser/wrapper";
-import {PlatformWrapperImplElectron} from "./platform/electron/wrapper";
 import {PlatformWrapperInterface} from "./platform/wrapper";
 import {ApplicationSettings} from "./profile/application_settings";
 import {SavegameManager} from "./savegame/savegame_manager";
