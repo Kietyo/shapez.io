@@ -15,48 +15,6 @@ export class PlatformWrapperImplBrowser extends PlatformWrapperInterface {
             externalLinks: true,
         };
 
-        if (!G_IS_STANDALONE && !true && queryParamOptions.embedProvider) {
-            const providerId = queryParamOptions.embedProvider;
-            this.embedProvider.iframed = true;
-
-            switch (providerId) {
-                case "armorgames": {
-                    this.embedProvider.id = "armorgames";
-                    break;
-                }
-
-                case "iogames.space": {
-                    this.embedProvider.id = "iogames.space";
-                    break;
-                }
-
-                case "miniclip": {
-                    this.embedProvider.id = "miniclip";
-                    break;
-                }
-
-                case "gamedistribution": {
-                    this.embedProvider.id = "gamedistribution";
-                    this.embedProvider.externalLinks = false;
-                    break;
-                }
-
-                case "kongregate": {
-                    this.embedProvider.id = "kongregate";
-                    break;
-                }
-
-                case "crazygames": {
-                    this.embedProvider.id = "crazygames";
-                    break;
-                }
-
-                default: {
-                    logger.error("Got unsupported embed provider:", providerId);
-                }
-            }
-        }
-
         logger.log("Embed provider:", this.embedProvider.id);
 
         return this.detectStorageImplementation()
@@ -103,10 +61,6 @@ export class PlatformWrapperImplBrowser extends PlatformWrapperInterface {
     }
 
     getUiScale() {
-        if (false) {
-            return 1;
-        }
-
         const avgDims = Math.min(this.app.screenWidth, this.app.screenHeight);
         return clamp((avgDims / 1000.0) * 1.9, 0.1, 10);
     }
@@ -116,7 +70,7 @@ export class PlatformWrapperImplBrowser extends PlatformWrapperInterface {
     }
 
     getTouchPanStrength() {
-        return false ? 1 : 0.5;
+        return 0.5;
     }
 
     performRestart() {

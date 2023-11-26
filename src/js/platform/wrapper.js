@@ -77,6 +77,6 @@ export class PlatformWrapperInterface {
      * Whether this platform supports a keyboard
      */
     getSupportsKeyboard() {
-        return !false;
+        return true;
     }
 }

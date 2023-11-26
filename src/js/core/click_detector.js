@@ -8,7 +8,7 @@ import {GLOBAL_APP} from "./globals";
 
 const logger = createLogger("click_detector");
 
-export const MAX_MOVE_DISTANCE_PX = false ? 20 : 80;
+export const MAX_MOVE_DISTANCE_PX = 80;
 
 // For debugging
 const registerClickDetectors = G_IS_DEV && true;
@@ -406,12 +406,8 @@ export class ClickDetector {
         if (this.clickDownPosition) {
             const pos = /** @type {typeof ClickDetector} */ (this.constructor).extractPointerPosition(event);
             const distance = pos.distance(this.clickDownPosition);
-            if (!false || distance <= this.maxDistance) {
-                dispatchClick = true;
-                dispatchClickPos = pos;
-            } else {
-                console.warn("[ClickDetector] Touch does not count as click:", "(was", distance, ")");
-            }
+            dispatchClick = true;
+            dispatchClickPos = pos;
         }
 
         this.clickDownPosition = null;

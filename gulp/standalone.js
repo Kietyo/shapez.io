@@ -148,7 +148,7 @@ function gulptasksStandalone($, gulp) {
                     appPaths.forEach(appPath => {
                         if (!fs.existsSync(appPath)) {
                             console.error("Bad app path:", appPath);
-                            return;
+
                         }
 
                     });

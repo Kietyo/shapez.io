@@ -59,9 +59,7 @@ export class HubGoals extends BasicSerializableObject {
                 if (ev.key === "p") {
                     // root is not guaranteed to exist within ~0.5s after loading in
                     if (this.root && this.root.app) {
-                        if (!false) {
-                            this.onGoalCompleted();
-                        }
+                        this.onGoalCompleted();
                     }
                 }
             });
@@ -214,9 +212,7 @@ export class HubGoals extends BasicSerializableObject {
             this.getCurrentGoalDelivered() >= this.currentGoal.required ||
             (G_IS_DEV && globalConfig.debug.rewardsInstant)
         ) {
-            if (!false) {
-                this.onGoalCompleted();
-            }
+            this.onGoalCompleted();
         }
     }
 

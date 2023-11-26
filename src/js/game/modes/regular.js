@@ -359,7 +359,7 @@ export class RegularGameMode extends GameMode {
      */
     getUpgrades() {
         return generateUpgrades(
-            !true,
+            false,
             this.difficultyMultiplicator
         );
     }

@@ -1378,11 +1378,8 @@ export class BeltPath extends BasicSerializableObject {
             return true;
         }
 
-        if (contents.components.Belt.assignedPath !== this) {
-            // Not this path
-            return true;
-        }
-        return false;
+        return contents.components.Belt.assignedPath !== this;
+
     }
 
     /**

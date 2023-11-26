@@ -322,10 +322,8 @@ export class Camera extends BasicSerializableObject {
      * should get ignored
      */
     checkPreventDoubleMouse() {
-        if (performance.now() - clickDetectorGlobals.lastTouchTime < 1000.0) {
-            return false;
-        }
-        return true;
+        return performance.now() - clickDetectorGlobals.lastTouchTime >= 1000.0;
+
     }
 
     /**

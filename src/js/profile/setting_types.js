@@ -155,7 +155,7 @@ export class EnumSetting extends BaseSetting {
             available
                 ? ""
                 : `<span class="standaloneOnlyHint">${
-                    true ? "" : T.demo.settingNotAvailable
+                    ""
                 }</span>`
         }
                 <div class="row">
@@ -239,7 +239,7 @@ export class BoolSetting extends BaseSetting {
             available
                 ? ""
                 : `<span class="standaloneOnlyHint">${
-                    true ? "" : T.demo.settingNotAvailable
+                     ""
                 }</span>`
         }
 
@@ -305,7 +305,7 @@ export class RangeSetting extends BaseSetting {
             available
                 ? ""
                 : `<span class="standaloneOnlyHint">${
-                    true ? "" : T.demo.settingNotAvailable
+                    ""
                 }</span>`
         }
 
