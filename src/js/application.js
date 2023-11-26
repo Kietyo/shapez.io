@@ -20,7 +20,6 @@ import {KeybindingsState} from "./states/keybindings";
 import {MainMenuState} from "./states/main_menu";
 import {PreloadState} from "./states/preload";
 import {SettingsState} from "./states/settings";
-import {RestrictionManager} from "./core/restriction_manager";
 
 /**
  * @typedef {import("./platform/sound").SoundInterface} SoundInterface
@@ -63,9 +62,6 @@ export class Application {
         this.savegameMgr = new SavegameManager(this);
         this.inputMgr = new InputDistributor(this);
         this.backgroundResourceLoader = new BackgroundResourcesLoader(this);
-
-        // Restrictions (Like demo etc)
-        this.restrictionMgr = new RestrictionManager(this);
 
         // Platform dependent stuff
 
@@ -110,8 +106,6 @@ export class Application {
         this.registerEventListeners();
 
         Loader.linkAppAfterBoot(this);
-
-        // Check for mobile
 
         this.stateMgr.moveToState("PreloadState");
 
