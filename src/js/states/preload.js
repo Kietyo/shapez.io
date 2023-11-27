@@ -119,13 +119,6 @@ export class PreloadState extends GameState {
                 return this.app.settings.initialize();
             })
 
-            .then(() => {
-                // Initialize fullscreen
-                if (false) {
-                    this.app.platformWrapper.setFullscreen(this.app.settings.getIsFullScreen());
-                }
-            })
-
             .then(() => this.setStatus("Initializing language", 25))
             .then(() => {
                 if (this.app.settings.getLanguage() === "auto-detect") {
@@ -175,28 +168,6 @@ export class PreloadState extends GameState {
             })
             .then(() => {
                 this.app.backgroundResourceLoader.resourceStateChangedSignal.removeAll();
-            })
-
-            .then(() => {
-                if (G_IS_DEV && globalConfig.debug.disableUpgradeNotification) {
-                    return;
-                }
-
-                if (!false) {
-                    return;
-                }
-
-                return this.app.storage
-                    .readFileAsync("lastversion.bin")
-                    .catch(err => {
-                        logger.warn("Failed to read lastversion:", err);
-                        return G_BUILD_VERSION;
-                    })
-                    .then(version => {
-                        logger.log("Last version:", version, "App version:", G_BUILD_VERSION);
-                        this.app.storage.writeFileAsync("lastversion.bin", G_BUILD_VERSION);
-                        return version;
-                    });
             })
 
             .then(() => this.setStatus("Launching", 99))

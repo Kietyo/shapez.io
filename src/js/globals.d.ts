@@ -17,9 +17,6 @@ declare const G_ALL_UI_IMAGES: Array<string>;
 declare const G_IS_RELEASE: boolean;
 
 declare const shapez: any;
-
-declare const ipcRenderer: any;
-
 // Polyfills
 declare interface String {
     replaceAll(search: string, replacement: string): string;

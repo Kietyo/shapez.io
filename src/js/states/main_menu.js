@@ -83,15 +83,7 @@ export class MainMenuState extends GameState {
                     <div class="buttons"></div>
                     <div class="savegamesMount"></div>
                     ${
-            (false)
-                ? `<div class="steamSso">
-                                <span class="description">${
-                    false
-                        ? T.mainMenu.playFullVersionStandalone
-                        : T.mainMenu.playFullVersionV2
-                }</span>
-                            </div>`
-                : ""
+           ""
         }
 
                 </div>
@@ -288,15 +280,7 @@ export class MainMenuState extends GameState {
         optionSelected.add(value => {
             this.app.settings.updateLanguage(value).then(() => {
                 if (setting.restartRequired) {
-                    if (true) {
-                        this.app.platformWrapper.performRestart();
-                    } else {
-                        this.dialogs.showInfo(
-                            T.dialogs.restartRequired.title,
-                            T.dialogs.restartRequired.text,
-                            ["ok:good"]
-                        );
-                    }
+                    this.app.platformWrapper.performRestart();
                 }
 
                 if (setting.changeCb) {

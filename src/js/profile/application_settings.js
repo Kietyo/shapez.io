@@ -175,22 +175,6 @@ function initializeSettings() {
             (app, value) => app.sound.setMusicVolume(value)
         ),
 
-        new BoolSetting(
-            "fullscreen",
-            enumCategories.general,
-            /**
-             * @param {Application} app
-             */
-            (app, value) => {
-                if (false) {
-                    app.platformWrapper.setFullscreen(value);
-                }
-            },
-            /**
-             * @param {Application} app
-             */app => false
-        ),
-
         new EnumSetting("theme", {
             options: Object.keys(THEMES),
             valueGetter: theme => theme,
@@ -298,8 +282,6 @@ function initializeSettings() {
 class SettingsStorage {
     constructor() {
         this.uiScale = "regular";
-        this.fullscreen = false;
-
         this.soundVolume = 1.0;
         this.musicVolume = 1.0;
 
@@ -437,11 +419,6 @@ export class ApplicationSettings extends ReadWriteProxy {
         logger.error("Unknown autosave interval id:", id);
         return 120;
     }
-
-    getIsFullScreen() {
-        return this.getAllSettings().fullscreen;
-    }
-
     getKeybindingOverrides() {
         return this.getAllSettings().keybindingOverrides;
     }

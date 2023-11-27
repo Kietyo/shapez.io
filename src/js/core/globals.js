@@ -15,16 +15,3 @@ export function setGlobalApp(app) {
     assert(!GLOBAL_APP, "Create application twice!");
     GLOBAL_APP = app;
 }
-
-export const BUILD_OPTIONS = {
-    HAVE_ASSERT: G_HAVE_ASSERT,
-    APP_ENVIRONMENT: G_APP_ENVIRONMENT,
-    IS_DEV: G_IS_DEV,
-    IS_RELEASE: G_IS_RELEASE,
-    IS_BROWSER: true,
-    IS_STANDALONE: false,
-    BUILD_TIME: G_BUILD_TIME,
-    BUILD_COMMIT_HASH: G_BUILD_COMMIT_HASH,
-    BUILD_VERSION: G_BUILD_VERSION,
-    ALL_UI_IMAGES: G_ALL_UI_IMAGES,
-};

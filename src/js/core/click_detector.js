@@ -79,7 +79,6 @@ export class ClickDetector {
         this.captureTouchmove = captureTouchmove;
         this.targetOnly = targetOnly;
         this.clickSound = clickSound;
-        this.maxDistance = maxDistance;
         this.preventClick = preventClick;
 
         // Signals

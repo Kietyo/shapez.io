@@ -27,7 +27,7 @@ export class HUDUnlockNotification extends BaseHUDPart {
     }
 
     shouldPauseGame() {
-        return !false && this.visible;
+        return this.visible;
     }
 
     createElements(parent) {

@@ -343,10 +343,7 @@ export class RegularGameMode extends GameMode {
     }
 
     get difficultyMultiplicator() {
-        if (false || true) {
             return 1;
-        }
-        return 0.5;
     }
 
     static getId() {

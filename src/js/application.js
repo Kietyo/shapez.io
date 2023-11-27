@@ -275,11 +275,9 @@ export class Application {
         const currentState = this.stateMgr.getCurrentState();
 
         if (!G_IS_DEV && currentState && currentState.getHasUnloadConfirmation()) {
-            if (!false) {
-                // Need to show a "Are you sure you want to exit"
-                event.preventDefault();
-                event.returnValue = "Are you sure you want to exit?";
-            }
+             // Need to show a "Are you sure you want to exit"
+            event.preventDefault();
+            event.returnValue = "Are you sure you want to exit?";
         }
     }
 
