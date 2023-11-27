@@ -60,21 +60,9 @@ export class PlatformWrapperImplBrowser {
         return "browser@" + this.embedProvider.id;
     }
 
-    getSupportsRestart() {
-        return true;
-    }
-
-    getTouchPanStrength() {
-        return 0.5;
-    }
-
     performRestart() {
         logger.log("Performing restart");
         window.location.reload(true);
-    }
-
-    exitApp() {
-        // Can not exit app
     }
 
     //////////////////////////////////////////////////
@@ -82,19 +70,5 @@ export class PlatformWrapperImplBrowser {
     constructor(app) {
         /** @type {Application} */
         this.app = app;
-    }
-
-    /**
-     * Returns whether this platform supports a toggleable fullscreen
-     */
-    getSupportsFullscreen() {
-        return false;
-    }
-
-    /**
-     * Whether this platform supports a keyboard
-     */
-    getSupportsKeyboard() {
-        return true;
     }
 }

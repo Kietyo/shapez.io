@@ -97,7 +97,7 @@ export class BaseSetting {
         const {restart} = this.dialogs.showInfo(
             T.dialogs.restartRequired.title,
             T.dialogs.restartRequired.text,
-            this.app.platformWrapper.getSupportsRestart() ? ["later:grey", "restart:misc"] : ["ok:good"]
+            true ? ["later:grey", "restart:misc"] : ["ok:good"]
         );
         if (restart) {
             restart.add(() => this.app.platformWrapper.performRestart());

@@ -63,7 +63,7 @@ export class MainMenuState extends GameState {
         }
 
                 <button class="settingsButton" aria-label="Settings"></button>
-                ${showExitAppButton ? `<button class="exitAppButton" aria-label="Exit App"></button>` : ""}
+                ${""}
             </div>
 
 
@@ -180,7 +180,6 @@ export class MainMenuState extends GameState {
     }
 
     onBackButton() {
-        this.app.platformWrapper.exitApp();
     }
 
     onEnter(payload) {
@@ -220,7 +219,6 @@ export class MainMenuState extends GameState {
         const clickHandling = {
             ".settingsButton": this.onSettingsButtonClicked,
             ".languageChoose": this.onLanguageChooseClicked,
-            ".exitAppButton": this.onExitAppButtonClicked,
         };
 
         for (const key in clickHandling) {
@@ -274,10 +272,6 @@ export class MainMenuState extends GameState {
         buttonContainer.appendChild(outerDiv);
     }
 
-    onExitAppButtonClicked() {
-        this.app.platformWrapper.exitApp();
-    }
-
     onLanguageChooseClicked() {
         const setting = /** @type {EnumSetting} */ (this.app.settings.getSettingHandleById("language"));
 
@@ -294,7 +288,7 @@ export class MainMenuState extends GameState {
         optionSelected.add(value => {
             this.app.settings.updateLanguage(value).then(() => {
                 if (setting.restartRequired) {
-                    if (this.app.platformWrapper.getSupportsRestart()) {
+                    if (true) {
                         this.app.platformWrapper.performRestart();
                     } else {
                         this.dialogs.showInfo(

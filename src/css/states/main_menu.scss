@@ -18,7 +18,6 @@
     @include S(gap, 9px);
 
     .settingsButton,
-    .exitAppButton,
     .languageChoose {
       @include S(width, 35px);
       @include S(height, 35px);
@@ -35,11 +34,6 @@
       &:hover {
         opacity: 1;
       }
-    }
-
-    .exitAppButton {
-      background-image: uiResource("icons/main_menu_exit.png");
-      background-size: 56%;
     }
 
     .languageChoose {

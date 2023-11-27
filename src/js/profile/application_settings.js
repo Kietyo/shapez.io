@@ -182,7 +182,7 @@ function initializeSettings() {
              * @param {Application} app
              */
             (app, value) => {
-                if (app.platformWrapper.getSupportsFullscreen()) {
+                if (false) {
                     app.platformWrapper.setFullscreen(value);
                 }
             },

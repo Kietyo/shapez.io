@@ -21,7 +21,7 @@ export class SettingsState extends TextualGameState {
 
 
             ${
-            this.app.platformWrapper.getSupportsKeyboard()
+            true
                 ? `
             <button class="styledButton categoryButton editKeybindings">
             ${T.keybindings.title}

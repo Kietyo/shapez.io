@@ -739,7 +739,7 @@ export class Camera extends BasicSerializableObject {
      * @param {number} dt Delta time
      */
     internalUpdatePanning(now, dt) {
-        const baseStrength = velocityStrength * this.root.app.platformWrapper.getTouchPanStrength();
+        const baseStrength = velocityStrength * 0.5;
 
         this.touchPostMoveVelocity = this.touchPostMoveVelocity.multiplyScalar(velocityFade);
 

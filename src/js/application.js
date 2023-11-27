@@ -69,7 +69,7 @@ export class Application {
         /** @type {SoundInterface} */
         this.sound = null;
 
-        /** @type {PlatformWrapperInterface} */
+        /** @type {PlatformWrapperImplBrowser} */
         this.platformWrapper = null;
 
         this.initPlatformDependentInstances();
