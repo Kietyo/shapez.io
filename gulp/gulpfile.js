@@ -64,9 +64,6 @@ ftp.gulptasksFTP($, gulp, buildFolder);
 const docs = require("./docs");
 docs.gulptasksDocs($, gulp);
 
-const standalone = require("./standalone");
-standalone.gulptasksStandalone($, gulp);
-
 const translations = require("./translations");
 const {BUILD_VARIANTS} = require("./build_variants");
 translations.gulptasksTranslations($, gulp);

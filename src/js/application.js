@@ -7,11 +7,10 @@ import {Loader} from "./core/loader";
 import {createLogger, logSection} from "./core/logging";
 import {StateManager} from "./core/state_manager";
 import {TrackedState} from "./core/tracked_state";
-import {getPlatformName, waitNextFrame} from "./core/utils";
+import {clamp, getPlatformName, waitNextFrame} from "./core/utils";
 import {Vector} from "./core/vector";
 import {SoundImplBrowser} from "./platform/browser/sound";
 import {PlatformWrapperImplBrowser} from "./platform/browser/wrapper";
-import {PlatformWrapperInterface} from "./platform/wrapper";
 import {ApplicationSettings} from "./profile/application_settings";
 import {SavegameManager} from "./savegame/savegame_manager";
 import {InGameState} from "./states/ingame";
@@ -348,7 +347,12 @@ export class Application {
      * Returns the effective ui sclae
      */
     getEffectiveUiScale() {
-        return this.platformWrapper.getUiScale() * this.settings.getInterfaceScaleValue();
+        return this.getUiScale() * this.settings.getInterfaceScaleValue();
+    }
+
+    getUiScale() {
+        const avgDims = Math.min(this.screenWidth, this.screenHeight);
+        return clamp((avgDims / 1000.0) * 1.9, 0.1, 10);
     }
 
     /**

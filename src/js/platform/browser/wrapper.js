@@ -1,13 +1,10 @@
 import {createLogger} from "../../core/logging";
-import {queryParamOptions} from "../../core/query_parameters";
-import {clamp} from "../../core/utils";
-import {PlatformWrapperInterface} from "../wrapper";
 import {StorageImplBrowser} from "./storage";
 import {StorageImplBrowserIndexedDB} from "./storage_indexed_db";
 
 const logger = createLogger("platform/browser");
 
-export class PlatformWrapperImplBrowser extends PlatformWrapperInterface {
+export class PlatformWrapperImplBrowser {
     initialize() {
         this.embedProvider = {
             id: "shapezio-website",
@@ -18,7 +15,10 @@ export class PlatformWrapperImplBrowser extends PlatformWrapperInterface {
         logger.log("Embed provider:", this.embedProvider.id);
 
         return this.detectStorageImplementation()
-            .then(() => super.initialize());
+            .then(() => {
+                document.documentElement.classList.add("p-" + this.getId());
+                return Promise.resolve();
+            });
     }
 
     detectStorageImplementation() {
@@ -60,11 +60,6 @@ export class PlatformWrapperImplBrowser extends PlatformWrapperInterface {
         return "browser@" + this.embedProvider.id;
     }
 
-    getUiScale() {
-        const avgDims = Math.min(this.app.screenWidth, this.app.screenHeight);
-        return clamp((avgDims / 1000.0) * 1.9, 0.1, 10);
-    }
-
     getSupportsRestart() {
         return true;
     }
@@ -80,5 +75,26 @@ export class PlatformWrapperImplBrowser extends PlatformWrapperInterface {
 
     exitApp() {
         // Can not exit app
+    }
+
+    //////////////////////////////////////////////////
+
+    constructor(app) {
+        /** @type {Application} */
+        this.app = app;
+    }
+
+    /**
+     * Returns whether this platform supports a toggleable fullscreen
+     */
+    getSupportsFullscreen() {
+        return false;
+    }
+
+    /**
+     * Whether this platform supports a keyboard
+     */
+    getSupportsKeyboard() {
+        return true;
     }
 }
